@@ -14,7 +14,7 @@ class GetInitialConfigSimulation extends Simulation {
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
 
   private val getInitialConfigExec = GetInitialConfigScenario.getInitialConfigScenario
-    .inject(rampUsers(Config.users) during (Config.rampUp seconds))
+    .inject(rampUsers(Config.users) during (Config.duration seconds))
 
     setUp(getInitialConfigExec).
       protocols(httpProtocol)
