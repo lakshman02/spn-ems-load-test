@@ -14,10 +14,10 @@ object Config {
   val rampUp = Integer.getInteger("rampup", 300).toInt
   val duration = Integer.getInteger("duration",300).toInt
   val throughput = Integer.getInteger("throughput", 1).toInt
-  val times = Integer.getInteger("times", 10).toInt
-  val eachLevelLasting = Integer.getInteger("eachLevelLasting", 10).toInt
-  val separatedByRampsLasting = Integer.getInteger("separatedByRampsLasting", 10).toInt
-  val startingFrom = Integer.getInteger("startingFrom", 10).toInt
+  val times = Integer.getInteger("times", 5).toInt
+  val eachLevelLasting = Integer.getInteger("eachLevelLasting", 5).toInt
+  val separatedByRampsLasting = Integer.getInteger("separatedByRampsLasting", 5).toInt
+  val startingFrom = Integer.getInteger("startingFrom", 5).toInt
   val defaultResponseTime=Integer.getInteger("responseTime", 1).toInt
 
   //http protocol configuration
