@@ -4,7 +4,7 @@ import com.spn.config.Config
 import test.scala.com.spn.scenarios.GetMenuScenario
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef._
-
+//simulation
 class GetMenuSimulation extends Simulation {
   private val getMenuExec = GetMenuScenario.getMenuScenario
     .inject(constantUsersPerSec(Config.users) during (Config.duration))
