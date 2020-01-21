@@ -16,5 +16,9 @@ class GetInitialConfigSimulation extends Simulation {
   private val getInitialConfigExec = GetInitialConfigScenario.getInitialConfigScenario
     .inject(rampUsers(Config.users) during (Config.rampUp seconds))
 
-    setUp(getInitialConfigExec).protocols(httpProtocol)
+    setUp(getInitialConfigExec).
+      protocols(httpProtocol)
+    .assertions(
+      global.failedRequests.count.is(0)/*, global.responseTime.max.lt(Config.throughput) */
+    )
 }
