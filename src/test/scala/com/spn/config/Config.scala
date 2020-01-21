@@ -10,3 +10,4 @@ object Config {
   val rampUp = Integer.getInteger("rampup", 1).toInt
   val throughput = Integer.getInteger("throughput", 1 ).toInt
 }
+
