@@ -8,7 +8,7 @@ object GetInitialConfigRequest {
 
   //val sentHeaders = Map("Authorization" -> "bearer ${token}")
 
-  val getInitialConfig = exec(http("confi")
+  val getInitialConfig = exec(http("GetInitialConfigRequest")
    .get(Config.app_url + "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"))
 //    .get(Config.app_url)
 //    .check(status is 200)
