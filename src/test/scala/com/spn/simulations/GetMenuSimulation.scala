@@ -19,6 +19,6 @@ class GetMenuSimulation extends Simulation {
 
   setUp(getMenuExec).protocols(Config.httpProtocol)
     .assertions(
-      global.responseTime.max.lt(Config.defaultResponseTime)
+      global.responseTime.max.lt(Config.maxResponseTime)
     )
 }
