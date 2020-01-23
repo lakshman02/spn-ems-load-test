@@ -1,9 +1,10 @@
-package test.scala.com.spn.scenarios
+package com.spn.scenarios
 
-import test.scala.com.spn.requests.GetMenuRequest
+import com.spn.requests.GetMenuRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
 
+//"Get Menu" scenario
 object GetMenuScenario{
   val dataFeeder=csv("platform.csv").random
   val getMenuScenario =scenario("Get Menu Scenario")
