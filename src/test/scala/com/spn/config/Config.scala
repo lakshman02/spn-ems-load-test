@@ -3,16 +3,17 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object Config {
-  //baseurl
+  //Baseurl
   val app_url = "https://apiqa.sonyliv.com/"
 
-  //api urls
+  //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
-  val GET_MENU_URL="/${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/MENU/menu";
+  val GET_MENU_URL="/${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/MENU/menu"
+  val GET_PageID = "/${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PAGE/${pageID}"
 
   val users = Integer.getInteger("users", 1).toInt
-  val rampUp = Integer.getInteger("rampup", 300).toInt
-  val duration = Integer.getInteger("duration",300).toInt
+  val rampUp = Integer.getInteger("rampup", 5).toInt
+  val duration = Integer.getInteger("duration",1).toInt
   val throughput = Integer.getInteger("throughput", 1).toInt
   val times = Integer.getInteger("times", 5).toInt
   val eachLevelLasting = Integer.getInteger("eachLevelLasting", 5).toInt
