@@ -13,14 +13,6 @@ object GetULDRequest {
 
     val r = Random
     r.nextInt(255) + "." + r.nextInt(256) + "." + r.nextInt(256) + "." + r.nextInt(256)
-
-//    Random r = new Random();
-//    Integer prefix;
-//    while ({
-//      prefix = r.nextInt(256);
-//      prefix in [0,10,100,127,172,192,198,203,224,240,255]
-//    }());
-//    return prefix + "." + r.nextInt(256) + "." + r.nextInt(256) + "." + r.nextInt(256);
   }
 
   val getULD = exec(http("GetULDRequest")
