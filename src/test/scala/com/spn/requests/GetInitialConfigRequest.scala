@@ -9,5 +9,6 @@ object GetInitialConfigRequest {
   val getInitialConfig = exec(http("GetInitialConfigRequest")
     .get(Config.app_url + Config.URL_INITIAL_CONFIG)
     .check(status is 200)
+    .check(jsonPath("$.resultCode").is("OK"))
   )
 }
