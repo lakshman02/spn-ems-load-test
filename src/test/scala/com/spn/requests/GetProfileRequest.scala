@@ -15,13 +15,6 @@ object GetProfileRequest {
     .headers(sentHeaders)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(bodyString.saveAs("BODY"))
   )
-//    //session function
-//    .exec{
-//      session =>
-//        println(session)
-//        session
-//    }
     .pause(1)
 }
