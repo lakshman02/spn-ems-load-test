@@ -12,7 +12,6 @@ object Config {
   val GET_MENU_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/MENU/menu"
   val Login_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/LOGIN"
 
-
   val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID='MSMIND'"
   val GET_ULD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ULD"
 
