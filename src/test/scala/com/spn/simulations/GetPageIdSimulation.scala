@@ -5,7 +5,7 @@ import com.spn.config.Config
 import com.spn.scenarios.GetPageIdScenario
 import io.gatling.core.Predef._
 
-class GetPageId extends Simulation
+class GetPageIdSimulation extends Simulation
 {
 private val getPageId = GetPageIdScenario.scnLandingPage
   .inject(incrementUsersPerSec(Config.users)
