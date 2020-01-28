@@ -6,7 +6,7 @@ import io.gatling.core.Predef._
 import scala.concurrent.duration._
 
 object GetPageIdScenario {
-  val PageIdInput = csv("data/platform.csv").queue
+  val PageIdInput = csv("platform.csv").queue
 
 
   val scnLandingPage = scenario("User Journey 1 - landing page") // changed from PageId scenario name
