@@ -7,7 +7,7 @@ import io.gatling.core.Predef._
 
 class GetPageIdSimulation extends Simulation
 {
-private val getPageId = GetPageIdScenario.scnLandingPage
+private val getPageId = GetPageIdScenario.PageId
   .inject(incrementUsersPerSec(Config.users)
     .times(Config.times)
     .eachLevelLasting(Config.eachLevelLasting)
