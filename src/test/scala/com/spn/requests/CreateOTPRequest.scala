@@ -1,5 +1,6 @@
 package com.spn.requests
 
+import java.time.format.DateTimeFormatter
 import com.spn.config.Config
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
@@ -16,7 +17,7 @@ object CreateOTPRequest {
         |"channelPartnerID": "${channelPartnerID}",
         |"mobileNumber": "${mobileNumber}",
         |"country": "${country}",
-        |"timestamp": "${getDateTime}"
+        |"timestamp": "2020-01-02T10:14:45.872Z"
         |}""".stripMargin)).asJson
       .check(jsonPath("$.resultCode").is("OK"))
   )
