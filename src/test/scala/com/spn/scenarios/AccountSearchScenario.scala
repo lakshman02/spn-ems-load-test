@@ -6,8 +6,8 @@ import io.gatling.core.Predef.scenario
 
 //Account Search Scenario
 object AccountSearchScenario {
-  val dataFeeder=csv("platform.csv").random
-  val dataFeederOtpRequirements = csv("otp_requirements.csv").circular
+  val dataFeeder=csv("data/platform.csv").random
+  val dataFeederOtpRequirements = csv("data/otp_requirements.csv").circular
 
   val accountSearchScenario =scenario("Account Search Scenario")
     .feed(dataFeeder)

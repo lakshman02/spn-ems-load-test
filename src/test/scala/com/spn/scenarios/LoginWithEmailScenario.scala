@@ -4,8 +4,8 @@ import io.gatling.core.Predef.{scenario, _}
 
 object LoginWithEmailScenario {
 
-  val dataFeeder=csv("platform.csv").random
-  val loginEmailData = csv("LoginID.csv").circular
+  val dataFeeder=csv("data/platform.csv").random
+  val loginEmailData = csv("data/LoginID.csv").circular
 
   val LoginWithEmailScenario = scenario("LOGIN With Email Scenario")
     .feed(dataFeeder)

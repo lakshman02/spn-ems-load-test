@@ -8,8 +8,8 @@ import io.gatling.core.Predef._
 
 object CreateOTPScenario {
 
-  val dataFeeder = csv("platform.csv").circular
-  val dataFeederOtpRequirements = csv("otp_requirements.csv").circular
+  val dataFeeder = csv("data/platform.csv").circular
+  val dataFeederOtpRequirements = csv("data/otp_requirements.csv").circular
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())

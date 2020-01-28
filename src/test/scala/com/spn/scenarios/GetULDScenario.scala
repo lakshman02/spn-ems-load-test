@@ -6,7 +6,7 @@ import io.gatling.core.Predef._
 
 object GetULDScenario {
 
-  val dataFeeder = csv("platform.csv").random
+  val dataFeeder = csv("data/platform.csv").random
 
   val getULDScenario = scenario("Get ULD Scenario")
     .feed(dataFeeder)

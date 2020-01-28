@@ -5,7 +5,7 @@ import io.gatling.core.Predef._
 
 object GetInitialConfigScenario {
 
-  val dataFeeder=csv("platform.csv").random
+  val dataFeeder=csv("data/platform.csv").random
 
   val getInitialConfigScenario = scenario("Get Initial Config Scenario")
     .feed(dataFeeder)
