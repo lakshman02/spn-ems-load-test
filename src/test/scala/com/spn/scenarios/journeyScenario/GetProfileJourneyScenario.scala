@@ -15,6 +15,7 @@ object GetProfileJourneyScenario {
 
   val getProfileJourneyScenario = scenario("Get Profile Journey Scenario")
     .feed(dataFeeder)
+    .feed(loginData)
     .exec(
     GetInitialConfigRequest.getInitialConfig,
     GetMenuRequest.getMenu,
