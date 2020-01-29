@@ -16,7 +16,7 @@ class GetProfileJourneySimulation extends Simulation {
     )
 
   setUp(getProfileJourneyExec).protocols(Config.httpProtocol)
-   /* .assertions(
-      global.responseTime.max.lt(Config.maxResponseTime)
-    )*/
+    .assertions(
+      global.failedRequests.count.is(0)
+    )
 }

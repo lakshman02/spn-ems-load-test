@@ -18,7 +18,6 @@ class GetProfileSimulation extends Simulation {
 
   setUp(getProfileExec).protocols(Config.httpProtocol)
     .assertions(
-      global.responseTime.max.lt(Config.maxResponseTime)
+      global.failedRequests.count.is(0)
     )
-
 }

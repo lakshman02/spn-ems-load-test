@@ -19,6 +19,6 @@ class AccountSearchSimulation extends Simulation {
 
   setUp(AccountSearchExec).protocols(Config.httpProtocol)
     .assertions(
-      global.responseTime.max.lt(Config.maxResponseTime)
+      global.failedRequests.count.is(0)
     )
 }

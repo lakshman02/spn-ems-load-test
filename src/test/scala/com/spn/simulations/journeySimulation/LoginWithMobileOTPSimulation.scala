@@ -16,7 +16,7 @@ class LoginWithMobileOTPSimulation extends Simulation {
     )
 
   setUp(LoginWithMobileOTPSExec).protocols(Config.httpProtocol)
-   /* .assertions(
-      global.responseTime.max.lt(Config.maxResponseTime)
-    )*/
+    .assertions(
+      global.failedRequests.count.is(0)
+    )
 }
