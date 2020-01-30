@@ -1,0 +1,41 @@
+package com.spn.simulations
+
+import com.spn.common.{InjectionStrategy, ScenarioMapping}
+import com.spn.config.Config
+import io.gatling.core.Predef._
+import io.gatling.core.controller.inject.open.OpenInjectionStep
+import io.gatling.core.structure.PopulationBuilder
+import org.json.JSONArray
+
+import scala.collection.mutable.ArraySeq
+import scala.io.BufferedSource
+import scala.io.Source.fromFile;
+
+class SPNAPISimulation extends Simulation {
+  val source: BufferedSource = fromFile("./src/test/resources/test_scenario_injection_strategy.json")
+  val rawTestList = source.mkString
+
+  def scnList() : Seq[PopulationBuilder] = {
+//    val rawTestListSys = System.getProperty("testCases")
+
+    val testList = new JSONArray(rawTestList)
+    val scnList = new ArraySeq[PopulationBuilder](testList.length())
+    for(i <- 0 until testList.length()) {
+      //For each scenario
+      val testCase = testList.getJSONObject(i)
+      val injectionSteps = testCase.getJSONArray("inject")
+      val injectStepList = new ArraySeq[OpenInjectionStep](injectionSteps.length())
+      for(j <- 0 until injectionSteps.length()) {
+        //For each injection step
+        val step = injectionSteps.getJSONObject(j)
+        val stepType = step.getString("type")
+        val stepArgs = step.getJSONArray("args")
+        injectStepList(j) = InjectionStrategy.getInjectionStep(stepType, stepArgs)
+      }
+      scnList(i) = ScenarioMapping.scenarioNames(testCase.getString("case")).inject(injectStepList)
+    }
+    scnList
+  }
+
+  setUp(scnList:_*).protocols(Config.httpProtocol)
+}
