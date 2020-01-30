@@ -1,4 +1,4 @@
-package com.spn.scenarios.journeyScenario
+package com.spn.scenarios.journey
 
 import com.spn.requests.{GetInitialConfigRequest,GetMenuRequest,GetPageIdRequest}
 import io.gatling.core.Predef._

@@ -1,12 +1,12 @@
-package com.spn.simulations.journeySimulation
+package com.spn.simulations.journey
 
 import com.spn.config.Config
-import com.spn.scenarios.journeyScenario.GetProfileJourneyScenario
+import com.spn.scenarios.journey.LoginWithMobileOTPJourneyScenario
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef._
 
-class GetProfileJourneySimulation extends Simulation {
-  private val getProfileJourneyExec = GetProfileJourneyScenario.getProfileJourneyScenario
+class LoginWithMobileOTPSimulation extends Simulation {
+  private val LoginWithMobileOTPSExec=LoginWithMobileOTPJourneyScenario.loginWithMobileOTPJourneyScenario
     .inject(
       incrementUsersPerSec(Config.users)
         .times(Config.times)
@@ -15,7 +15,7 @@ class GetProfileJourneySimulation extends Simulation {
         .startingFrom(Config.startingFrom)
     )
 
-  setUp(getProfileJourneyExec).protocols(Config.httpProtocol)
+  setUp(LoginWithMobileOTPSExec).protocols(Config.httpProtocol)
     .assertions(
       global.failedRequests.count.is(0)
     )

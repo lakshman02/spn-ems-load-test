@@ -6,7 +6,7 @@ package com.spn.requests
   object LoginRequest {
 
     val sentHeaders = Map("x-via-device" -> "true")
-    val LoginRequest = exec(http("USER LOGIN ")
+    val LoginRequest = exec(http("User Login (mobile) Request")
       .post(Config.app_url + Config.Login_URL)
       .headers(sentHeaders)
       .body(StringBody ("""{

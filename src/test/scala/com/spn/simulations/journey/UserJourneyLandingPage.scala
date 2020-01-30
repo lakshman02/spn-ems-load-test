@@ -1,8 +1,8 @@
-package com.spn.simulations.journeySimulation
+package com.spn.simulations.journey
 
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef._
-import com.spn.scenarios.journeyScenario.UserJourneyLandingPage
+import com.spn.scenarios.journey.UserJourneyLandingPage
 import com.spn.config.Config
 
 class UserJourneyLandingPage extends Simulation{

@@ -1,23 +1,24 @@
-package com.spn.scenarios.journeyScenario
+package com.spn.scenarios.journey
 
 import com.spn.requests.GetInitialConfigRequest
 import com.spn.requests.GetMenuRequest
 import com.spn.requests.GetPageIdRequest
-import com.spn.requests.LoginRequest
+import com.spn.requests.LoginWithEmailRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
 
-object LoginWithMobileAndPwdJourneyScenario  {
-  val dataFeeder=csv("data/platform.csv").random
+object LoginWithEmailAndPwdJourneyScenario {
+
+  val dataFeeder=csv("data/platform.csv").circular
   val loginData = csv("data/LoginID.csv").circular
 
-  val loginWithMobileAndPwdJourney = scenario("LoginWithMobileAndPwdJourneyScenario")
+  val loginWithEmailAndPWDJourneyScenario = scenario("Create Login with Email and PWD Journey Scenario")
     .feed(dataFeeder)
     .feed(loginData)
     .exec(
       GetInitialConfigRequest.getInitialConfig,
       GetMenuRequest.getMenu,
       GetPageIdRequest.PageId,
-      LoginRequest.LoginRequest
-    )
+      LoginWithEmailRequest.LoginWithEmail)
+
 }

@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 
 object GetInitialConfigRequest {
 
-  val getInitialConfig = exec(http("GetInitialConfigRequest")
+  val getInitialConfig = exec(http("Get Initial Config Request")
     .get(Config.app_url + Config.URL_INITIAL_CONFIG)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))

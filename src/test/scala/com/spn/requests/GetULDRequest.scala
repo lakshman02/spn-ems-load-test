@@ -15,7 +15,7 @@ object GetULDRequest {
     r.nextInt(255) + "." + r.nextInt(256) + "." + r.nextInt(256) + "." + r.nextInt(256)
   }
 
-  val getULD = exec(http("GetULDRequest")
+  val getULD = exec(http("Get ULD Request")
     .get(Config.app_url + Config.GET_ULD_URL)
       .headers(ipHeaders)
     .check(status.in(200,300))

@@ -7,7 +7,7 @@ object LoginWithEmailScenario {
   val dataFeeder=csv("data/platform.csv").random
   val loginEmailData = csv("data/LoginID.csv").circular
 
-  val LoginWithEmailScenario = scenario("LOGIN With Email Scenario")
+  val LoginWithEmailScenario = scenario("Login With Email Scenario")
     .feed(dataFeeder)
     .feed(loginEmailData)
 

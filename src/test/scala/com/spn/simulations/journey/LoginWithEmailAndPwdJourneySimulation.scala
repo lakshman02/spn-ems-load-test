@@ -1,12 +1,13 @@
-package com.spn.simulations.journeySimulation
+package com.spn.simulations.journey
 
 import com.spn.config.Config
-import com.spn.scenarios.journeyScenario.LoginWithMobileAndPwdJourneyScenario
+import com.spn.scenarios.journey.LoginWithEmailAndPwdJourneyScenario
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef._
 
-class LoginWithMobileAndPwdJourneySimulation extends Simulation {
-  private val LoginWithMobileAndPwdJourneyExec = LoginWithMobileAndPwdJourneyScenario.loginWithMobileAndPwdJourney
+class LoginWithEmailAndPwdJourneySimulation extends Simulation{
+
+  private val loginWithEmail = LoginWithEmailAndPwdJourneyScenario.loginWithEmailAndPWDJourneyScenario
     .inject(
       incrementUsersPerSec(Config.users)
         .times(Config.times)
@@ -15,8 +16,11 @@ class LoginWithMobileAndPwdJourneySimulation extends Simulation {
         .startingFrom(Config.startingFrom)
     )
 
-  setUp(LoginWithMobileAndPwdJourneyExec).protocols(Config.httpProtocol)
+  setUp(loginWithEmail).protocols(Config.httpProtocol)
   /* .assertions(
      global.responseTime.max.lt(Config.maxResponseTime)
    )*/
 }
+
+
+

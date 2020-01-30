@@ -1,4 +1,4 @@
-package com.spn.scenarios.journeyScenario
+package com.spn.scenarios.journey
 
 import com.spn.requests._
 import io.gatling.core.Predef._
