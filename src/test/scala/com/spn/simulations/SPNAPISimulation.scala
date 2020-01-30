@@ -12,11 +12,11 @@ import scala.io.BufferedSource
 import scala.io.Source.fromFile;
 
 class SPNAPISimulation extends Simulation {
-  val source: BufferedSource = fromFile("./src/test/resources/test_scenario_injection_strategy.json")
+  val filePath = System.getProperty("filePath")
+  val source: BufferedSource = fromFile(filePath)
   val rawTestList = source.mkString
 
   def scnList() : Seq[PopulationBuilder] = {
-//    val rawTestListSys = System.getProperty("testCases")
 
     val testList = new JSONArray(rawTestList)
     val scnList = new ArraySeq[PopulationBuilder](testList.length())
