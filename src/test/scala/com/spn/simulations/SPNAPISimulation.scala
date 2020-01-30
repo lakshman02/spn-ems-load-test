@@ -8,12 +8,11 @@ import io.gatling.core.structure.PopulationBuilder
 import org.json.JSONArray
 
 import scala.collection.mutable.ArraySeq
-import scala.io.BufferedSource
-import scala.io.Source.fromFile;
+import scala.io.{BufferedSource, Source}
 
 class SPNAPISimulation extends Simulation {
   val filePath = System.getProperty("filePath")
-  val source: BufferedSource = fromFile(filePath)
+  val source: BufferedSource = Source.fromURL(filePath)
   val rawTestList = source.mkString
 
   def scnList() : Seq[PopulationBuilder] = {
