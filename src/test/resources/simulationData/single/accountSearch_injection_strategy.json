@@ -1,0 +1,14 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          10
+        ]
+      }
+    ],
+    "case": "accountSearch"
+  }
+]
