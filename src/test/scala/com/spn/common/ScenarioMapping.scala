@@ -1,7 +1,7 @@
 package com.spn.common
 
 import com.spn.scenarios.journey.GetProfileJourneyScenario
-import com.spn.scenarios.{AccountSearchScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario, GetPageIdScenario, GetProfileScenario, GetULDScenario, LoginScenario, LoginWithEmailScenario}
+import com.spn.scenarios.{AccountSearchScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario, GetPageIdScenario, GetProfileScenario, GetULDScenario, LoginScenario, LoginWithEmailScenario, VODDetailsScenario}
 
 object ScenarioMapping {
 
@@ -15,6 +15,7 @@ object ScenarioMapping {
     "getULD" -> GetULDScenario.getULDScenario,
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
-    "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario
+    "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
+    "getVODDetails" -> VODDetailsScenario.vodDetailsScenario
   )
 }
