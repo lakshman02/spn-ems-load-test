@@ -12,6 +12,7 @@ import scala.io.Source.fromFile
 import scala.io.{BufferedSource, Source}
 
 class SPNAPISimulation extends Simulation {
+
  // val filePath = System.getProperty("filePath")
  // val source: BufferedSource = Source.fromURL("https://qa-ems-app-data.s3.ap-south-1.amazonaws.com/Creatives/test_scenario_injection_strategy.json")
  // val source: BufferedSource = fromFile("./src/test/resources/test_scenario_injection_strategy.json")
@@ -20,6 +21,7 @@ class SPNAPISimulation extends Simulation {
  // val rawTestList = source.mkString
 
   val source: BufferedSource = fromFile("./src/test/resources/scenariostrategies/vod_scenario_strategy.json")
+
   val rawTestList = source.mkString
 
   def scnList() : Seq[PopulationBuilder] = {
