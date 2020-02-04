@@ -17,6 +17,7 @@ object Config {
   val ACCOUNT_SEARCH_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ACCOUNTS/SEARCH"
   val VOD_DETAILS="AGL/1.4/A/ENG/ANDROID_PHONE/ALL/CONTENT/DETAIL/VOD/1000000065"
 
+
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
