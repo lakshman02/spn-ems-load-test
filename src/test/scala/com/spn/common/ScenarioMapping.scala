@@ -4,7 +4,7 @@ import com.spn.scenarios.journey.GetProfileJourneyScenario
 
 import com.spn.scenarios.{AccountSearchScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario,
   GetPageIdScenario, GetProfileScenario, GetULDScenario, LoginScenario, LoginWithEmailScenario, VODDetailsScenario,
-  AllSubscriptionsScenario,GetProductScenario,ActiveSubscriptionScenario,ContentDetailBundleScenario,_}
+  AllSubscriptionsScenario,GetProductScenario,ActiveSubscriptionScenario,ContentDetailBundleScenario,IsCustomerEligibleForFreeTrialScenario,_}
 
 
 
@@ -21,23 +21,16 @@ object ScenarioMapping {
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
-
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
   "ContentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
-
-
     "PostGenericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
     "PostSubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
-
     "getVODDetails" -> VODDetailsScenario.vodDetailsScenario,
     "allSubscriptions" -> AllSubscriptionsScenario.getAllSubscriptionsScenario,
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
-
     "updateProfile" -> UpdateProfileScenario.updateProfileScenario,
-
-
-    "updateProfile" -> UpdateProfileScenario.updateProfileScenario,
-    "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario
+    "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario,
+    "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial
   )
 }
