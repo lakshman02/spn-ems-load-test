@@ -17,6 +17,7 @@ object ScenarioMapping {
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
-    "updateProfile" -> UpdateProfileScenario.updateProfileScenario
+    "updateProfile" -> UpdateProfileScenario.updateProfileScenario,
+    "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario
   )
 }
