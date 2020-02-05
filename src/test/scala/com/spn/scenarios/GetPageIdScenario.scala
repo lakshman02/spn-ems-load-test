@@ -6,7 +6,7 @@ import io.gatling.core.Predef._
 import scala.concurrent.duration._
 
 object GetPageIdScenario {
-  val PageIdInput = csv("data/platform.csv").queue
+  val PageIdInput = csv("data/platform.csv").random
 
 
   val PageId = scenario("Get Page Id")
