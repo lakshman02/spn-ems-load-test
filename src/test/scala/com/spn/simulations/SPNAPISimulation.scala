@@ -17,19 +17,6 @@ class SPNAPISimulation extends Simulation {
  val source: BufferedSource = Source.fromURL(filePath)
  // val source: BufferedSource = Source.fromFile(filePath)
 
-
-  //val source: BufferedSource = Source.fromURL(filePath)
-
- // val source: BufferedSource = Source.fromFile(filePath)
-
-  // val source: BufferedSource = Source.fromFile(filePath)
-
-
-  /*Below two lines of code is repeated should remove on next pull*/
-//  val source: BufferedSource = Source.fromURL(filePath)
-  // val source: BufferedSource = Source.fromFile(filePath)
-
-
   val rawTestList = source.mkString
 
   def scnList() : Seq[PopulationBuilder] = {
