@@ -14,12 +14,12 @@ class SPNAPISimulation extends Simulation {
 
   val filePath = System.getProperty("filePath")
 
- // val source: BufferedSource = Source.fromURL(filePath)
- val source: BufferedSource = Source.fromFile(filePath)
+ val source: BufferedSource = Source.fromURL(filePath)
+ // val source: BufferedSource = Source.fromFile(filePath)
 
 
   //val source: BufferedSource = Source.fromURL(filePath)
-  val source: BufferedSource = Source.fromFile(filePath)
+  // val source: BufferedSource = Source.fromFile(filePath)
 
   /*Below two lines of code is repeated should remove on next pull*/
 //  val source: BufferedSource = Source.fromURL(filePath)
