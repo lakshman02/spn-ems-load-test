@@ -1,0 +1,12 @@
+[
+  {
+    "inject": [
+      {
+        "type": "atOnceUsers",
+        "args": [ 5 ]
+      }
+    ],
+    "case": "PostGenericCoupon"
+  }
+
+]

@@ -1,6 +1,7 @@
 package com.spn.simulations
 
-import com.spn.config.Config
+import
+com.spn.config.Config
 import com.spn.scenarios.AccountSearchScenario
 import io.gatling.core.Predef.Simulation
 import io.gatling.core.Predef._
