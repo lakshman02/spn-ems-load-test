@@ -1,0 +1,14 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          10
+        ]
+      }
+    ],
+    "case": "getULD"
+  }
+]
