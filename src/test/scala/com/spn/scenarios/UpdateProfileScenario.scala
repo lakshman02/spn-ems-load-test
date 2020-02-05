@@ -9,14 +9,14 @@ import io.gatling.core.Predef.scenario
 object UpdateProfileScenario{
 
   val dataFeeder=csv("data/platform.csv").random
-  val email=csv("data/email.csv").random
+  val updateProfileDataFeeder=csv("data/updateProfileData.csv").random
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
 
   val updateProfileScenario =scenario("Update Profile Scenario")
     .feed(dataFeeder)
-    .feed(email)
+    .feed(updateProfileDataFeeder)
     .feed(dateTimeFeeder)
     .exec(UpdateProfileRequest.updateProfile)
 }
