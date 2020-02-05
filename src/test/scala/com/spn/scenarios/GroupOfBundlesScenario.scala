@@ -5,7 +5,9 @@ import io.gatling.core.Predef.{scenario, _}
 
 //"Get Menu" scenario
 object GroupOfBundlesScenario{
+  val dataFeeder=csv("data/platform.csv").random
 
   val groupOfBundlesScenario =scenario("Group Of Bundles Scenario")
+    .feed(dataFeeder)
     .exec(GroupOfBundlesRequest.groupOfBundles)
 }
