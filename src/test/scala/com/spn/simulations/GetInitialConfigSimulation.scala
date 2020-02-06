@@ -7,14 +7,15 @@ import io.gatling.core.Predef.{Simulation, rampUsers, _}
 class GetInitialConfigSimulation extends Simulation {
 
   private val getInitialConfigExec = GetInitialConfigScenario.getInitialConfigScenario
+    .inject(atOnceUsers(14))
     //.inject(constantUsersPerSec(Config.users) during (Config.duration seconds))
-    .inject(
+    /*.inject(
       incrementUsersPerSec(Config.users)
         .times(Config.times)
         .eachLevelLasting(Config.eachLevelLasting)
         .separatedByRampsLasting(Config.separatedByRampsLasting)
         .startingFrom(Config.startingFrom)
-    )
+    )*/
 
   setUp(getInitialConfigExec)
     .protocols(Config.httpProtocol)
