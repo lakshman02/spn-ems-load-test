@@ -3,10 +3,6 @@ package com.spn.scenarios.journey
 import com.spn.common.Constants
 import com.spn.requests.{GetInitialConfigRequest, GetMenuRequest, GetPageIdRequest}
 import io.gatling.core.Predef._
-import io.gatling.jsonpath.JsonPath
-
-import scala.concurrent.duration._
-import scala.util.parsing.json.JSON
 object UserJourneyLandingPage {
 
   val dataFeederChannel = csv("data/channel.csv").random
@@ -30,12 +26,8 @@ object UserJourneyLandingPage {
 //    .pause(500 milliseconds)
 
     .exec(session => {
-      val initialConfigResponse = session(Constants.RESP_INITIAL_CONFIG).as[String]
-      println(s"\nResponse from Session ; body is : $initialConfigResponse")
-
-//      val parsed = JsonPath.query("","")
-//      println(s"\nResponse Parsed ; body is : $parsed")
-
+      val initialConfigResponse = session(Constants.RESP_RANDOM_PAGE_URL).as[String]
+      println(s"\nRESP_RANDOM_PAGE_URL : $initialConfigResponse")
       session
 
     })
