@@ -1,0 +1,7 @@
+cluster,cluster_desc
+A,Anonymous
+R,Registered
+SF,Subscriber-Free
+SR,Subscriber-Recurring
+SC,Subscriber-Cancelled
+C,Cancelled
