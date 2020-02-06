@@ -2,11 +2,11 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.requests.CreateOTPRequest
+import com.spn.requests.AllSubscriptionsRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 
-object CreateOTPScenario {
+object AllSubscriptionsScenario {
 
   val dataFeeder = csv("data/platform.csv").circular
   val dataFeederOtpRequirements = csv("data/otp_requirements.csv").circular
@@ -16,10 +16,9 @@ object CreateOTPScenario {
     Map("getDateTime" -> LocalDateTime.now())
   )
 
-  val createOTPScenario = scenario("Create OTP Scenario")
+  val getAllSubscriptionsScenario = scenario("Create OTP Scenario")
     .feed(dataFeeder)
     .feed(dataFeederOtpRequirements)
     .feed(dateTimeFeeder)
-    .exec(CreateOTPRequest.createOTPRequest)
-
+    .exec(AllSubscriptionsRequest.getAllSubscriptions)
 }
