@@ -6,12 +6,12 @@ import io.gatling.core.Predef._
 import scala.concurrent.duration._
 
 object GetPageIdScenario {
-  val PageIdInput = csv("data/platform.csv").random
+  val PageIdInput = csv("data/platform_for_page.csv").random
 
 
   val PageId = scenario("Get Page Id")
     .feed(PageIdInput)
 
     .exec(GetPageIdRequest.PageId)
-    .pause(500 milliseconds)
+//    .pause(500 milliseconds)
 }

@@ -18,6 +18,7 @@ object GetULDRequest {
   val getULD = exec(http("Get ULD Request")
     .get(Config.app_url + Config.GET_ULD_URL)
       .headers(ipHeaders)
-    .check(status.in(200,300))
+//    .check(status.in(200,300))
+    .check(jsonPath("$.resultCode").is("OK"))
   )
 }
