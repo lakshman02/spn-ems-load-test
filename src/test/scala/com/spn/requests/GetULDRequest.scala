@@ -19,6 +19,7 @@ object GetULDRequest {
     .get(Config.app_url + Config.GET_ULD_URL)
       .headers(ipHeaders)
 //    .check(status.in(200,300))
+                        .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )
 }
