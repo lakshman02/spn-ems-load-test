@@ -7,6 +7,7 @@ import io.gatling.http.Predef._
 object Config {
   //Baseurl
   val app_url = "https://apiqa.sonyliv.com/"
+  //val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -24,12 +25,14 @@ object Config {
   val GET_ALL_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ALLSUBSCRIPTIONS"
   val GROUP_OF_BUNDLES_URL="AGL/1.4/A/ENG/ANDROID_PHONE/ALL/CONTENT/DETAIL/GROUP_OF_BUNDLES/1700000002"
 //  val UPDATE_PROFILE_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/UPDATEPROFILE"
-  val UPDATE_PROFILE_URL="/AGL/1.4/A/E/WEB/ALL/USER/UPDATEPROFILE"
+  val UPDATE_PROFILE_URL="AGL/1.4/A/E/WEB/ALL/USER/UPDATEPROFILE"
   val IS_SUBSCRIBED_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ISSUBSCRIBED"
   val GET_PRODUCTS_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/GETPRODUCTS"
   val ACTIVE_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/WEB/${propertyName}/SUBSCRIPTION/ACTIVESUBSCRIPTIONS"
   val CONTENT_DETAIL_BUNDLE_URL = "${tenant}/1.4/${cluster}/${locale}/ANDROID_PHONE/ALL/CONTENT/DETAIL/BUNDLE/${contentId}"
   val CHECK_FREE_TRIAL = s"AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/ISCUSTOMERELIGIBLEFORFREETRIAL?timestamp=${LocalDateTime.now()}"
+  val  SUBSCRIPTION_PAYMENTURL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/PAYMENTURL"
+
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
