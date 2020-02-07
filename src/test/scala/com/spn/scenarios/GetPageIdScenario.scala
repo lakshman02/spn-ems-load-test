@@ -13,5 +13,5 @@ object GetPageIdScenario {
     .feed(PageIdInput)
 
     .exec(GetPageIdRequest.PageId)
-    .pause(500 milliseconds)
+//    .pause(500 milliseconds)
 }

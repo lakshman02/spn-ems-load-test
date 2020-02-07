@@ -24,7 +24,7 @@ object ScenarioMapping {
 
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
-  "ContentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
+    "ContentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
     "PostGenericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
     "PostSubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
 
