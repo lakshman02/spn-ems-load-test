@@ -11,10 +11,11 @@ object Config {
 
   if(app_url == null || app_url.equals("")) {
     app_url = "https://apiqa.sonyliv.com/"
+
   }
 
 //  val app_url = "https://apiqa.sonyliv.com/"
-  //val app_url = "https://apipreprod.sonyliv.com/"
+//  app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -30,8 +31,8 @@ object Config {
   val Post_Subscription_History = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/HISTORY"
   val VOD_DETAILS="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/VOD/1000001081"
   val GET_ALL_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ALLSUBSCRIPTIONS"
-  val GROUP_OF_BUNDLES_URL="AGL/1.4/A/ENG/ANDROID_PHONE/ALL/CONTENT/DETAIL/GROUP_OF_BUNDLES/1700000002"
-//  val UPDATE_PROFILE_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/UPDATEPROFILE"
+  val GROUP_OF_BUNDLES_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/GROUP_OF_BUNDLES/1700000002"
+//  val UPDATE_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/UPDATEPROFILE"
   val UPDATE_PROFILE_URL="AGL/1.4/A/E/WEB/ALL/USER/UPDATEPROFILE"
   val IS_SUBSCRIBED_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ISSUBSCRIBED"
   val GET_PRODUCTS_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/GETPRODUCTS"
