@@ -16,7 +16,7 @@ object AllSubscriptionsScenario {
     Map("getDateTime" -> LocalDateTime.now())
   )
 
-  val getAllSubscriptionsScenario = scenario("Create OTP Scenario")
+  val getAllSubscriptionsScenario = scenario("All Subscriptions Scenario")
     .feed(dataFeeder)
     .feed(dataFeederOtpRequirements)
     .feed(dateTimeFeeder)

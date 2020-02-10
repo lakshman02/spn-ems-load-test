@@ -33,6 +33,8 @@ object ScenarioMapping {
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
     "updateProfile" -> UpdateProfileScenario.updateProfileScenario,
     "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario,
+    "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
+    "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial
   )
 }

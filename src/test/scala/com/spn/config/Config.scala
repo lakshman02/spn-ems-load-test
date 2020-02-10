@@ -6,7 +6,14 @@ import io.gatling.http.Predef._
 
 object Config {
   //Baseurl
-  val app_url = "https://apiqa.sonyliv.com/"
+
+  var app_url: String = System.getProperty("appURL")
+
+  if(app_url == null || app_url.equals("")) {
+    app_url = "https://apiqa.sonyliv.com/"
+  }
+
+//  val app_url = "https://apiqa.sonyliv.com/"
   //val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
@@ -30,8 +37,8 @@ object Config {
   val GET_PRODUCTS_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/GETPRODUCTS"
   val ACTIVE_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/WEB/${propertyName}/SUBSCRIPTION/ACTIVESUBSCRIPTIONS"
   val CONTENT_DETAIL_BUNDLE_URL = "${tenant}/1.4/${cluster}/${locale}/ANDROID_PHONE/ALL/CONTENT/DETAIL/BUNDLE/${contentId}"
-  val CHECK_FREE_TRIAL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/ISCUSTOMERELIGIBLEFORFREETRIAL?timestamp=${LocalDateTime.now()}"
-//  val  SUBSCRIPTION_PAYMENTURL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/PAYMENTURL"
+  val CHECK_FREE_TRIAL = s"AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/ISCUSTOMERELIGIBLEFORFREETRIAL?timestamp=${LocalDateTime.now()}"
+  val SUBSCRIPTION_PAYMENTURL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/PAYMENTURL"
   val PLACE_ORDER_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/PLACEORDER"
 
 
