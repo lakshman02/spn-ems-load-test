@@ -1,10 +1,8 @@
 package com.spn.requests
 
-import java.time.format.DateTimeFormatter
 import com.spn.config.Config
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
-import java.time.LocalDateTime
 
 object CreateOTPRequest {
 

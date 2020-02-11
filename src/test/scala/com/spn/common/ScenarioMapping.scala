@@ -22,16 +22,20 @@ object ScenarioMapping {
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
+
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
     "ContentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
     "PostGenericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
     "PostSubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
+
     "getVODDetails" -> VODDetailsScenario.vodDetailsScenario,
     "allSubscriptions" -> AllSubscriptionsScenario.getAllSubscriptionsScenario,
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
     "updateProfile" -> UpdateProfileScenario.updateProfileScenario,
     "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario,
+    "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
+    "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial
   )
 }
