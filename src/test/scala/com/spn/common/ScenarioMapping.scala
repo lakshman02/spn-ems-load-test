@@ -12,6 +12,7 @@ object ScenarioMapping {
 
   val scenarioNames = Map (
     "accountSearch" -> AccountSearchScenario.accountSearchScenario,
+    "createPaymentQr" -> CreatePaymentQrScenario.createPaymentQrScenario,
     "createOTP" -> CreateOTPScenario.createOTPScenario,
     "getInitialConfig" -> GetInitialConfigScenario.getInitialConfigScenario,
     "getMenu" -> GetMenuScenario.getMenuScenario,
