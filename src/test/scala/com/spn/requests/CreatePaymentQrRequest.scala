@@ -17,6 +17,6 @@ object CreatePaymentQrRequest {
                        "paymentChannel":"${paymentChannel}"
                        "timestamp": "${getDateTime}",
                        }""")).asJson
-    //.check(jsonPath("$.resultCode").is("OK"))
+    .check(status in (200,300))
   )
 }
