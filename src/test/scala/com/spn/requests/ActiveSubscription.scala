@@ -14,8 +14,9 @@ object ActiveSubscription  {
     .post(Config.app_url + Config.ACTIVE_SUBSCRIPTIONS_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-  "channelPartnerID": "MSMIND",
+  "channelPartnerID": "${channelPartnerID}",
   "timestamp": "${getDateTime}"
         }""")).asJson
+    .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

@@ -16,7 +16,7 @@ object UserJourneyLoggedInWithEmailScenario {
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
   val dataLoginCredentials = csv("data/LoginID.csv").random
-
+  val evergentLoginData = csv("data/evergent_data.csv").random
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
@@ -24,14 +24,13 @@ object UserJourneyLoggedInWithEmailScenario {
 
   val userJourneyLoggedInUser = scenario("User Journey - Logged in user and fetching subscription details")
 
-
-
     .feed(dataFeederChannel)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(dataLoginCredentials)
+    .feed(evergentLoginData)
     .feed(dateTimeFeeder)
 
     .exec(LoginWithEmailRequest.LoginWithEmail)
@@ -41,10 +40,9 @@ object UserJourneyLoggedInWithEmailScenario {
         println(s"\nRESP_AUTH_TOKEN is: $authToken")
         session
       })
-        .pause(1,4)
-        .exec(AllSubscriptionsRequest.getAllSubscriptions)
-        .pause(1,5)
+      .pause(1,3)
         .exec(ActiveSubscription.ActiveSubscription)
+      .pause(1,3)
+        .exec(AllSubscriptionsRequest.getAllSubscriptions)
     }
-
 }

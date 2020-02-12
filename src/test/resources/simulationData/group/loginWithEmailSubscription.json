@@ -2,10 +2,10 @@
   {
     "inject": [
       {
-        "type": "constantUsersPerSec",
+        "type": "rampUsers",
         "args": [
-          1,
-          1
+          10,
+          10
         ]
       }
     ],
