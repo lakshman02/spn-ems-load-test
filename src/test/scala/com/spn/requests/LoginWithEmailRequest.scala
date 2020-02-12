@@ -19,6 +19,8 @@ object LoginWithEmailRequest {
             "deviceType":"${deviceType}",
             "serialNo": ""
         }""")).asJson
-    .check(jsonPath("$.accessToken").saveAs("authToken")))
+    .check(jsonPath("$.accessToken").saveAs("authToken"))
+    .check(status is 200)
+    .check(jsonPath("$.resultCode").is("OK")))
 
 }

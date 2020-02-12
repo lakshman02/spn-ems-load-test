@@ -20,6 +20,7 @@ object CreateOTPRequest {
         |"serialNo":"${serialNo}"
         |}""".stripMargin)).asJson
       .check(jsonPath("$.resultCode").is("OK"))
-  )
+    .check(status is 200)
+    .check(jsonPath("$.resultCode").is("OK")))
 
 }
