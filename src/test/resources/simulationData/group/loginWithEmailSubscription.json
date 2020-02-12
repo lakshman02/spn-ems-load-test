@@ -1,0 +1,14 @@
+[
+  {
+    "inject": [
+      {
+        "type": "constantUsersPerSec",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "UserJourneyLoggedInWithEmail"
+  }
+]

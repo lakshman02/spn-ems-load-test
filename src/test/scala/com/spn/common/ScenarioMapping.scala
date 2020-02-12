@@ -1,6 +1,6 @@
 package com.spn.common
 
-import com.spn.scenarios.journey.GetProfileJourneyScenario
+import com.spn.scenarios.journey.{GetProfileJourneyScenario,_}
 
 import com.spn.scenarios.{AccountSearchScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario,
   GetPageIdScenario, GetProfileScenario, GetULDScenario, LoginScenario, LoginWithEmailScenario, VODDetailsScenario,
@@ -36,6 +36,7 @@ object ScenarioMapping {
     "isSubscribed" -> IsSubscribedScenario.isSubscribedScenario,
     "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
-    "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial
+    "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
+    "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser
   )
 }

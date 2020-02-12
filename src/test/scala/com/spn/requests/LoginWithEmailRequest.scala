@@ -1,6 +1,7 @@
 package com.spn.requests
 
 import com.spn.config.Config
+import com.spn.common.Constants
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 object LoginWithEmailRequest {
@@ -15,12 +16,12 @@ object LoginWithEmailRequest {
                "rememberMe": true,
              "appClientId": "${appClientId}",
               "channelPartnerID":"MSMIND",
-            "timestamp": "2020-01-03T05:22:49.959Z",
+            "timestamp": "${getDateTime}",
             "deviceType":"${deviceType}",
-            "serialNo": ""
+            "serialNo": "${serialNo}"
         }""")).asJson
-    .check(jsonPath("$.accessToken").saveAs("authToken"))
     .check(status is 200)
-    .check(jsonPath("$.resultCode").is("OK")))
+    .check(jsonPath("$.resultCode").is("OK"))
+    .check(jsonPath("$..accessToken").saveAs(Constants.RESP_AUTH_TOKEN)))
 
 }
