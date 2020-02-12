@@ -2,6 +2,12 @@
   {
     "inject": [
       {
+        "type": "nothingFor",
+        "args": [
+          10
+        ]
+      },
+      {
         "type": "rampUsers",
         "args": [
           10,
