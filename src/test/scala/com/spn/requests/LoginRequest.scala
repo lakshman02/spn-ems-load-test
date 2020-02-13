@@ -3,6 +3,8 @@ package com.spn.requests
   import com.spn.config.Config
   import io.gatling.core.Predef._
   import io.gatling.http.Predef._
+
+import com.spn.common.Constants
   object LoginRequest {
 
     val sentHeaders = Map("x-via-device" -> "true")
@@ -10,14 +12,18 @@ package com.spn.requests
       .post(Config.app_url + Config.Login_URL)
       .headers(sentHeaders)
       .body(StringBody ("""{
-             "mobileNumber": "${mobileNumber}",
-              "password": "${password}",
+             "mobileNumber": "${evg_phone_number}",
+              "password": "${evg_password}",
                "rememberMe": true,
              "appClientId": "${appClientId}",
-              "channelPartnerID":"MSMIND",
-            "timestamp": "2020-01-03T05:22:49.959Z",
+              "channelPartnerID":"${channelPartnerID}",
+            "timestamp": "${getDateTime}",
             "deviceType":"${deviceType}",
-            "serialNo": ""
+            "serialNo": "${serialNo}"
         }""")).asJson
-    .check(jsonPath("$.resultCode").is("OK")))
+        .check(jsonPath("$..accessToken").saveAs(Constants.RESP_AUTH_TOKEN))
+        .check(status.is(200))
+      .check(jsonPath("$.resultCode").is("OK"))
+
+    )
 }

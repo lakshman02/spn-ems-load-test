@@ -10,7 +10,7 @@ object Config {
   var app_url: String = System.getProperty("appURL")
 
   if(app_url == null || app_url.equals("")) {
-    app_url = "https://apiqa.sonyliv.com/"
+    app_url = "https://apipreprod.sonyliv.com/"
 
   }
 

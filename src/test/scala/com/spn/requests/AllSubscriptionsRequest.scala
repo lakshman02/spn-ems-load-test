@@ -17,4 +17,5 @@ object AllSubscriptionsRequest {
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )
+  //  .pause(1)
 }

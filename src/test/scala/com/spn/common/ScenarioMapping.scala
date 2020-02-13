@@ -1,10 +1,8 @@
 package com.spn.common
 
-import com.spn.scenarios.journey.{GetProfileJourneyScenario,_}
+import com.spn.scenarios.journey.{GetProfileJourneyScenario, UserJourneyLoginandSubscription,UserJourneyLoggedInWithEmailScenario,_}
+import com.spn.scenarios.{AccountSearchScenario, ActiveSubscriptionScenario, AllSubscriptionsScenario, ContentDetailBundleScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario, GetPageIdScenario, GetProductScenario, GetProfileScenario, GetULDScenario, IsCustomerEligibleForFreeTrialScenario, LoginScenario, LoginWithEmailScenario, VODDetailsScenario,_}
 
-import com.spn.scenarios.{AccountSearchScenario, CreateOTPScenario, GetInitialConfigScenario, GetMenuScenario,
-  GetPageIdScenario, GetProfileScenario, GetULDScenario, LoginScenario, LoginWithEmailScenario, VODDetailsScenario,
-  AllSubscriptionsScenario,GetProductScenario,ActiveSubscriptionScenario,ContentDetailBundleScenario,IsCustomerEligibleForFreeTrialScenario,_}
 
 
 
@@ -37,6 +35,7 @@ object ScenarioMapping {
     "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
-    "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser
+    "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
+    "UserJourneyLoginAndSubscription" -> UserJourneyLoginandSubscription.scnLoginAndSubscription,
   )
 }
