@@ -11,7 +11,6 @@ object Config {
 
   if(app_url == null || app_url.equals("")) {
     app_url = "https://apiqa.sonyliv.com/"
-
   }
 
 //  val app_url = "https://apiqa.sonyliv.com/"
@@ -23,7 +22,7 @@ object Config {
   val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PAGE/${pageID}"
 //  val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}${RANDOM_PAGE_URL}"
   val Login_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/LOGIN"
-  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID='MSMIND'"
+  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID=${channelPartnerID}"
   val GET_ULD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ULD"
   val CREATE_OTP_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CREATEOTP"
   val ACCOUNT_SEARCH_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ACCOUNTS/SEARCH"
