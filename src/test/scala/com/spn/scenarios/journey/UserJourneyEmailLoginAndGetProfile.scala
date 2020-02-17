@@ -3,12 +3,12 @@ package com.spn.scenarios.journey
 import java.time.LocalDateTime
 
 import com.spn.common.Constants
-import com.spn.requests.{ActiveSubscription, AllSubscriptionsRequest, GetProfileRequest, LoginRequest}
+import com.spn.requests.{GetProfileRequest, LoginRequest, LoginWithEmailRequest}
 import io.gatling.core.Predef._
 
 import scala.concurrent.duration._
 
-object UserJourneyMobileLoginAndGetProfile {
+object UserJourneyEmailLoginAndGetProfile {
 
   val dataFeederChannel = csv("data/channel.csv").random
   val dataFeederCluster = csv("data/cluster.csv").random
@@ -22,7 +22,7 @@ object UserJourneyMobileLoginAndGetProfile {
     Map("getDateTime" -> LocalDateTime.now())
   )
 
-  val scnLoginAndGetProfile = scenario("User Journey with Mobile Login and Get Profile")
+  val scnLoginAndGetProfile = scenario("User Journey with Email Login and Get Profile")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
@@ -32,7 +32,7 @@ object UserJourneyMobileLoginAndGetProfile {
     .feed(Userlogin)
     .feed(dateTimeFeeder)
 
-    .exec(LoginRequest.LoginRequest)
+    .exec(LoginWithEmailRequest.LoginWithEmail)
     .doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)){
       exec(session => {
         val authToken = session(Constants.RESP_AUTH_TOKEN).as[String]
