@@ -15,11 +15,8 @@ object CreateOTPRequest {
         |"channelPartnerID": "${channelPartnerID}",
         |"mobileNumber": "${mobileNumber}",
         |"country": "${country}",
-        |"timestamp": "${getDateTime}",
-        |"deviceType":"${deviceType}",
-        |"serialNo":"${serialNo}"
+        |"timestamp": "${getDateTime}"
         |}""".stripMargin)).asJson
-      .check(jsonPath("$.resultCode").is("OK"))
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 
