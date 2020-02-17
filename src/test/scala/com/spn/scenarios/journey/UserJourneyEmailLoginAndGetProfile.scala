@@ -16,7 +16,7 @@ object UserJourneyEmailLoginAndGetProfile {
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
   val dataFeederLoginData = csv("data/LoginID.csv").random
-  val Userlogin = csv("data/evergent/evergent_data_1.csv").circular
+  val Userlogin = csv("data/evergent/evergent_data_for_email_login.csv.gz").shard.random
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())

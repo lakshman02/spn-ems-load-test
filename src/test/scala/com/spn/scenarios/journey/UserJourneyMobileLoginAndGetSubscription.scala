@@ -16,7 +16,7 @@ object UserJourneyMobileLoginAndGetSubscription {
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
   val dataFeederLoginData = csv("data/LoginID.csv").random
-  val Userlogin = csv("data/evergent/evergent_data_4.csv").circular
+  val Userlogin = csv("data/evergent/evergent_data_4.csv.gz").shard
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
