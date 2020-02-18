@@ -8,13 +8,23 @@ import io.gatling.core.Predef.scenario
 
 object IsSubscribedScenario{
 
-  val dataFeeder=csv("data/platform.csv").random
+  val dataFeederChannel = csv("data/channel.csv").circular
+  val dataFeederCluster = csv("data/cluster.csv").circular
+  val dataFeederLocale = csv("data/locale.csv").circular
+  val dataFeederProperty = csv("data/property.csv").circular
+  val dataFeederTenant = csv("data/tenant.csv").circular
+  val updateProfileDataFeeder=csv("data/inputStagingWeb.csv").circular
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
 
   val isSubscribedScenario =scenario("Is Subscribed Scenario")
-    .feed(dataFeeder)
+    .feed(dataFeederChannel)
+    .feed(dataFeederCluster)
+    .feed(dataFeederLocale)
+    .feed(dataFeederProperty)
+    .feed(dataFeederTenant)
+    .feed(updateProfileDataFeeder)
     .feed(dateTimeFeeder)
     .exec(IsSubscribedRequest.isSubscribed)
 }
