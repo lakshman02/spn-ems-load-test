@@ -22,6 +22,7 @@ object LoginWithEmailRequest {
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
+    .check(jsonPath("$..cpCustomerID").is("1"))
     .check(jsonPath("$..accessToken").saveAs(Constants.RESP_AUTH_TOKEN)))
 
 }
