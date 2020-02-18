@@ -6,11 +6,19 @@ import io.gatling.core.Predef.scenario
 
 //Account Search Scenario
 object AccountSearchScenario {
-  val dataFeeder=csv("data/platform.csv").random
-  val dataFeederOtpRequirements = csv("data/otp_requirements.csv").circular
+  val dataFeederChannel = csv("data/channel.csv").random
+  val dataFeederCluster = csv("data/cluster.csv").random
+  val dataFeederLocale = csv("data/locale.csv").random
+  val dataFeederProperty = csv("data/property.csv").random
+  val dataFeederTenant = csv("data/tenant.csv").random
+  val evergentLoginData = csv("data/evergent_data.csv").circular
 
   val accountSearchScenario =scenario("Account Search Scenario")
-    .feed(dataFeeder)
-    .feed(dataFeederOtpRequirements)
+    .feed(dataFeederChannel)
+    .feed(dataFeederCluster)
+    .feed(dataFeederLocale)
+    .feed(dataFeederProperty)
+    .feed(dataFeederTenant)
+    .feed(evergentLoginData)
     .exec(AccountSearchRequest.accountSearch)
 }
