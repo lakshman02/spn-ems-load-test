@@ -16,7 +16,7 @@ object UserJourneyLoggedInWithEmailScenario {
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
   val dataLoginCredentials = csv("data/LoginID.csv").random
-  val evergentLoginData = csv("data/evergent_data.csv").circular
+  val evergentLoginData = csv("data/evergent/evergent_data_3.csv.gz").shard
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())

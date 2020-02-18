@@ -16,7 +16,7 @@ object UserJourneyMobileLoginAndGetProfile {
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
   val dataFeederLoginData = csv("data/LoginID.csv").random
-  val Userlogin = csv("data/evergent_data.csv").circular
+  val Userlogin = csv("data/evergent/evergent_data_for_mobile_login.csv.gz").unzip.shard
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
@@ -40,6 +40,8 @@ object UserJourneyMobileLoginAndGetProfile {
         session
       })
       .pause(1, 3 seconds)
+      .exec(GetProfileRequest.getProfile)
+      .pause(3, 50 seconds)
       .exec(GetProfileRequest.getProfile)
     }
 }
