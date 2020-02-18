@@ -22,7 +22,7 @@ object LoginWithEmailRequest {
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$..cpCustomerID").is("1"))
+//    .check(jsonPath("$..cpCustomerID").is("1")) //This is not really needed, just to check/debug if duplicates came through.
     .check(jsonPath("$..accessToken").saveAs(Constants.RESP_AUTH_TOKEN)))
 
 }
