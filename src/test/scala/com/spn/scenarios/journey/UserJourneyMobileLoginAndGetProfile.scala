@@ -41,5 +41,7 @@ object UserJourneyMobileLoginAndGetProfile {
       })
       .pause(1, 3 seconds)
       .exec(GetProfileRequest.getProfile)
+      .pause(3, 50 seconds)
+      .exec(GetProfileRequest.getProfile)
     }
 }
