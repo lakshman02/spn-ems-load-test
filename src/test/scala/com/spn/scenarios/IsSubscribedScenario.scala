@@ -13,7 +13,7 @@ object IsSubscribedScenario{
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val updateProfileDataFeeder=csv("data/inputStagingWeb.csv").circular
+  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
@@ -24,7 +24,7 @@ object IsSubscribedScenario{
     .feed(dataFeederLocale)
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
-    .feed(updateProfileDataFeeder)
+    .feed(inputStagingDataFeeder)
     .feed(dateTimeFeeder)
     .exec(IsSubscribedRequest.isSubscribed)
 }
