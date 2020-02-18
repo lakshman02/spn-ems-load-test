@@ -2,12 +2,11 @@
   {
     "inject": [
       {
-        "type": "atOnceUsers",
-        "args": [5]
-      },
-      {
         "type": "rampUsers",
-        "args": [ 3, 3 ]
+        "args": [
+          10000,
+          1200
+        ]
       }
     ],
     "case": "isCustomerEligibleForFreeTrial"
