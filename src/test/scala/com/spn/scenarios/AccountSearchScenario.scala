@@ -11,7 +11,7 @@ object AccountSearchScenario {
   val dataFeederLocale = csv("data/locale.csv").random
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
-  val evergentLoginData = csv("data/evergent_data.csv").circular
+  val evergentLoginData = csv("data/evergent/evergent_data_simple_file.csv.gz").unzip.circular
 
   val accountSearchScenario =scenario("Account Search Scenario")
     .feed(dataFeederChannel)
