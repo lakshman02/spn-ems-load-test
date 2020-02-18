@@ -4,11 +4,11 @@
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          10000,
+          1200
         ]
       }
     ],
-    "case": "ContentDetailBundle"
+    "case": "contentDetailBundle"
   }
 ]

@@ -4,281 +4,272 @@
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "accountSearch"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "activeSubscription"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "ContentDetailBundle"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "createOTP"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "allSubscriptions"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "getInitialConfig"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "getMenu"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "getPage"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "getProduct"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          1,
-          10
-        ]
-      }
-    ],
-    "case": "getProfile"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
           2,
-          10
+          5
+        ]
+      }
+    ],
+    "case": "activeSubscription"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "contentDetailBundle"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "createOTP"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "createPaymentQr"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "allSubscriptions"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getInitialConfig"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getMenu"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getPage"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getProduct"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
         ]
       }
     ],
     "case": "getULD"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "groupOfBundles"
-  }
-,
-  {
-    "inject": [
-      {
-        "type": "atOnceUsers",
-        "args": [5]
-      },
-      {
-        "type": "rampUsers",
-        "args": [ 3, 3 ]
-      }
-    ],
-    "case": "isCustomerEligibleForFreeTrial"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "isCustomerEligibleForFreeTrial"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
         ]
       }
     ],
     "case": "isSubscribed"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "login"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "loginWithEmail"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "placeOrder"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "atOnceUsers",
-        "args": [ 5 ]
+        "args": [
+          2,
+          5
+        ]
       }
     ],
-    "case": "PostGenericCoupon"
-  }
-
-,
-  {
-    "inject": [
-      {
-        "type": "atOnceUsers",
-        "args": [5]
-      },
-      {
-        "type": "rampUsers",
-        "args": [ 3, 3 ]
-      }
-    ],
-    "case": "PostSubscriptionHistory"
-  }
-,
+    "case": "postGenericCoupon"
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "postSubscriptionHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
         ]
       }
     ],
     "case": "subscriptionPayment"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],
     "case": "updateProfile"
-  }
-,
+  },
   {
     "inject": [
       {
         "type": "rampUsers",
         "args": [
-          1,
-          10
+          2,
+          5
         ]
       }
     ],

@@ -9,11 +9,11 @@ object AccountSearchRequest {
   val accountSearch= exec(http("Account Search Request")
     .post(Config.app_url + Config.ACCOUNT_SEARCH_URL)
     .body(StringBody ("""{
-             "mobileNumber": "${mobileNumber}",
-              "email": "${email}",
-              "channelPartnerID": "${channelPartnerID}"
+             "mobileNumber": "${evg_phone_number}",
+              "email": "${evg_email}",
+              "channelPartnerID": "MSMIND1"
         }""")).asJson
     .check(jsonPath("$.resultCode").is("OK"))
     .check(status is 200)
-  ).pause(1)
+  )
 }

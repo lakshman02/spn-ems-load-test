@@ -3,10 +3,12 @@
     "inject": [
       {
         "type": "atOnceUsers",
-        "args": [ 5 ]
+        "args": [
+          10000,
+          1200
+        ]
       }
     ],
-    "case": "PostGenericCoupon"
+    "case": "postGenericCoupon"
   }
-
 ]
