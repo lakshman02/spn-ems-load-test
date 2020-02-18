@@ -14,6 +14,8 @@ object CreateOTPScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
+  val userCredentials = csv("data/evergent_data_minimal.csv").shard
+
 
 
   val dateTimeFeeder = Iterator.continually(
@@ -27,6 +29,7 @@ object CreateOTPScenario {
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
     .feed(dataFeederOtpRequirements)
+    .feed(userCredentials)
     .feed(dateTimeFeeder)
     .exec(CreateOTPRequest.createOTPRequest)
 
