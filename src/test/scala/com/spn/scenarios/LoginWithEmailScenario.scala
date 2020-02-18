@@ -11,7 +11,7 @@ object LoginWithEmailScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  //val userCredentials = csv("data/evergent_data.csv").random
+  val userCredentials = csv("data/evergent_data_minimal.csv").shard
 
   val LoginWithEmailScenario = scenario("Login With Email Scenario")
     .feed(dataFeederTenant)
@@ -20,11 +20,9 @@ object LoginWithEmailScenario {
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
     .feed(CreateOTPScenario.dateTimeFeeder)
-    //  .feed(userCredentials)
+    .feed(userCredentials)
     .feed(loginEmailData)
 
     .exec(LoginWithEmailRequest.LoginWithEmail)
-  //.exec (session => println(session) session)
-
 }
 

@@ -11,8 +11,8 @@ object LoginWithEmailRequest {
     .post(Config.app_url + Config.Login_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-             "email": "${email}",
-              "password": "${password}",
+             "email": "${evg_email}",
+              "password": "${evg_password}",
                "rememberMe": true,
              "appClientId": "${appClientId}",
               "channelPartnerID":"${channelPartnerID}",
