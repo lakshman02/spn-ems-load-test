@@ -10,8 +10,8 @@ object AccountSearchRequest {
     .post(Config.app_url + Config.ACCOUNT_SEARCH_URL)
     .body(StringBody ("""{
              "mobileNumber": "${evg_phone_number}",
-              "email": "${evg_email}",
-              "channelPartnerID": "{{channelPartnerID}}"
+             "email": "${evg_email}",
+             "channelPartnerID": "MSMIND1"
         }""")).asJson
     .check(jsonPath("$.resultCode").is("OK"))
     .check(status is 200)
