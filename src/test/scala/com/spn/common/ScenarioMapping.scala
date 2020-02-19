@@ -35,6 +35,7 @@ object ScenarioMapping {
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
+    "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
