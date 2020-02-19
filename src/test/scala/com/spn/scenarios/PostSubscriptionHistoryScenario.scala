@@ -11,5 +11,6 @@ private val feeder = csv("data/platform.csv")
 
   val SubscriptionHistory = scenario("Post Subscription History")
     .feed(feeder)
+    .feed(CreateOTPScenario.dateTimeFeeder)
     .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
 }
