@@ -11,7 +11,7 @@ object LoginWithEmailScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent_data_minimal.csv").shard
+  val userCredentials = csv("data/evergent/evergent_data_1.csv.gz").unzip.shard
 
   val LoginWithEmailScenario = scenario("Login With Email Scenario")
     .feed(dataFeederTenant)
