@@ -33,8 +33,13 @@ object ScenarioMapping {
     "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
+<<<<<<< HEAD
     "productsByCoupon" -> ProductsByCouponScenario.productsByCouponScenario,
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
+=======
+    "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
+    "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
+>>>>>>> 9af770e5e796462b50bbf902293522bba2aefe42
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
