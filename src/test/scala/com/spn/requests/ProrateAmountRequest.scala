@@ -6,15 +6,13 @@ import io.gatling.http.Predef._
 
 object ProrateAmountRequest {
 
-  val otpHeader = Map("x-via-device" -> "true")
-
-  val prorateAmountRequest = exec(http("Create OTP Request")
-    .post(Config.app_url + Config.CREATE_OTP_URL)
-    .headers(otpHeader)
+  val prorateAmountRequest = exec(http("Prorate Amount Request")
+    .post(Config.app_url + Config.PRORATE_AMOUNT_URL)
+    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
+      "x-via-device" -> "true"))
     .body(StringBody("""{
+                       |"serviceID": "${skuORQuickCode}",
                        |"channelPartnerID": "${channelPartnerID}",
-                       |"mobileNumber": "${evg_phone_number}",
-                       |"country": "${country}",
                        |"timestamp": "${getDateTime}"
                        |}""".stripMargin)).asJson
     .check(status is 200)
