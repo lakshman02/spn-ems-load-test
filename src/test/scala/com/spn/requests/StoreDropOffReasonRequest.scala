@@ -17,7 +17,7 @@ object StoreDropOffReasonRequest {
     "reasonCode": "1001",
     "reasonDescription": "Content not good",
     "serviceID": "1mn_99_india",
-    "serviceType": "{{serviceType}}",
+    "serviceType": "${serviceType}",
     "channelPartnerID": "${channelPartnerID}",
     "timestamp": "${getDateTime}"
         }""")).asJson
