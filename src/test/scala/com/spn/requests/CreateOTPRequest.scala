@@ -13,7 +13,7 @@ object CreateOTPRequest {
    .headers(otpHeader)
     .body(StringBody("""{
         |"channelPartnerID": "${channelPartnerID}",
-        |"mobileNumber": "${mobileNumber}",
+        |"mobileNumber": "${evg_phone_number}",
         |"country": "${country}",
         |"timestamp": "${getDateTime}"
         |}""".stripMargin)).asJson

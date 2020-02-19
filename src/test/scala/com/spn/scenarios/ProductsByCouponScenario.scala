@@ -2,35 +2,28 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.requests.CreateOTPRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import com.spn.requests.{IsSubscribedRequest, ProductsByCouponRequest}
+import io.gatling.core.Predef.{scenario, _}
 
-object CreateOTPScenario {
+object ProductsByCouponScenario{
 
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent_data_minimal.csv").shard
-
-
-
+  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
 
-  val createOTPScenario = scenario("Create OTP Scenario")
-    .feed(dataFeederTenant)
+  val productsByCouponScenario =scenario("Products By Coupon Scenario")
+    .feed(dataFeederChannel)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
-    .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(dataFeederOtpRequirements)
-    .feed(userCredentials)
+    .feed(dataFeederTenant)
+    .feed(inputStagingDataFeeder)
     .feed(dateTimeFeeder)
-    .exec(CreateOTPRequest.createOTPRequest)
-
+    .exec(ProductsByCouponRequest.productsByCoupon)
 }

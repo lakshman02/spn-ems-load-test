@@ -9,7 +9,7 @@ import io.gatling.core.Predef._
 object AllSubscriptionsScenario {
 
   val dataFeeder = csv("data/platform.csv").circular
-  val dataFeederOtpRequirements = csv("data/otp_requirements.csv").circular
+  val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
 
 
   val dateTimeFeeder = Iterator.continually(
