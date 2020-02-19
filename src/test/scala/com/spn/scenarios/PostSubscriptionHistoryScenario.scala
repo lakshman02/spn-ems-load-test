@@ -8,9 +8,11 @@ import com.spn.requests.PostSubscriptionHistoryRequest
 object PostSubscriptionHistoryScenario {
 
 private val feeder = csv("data/platform.csv")
+  val bodydatafeeder = csv("data/LoginID.csv")
 
   val SubscriptionHistory = scenario("Post Subscription History")
     .feed(feeder)
+    .feed(bodydatafeeder)
     .feed(CreateOTPScenario.dateTimeFeeder)
     .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
 }
