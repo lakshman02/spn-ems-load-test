@@ -17,7 +17,7 @@ object StoreDropOffReasonScenario{
     Map("getDateTime" -> LocalDateTime.now())
   )
 
-  val storeDropOffReasonScenario =scenario("Products By Coupon Scenario")
+  val storeDropOffReasonScenario =scenario("Store Drop Off Reason Scenario")
     .feed(dataFeederChannel)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
