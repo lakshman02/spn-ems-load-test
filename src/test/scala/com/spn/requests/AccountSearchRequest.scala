@@ -11,7 +11,7 @@ object AccountSearchRequest {
     .body(StringBody ("""{
              "mobileNumber": "${evg_phone_number}",
               "email": "${evg_email}",
-              "channelPartnerID": "MSMIND1"
+              "channelPartnerID": "{{channelPartnerID}}"
         }""")).asJson
     .check(jsonPath("$.resultCode").is("OK"))
     .check(status is 200)
