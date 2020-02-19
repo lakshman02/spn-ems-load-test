@@ -44,6 +44,6 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
-    "getTransactionStatus" -> GetTransactionStatusScenario.getTransactionStatusScenario
+
   )
 }
