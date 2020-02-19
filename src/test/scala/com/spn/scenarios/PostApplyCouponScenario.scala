@@ -11,6 +11,7 @@ object PostApplyCouponScenario {
 
 val scnApplyCoupon = scenario ("Post Apply Coupon")
   .feed(data_feeder)
+  .feed(CreateOTPScenario.dateTimeFeeder)
   .feed(dataApplyCoupon)
   .exec(PostApplyCouponRequest.ApplyCoupon)
 
