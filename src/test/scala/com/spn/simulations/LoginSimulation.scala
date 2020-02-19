@@ -9,11 +9,7 @@ import io.gatling.core.Predef.{Simulation, rampUsers, _}
   private val loginSimulationExec = LoginScenario.loginScenario
     //.inject(constantUsersPerSec(Config.users) during (Config.duration seconds))
     .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
+      rampUsers(100) during(300)
     )
 
   setUp(loginSimulationExec)

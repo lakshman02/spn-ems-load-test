@@ -286,5 +286,17 @@
       }
     ],
     "case": "productsByCoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "storeDropOffReason"
   }
 ]
