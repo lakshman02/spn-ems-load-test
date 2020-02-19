@@ -37,6 +37,7 @@ object ScenarioMapping {
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     "prorateAmount" -> ProrateAmountScenario.prorateAmountScenario,
+    "paymentMode" -> PaymentModesScenario.scnPaymentMode,
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
