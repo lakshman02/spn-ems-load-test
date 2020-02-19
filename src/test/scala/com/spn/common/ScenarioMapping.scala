@@ -34,6 +34,7 @@ object ScenarioMapping {
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
     "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
+    "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
