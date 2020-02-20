@@ -9,12 +9,12 @@ object Config {
 
   var app_url: String = System.getProperty("appURL")
 
-  if(app_url == null || app_url.equals("")) {
-    app_url = "https://apiqa.sonyliv.com/"
-  }
+//  if(app_url == null || app_url.equals("")) {
+//    app_url = "https://apiqa.sonyliv.com/"
+//  }
 
   //  val app_url = "https://apiqa.sonyliv.com/"
-  //val app_url = "https://apipreprod.sonyliv.com/"
+  val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -51,7 +51,7 @@ object Config {
   val UPGRADABLE_PLANS_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/UPGRADABLEPLANS"
   val PRORATE_AMOUNT_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PRORATEAMOUNT"
   val PAYMENT_MODES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PAYMENTMODES"
-
+  val SUBCRIPTION_REMOVE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/REMOVE"
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
