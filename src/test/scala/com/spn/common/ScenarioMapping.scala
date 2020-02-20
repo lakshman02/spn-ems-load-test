@@ -40,6 +40,7 @@ object ScenarioMapping {
     "paymentMode" -> PaymentModesScenario.scnPaymentMode,
     "subscriptionRemove" -> SubscriptionRemoveScenario.subscriptionRemoveScenario,
     "changeService" -> ChangeServiceScenario.changeServiceScenario,
+    "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,

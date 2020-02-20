@@ -1,2 +1,2 @@
-oldServiceID,newServiceID,serviceType
-1mn_99_india,12mn_499_india,PRODUCT
+oldServiceID,newServiceID,serviceType,packageId,packageName
+1mn_99_india,12mn_499_india,PRODUCT,daily_india,Daily
