@@ -10,6 +10,7 @@ object SubscriptionRemoveScenario {
   val dataFeeder=csv("data/platform.csv").circular
   val subscriptionRemoveScenario= scenario("Subscription Payment Scenario")
     .feed(dataFeeder)
+    .feed(CreateOTPScenario.dateTimeFeeder)
 
     .exec(SubscriptionRemoveRequest.subscriptionRemove)
   //.exec (session => println(session) session)

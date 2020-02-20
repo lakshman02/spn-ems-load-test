@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 object Config {
   //Baseurl
 
-  var app_url: String = System.getProperty("appURL")
+ // var app_url: String = System.getProperty("appURL")
 
 //  if(app_url == null || app_url.equals("")) {
 //    app_url = "https://apiqa.sonyliv.com/"
@@ -51,7 +51,7 @@ object Config {
   val UPGRADABLE_PLANS_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/UPGRADABLEPLANS"
   val PRORATE_AMOUNT_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PRORATEAMOUNT"
   val PAYMENT_MODES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PAYMENTMODES"
-  val SUBCRIPTION_REMOVE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/REMOVE"
+  val SUBSCRIPTION_REMOVE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/REMOVE"
   val GetSyncState_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE?packageId=daily_india"
 
   val users = Integer.getInteger("users", 1).toInt

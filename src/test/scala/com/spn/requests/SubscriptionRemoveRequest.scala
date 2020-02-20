@@ -10,10 +10,10 @@ object SubscriptionRemoveRequest {
     "x-via-device" -> "true")
 
   val subscriptionRemove= exec(http("SubscribedRemove Request")
-    .post(Config.app_url + Config.SUBCRIPTION_REMOVE_URL)
+    .post(Config.app_url + Config.SUBSCRIPTION_REMOVE_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-  "serviceID": "12mn_sportpack",
+  "serviceID": "${skuORQuickCode}",
   "reason": "testing",
   "serviceType": "${serviceType}",
   "channelPartnerID": "${channelPartnerID}",
