@@ -328,11 +328,23 @@
       {
         "type": "rampUsers",
         "args": [
-          10000,
-          1200
+          2,
+          5
         ]
       }
     ],
     "case": "changeService"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "subscriptionRemove"
   }
 ]

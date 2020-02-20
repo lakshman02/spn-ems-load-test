@@ -15,7 +15,7 @@ object ChangeServiceScenario {
   val dataFeederServiceDetails = csv("data/service_details.csv").circular
   val userCredentials = csv("data/evergent/evergent_data_2.csv.gz").unzip.shard
 
-  val changeServiceScenario = scenario("Create OTP Scenario")
+  val changeServiceScenario = scenario("Change Service Scenario")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
