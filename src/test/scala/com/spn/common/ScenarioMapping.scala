@@ -38,6 +38,7 @@ object ScenarioMapping {
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     "prorateAmount" -> ProrateAmountScenario.prorateAmountScenario,
     "paymentMode" -> PaymentModesScenario.scnPaymentMode,
+    "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "subscriptionRemove" -> SubscriptionRemoveScenario.subscriptionRemoveScenario,
     "changeService" -> ChangeServiceScenario.changeServiceScenario,
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
