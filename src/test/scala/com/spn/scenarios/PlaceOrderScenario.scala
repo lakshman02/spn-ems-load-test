@@ -1,9 +1,8 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
-import com.spn.requests.{PlaceOrderRequest, UpdateProfileRequest}
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.PlaceOrderRequest
+import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef._
 
 object PlaceOrderScenario{
 
