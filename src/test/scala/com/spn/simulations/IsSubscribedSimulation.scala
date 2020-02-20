@@ -4,8 +4,6 @@ import com.spn.config.Config
 import com.spn.scenarios.IsSubscribedScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-
-//Account Search Simulation
 class IsSubscribedSimulation extends Simulation {
   private val isSubscribedExec = IsSubscribedScenario.isSubscribedScenario
         .inject(constantUsersPerSec(1) during (1))
