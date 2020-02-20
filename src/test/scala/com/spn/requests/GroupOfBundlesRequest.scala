@@ -10,3 +10,4 @@ object GroupOfBundlesRequest {
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }
+//sd
