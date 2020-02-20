@@ -4,8 +4,6 @@ import com.spn.config.Config
 import com.spn.scenarios.UpdateProfileScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-
-//Account Search Simulation
 class UpdateProfileSimulation extends Simulation {
   private val updateProfileExec = UpdateProfileScenario.updateProfileScenario
         .inject(constantUsersPerSec(1) during (1))
