@@ -1,9 +1,10 @@
 package com.spn.scenarios
 
-import com.spn.requests.{ ProrateAmountRequest}
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.PostSyncStateRequest
+import com.spn.scenarios.ProrateAmountScenario.{authFeeder, dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData}
+import io.gatling.core.Predef._
 
-object ProrateAmountScenario {
+object PostSyncStateScenario {
 
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
@@ -11,11 +12,11 @@ object ProrateAmountScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/inputStagingWeb.csv").circular
-  val authFeeder = csv("data/LoginID.csv").circular
+  val dataFeederService = csv("data/service_details.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
 
-  val prorateAmountScenario = scenario("Prorate Amount Scenario")
+  val postSyncStateScenario = scenario("Post Sync State Scenario")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
@@ -24,8 +25,8 @@ object ProrateAmountScenario {
     .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(loginEmailData)
     .feed(authFeeder)
+    .feed(dataFeederService)
     .feed(userCredentials)
 
-    .exec(ProrateAmountRequest.prorateAmountRequest)
-
+    .exec(PostSyncStateRequest.postSyncStateRequest)
 }

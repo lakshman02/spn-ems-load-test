@@ -346,5 +346,17 @@
       }
     ],
     "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "post_Sync_State_URL"
   }
 ]
