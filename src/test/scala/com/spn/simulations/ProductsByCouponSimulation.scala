@@ -4,8 +4,6 @@ import com.spn.config.Config
 import com.spn.scenarios.ProductsByCouponScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-
-//Account Search Simulation
 class ProductsByCouponSimulation extends Simulation {
   private val productsByCouponExec = ProductsByCouponScenario.productsByCouponScenario
         .inject(constantUsersPerSec(1) during (1))

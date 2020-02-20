@@ -3,7 +3,8 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 
 import com.spn.requests. UpgradablePlansRequest
-import io.gatling.core.Predef.{scenario, _}
+import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef._
 
 object UpgradablePlansScenario{
 
