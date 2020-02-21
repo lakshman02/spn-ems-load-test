@@ -357,6 +357,6 @@
         ]
       }
     ],
-    "case": "post_Sync_State_URL"
+    "case": "postSyncState"
   }
 ]

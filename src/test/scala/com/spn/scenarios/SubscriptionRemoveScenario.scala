@@ -15,9 +15,9 @@ object SubscriptionRemoveScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
   val dataFeederServiceDetails = csv("data/service_details.csv").circular
-  val userCredentials = csv("data/evergent/evergent_data_2.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
-  val subscriptionRemoveScenario= scenario("Subscription Payment Scenario")
+  val subscriptionRemoveScenario= scenario("Subscription Remove Scenario")
 
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)

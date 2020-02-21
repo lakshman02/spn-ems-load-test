@@ -14,9 +14,6 @@ object ProductsByCouponScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val dateTimeFeeder = Iterator.continually(
-    Map("getDateTime" -> LocalDateTime.now())
-  )
 
   val productsByCouponScenario =scenario("Products By Coupon Scenario")
     .feed(dataFeederChannel)
@@ -25,6 +22,6 @@ object ProductsByCouponScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-    .feed(dateTimeFeeder)
+    .feed(CreateOTPScenario.dateTimeFeeder)
     .exec(ProductsByCouponRequest.productsByCoupon)
 }

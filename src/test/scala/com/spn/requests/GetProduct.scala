@@ -10,7 +10,7 @@ object GetProduct {
     .post(Config.app_url + Config.GET_PRODUCTS_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-   "channelPartnerID": "MSMIND",
+   "channelPartnerID": "${channelPartnerID}",
   "dmaID": "IN",
   "salesChannel": "web",
   "offerType": "Existing Customer",
