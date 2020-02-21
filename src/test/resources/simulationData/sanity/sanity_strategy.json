@@ -321,6 +321,18 @@
         ]
       }
     ],
+    "case":"getSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
     "case":"prorateAmount"
   },
   {
