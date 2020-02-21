@@ -16,10 +16,6 @@ object StoreDropOffReasonScenario{
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
-  val dateTimeFeeder = Iterator.continually(
-    Map("getDateTime" -> LocalDateTime.now())
-  )
-
   val storeDropOffReasonScenario =scenario("Store Drop Off Reason Scenario")
     .feed(dataFeederChannel)
     .feed(dataFeederCluster)
@@ -27,6 +23,7 @@ object StoreDropOffReasonScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-    .feed(dateTimeFeeder)
+    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(userCredentials)
     .exec(StoreDropOffReasonRequest.storeDropOffReason)
 }

@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 
 object ProductsByCouponRequest {
   val sentHeaders = Map(
-    "Authorization" -> "",
+    "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true")
 
   val productsByCoupon= exec(http("Products By Coupon Request")

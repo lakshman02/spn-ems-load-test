@@ -3,11 +3,9 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 
 import com.spn.requests.CreatePaymentQrRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 
-//CreatePaymentQr Scenario
 object CreatePaymentQrScenario {
 
   val dataFeederChannel = csv("data/channel.csv").circular
@@ -18,9 +16,7 @@ object CreatePaymentQrScenario {
   val dataFeederOtpRequirements = csv("data/createPaymentQr.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
-  val dateTimeFeeder = Iterator.continually(
-    Map("getDateTime" -> LocalDateTime.now())
-  )
+
   val createPaymentQrScenario =scenario("Create Payment QR Scenario")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
@@ -28,6 +24,7 @@ object CreatePaymentQrScenario {
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
 .feed(dataFeederOtpRequirements)
-.feed(dateTimeFeeder)
+    .feed(userCredentials)
+.feed(CreateOTPScenario.dateTimeFeeder)
     .exec(CreatePaymentQrRequest.createPaymentQrRequest)
 }

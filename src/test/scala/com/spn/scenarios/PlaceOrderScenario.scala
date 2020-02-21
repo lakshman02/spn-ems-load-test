@@ -21,5 +21,6 @@ object PlaceOrderScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
+    .feed(userCredentials)
     .exec(PlaceOrderRequest.placeOrder)
 }
