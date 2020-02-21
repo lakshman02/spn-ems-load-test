@@ -11,7 +11,7 @@ object GetSyncStateScenario{
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
+  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
   val getSyncStateScenario =scenario("Get Sync state Scenario")
     .feed(dataFeederChannel)

@@ -11,7 +11,7 @@ object Subscription_PaymentScenario  {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
   val subscription_PaymentScenario= scenario("Subscription Payment Scenario")
     .feed(dataFeederTenant)

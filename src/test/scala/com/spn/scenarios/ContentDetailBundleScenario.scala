@@ -12,7 +12,7 @@ object ContentDetailBundleScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
   val contentDetail_BundleScenario = scenario("Content Detail Bundle Scenario")
     .feed(dataFeederTenant)

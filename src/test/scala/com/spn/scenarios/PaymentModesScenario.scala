@@ -10,7 +10,7 @@ object PaymentModesScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
- val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
+ val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
   val scnPaymentMode = scenario("Post Payment Mode")
     .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(bodydatafeeder)
