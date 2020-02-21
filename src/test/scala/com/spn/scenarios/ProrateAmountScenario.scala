@@ -12,7 +12,7 @@ object ProrateAmountScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/inputStagingWeb.csv").circular
   val authFeeder = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
 
   val prorateAmountScenario = scenario("Prorate Amount Scenario")

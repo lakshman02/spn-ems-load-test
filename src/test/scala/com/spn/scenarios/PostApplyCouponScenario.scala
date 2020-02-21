@@ -2,17 +2,28 @@ package com.spn.scenarios
 
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
-
 import com.spn.requests.PostApplyCouponRequest
+import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederOtpRequirements, dataFeederProperty, dataFeederTenant, dateTimeFeeder, userCredentials}
 
 object PostApplyCouponScenario {
- val  data_feeder = csv("data/LoginID.csv").queue
-  val dataApplyCoupon = csv("data/platform.csv").queue
+
+ val dataFeederChannel = csv("data/channel.csv").circular
+ val dataFeederCluster = csv("data/cluster.csv").circular
+ val dataFeederLocale = csv("data/locale.csv").circular
+ val dataFeederProperty = csv("data/property.csv").circular
+ val dataFeederTenant = csv("data/tenant.csv").circular
+ val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
+ val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
 val scnApplyCoupon = scenario ("Post Apply Coupon")
-  .feed(data_feeder)
+  .feed(dataFeederTenant)
+  .feed(dataFeederCluster)
+  .feed(dataFeederLocale)
+  .feed(dataFeederChannel)
+  .feed(dataFeederProperty)
+  .feed(dataFeederOtpRequirements)
+  .feed(userCredentials)
   .feed(CreateOTPScenario.dateTimeFeeder)
-  .feed(dataApplyCoupon)
   .exec(PostApplyCouponRequest.ApplyCoupon)
 
 }

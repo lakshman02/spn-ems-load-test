@@ -11,7 +11,7 @@ import io.gatling.core.Predef.{scenario, _}
     val dataFeederProperty = csv("data/property.csv").circular
     val dataFeederTenant = csv("data/tenant.csv").circular
     val loginEmailData = csv("data/LoginID.csv").circular
-    val userCredentials = csv("data/evergent/evergent_data_for_mobile_login.csv.gz").unzip.shard
+    val userCredentials = csv("data/evergent/evergent_data_for_mobile_login.csv.gz").unzip.circular
 
     val loginScenario = scenario("Login With Mobile Scenario")
       .feed(dataFeederTenant)

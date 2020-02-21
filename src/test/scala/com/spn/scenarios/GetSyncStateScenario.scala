@@ -5,6 +5,7 @@ import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
 
 object GetSyncStateScenario{
+
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
   val dataFeederLocale = csv("data/locale.csv").circular
