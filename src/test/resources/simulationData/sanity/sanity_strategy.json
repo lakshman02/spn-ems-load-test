@@ -358,5 +358,29 @@
       }
     ],
     "case": "postSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "applycoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "paymentMode"
   }
 ]
