@@ -2,7 +2,6 @@ package com.spn.scenarios
 
 import io.gatling.core.Predef._
 import com.spn.requests.PaymentModesRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 object PaymentModesScenario {
 
  val bodydatafeeder = csv("data/LoginID.csv")
@@ -11,6 +10,7 @@ object PaymentModesScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
+ val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
   val scnPaymentMode = scenario("Post Payment Mode")
     .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(bodydatafeeder)
@@ -19,5 +19,6 @@ object PaymentModesScenario {
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
+    .feed(usersWithAuthtokenDataFeeder)
     .exec(PaymentModesRequest.Payment_mode)
 }
