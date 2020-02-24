@@ -12,6 +12,8 @@ object GetProductScenario   {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
+  val dataSalesFeeder = csv("data/payment_details.csv").circular
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
   val getProductScenario = scenario("Get Product Scenario")
     .feed(dataFeederTenant)
@@ -20,6 +22,8 @@ object GetProductScenario   {
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
     .feed(dataFeederOtpRequirements)
+    .feed(dataSalesFeeder)
+    .feed(userCredentials)
 
     .exec(GetProduct .GetProduct)
   //.exec (session => println(session) session)

@@ -13,7 +13,8 @@ object CreatePaymentQrScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val dataFeederOtpRequirements = csv("data/createPaymentQr.csv").circular
+  val dataFeederOtpRequirements = csv("data/payment_details.csv").circular
+  val channelPartnerFeeder = csv("data/LoginID.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
 
@@ -26,5 +27,6 @@ object CreatePaymentQrScenario {
 .feed(dataFeederOtpRequirements)
     .feed(userCredentials)
 .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(channelPartnerFeeder)
     .exec(CreatePaymentQrRequest.createPaymentQrRequest)
 }
