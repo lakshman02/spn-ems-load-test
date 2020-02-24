@@ -8,16 +8,12 @@ import io.gatling.core.Predef._
 class GetPageIdSimulation extends Simulation
 {
 private val getPageId = GetPageIdScenario.PageId
-  .inject(incrementUsersPerSec(Config.users)
-    .times(Config.times)
-    .eachLevelLasting(Config.eachLevelLasting)
-    .separatedByRampsLasting(Config.separatedByRampsLasting)
-    .startingFrom(Config.startingFrom)
+  .inject(rampUsers(5)during(Config.duration)
   )
 
 
 setUp(getPageId).protocols(Config.httpProtocol)
-    .assertions(/*global.responseTime.max.lt(Config.defaultResponseTime),*/
+    .assertions(
         global.failedRequests.count.is(0)
     )
 }

@@ -10,11 +10,7 @@ class GetMenuSimulation extends Simulation {
   private val getMenuExec = GetMenuScenario.getMenuScenario
 //    .inject(constantUsersPerSec(Config.users) during (Config.duration))
     .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
+      rampUsers(Config.rampUp) during(Config.duration)
     )
 
   setUp(getMenuExec).protocols(Config.httpProtocol)
