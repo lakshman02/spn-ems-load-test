@@ -13,10 +13,10 @@ object GetProduct {
     .body(StringBody ("""{
    "channelPartnerID": "${channelPartnerID}",
   "dmaID": "IN",
-  "salesChannel": "web",
+  "salesChannel": "web",f
   "offerType": "Existing Customer",
   "languageCode": "en_US"
         }""")).asJson
     .check(status is 200)
-    .check(jsonPath("$.resultCode").is("OK"))
+    .check(jsonPath("$.resultCode").is("OK")))
 }
