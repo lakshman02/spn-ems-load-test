@@ -4,8 +4,6 @@ import com.spn.config.Config
 import com.spn.scenarios.StoreDropOffReasonScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-
-//Account Search Simulation
 class StoreDropOffReasonSimulation extends Simulation {
   private val storeDropOffReasonExec = StoreDropOffReasonScenario.storeDropOffReasonScenario
         .inject(constantUsersPerSec(1) during (1))

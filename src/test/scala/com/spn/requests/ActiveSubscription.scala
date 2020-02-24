@@ -12,6 +12,7 @@ object ActiveSubscription  {
     "Content-Type" -> "application/json"
   )
   val ActiveSubscription   = exec(http("Active Subscription Request")
+
     .post(Config.app_url + Config.ACTIVE_SUBSCRIPTIONS_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{

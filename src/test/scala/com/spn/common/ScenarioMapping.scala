@@ -37,12 +37,21 @@ object ScenarioMapping {
     "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
+    "prorateAmount" -> ProrateAmountScenario.prorateAmountScenario,
+    "paymentMode" -> PaymentModesScenario.scnPaymentMode,
+    "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
+    "subscriptionRemove" -> SubscriptionRemoveScenario.subscriptionRemoveScenario,
+    "changeService" -> ChangeServiceScenario.changeServiceScenario,
+    "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
+    "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
-    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile
+    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
+
+
   )
 }

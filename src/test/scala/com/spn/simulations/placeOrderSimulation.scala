@@ -4,8 +4,6 @@ import com.spn.config.Config
 import com.spn.scenarios.PlaceOrderScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-
-//Account Search Simulation
 class placeOrderSimulation extends Simulation {
   private val placeOrderExec = PlaceOrderScenario.placeOrderScenario
         .inject(constantUsersPerSec(1) during (1))

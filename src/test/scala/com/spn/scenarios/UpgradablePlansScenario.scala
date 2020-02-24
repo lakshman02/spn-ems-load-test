@@ -3,7 +3,8 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 
 import com.spn.requests. UpgradablePlansRequest
-import io.gatling.core.Predef.{scenario, _}
+import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef._
 
 object UpgradablePlansScenario{
 
@@ -13,9 +14,8 @@ object UpgradablePlansScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val dateTimeFeeder = Iterator.continually(
-    Map("getDateTime" -> LocalDateTime.now())
-  )
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+
 
   val upgradablePlansScenario =scenario("Upgradable Plans Scenario")
     .feed(dataFeederChannel)
@@ -24,6 +24,7 @@ object UpgradablePlansScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-    .feed(dateTimeFeeder)
+    .feed(CreateOTPScenario.dateTimeFeeder)
+    feed(userCredentials)
     .exec(UpgradablePlansRequest.upgradablePlans)
 }

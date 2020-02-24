@@ -11,6 +11,6 @@ private val Apply_Coupon = PostApplyCouponScenario.scnApplyCoupon
   .inject(rampUsers(Config.rampUp) during(Config.duration) )
 
   setUp(Apply_Coupon).protocols(Config.httpProtocol)
-    .assertions(global.failedRequests.count.is(0),global.responseTime.max.between(100,300))
+    .assertions(global.failedRequests.count.is(0))
 
 }
