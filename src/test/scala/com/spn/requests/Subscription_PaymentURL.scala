@@ -18,7 +18,7 @@ object Subscription_PaymentURL {
 	"itemName":"Rab_Ne_Bana_Di_Jodi",
 	"currencyCode":"INR",
 	"pmtChannel":"FORTUMO",
-	"country": "{{country}}",
+	"country": "IN",
 	"subscriptionMode":"TVOD",
 	"pkgInd":"T",
 	"renewable":"F",
