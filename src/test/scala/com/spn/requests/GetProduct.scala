@@ -17,5 +17,6 @@ object GetProduct {
   "offerType": "Existing Customer",
   "languageCode": "en_US"
         }""")).asJson
+    .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

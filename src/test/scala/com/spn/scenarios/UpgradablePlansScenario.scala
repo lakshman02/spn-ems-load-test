@@ -25,6 +25,6 @@ object UpgradablePlansScenario{
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
     .feed(CreateOTPScenario.dateTimeFeeder)
-    feed(userCredentials)
+    .feed(userCredentials)
     .exec(UpgradablePlansRequest.upgradablePlans)
 }

@@ -19,6 +19,6 @@ object PostApplyCouponRequest {
                         "timestamp": "${getDateTime}"
                        }""")).asJson
     //Hardcoded body string
-    .check(status .is(200))
+    .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 }
