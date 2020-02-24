@@ -11,6 +11,7 @@ object VODDetailsScenario {
  val dataFeederLocale = csv("data/locale.csv").circular
  val dataFeederProperty = csv("data/property.csv").circular
  val dataFeederTenant = csv("data/tenant.csv").circular
+ val contentFeeder = csv("data/contentId.csv").circular
 
   val vodDetailsScenario = scenario("VOD Details Mobile Scenario")
     .feed(dataFeederTenant)
@@ -18,6 +19,7 @@ object VODDetailsScenario {
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
+    .feed(contentFeeder)
     .exec(VODDetailsRequest.vodDetails)
 
 }
