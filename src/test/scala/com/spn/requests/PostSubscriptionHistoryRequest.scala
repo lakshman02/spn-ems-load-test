@@ -15,7 +15,7 @@ object PostSubscriptionHistoryRequest {
                        "channelPartnerID": "${channelPartnerID}",
                        "timestamp": "${getDateTime}"
                      } """)).asJson
-      .check(status.is(200))
-      .check(jsonPath("$.resultCode").is("OK"))
+    .check(status is 200)
+    .check(jsonPath("$.resultCode").is("OK"))
   )
 }
