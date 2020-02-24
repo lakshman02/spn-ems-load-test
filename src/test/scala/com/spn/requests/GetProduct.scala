@@ -13,7 +13,7 @@ object GetProduct {
     .body(StringBody ("""{
    "channelPartnerID": "${channelPartnerID}",
   "dmaID": "IN",
-  "salesChannel": "web",f
+  "salesChannel": "web",
   "offerType": "Existing Customer",
   "languageCode": "en_US"
         }""")).asJson
