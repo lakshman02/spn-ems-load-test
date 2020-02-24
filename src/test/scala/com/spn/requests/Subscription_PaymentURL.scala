@@ -26,5 +26,6 @@ object Subscription_PaymentURL {
 	"cpId":"20012007291003285",
 	"channelPartnerID": "MSMIND"
 }""")).asJson
+    .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }
