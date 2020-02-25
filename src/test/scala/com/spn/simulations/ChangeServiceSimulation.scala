@@ -8,11 +8,7 @@ class ChangeServiceSimulation extends Simulation{
 
   private val changeServiceExec = ChangeServiceScenario.changeServiceScenario
     .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
+      rampUsers(10) during(10)
     )
 
   setUp(changeServiceExec)
