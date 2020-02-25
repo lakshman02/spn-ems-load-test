@@ -10,7 +10,7 @@ object ActiveSubscriptionScenario   {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val bodydatafeeder = csv("data/LoginID.csv")
-  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val activeSubscriptionScenario = scenario("Active Subscription Scenario")
     .feed(dataFeederTenant)

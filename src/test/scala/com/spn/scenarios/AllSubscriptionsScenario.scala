@@ -13,7 +13,7 @@ object AllSubscriptionsScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val dateTimeFeeder = Iterator.continually(

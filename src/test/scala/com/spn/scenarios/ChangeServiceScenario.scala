@@ -12,7 +12,7 @@ object ChangeServiceScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
   val dataFeederServiceDetails = csv("data/service_details.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val changeServiceScenario = scenario("Change Service Scenario")
     .feed(dataFeederTenant)
