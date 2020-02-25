@@ -42,5 +42,11 @@ class SPNAPISimulation extends Simulation {
     scnList
   }
 
-  setUp(scnList:_*).protocols(Config.httpProtocol)
+//  setUp(scnList:_*).protocols(Config.httpProtocol)
+  setUp(scnList:_*)
+    .protocols(Config.httpProtocol)
+    .assertions(
+      global.responseTime.max.lte(100),
+      global.successfulRequests.percent.gte(99)
+    )
 }
