@@ -1,9 +1,7 @@
 package com.spn.scenarios
 
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
 import com.spn.requests.PostSubscriptionHistoryRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
+import io.gatling.core.Predef.{scenario, _}
 
 object PostSubscriptionHistoryScenario {
 

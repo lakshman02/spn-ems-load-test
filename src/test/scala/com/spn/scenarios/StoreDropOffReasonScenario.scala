@@ -1,10 +1,7 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
 import com.spn.requests.StoreDropOffReasonRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object StoreDropOffReasonScenario{
 

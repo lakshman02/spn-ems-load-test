@@ -1,7 +1,6 @@
 package com.spn.scenarios
 
 import com.spn.requests.GetProduct
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederOtpRequirements, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 
 object GetProductScenario   {

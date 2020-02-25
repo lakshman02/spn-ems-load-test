@@ -3,9 +3,7 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 
 import com.spn.requests.AllSubscriptionsRequest
-import com.spn.scenarios.IsCustomerEligibleForFreeTrialScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData, userCredentials}
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object AllSubscriptionsScenario {
 

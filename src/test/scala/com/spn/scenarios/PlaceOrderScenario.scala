@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
 import com.spn.requests.PlaceOrderRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object PlaceOrderScenario{
 

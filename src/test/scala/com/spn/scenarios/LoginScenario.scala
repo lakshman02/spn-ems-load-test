@@ -1,6 +1,5 @@
 package com.spn.scenarios
 import com.spn.requests.LoginRequest
-import com.spn.scenarios.IsCustomerEligibleForFreeTrialScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData, userCredentials}
 import io.gatling.core.Predef.{scenario, _}
 
   object LoginScenario {

@@ -1,7 +1,7 @@
 package com.spn.scenarios
 
-import io.gatling.core.Predef._
 import com.spn.requests.PaymentModesRequest
+import io.gatling.core.Predef._
 object PaymentModesScenario {
 
  val bodydatafeeder = csv("data/LoginID.csv")

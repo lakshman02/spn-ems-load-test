@@ -1,11 +1,7 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
 import com.spn.requests.IsCustomerEligibleForFreeTrialRequest
-import com.spn.scenarios.LoginWithEmailScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData, userCredentials}
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object IsCustomerEligibleForFreeTrialScenario {
 

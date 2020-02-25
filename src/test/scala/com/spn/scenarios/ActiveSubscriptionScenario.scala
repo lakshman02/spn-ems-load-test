@@ -1,7 +1,6 @@
 package com.spn.scenarios
 
 import com.spn.requests.ActiveSubscription
-import com.spn.scenarios.AllSubscriptionsScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 object ActiveSubscriptionScenario   {
 

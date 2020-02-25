@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
 import com.spn.requests.GetSyncStateRequest
-import io.gatling.core.Predef._
-import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.{scenario, _}
 
 object GetSyncStateScenario{
 

@@ -1,6 +1,5 @@
 package com.spn.scenarios
 import com.spn.requests.LoginWithEmailRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 
 object LoginWithEmailScenario {

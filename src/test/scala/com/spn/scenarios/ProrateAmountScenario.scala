@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.requests.{ ProrateAmountRequest}
+import com.spn.requests.ProrateAmountRequest
 import io.gatling.core.Predef.{scenario, _}
 
 object ProrateAmountScenario {
