@@ -1,2 +1,7 @@
-evg_email,evg_user_name,evg_password,evg_phone_number,firstName,lastName,country,dateOfBirth,gender,pincode,channelPartnerID,dmaID
-jmeter-test-indwes-user-365836@mailinator.com,jmeter-test-indwes-user-365836@mailinator.com,jmeter-test-indwes-user-365836,2170223706,nitin,kumar,IN,765743400000,Male,500072,MSMIND1,IN
+gender,pincode,channelPartnerID
+Male,500072,MSMIND1
+Female,500074,MSMIND1
+Male,500075,MSMIND1
+Female,500076,MSMIND1
+Female,500077,MSMIND1
+Male,500078,MSMIND1
