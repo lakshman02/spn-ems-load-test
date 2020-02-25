@@ -14,9 +14,9 @@ class SPNAPISimulation extends Simulation {
 
   val filePath = System.getProperty("filePath")
 
- val source: BufferedSource = Source.fromURL(filePath)
+// val source: BufferedSource = Source.fromURL(filePath)
 
-//  val source: BufferedSource = Source.fromFile(filePath)
+  val source: BufferedSource = Source.fromFile("src/test/resources/simulationData/sanity/sanity_single_api.json")
 
 
   val rawTestList = source.mkString
@@ -46,7 +46,8 @@ class SPNAPISimulation extends Simulation {
   setUp(scnList:_*)
     .protocols(Config.httpProtocol)
     .assertions(
-      global.responseTime.max.lte(100),
+      global.responseTime.mean.lte(100),
+      global.responseTime.percentile(99.9).lte(100),
       global.successfulRequests.percent.gte(99)
     )
 }

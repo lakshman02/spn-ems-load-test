@@ -1,0 +1,290 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getInitialConfig"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getULD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getVODDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "groupOfBundles"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "accountSearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "login"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "loginWithEmail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "isSubscribed"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getProduct"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postGenericCoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "allSubscriptions"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "activeSubscription"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postSubscriptionHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "isCustomerEligibleForFreeTrial"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "storeDropOffReason"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "upgradablePlans"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "changeService"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "placeOrder"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "paymentMode"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "prorateAmount"
+  }
+]
