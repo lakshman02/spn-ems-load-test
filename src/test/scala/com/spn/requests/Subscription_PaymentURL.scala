@@ -13,18 +13,18 @@ object Subscription_PaymentURL {
     .post(Config.app_url + Config.SUBSCRIPTION_PAYMENTURL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-	"retControlUrl":"https://www.sonyliv.com/orderComplete/TVOD",
-	"itemId":"rabnebanadijodi_all_tvod_ind_android",
-	"itemName":"Rab_Ne_Bana_Di_Jodi",
-	"currencyCode":"INR",
-	"pmtChannel":"FORTUMO",
-	"country": "IN",
-	"subscriptionMode":"TVOD",
-	"pkgInd":"T",
-	"renewable":"F",
-	"channel_id":"WEB",
-	"cpId":"20012007291003285",
-	"channelPartnerID": "MSMIND1"
+	"retControlUrl":"${retControlUrl}",
+	"itemId":"${itemId}",
+	"itemName":"${itemName}",
+	"currencyCode":"${currencyCode}",
+	"pmtChannel":"${pmtChannel}",
+	"country": "${country}",
+	"subscriptionMode":"${subscriptionMode}",
+	"pkgInd":"${pkgInd}",
+	"renewable":"${renewable}",
+	"channel_id":"${channel_id}",
+	"cpId":"${cpId}",
+	"channelPartnerID": "${channelPartnerID}"
 }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))

@@ -14,7 +14,7 @@ object Config {
   }
 
   //  val app_url = "https://apiqa.sonyliv.com/"
-  //val app_url = "https://apipreprod.sonyliv.com/"
+//  val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -39,7 +39,7 @@ object Config {
   val CONTENT_DETAIL_BUNDLE_URL = "${tenant}/1.4/${cluster}/${locale}/ANDROID_PHONE/ALL/CONTENT/DETAIL/BUNDLE/1700000002"
   val CREATE_PAYMENT_QR = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/CREATEPAYMENTQR"
   val CHECK_FREE_TRIAL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ISCUSTOMERELIGIBLEFORFREETRIAL"
-  val SUBSCRIPTION_PAYMENTURL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/PAYMENTURL"
+  val SUBSCRIPTION_PAYMENTURL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PAYMENTURL"
   val PLACE_ORDER_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/PLACEORDER"
 
 
