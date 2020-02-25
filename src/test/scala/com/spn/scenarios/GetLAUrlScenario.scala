@@ -1,27 +1,21 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
-import com.spn.requests.AllSubscriptionsRequest
+import com.spn.requests.GetLAUrlRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 
-object AllSubscriptionsScenario {
+object GetLAUrlScenario {
 
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val loginEmailData = csv("data/LoginID.csv").circular
+  val deviceFeeder = csv("data/device_details.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
 
-  val dateTimeFeeder = Iterator.continually(
-    Map("getDateTime" -> LocalDateTime.now())
-  )
-
-  val getAllSubscriptionsScenario = scenario("All Subscriptions Scenario")
+  val getLAUrlScenario = scenario("Get LA URL Scenario")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
@@ -29,6 +23,9 @@ object AllSubscriptionsScenario {
     .feed(dataFeederProperty)
     .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(userCredentials)
-    .feed(loginEmailData)
-    .exec(AllSubscriptionsRequest.getAllSubscriptions)
+    .feed(deviceFeeder)
+    .exec(GetLAUrlRequest.getLaUrl)
 }
+
+
+
