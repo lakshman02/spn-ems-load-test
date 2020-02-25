@@ -394,5 +394,17 @@
       }
     ],
     "case": "paymentMode"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "videoUrl"
   }
 ]

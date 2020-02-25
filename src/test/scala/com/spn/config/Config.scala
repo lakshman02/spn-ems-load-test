@@ -42,9 +42,6 @@ object Config {
   val SUBSCRIPTION_PAYMENTURL = "AGL/1.4/A/E/WEB/IN/SUBSCRIPTION/PAYMENTURL"
   val PLACE_ORDER_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/PLACEORDER"
 
-
-
-
   val PRODUCTS_BY_COUPON_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PRODUCTSBYCOUPON"
   val STORE_DROP_OFF_REASON_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/STOREDROPOFFREASON"
   val Post_Apply_Coupon_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/APPLYCOUPON"
@@ -56,6 +53,7 @@ object Config {
   val CHANGE_SERVICE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/CHANGESERVICE"
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
+  val VIDEO_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/VIDEOURL/VOD/${contentId}"
 
 
   val users = Integer.getInteger("users", 1).toInt
