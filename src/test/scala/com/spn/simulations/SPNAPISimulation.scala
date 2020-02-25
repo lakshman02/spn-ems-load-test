@@ -14,10 +14,7 @@ class SPNAPISimulation extends Simulation {
 
   val filePath = System.getProperty("filePath")
 
-// val source: BufferedSource = Source.fromURL(filePath)
-
-  val source: BufferedSource = Source.fromFile("src/test/resources/simulationData/sanity/sanity_single_api.json")
-
+ val source: BufferedSource = Source.fromURL(filePath)
 
   val rawTestList = source.mkString
 
