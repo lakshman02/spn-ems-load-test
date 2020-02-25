@@ -44,6 +44,7 @@ object ScenarioMapping {
     "changeService" -> ChangeServiceScenario.changeServiceScenario,
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
+    "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
     // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
