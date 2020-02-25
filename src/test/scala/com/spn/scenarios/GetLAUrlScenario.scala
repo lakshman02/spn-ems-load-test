@@ -21,7 +21,6 @@ object GetLAUrlScenario {
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(userCredentials)
     .feed(deviceFeeder)
     .exec(GetLAUrlRequest.getLaUrl)
