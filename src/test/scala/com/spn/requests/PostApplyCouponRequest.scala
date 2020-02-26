@@ -12,7 +12,7 @@ object PostApplyCouponRequest {
       "x-via-device" -> "true"))
 
     .body(StringBody(""" {
-                       "couponCode": "GEN_FREE",
+                       "couponCode": "SONYTEST",
                         "price": 1.99,
                         "productID": "daily_india",
                         "channelPartnerID": "${channelPartnerID}",
