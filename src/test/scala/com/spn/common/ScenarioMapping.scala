@@ -50,6 +50,7 @@ object ScenarioMapping {
     "getToken" -> GetTokenScenario.getTokenScenario,
     "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
     "traySearch" -> TraySearchScenario.traySearchScenario,
+    "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
