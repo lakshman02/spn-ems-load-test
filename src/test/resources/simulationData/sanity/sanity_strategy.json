@@ -513,6 +513,18 @@
         ]
       }
     ],
+    "case": "getSearchHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
     "case": "getToken"
   },
   {

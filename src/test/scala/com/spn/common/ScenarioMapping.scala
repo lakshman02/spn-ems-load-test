@@ -56,6 +56,7 @@ object ScenarioMapping {
     "addList" -> AddListScenario.addListScenario,
     "getToken" -> GetTokenScenario.getTokenScenario,
     "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
+    "getSearchHistory" -> GetSearchHistoryScenario.getSearchHistoryScenario,
     "traySearch" -> TraySearchScenario.traySearchScenario,
     "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
     "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
