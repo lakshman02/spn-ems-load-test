@@ -45,6 +45,9 @@ object ScenarioMapping {
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getList" -> GetListScenario.getListScenario,
+    "movieDetail" -> MovieDetailScenario.movieDetailScenario,
+    "addList" -> AddListScenario.addListScenario,
+    "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,

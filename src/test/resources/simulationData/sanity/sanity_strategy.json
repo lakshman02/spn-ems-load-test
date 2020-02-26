@@ -417,6 +417,41 @@
         ]
       }
     ],
-    "case": "getList"
-  }
+    "case": "movieDetail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "addList"
+  },{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getList"
+}
 ]
