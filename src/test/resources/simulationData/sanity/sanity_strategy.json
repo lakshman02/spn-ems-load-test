@@ -418,5 +418,17 @@
       }
     ],
     "case": "movieDetail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "addList"
   }
 ]
