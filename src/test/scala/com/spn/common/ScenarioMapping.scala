@@ -47,6 +47,7 @@ object ScenarioMapping {
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
     "addList" -> AddListScenario.addListScenario,
     "getToken" -> GetTokenScenario.getTokenScenario,
+    "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
@@ -54,7 +55,6 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
-
 
   )
 }
