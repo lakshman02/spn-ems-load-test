@@ -45,6 +45,16 @@ object ScenarioMapping {
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "deleteList" -> DeleteListScenario.deleteListScenario,
+    "bundleId" -> BundleIdScenario.scnbundle,
+    "getList" -> GetListScenario.getListScenario,
+    "movieDetail" -> MovieDetailScenario.movieDetailScenario,
+    "addList" -> AddListScenario.addListScenario,
+    "getToken" -> GetTokenScenario.getTokenScenario,
+    "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
+    "traySearch" -> TraySearchScenario.traySearchScenario,
+    "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
+    "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
+    "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
