@@ -12,7 +12,7 @@ object GetLAUrlScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val deviceFeeder = csv("data/device_details.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val getLAUrlScenario = scenario("Get LA URL Scenario")
