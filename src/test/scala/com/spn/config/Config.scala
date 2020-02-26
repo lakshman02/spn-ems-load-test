@@ -59,6 +59,7 @@ object Config {
   val MOVIE_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/MOVIE/${movieId}"
   val ADD_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ADDMYLIST"
   val GET_TOKEN_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETTOKEN"
+  val GENERATE_DEVICE_ACTIVATION_CODE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GENERATEDEVICEACTIVATIONCODE"
 
 
   val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH"

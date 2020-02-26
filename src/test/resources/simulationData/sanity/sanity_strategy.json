@@ -490,5 +490,17 @@
       }
     ],
     "case": "traySearchVOD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "generateDeviceActivationCode"
   }
 ]
