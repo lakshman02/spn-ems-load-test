@@ -1,11 +1,13 @@
-package com.spn.scenarios
+package com.spn.simulations
 
 import com.spn.config.Config
+import com.spn.scenarios.MovieDetailScenario
 import io.gatling.core.Predef.{Simulation, _}
 
-class VideoUrlSimulation extends Simulation {
-  private val videoUrlExec = VideoUrlScenario.videoUrlScenario
-        .inject(constantUsersPerSec(2) during (1))
+
+class movieDetailSimulation extends Simulation {
+  private val movieDetailExec = MovieDetailScenario.movieDetailScenario
+        .inject(constantUsersPerSec(1) during (1))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)
@@ -14,7 +16,7 @@ class VideoUrlSimulation extends Simulation {
 //        .startingFrom(Config.startingFrom)
 //    )
 
-  setUp(videoUrlExec).protocols(Config.httpProtocol)
+  setUp(movieDetailExec).protocols(Config.httpProtocol)
     .assertions(
       global.failedRequests.count.is(0)
     )
