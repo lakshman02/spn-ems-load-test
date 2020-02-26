@@ -1,7 +1,6 @@
 package com.spn.scenarios
 
 import com.spn.requests.Subscription_PaymentURL
-import com.spn.scenarios.CreateOTPScenario.userCredentials
 import io.gatling.core.Predef.{scenario, _}
 
 object Subscription_PaymentScenario  {
@@ -11,6 +10,7 @@ object Subscription_PaymentScenario  {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
+  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
   val subscription_PaymentScenario= scenario("Subscription Payment Scenario")
@@ -20,6 +20,7 @@ object Subscription_PaymentScenario  {
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
     .feed(userCredentials)
+    .feed(inputStagingDataFeeder)
 
     .exec(Subscription_PaymentURL.Subscription_Payment)
   //.exec (session => println(session) session)
