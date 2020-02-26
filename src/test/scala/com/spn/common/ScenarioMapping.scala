@@ -44,6 +44,7 @@ object ScenarioMapping {
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+    "traySearch" -> TraySearchScenario.traySearchScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
