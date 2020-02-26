@@ -1,28 +1,23 @@
 package com.spn.scenarios
 
-import com.spn.requests.Subscription_PaymentURL
+import com.spn.requests.GetSearchHistoryRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object Subscription_PaymentScenario  {
+object GetSearchHistoryScenario {
 
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
-  val subscription_PaymentScenario= scenario("Subscription Payment Scenario")
+  val getSearchHistoryScenario = scenario("Get Search History Scenario")
     .feed(dataFeederTenant)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(userCredentials)
-    .feed(inputStagingDataFeeder)
-
-    .exec(Subscription_PaymentURL.Subscription_Payment)
-  //.exec (session => println(session) session)
-
+    .feed(userAuthFeeder)
+    .exec(GetSearchHistoryRequest.getSearchHistory)
 }
