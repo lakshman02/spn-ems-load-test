@@ -417,6 +417,9 @@
         ]
       }
     ],
+<<<<<<< HEAD
+    "case": "addSearchedItem"
+=======
     "case": "episodeIdDetails"
   },
   {
@@ -537,5 +540,6 @@
       }
     ],
     "case": "searchDescription"
+>>>>>>> 0db9b7d5cd5b4f067ff086eb62477ab7cc546331
   }
 ]
