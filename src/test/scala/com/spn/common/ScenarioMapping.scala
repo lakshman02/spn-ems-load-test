@@ -52,6 +52,7 @@ object ScenarioMapping {
     "traySearch" -> TraySearchScenario.traySearchScenario,
     "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
     "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
+    "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
