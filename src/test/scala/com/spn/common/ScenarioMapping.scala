@@ -46,6 +46,7 @@ object ScenarioMapping {
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+    "getUserPlayBackPreviewDetails" -> GetUserPlayBackPreviewDetailsScenario.getUserPlayBackPreviewDetailsScenario,
     "deleteList" -> DeleteListScenario.deleteListScenario,
     "addSearchedItem" -> AddSearchedItemScenario.scnAddSearchedItem,
     "episodeIdDetails" -> EpisodeIdDetailScenario.scnEpisodeIdDetails,
