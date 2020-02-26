@@ -16,7 +16,7 @@ object ProcessRazorPayOrderScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
   val dataFeederPaymentId=csv("data/paymentId.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val processRazorPayOrderScenario =scenario("Process RazorPayOrder Scenario")
     .feed(dataFeederChannel)

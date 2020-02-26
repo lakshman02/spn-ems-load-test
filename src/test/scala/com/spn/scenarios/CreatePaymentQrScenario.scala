@@ -15,7 +15,7 @@ object CreatePaymentQrScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/payment_details.csv").circular
   val channelPartnerFeeder = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val createPaymentQrScenario =scenario("Create Payment QR Scenario")

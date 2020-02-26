@@ -17,7 +17,7 @@ object UpdateProfileScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val updateProfileDataFeeder=csv("data/profileUpdate.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val dateOfBirthFeeder = Iterator.continually(
     Map("dateOfBirth" -> ThreadLocalRandom.current().nextInt(1551081657,1582617662))

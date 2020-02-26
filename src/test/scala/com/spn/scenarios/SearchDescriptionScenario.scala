@@ -11,7 +11,7 @@ object SearchDescriptionScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val contentFeeder = csv("data/traySearchQueries.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val searchDescriptionScenario = scenario("Search Description Scenario")
     .feed(dataFeederTenant)

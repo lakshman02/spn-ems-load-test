@@ -11,7 +11,7 @@ object AddSearchedItemScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederSearchvalue =csv ("data/traySearchQueries.csv").circular
-  val dataFeederAuthToken = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val dataFeederAuthToken = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val scnAddSearchedItem = scenario("Add Searched item")
 
