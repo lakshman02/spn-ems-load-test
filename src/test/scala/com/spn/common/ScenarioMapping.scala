@@ -44,6 +44,7 @@ object ScenarioMapping {
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+    "bundleId" -> BundleIdScenario.scnbundle,
     "getList" -> GetListScenario.getListScenario,
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
     "addList" -> AddListScenario.addListScenario,

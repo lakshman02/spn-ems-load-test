@@ -465,6 +465,17 @@
       ]
     }
   ],
+  "case": "bundleId"
+},{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
   "case": "getList"
 },
   {
