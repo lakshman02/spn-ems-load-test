@@ -10,7 +10,7 @@ object PostSubscriptionHistoryScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val bodydatafeeder = csv("data/LoginID.csv")
+  val bodydatafeeder = csv("data/LoginID.csv").circular
   val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val SubscriptionHistory = scenario("Post Subscription History")
