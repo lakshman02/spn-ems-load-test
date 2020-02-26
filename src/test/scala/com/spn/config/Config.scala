@@ -14,7 +14,7 @@ object Config {
   }
 
   //  val app_url = "https://apiqa.sonyliv.com/"
-  //val app_url = "https://apipreprod.sonyliv.com/"
+//  val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -54,7 +54,7 @@ object Config {
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
   val VIDEO_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/VIDEOURL/VOD/${contentId}"
-
+  val GET_SEARCH_HISTORY_URL ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETSEARCHHISTORY"
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt

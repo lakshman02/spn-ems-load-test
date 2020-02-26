@@ -45,7 +45,7 @@ object ScenarioMapping {
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
-
+    "getSearchHistory" -> GetSearchHistoryScenario.getSearchHistoryScenario,
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,

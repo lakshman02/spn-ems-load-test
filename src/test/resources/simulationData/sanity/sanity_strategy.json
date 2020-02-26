@@ -418,5 +418,17 @@
       }
     ],
     "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getSearchHistory"
   }
 ]
