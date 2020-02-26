@@ -429,6 +429,18 @@
         ]
       }
     ],
+    "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
     "case": "addList"
   },
   {
@@ -442,6 +454,42 @@
       }
     ],
     "case": "getToken"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getList"
+},
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "traySearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "traySearchVOD"
   },
   {
     "inject": [

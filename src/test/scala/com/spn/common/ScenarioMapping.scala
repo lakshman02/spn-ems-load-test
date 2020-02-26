@@ -44,9 +44,13 @@ object ScenarioMapping {
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+    "getList" -> GetListScenario.getListScenario,
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
     "addList" -> AddListScenario.addListScenario,
     "getToken" -> GetTokenScenario.getTokenScenario,
+    "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
+    "traySearch" -> TraySearchScenario.traySearchScenario,
+    "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
     "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
 
     // All Journey mapping goes here
@@ -55,6 +59,7 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
+
 
   )
 }
