@@ -65,7 +65,7 @@ object Config {
   val DELETE_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/DELETEMYLIST"
 
   val ADDSEARCHEDITEM = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/ADDSEARCHEDITEM"
-  val EPISODE_DETAILS = "{{tenant}}/1.4/{{cluster}}/{{locale}}/{{channel}}/{{propertyName}}/DETAIL/EPISODE/${episodeid}"
+  val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/EPISODE/${episodeid}"
   val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/BUNDLE/${bundleId}"
   val DELETE_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETESEARCHHISTORY"
   val TRAY_SEARCH_VOD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH/VOD"

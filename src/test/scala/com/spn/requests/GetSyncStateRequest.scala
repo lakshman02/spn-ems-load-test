@@ -9,7 +9,7 @@ object GetSyncStateRequest {
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true")
   val getSyncState= exec(http("Get Sync state Request")
-    .post(Config.app_url + Config.GetSyncState_URL)
+    .get(Config.app_url + Config.GetSyncState_URL)
     .headers(sentHeaders)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
