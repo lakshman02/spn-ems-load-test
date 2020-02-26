@@ -44,6 +44,7 @@ object ScenarioMapping {
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+    "deleteList" -> DeleteListScenario.deleteListScenario,
     "addSearchedItem" -> AddSearchedItemScenario.scnAddSearchedItem,
     "episodeIdDetails" -> EpisodeIdDetailScenario.scnEpisodeIdDetails,
     "bundleId" -> BundleIdScenario.scnbundle,
