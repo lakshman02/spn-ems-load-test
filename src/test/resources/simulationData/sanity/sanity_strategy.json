@@ -417,9 +417,42 @@
         ]
       }
     ],
-<<<<<<< HEAD
     "case": "deleteList"
-=======
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "addSearchedItem"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "episodeIdDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
     "case": "movieDetail"
   },
   {
@@ -528,6 +561,6 @@
       }
     ],
     "case": "searchDescription"
->>>>>>> c14f5cc79ff6b8095799b43abf26d89def7d2e06
+
   }
 ]
