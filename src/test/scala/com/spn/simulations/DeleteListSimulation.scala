@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class DeleteListSimulation extends Simulation
 {
 private val DeleteListExec = DeleteListScenario.deleteListScenario
-  .inject(rampUsers(5)during(5)
+  .inject(rampUsers(1)during(1)
   )
 
 
