@@ -42,6 +42,8 @@ object ScenarioMapping {
     "changeService" -> ChangeServiceScenario.changeServiceScenario,
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
+    "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
+    // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "deleteList" -> DeleteListScenario.deleteListScenario,
