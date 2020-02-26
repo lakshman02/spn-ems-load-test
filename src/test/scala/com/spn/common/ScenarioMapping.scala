@@ -47,6 +47,7 @@ object ScenarioMapping {
     "getList" -> GetListScenario.getListScenario,
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
     "addList" -> AddListScenario.addListScenario,
+    "getToken" -> GetTokenScenario.getTokenScenario,
     "getLAUrl" -> GetLAUrlScenario.getLAUrlScenario,
 
     // All Journey mapping goes here
