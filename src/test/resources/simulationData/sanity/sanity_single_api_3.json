@@ -1,0 +1,314 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "prorateAmount"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getPage"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getMenu"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "updateProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "bundleId"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "videoUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "productsByCoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "movieDetail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "episodeIdDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "showDetail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "addList"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getList"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "deleteList"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getUserPlayBackPreviewDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "traySearchVOD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "traySearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "GenerateDeviceActivationCode"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getToken"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "searchDescription"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getSearchHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "applycoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "deleteSearchHistory"
+  }
+]

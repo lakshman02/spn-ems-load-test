@@ -78,7 +78,7 @@
         ]
       }
     ],
-    "case": "placeOrder"
+    "case": "subscriptionRemove"
   },
   {
     "inject": [
@@ -107,7 +107,7 @@
         ]
       }
     ],
-    "case": "paymentMode"
+    "case": "prorateAmount"
   },
   {
     "inject": [
@@ -136,7 +136,7 @@
         ]
       }
     ],
-    "case": "subscriptionRemove"
+    "case": "getPage"
   },
   {
     "inject": [
@@ -165,7 +165,7 @@
         ]
       }
     ],
-    "case": "prorateAmount"
+    "case": "getMenu"
   },
   {
     "inject": [
@@ -194,7 +194,7 @@
         ]
       }
     ],
-    "case": "getPage"
+    "case": "updateProfile"
   },
   {
     "inject": [
@@ -223,7 +223,7 @@
         ]
       }
     ],
-    "case": "getMenu"
+    "case": "bundleId"
   },
   {
     "inject": [
@@ -252,7 +252,7 @@
         ]
       }
     ],
-    "case": "updateProfile"
+    "case": "videoUrl"
   },
   {
     "inject": [
@@ -281,7 +281,7 @@
         ]
       }
     ],
-    "case": "bundleId"
+    "case": "productsByCoupon"
   },
   {
     "inject": [
@@ -310,7 +310,7 @@
         ]
       }
     ],
-    "case": "videoUrl"
+    "case": "getLAUrl"
   },
   {
     "inject": [
@@ -339,7 +339,7 @@
         ]
       }
     ],
-    "case": "productsByCoupon"
+    "case": "movieDetail"
   },
   {
     "inject": [
@@ -368,7 +368,7 @@
         ]
       }
     ],
-    "case": "subscriptionRemove"
+    "case": "episodeIdDetails"
   },
   {
     "inject": [
@@ -397,7 +397,7 @@
         ]
       }
     ],
-    "case": "getLAUrl"
+    "case": "showDetail"
   },
   {
     "inject": [
@@ -426,7 +426,7 @@
         ]
       }
     ],
-    "case": "movieDetail"
+    "case": "addList"
   },
   {
     "inject": [
@@ -455,7 +455,7 @@
         ]
       }
     ],
-    "case": "episodeIdDetails"
+    "case": "getList"
   },
   {
     "inject": [
@@ -484,7 +484,7 @@
         ]
       }
     ],
-    "case": "showDetail"
+    "case": "deleteList"
   },
   {
     "inject": [
@@ -513,7 +513,7 @@
         ]
       }
     ],
-    "case": "addList"
+    "case": "getUserPlayBackPreviewDetails"
   },
   {
     "inject": [
@@ -542,7 +542,7 @@
         ]
       }
     ],
-    "case": "getList"
+    "case": "traySearchVOD"
   },
   {
     "inject": [
@@ -571,7 +571,7 @@
         ]
       }
     ],
-    "case": "deleteList"
+    "case": "traySearch"
   },
   {
     "inject": [
@@ -600,7 +600,7 @@
         ]
       }
     ],
-    "case": "getUserPlayBackPreviewDetails"
+    "case": "GenerateDeviceActivationCode"
   },
   {
     "inject": [
@@ -629,7 +629,7 @@
         ]
       }
     ],
-    "case": "traySearchVOD"
+    "case": "getToken"
   },
   {
     "inject": [
@@ -658,7 +658,7 @@
         ]
       }
     ],
-    "case": "traySearch"
+    "case": "searchDescription"
   },
   {
     "inject": [
@@ -687,7 +687,7 @@
         ]
       }
     ],
-    "case": "getSyncState"
+    "case": "getSearchHistory"
   },
   {
     "inject": [
@@ -716,7 +716,7 @@
         ]
       }
     ],
-    "case": "postSyncState"
+    "case": "applycoupon"
   },
   {
     "inject": [
@@ -745,180 +745,6 @@
         ]
       }
     ],
-    "case": "GenerateDeviceActivationCode"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          46800
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getToken"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          48600
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "searchDescription"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          50400
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getSearchHistory"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          50400
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "applycoupon"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          50400
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getSearchHistory"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          50400
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getSearchHistory"
+    "case": "deleteSearchHistory"
   }
 ]
