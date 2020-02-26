@@ -442,5 +442,16 @@
       }
     ],
     "case": "addList"
-  }
+  },{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getList"
+}
 ]
