@@ -429,6 +429,18 @@
         ]
       }
     ],
+    "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
     "case": "addList"
   },
   {
@@ -442,5 +454,17 @@
       }
     ],
     "case": "getToken"
-  }
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getList"
+}
 ]
