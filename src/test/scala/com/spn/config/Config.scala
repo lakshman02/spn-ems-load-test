@@ -60,6 +60,7 @@ object Config {
   val GET_TOKEN_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETTOKEN"
 
 
+  val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH"
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
