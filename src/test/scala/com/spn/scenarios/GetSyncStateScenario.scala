@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
 import com.spn.requests.GetSyncStateRequest
-import io.gatling.core.Predef._
-import io.gatling.core.Predef.scenario
+import io.gatling.core.Predef.{scenario, _}
 
 object GetSyncStateScenario{
 
@@ -11,7 +10,7 @@ object GetSyncStateScenario{
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val getSyncStateScenario =scenario("Get Sync state Scenario")
     .feed(dataFeederChannel)

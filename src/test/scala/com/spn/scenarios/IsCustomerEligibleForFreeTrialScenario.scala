@@ -1,11 +1,7 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
 import com.spn.requests.IsCustomerEligibleForFreeTrialRequest
-import com.spn.scenarios.LoginWithEmailScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData, userCredentials}
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object IsCustomerEligibleForFreeTrialScenario {
 
@@ -15,7 +11,7 @@ object IsCustomerEligibleForFreeTrialScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
 

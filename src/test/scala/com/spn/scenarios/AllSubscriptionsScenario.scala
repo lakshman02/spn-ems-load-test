@@ -3,8 +3,7 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 
 import com.spn.requests.AllSubscriptionsRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object AllSubscriptionsScenario {
 
@@ -14,7 +13,7 @@ object AllSubscriptionsScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val dateTimeFeeder = Iterator.continually(

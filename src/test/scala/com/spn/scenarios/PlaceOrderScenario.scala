@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
 import com.spn.requests.PlaceOrderRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object PlaceOrderScenario{
 
@@ -12,7 +11,7 @@ object PlaceOrderScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val placeOrderScenario =scenario("Place Order Scenario")
     .feed(dataFeederChannel)

@@ -12,7 +12,7 @@ object PostSyncStateScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/inputStagingWeb.csv").circular
   val dataFeederService = csv("data/service_details.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
   val authFeeder = csv("data/LoginID.csv").circular
 
 

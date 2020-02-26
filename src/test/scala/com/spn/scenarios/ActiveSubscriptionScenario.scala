@@ -1,7 +1,6 @@
 package com.spn.scenarios
 
 import com.spn.requests.ActiveSubscription
-import com.spn.scenarios.AllSubscriptionsScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 object ActiveSubscriptionScenario   {
 
@@ -10,8 +9,8 @@ object ActiveSubscriptionScenario   {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val bodydatafeeder = csv("data/LoginID.csv")
-  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val bodydatafeeder = csv("data/LoginID.csv").circular
+  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val activeSubscriptionScenario = scenario("Active Subscription Scenario")
     .feed(dataFeederTenant)

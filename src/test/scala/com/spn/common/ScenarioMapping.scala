@@ -33,20 +33,19 @@ object ScenarioMapping {
     "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
-    "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     "prorateAmount" -> ProrateAmountScenario.prorateAmountScenario,
     "paymentMode" -> PaymentModesScenario.scnPaymentMode,
-    "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "subscriptionRemove" -> SubscriptionRemoveScenario.subscriptionRemoveScenario,
     "changeService" -> ChangeServiceScenario.changeServiceScenario,
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
-    // All Journey mapping goes here
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
+
+    // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,

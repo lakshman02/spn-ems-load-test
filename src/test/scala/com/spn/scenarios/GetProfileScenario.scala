@@ -10,7 +10,7 @@ object GetProfileScenario {
   val dataFeederLocale = csv("data/locale.csv").random
   val dataFeederProperty = csv("data/property.csv").random
   val dataFeederTenant = csv("data/tenant.csv").random
-  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val getProfileScenario =scenario("Get Profile Scenario")
     .feed(dataFeederChannel)

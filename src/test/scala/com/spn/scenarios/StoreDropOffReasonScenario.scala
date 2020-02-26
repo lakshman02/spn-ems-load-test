@@ -1,10 +1,7 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
 import com.spn.requests.StoreDropOffReasonRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import io.gatling.core.Predef.{scenario, _}
 
 object StoreDropOffReasonScenario{
 
@@ -14,7 +11,7 @@ object StoreDropOffReasonScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val storeDropOffReasonScenario =scenario("Store Drop Off Reason Scenario")
     .feed(dataFeederChannel)

@@ -1,10 +1,7 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
-import com.spn.requests. UpgradablePlansRequest
-import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
+import com.spn.requests.UpgradablePlansRequest
+import io.gatling.core.Predef.{scenario, _}
 
 object UpgradablePlansScenario{
 
@@ -14,7 +11,7 @@ object UpgradablePlansScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val upgradablePlansScenario =scenario("Upgradable Plans Scenario")

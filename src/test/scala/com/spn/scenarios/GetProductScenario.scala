@@ -1,7 +1,6 @@
 package com.spn.scenarios
 
 import com.spn.requests.GetProduct
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederOtpRequirements, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 
 object GetProductScenario   {
@@ -13,7 +12,7 @@ object GetProductScenario   {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
   val dataSalesFeeder = csv("data/payment_details.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val getProductScenario = scenario("Get Product Scenario")
     .feed(dataFeederTenant)

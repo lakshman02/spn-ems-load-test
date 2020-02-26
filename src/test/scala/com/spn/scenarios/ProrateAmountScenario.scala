@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.requests.{ ProrateAmountRequest}
+import com.spn.requests.ProrateAmountRequest
 import io.gatling.core.Predef.{scenario, _}
 
 object ProrateAmountScenario {
@@ -12,7 +12,7 @@ object ProrateAmountScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val serviceIdData = csv("data/serviceId.csv").circular
   val authFeeder = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 
   val prorateAmountScenario = scenario("Prorate Amount Scenario")

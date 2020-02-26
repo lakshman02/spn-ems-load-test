@@ -1,0 +1,410 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getInitialConfig"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getULD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getVODDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "groupOfBundles"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "accountSearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "login"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "loginWithEmail"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "isSubscribed"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getProduct"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postGenericCoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "allSubscriptions"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "activeSubscription"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postSubscriptionHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "isCustomerEligibleForFreeTrial"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "storeDropOffReason"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "upgradablePlans"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "changeService"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "getSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "postSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "placeOrder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "paymentMode"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          120
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          1,
+          1
+        ]
+      }
+    ],
+    "case": "prorateAmount"
+  }
+]
