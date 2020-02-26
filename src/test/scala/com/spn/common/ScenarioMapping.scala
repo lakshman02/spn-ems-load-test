@@ -46,6 +46,7 @@ object ScenarioMapping {
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
     "addList" -> AddListScenario.addListScenario,
+    "getToken" -> GetTokenScenario.getTokenScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
