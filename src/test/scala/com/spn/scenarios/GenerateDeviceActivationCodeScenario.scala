@@ -1,9 +1,10 @@
 package com.spn.scenarios
 
-import com.spn.requests.Subscription_PaymentURL
+import java.time.LocalDateTime
+import com.spn.requests.GenerateDeviceActivationCodeRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object Subscription_PaymentScenario  {
+object GenerateDeviceActivationCodeScenario{
 
   val dataFeederChannel = csv("data/channel.csv").circular
   val dataFeederCluster = csv("data/cluster.csv").circular
@@ -11,18 +12,18 @@ object Subscription_PaymentScenario  {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
 
-  val subscription_PaymentScenario= scenario("Subscription Payment Scenario")
-    .feed(dataFeederTenant)
+  val dateTimeFeeder = Iterator.continually(
+    Map("getDateTime" -> LocalDateTime.now())
+  )
+
+  val generateDeviceActivationCodeScenario =scenario("Generate Device Activation Code Scenario")
+    .feed(dataFeederChannel)
     .feed(dataFeederCluster)
     .feed(dataFeederLocale)
-    .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(userCredentials)
+    .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-
-    .exec(Subscription_PaymentURL.Subscription_Payment)
-  //.exec (session => println(session) session)
-
+    .feed(dateTimeFeeder)
+    .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
 }
