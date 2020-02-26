@@ -1,10 +1,7 @@
 package com.spn.scenarios
 
-import com.spn.config.Config
 import com.spn.requests.SubscriptionRemoveRequest
-import com.spn.scenarios.ChangeServiceScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederOtpRequirements, dataFeederProperty, dataFeederServiceDetails, dataFeederTenant, userCredentials}
 import io.gatling.core.Predef._
-import io.gatling.http.Predef._
 
 object SubscriptionRemoveScenario {
 
@@ -15,7 +12,7 @@ object SubscriptionRemoveScenario {
   val dataFeederTenant = csv("data/tenant.csv").circular
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
   val dataFeederServiceDetails = csv("data/service_details.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val subscriptionRemoveScenario= scenario("Subscription Remove Scenario")
 
