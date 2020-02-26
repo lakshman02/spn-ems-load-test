@@ -11,7 +11,7 @@ object ProrateAmountRequest {
     .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
       "x-via-device" -> "true"))
     .body(StringBody("""{
-                       |"serviceID": "${skuORQuickCode}",
+                       |"serviceID": "${serviceId}",
                        |"channelPartnerID": "${channelPartnerID}",
                        |"timestamp": "${getDateTime}"
                        |}""".stripMargin)).asJson

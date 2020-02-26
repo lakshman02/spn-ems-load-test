@@ -1,6 +1,5 @@
 package com.spn.scenarios
 import com.spn.requests.LoginWithEmailRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import io.gatling.core.Predef.{scenario, _}
 
 object LoginWithEmailScenario {
@@ -11,7 +10,7 @@ object LoginWithEmailScenario {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val loginEmailData = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/evergent_data_1.csv.gz").unzip.shard
+  val userCredentials = csv("data/evergent/evergent_data_1.csv.gz").unzip.shard.random
 
   val LoginWithEmailScenario = scenario("Login With Email Scenario")
     .feed(dataFeederTenant)

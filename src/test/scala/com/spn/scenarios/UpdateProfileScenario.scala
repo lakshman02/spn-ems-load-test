@@ -1,10 +1,13 @@
 package com.spn.scenarios
 
 import java.time.LocalDateTime
+import java.util.concurrent.ThreadLocalRandom
 
 import com.spn.requests.UpdateProfileRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
+
+import scala.util.Random
 
 object UpdateProfileScenario{
 
@@ -14,6 +17,12 @@ object UpdateProfileScenario{
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
   val updateProfileDataFeeder=csv("data/profileUpdate.csv").circular
+  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+
+  val dateOfBirthFeeder = Iterator.continually(
+    Map("dateOfBirth" -> ThreadLocalRandom.current().nextInt(1551081657,1582617662))
+  )
+
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
@@ -26,5 +35,7 @@ object UpdateProfileScenario{
     .feed(dataFeederTenant)
     .feed(updateProfileDataFeeder)
     .feed(dateTimeFeeder)
+    .feed(dateOfBirthFeeder)
+    .feed(userCredentials)
     .exec(UpdateProfileRequest.updateProfile)
 }

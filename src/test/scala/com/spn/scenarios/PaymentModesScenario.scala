@@ -1,7 +1,7 @@
 package com.spn.scenarios
 
-import io.gatling.core.Predef._
 import com.spn.requests.PaymentModesRequest
+import io.gatling.core.Predef._
 object PaymentModesScenario {
 
  val bodydatafeeder = csv("data/LoginID.csv")
@@ -10,7 +10,7 @@ object PaymentModesScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
- val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard
+ val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
   val scnPaymentMode = scenario("Post Payment Mode")
     .feed(CreateOTPScenario.dateTimeFeeder)
     .feed(bodydatafeeder)

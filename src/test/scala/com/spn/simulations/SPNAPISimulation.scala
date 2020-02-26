@@ -16,9 +16,6 @@ class SPNAPISimulation extends Simulation {
 
  val source: BufferedSource = Source.fromURL(filePath)
 
-//  val source: BufferedSource = Source.fromFile(filePath)
-
-
   val rawTestList = source.mkString
 
   def scnList() : Seq[PopulationBuilder] = {
@@ -42,5 +39,12 @@ class SPNAPISimulation extends Simulation {
     scnList
   }
 
-  setUp(scnList:_*).protocols(Config.httpProtocol)
+//  setUp(scnList:_*).protocols(Config.httpProtocol)
+  setUp(scnList:_*)
+    .protocols(Config.httpProtocol)
+    .assertions(
+      global.responseTime.mean.lte(100),
+      global.responseTime.percentile(99.9).lte(100),
+      global.successfulRequests.percent.gte(99)
+    )
 }

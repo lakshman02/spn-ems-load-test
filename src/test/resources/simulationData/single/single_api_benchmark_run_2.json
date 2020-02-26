@@ -1,0 +1,344 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "activeSubscription"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          1800
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "postSubscriptionHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          3600
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "isCustomerEligibleForFreeTrial"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          5400
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "storeDropOffReason"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          7200
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "upgradablePlans"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          9000
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "changeService"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          10800
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "getSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          12600
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "postSyncState"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          14400
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "placeOrder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          16200
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "paymentMode"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          18000
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          19800
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "prorateAmount"
+  }
+]
