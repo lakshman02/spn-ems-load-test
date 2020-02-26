@@ -13,8 +13,12 @@ object GetLAUrlRequest {
                        "platform": "${platform_name}",
                        "deviceId": "${deviceId}",
                        "actionType": "${actionType}",
+                       "browser": "${browser}",
+                       "os": "${os}"
                        }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 
 }
+
+

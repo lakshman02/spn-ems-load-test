@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class GetLAUrlSimulation extends Simulation{
 
   private val getLAUrlExec = GetLAUrlScenario.getLAUrlScenario
-    .inject(rampUsers(1) during(1))
+    .inject(rampUsers(14) during(5))
 
   setUp(getLAUrlExec).protocols(Config.httpProtocol)
     .assertions(/*global.responseTime.max.lt(Config.defaultResponseTime),*/
