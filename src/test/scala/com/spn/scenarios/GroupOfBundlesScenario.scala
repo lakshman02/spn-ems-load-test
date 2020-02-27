@@ -11,7 +11,7 @@ object GroupOfBundlesScenario{
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val dataFeederBundleId = csv("data/bundleId.csv").circular
+  val dataFeederBundleId = csv("data/groupBundleId.csv").circular
 
   val groupOfBundlesScenario =scenario("Group Of Bundles Scenario")
     .feed(dataFeederTenant)
