@@ -63,6 +63,7 @@ object ScenarioMapping {
     "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
     "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
+    "deleteXdr" ->DeleteXdrScenario.deleteXdrScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
