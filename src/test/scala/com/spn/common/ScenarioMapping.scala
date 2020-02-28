@@ -64,6 +64,7 @@ object ScenarioMapping {
     "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
     "createRazorPayOrder" -> CreateRazorPayOrderScenario.createRazorPayOrderScenario,
+    "addXDR" -> AddXdrScenario.addXdrScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
