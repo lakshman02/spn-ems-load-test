@@ -647,5 +647,18 @@
     ],
     "case": "getDRMDeviceId"
 
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getDRMDeviceId"
+
   }
 ]
