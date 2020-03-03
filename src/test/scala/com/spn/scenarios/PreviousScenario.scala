@@ -7,7 +7,6 @@ import io.gatling.core.Predef.{scenario, _}
 object PreviousScenario {
 
   val dataFeederContentid = csv("data/contentID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val scnPreviousContent = scenario("Get Previous Content Details")
 
@@ -17,6 +16,6 @@ object PreviousScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederContentid)
-    .feed(userCredentials)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .exec(PreviousRequest.Previous)
 }
