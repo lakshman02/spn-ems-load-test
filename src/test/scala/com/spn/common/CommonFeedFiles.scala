@@ -22,6 +22,8 @@ object CommonFeedFiles {
   // User Specific
   val userAuth1KUsers = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
+  // inputStagingWeb
+  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
