@@ -9,10 +9,6 @@ import io.gatling.core.Predef.{scenario, _}
 object CreateRazorPayOrderScenario{
 
 
-  val inputDataFeeder=csv("data/inputStagingWeb.csv").circular
-
-
-
   val createRazorPayOrderScenario =scenario("Create Razor Pay Order Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
