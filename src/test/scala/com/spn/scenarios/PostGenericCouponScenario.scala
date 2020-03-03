@@ -7,17 +7,15 @@ import io.gatling.core.Predef._
 
 object PostGenericCouponScenario {
 
-  val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
-  val scnGeneric_Coupon = scenario("POST Generic Coupon")
+  val scnGeneric_Coupon = scenario(" Generic Coupon")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(dataFeederOtpRequirements)
-    .feed(userCredentials)
+    .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(PostGenericCouponsRequest.Generic_Coupons)
 

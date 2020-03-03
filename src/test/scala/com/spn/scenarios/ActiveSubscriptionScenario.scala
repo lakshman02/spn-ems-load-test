@@ -6,8 +6,6 @@ import io.gatling.core.Predef.{scenario, _}
 
 object ActiveSubscriptionScenario   {
 
-  val bodydatafeeder = csv("data/LoginID.csv").circular
-  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val activeSubscriptionScenario = scenario("Active Subscription Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -15,8 +13,8 @@ object ActiveSubscriptionScenario   {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(bodydatafeeder)
-    .feed(userAuthFeeder)
+    .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(ActiveSubscription.ActiveSubscription)
   //.exec (session => println(session) session)
