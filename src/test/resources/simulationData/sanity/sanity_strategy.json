@@ -687,5 +687,18 @@
     ],
     "case": "next"
 
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getPrevious"
+
   }
 ]
