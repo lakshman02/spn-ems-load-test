@@ -6,10 +6,6 @@ import io.gatling.core.Predef.{scenario, _}
 
 object UpgradablePlansScenario{
 
-  val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
-
-
   val upgradablePlansScenario =scenario("Upgradable Plans Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)

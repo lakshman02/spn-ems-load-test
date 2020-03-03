@@ -13,7 +13,7 @@ object PostSubscriptionHistoryScenario {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(bodydatafeeder)
+    .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
