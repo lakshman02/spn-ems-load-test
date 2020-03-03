@@ -21,10 +21,10 @@ object GetMenuScenario{
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
     .exec(GetMenuRequest.getMenu)
-    .exec(session => {
-       val channel = session("channel").as[String]
-       val response = session(Constants.RESP_MENU).as[String]
-       println(s"\nMENU Response from Session for channel : $channel ; body is : $response")
-      session
-    })
+//    .exec(session => {
+//       val channel = session("channel").as[String]
+//       val response = session(Constants.RESP_MENU).as[String]
+//       println(s"\nMENU Response from Session for channel : $channel ; body is : $response")
+//      session
+//    })
 }
