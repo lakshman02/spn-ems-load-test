@@ -609,6 +609,56 @@
       }
     ],
     "case": "searchDescription"
+  },
+  {
+    "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+    "case": "nextAndPrevious"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getXDR"
+
+},
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getDRMDeviceId"
+
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getDRMDeviceId"
 
   },
   {
