@@ -612,6 +612,33 @@
   },
   {
     "inject": [
+<<<<<<< HEAD
+=======
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+    "case": "nextAndPrevious"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+  "case": "getXDR"
+
+},
+  {
+    "inject": [
       {
         "type": "rampUsers",
         "args": [
@@ -620,6 +647,65 @@
         ]
       }
     ],
+    "case": "getDRMDeviceId"
+
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "getDRMDeviceId"
+
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "deleteXdr"
+
+
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+    "case": "next"
+
+  },
+  {
+    "inject": [
+>>>>>>> 18df1f1a3f9236203128b2a13033c7dca4f2b30f
+      {
+        "type": "rampUsers",
+        "args": [
+          2,
+          5
+        ]
+      }
+    ],
+<<<<<<< HEAD
     "case": "addXDR"
+=======
+    "case": "getPrevious"
+
+>>>>>>> 18df1f1a3f9236203128b2a13033c7dca4f2b30f
   }
 ]

@@ -2,6 +2,7 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.ProductsByCouponRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
@@ -24,6 +25,6 @@ object ProductsByCouponScenario{
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
     .feed(userCredentials)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(ProductsByCouponRequest.productsByCoupon)
 }

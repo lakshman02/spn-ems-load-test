@@ -9,10 +9,10 @@
 	</appender>
 
 	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>spn-load-test.log</file>
+		<file>/tmp/spn-load-test.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>logs-archive/spn-load-test-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<fileNamePattern>/tmp/logs-archive/spn-load-test-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
 			<!-- each file should be at most 100MB, keep 10 days worth of history, but at most 2GB -->
 			<maxFileSize>100MB</maxFileSize>
 			<maxHistory>20</maxHistory>
@@ -25,7 +25,9 @@
 
 	<!-- uncomment and set to DEBUG to log all failing HTTP requests -->
 	<!-- uncomment and set to TRACE to log all HTTP requests -->
-	<logger name="io.gatling.http.engine.response" level="TRACE" />
+	<logger name="io.gatling.http.engine.response" level="TRACE" additivity="false">
+		<appender-ref ref="ROLLING" />
+	</logger>
 
 	<root level="DEBUG">
 		<appender-ref ref="CONSOLE" />

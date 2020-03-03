@@ -1,7 +1,7 @@
 package com.spn.scenarios
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.ContentDetailBundle
-import com.spn.scenarios.AllSubscriptionsScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant, loginEmailData, userCredentials}
 import io.gatling.core.Predef.{scenario, _}
 
 object ContentDetailBundleScenario {
@@ -20,7 +20,7 @@ object ContentDetailBundleScenario {
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(userCredentials)
     .feed(loginEmailData)
     .exec(ContentDetailBundle.ContentDetailBundle)
