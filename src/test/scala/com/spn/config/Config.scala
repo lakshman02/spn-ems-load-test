@@ -70,6 +70,8 @@ object Config {
   val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH"
   val SEARCH_DESCRIPTION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SUGGESTION"
   val GET_XDR = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR"
+  val NEXT_AND_PREVIOUS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXTANDPREVIOUS/${contentId}"
+  val GET_DRM_DEVICEID_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SUGGESTION"
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt

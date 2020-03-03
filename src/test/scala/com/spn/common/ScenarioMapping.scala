@@ -64,6 +64,8 @@ object ScenarioMapping {
     "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
+    "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
+    "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
