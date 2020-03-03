@@ -4,7 +4,7 @@ import io.gatling.core.Predef._
 import com.spn.requests.EpisodeDetailRequest
 
 object EpisodeIdDetailScenario {
-  val dataFeederEpisodeId = csv("data/episodeid.csv")
+  val dataFeederEpisodeId = csv("data/episodeid.csv").circular
 
   val scnEpisodeIdDetails = scenario("Get Episode Id Details ")
     .feed(CommonFeedFiles.dataFeederChannel)

@@ -7,9 +7,7 @@ import io.gatling.core.Predef._
 
 object GetDRMDeviceIdScenario {
 
-
   val deviceFeeder = csv("data/device_details.csv").circular
-
 
   val getDRMDeviceIdScenario = scenario("Get DRMDevice ID Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)

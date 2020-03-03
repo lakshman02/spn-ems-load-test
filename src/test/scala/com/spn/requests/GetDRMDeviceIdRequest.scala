@@ -10,8 +10,8 @@ object GetDRMDeviceIdRequest {
     .post(Config.app_url + Config.GET_DRM_DEVICEID_URL)
     .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}"))
     .body(StringBody("""{
-                       "platform": "${platform_name}",
-                       "deviceId": "${deviceId}",
+                       "platform": "${channel}",
+                       "deviceId": "5264B354636343D-7C89-4FDB-43564rA5FB-D74475343690F28C0775555354675675464559",
                        "actionType": "${actionType}",
                        "browser": "${browser}",
                        "os": "${os}"

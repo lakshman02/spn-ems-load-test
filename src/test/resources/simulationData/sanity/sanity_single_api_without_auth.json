@@ -1,0 +1,58 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getMenu"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "episodeIdDetails"
+  },{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "showDetail"
+},{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "traySearchVOD"
+},{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "traySearch"
+}]
