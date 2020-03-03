@@ -2,11 +2,10 @@ package com.spn.scenarios
 
 import com.spn.common.Constants
 import com.spn.requests.GetMenuRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederProperty, dataFeederTenant}
 import com.spn.common.CommonFeedFiles
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
-import
+
 
 //"Get Menu" scenario
 object GetMenuScenario{
