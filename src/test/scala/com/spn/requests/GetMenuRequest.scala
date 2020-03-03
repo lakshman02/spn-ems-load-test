@@ -12,6 +12,6 @@ object GetMenuRequest {
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 //    .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findAll.saveAs(Constants.RESP_MENU))
-    .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findRandom.saveAs(Constants.RESP_RANDOM_PAGE_URL))
+//    .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findRandom.saveAs(Constants.RESP_RANDOM_PAGE_URL))
   )
 }
