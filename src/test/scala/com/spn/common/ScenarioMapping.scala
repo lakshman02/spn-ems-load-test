@@ -63,6 +63,7 @@ object ScenarioMapping {
     "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
     "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
+    "deleteXdr" ->DeleteXdrScenario.deleteXdrScenario,
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
