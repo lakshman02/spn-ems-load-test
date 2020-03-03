@@ -1,5 +1,6 @@
 package com.spn.scenarios
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.PostSyncStateRequest
 import io.gatling.core.Predef._
 
@@ -22,7 +23,7 @@ object PostSyncStateScenario {
     .feed(dataFeederLocale)
     .feed(dataFeederChannel)
     .feed(dataFeederProperty)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(loginEmailData)
     .feed(authFeeder)
     .feed(dataFeederService)

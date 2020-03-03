@@ -4,7 +4,6 @@ import com.spn.common.CommonFeedFiles
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 import com.spn.requests.PostApplyCouponRequest
-import com.spn.scenarios.CreateOTPScenario.{dataFeederChannel, dataFeederCluster, dataFeederLocale, dataFeederOtpRequirements, dataFeederProperty, dataFeederTenant, dateTimeFeeder, userCredentials}
 
 object PostApplyCouponScenario {
 

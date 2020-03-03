@@ -17,6 +17,6 @@ object PostSubscriptionHistoryScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(bodydatafeeder)
     .feed(userAuthFeeder)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
 }

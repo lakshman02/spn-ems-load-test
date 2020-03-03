@@ -65,14 +65,14 @@ object ScenarioMapping {
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
-    "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario
+    "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
-    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
+    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile
 
 
   )

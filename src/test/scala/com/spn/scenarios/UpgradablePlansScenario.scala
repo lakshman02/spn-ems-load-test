@@ -1,5 +1,6 @@
 package com.spn.scenarios
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.UpgradablePlansRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -21,7 +22,7 @@ object UpgradablePlansScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(userCredentials)
     .exec(UpgradablePlansRequest.upgradablePlans)
 }

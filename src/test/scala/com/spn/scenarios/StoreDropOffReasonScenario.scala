@@ -1,5 +1,6 @@
 package com.spn.scenarios
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.StoreDropOffReasonRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -20,7 +21,7 @@ object StoreDropOffReasonScenario{
     .feed(dataFeederProperty)
     .feed(dataFeederTenant)
     .feed(inputStagingDataFeeder)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(userCredentials)
     .exec(StoreDropOffReasonRequest.storeDropOffReason)
 }
