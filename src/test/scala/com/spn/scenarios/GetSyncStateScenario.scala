@@ -1,5 +1,6 @@
 package com.spn.scenarios
 
+import com.spn.common.CommonFeedFiles
 import com.spn.requests.GetSyncStateRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -13,11 +14,11 @@ object GetSyncStateScenario{
   val usersWithAuthtokenDataFeeder = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val getSyncStateScenario =scenario("Get Sync state Scenario")
-    .feed(dataFeederChannel)
-    .feed(dataFeederCluster)
-    .feed(dataFeederLocale)
-    .feed(dataFeederProperty)
-    .feed(dataFeederTenant)
-    .feed(usersWithAuthtokenDataFeeder)
+    .feed(CommonFeedFiles.dataFeederTenant)
+    .feed(CommonFeedFiles.dataFeederCluster)
+    .feed(CommonFeedFiles.dataFeederLocale)
+    .feed(CommonFeedFiles.dataFeederChannel)
+    .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .exec(GetSyncStateRequest.getSyncState)
 }
