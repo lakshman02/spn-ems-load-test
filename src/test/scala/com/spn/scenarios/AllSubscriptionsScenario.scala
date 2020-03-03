@@ -12,7 +12,7 @@ object AllSubscriptionsScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CreateOTPScenario.dateTimeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .exec(AllSubscriptionsRequest.getAllSubscriptions)
