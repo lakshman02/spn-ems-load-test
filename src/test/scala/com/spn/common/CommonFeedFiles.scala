@@ -16,6 +16,9 @@ object CommonFeedFiles {
   // TODO - check the impact of this if removed
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
 
+  // Service related details
+  val dataFeederServiceDetails = csv("data/service_details.csv").circular
+
   // User Specific
   val userAuth1KUsers = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
