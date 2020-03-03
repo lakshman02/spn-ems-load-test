@@ -66,6 +66,7 @@ object ScenarioMapping {
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
+    "getPrevious" -> PreviousScenario.scnPreviousContent,
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
@@ -73,7 +74,6 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile
-
 
   )
 }
