@@ -1,0 +1,25 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "getInitialConfig"
+  }
+]
