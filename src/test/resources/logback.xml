@@ -9,10 +9,10 @@
 	</appender>
 
 	<appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>/var/log/spn-pt/spn-load-test.log</file>
+		<file>/tmp/spn-load-test.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<!-- rollover daily -->
-			<fileNamePattern>/var/log/spn-pt/logs-archive/spn-load-test-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+			<fileNamePattern>/tmp/logs-archive/spn-load-test-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
 			<!-- each file should be at most 100MB, keep 10 days worth of history, but at most 2GB -->
 			<maxFileSize>100MB</maxFileSize>
 			<maxHistory>20</maxHistory>
