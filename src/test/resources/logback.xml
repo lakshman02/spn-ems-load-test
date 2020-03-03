@@ -19,9 +19,18 @@
 			<totalSizeCap>2GB</totalSizeCap>
 		</rollingPolicy>
 		<encoder>
-			<pattern>%date{ISO8601} %-4relative %-5level [%thread] %logger{35} - %msg%n</pattern>
+			<!--<pattern>%date{ISO8601} %-4relative %-5level [%thread] %logger{35} - %msg%n</pattern>-->
+			<pattern>%date{"yyyy-MM-dd HH:mm:ss,SSS"} [%-5level] %logger{15} - %msg%n%rEx</pattern>
 		</encoder>
 	</appender>
+
+	<!--<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>/tmp/spn-load-test.log</file>
+		<append>true</append>
+		<encoder>
+			<pattern>%d{HH:mm:ss,SSS} [%-5level] %logger{15} - %msg%n%rEx</pattern>
+		</encoder>
+	</appender>-->
 
 	<!-- uncomment and set to DEBUG to log all failing HTTP requests -->
 	<!-- uncomment and set to TRACE to log all HTTP requests -->
