@@ -6,7 +6,6 @@ import io.gatling.core.Predef.{scenario, _}
 
 object PostSubscriptionHistoryScenario {
 
-  val bodydatafeeder = csv("data/LoginID.csv").circular
 
   val SubscriptionHistory = scenario(" Subscription History")
     .feed(CommonFeedFiles.dataFeederChannel)

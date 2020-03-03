@@ -7,7 +7,6 @@ import com.spn.requests.PostApplyCouponRequest
 
 object PostApplyCouponScenario {
 
- val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
 
 val scnApplyCoupon = scenario ("Apply Coupon")
   .feed(CommonFeedFiles.dataFeederChannel)
@@ -15,7 +14,7 @@ val scnApplyCoupon = scenario ("Apply Coupon")
   .feed(CommonFeedFiles.dataFeederCluster)
   .feed(CommonFeedFiles.dataFeederTenant)
   .feed(CommonFeedFiles.dataFeederProperty)
-  .feed(dataFeederOtpRequirements)
+  .feed(CommonFeedFiles.dataFeederOtpRequirements)
   .feed(CommonFeedFiles.userAuth1KUsers)
   .feed(CommonFeedFiles.dateTimeFeeder)
   .exec(PostApplyCouponRequest.ApplyCoupon)

@@ -13,8 +13,6 @@ import scala.util.Random
 object UpdateProfileScenario{
 
   val updateProfileDataFeeder=csv("data/profileUpdate.csv").circular
-  val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
-
   val dateOfBirthFeeder = Iterator.continually(
     Map("dateOfBirth" -> ThreadLocalRandom.current().nextInt(1551081657,1582617662))
   )
@@ -29,6 +27,6 @@ object UpdateProfileScenario{
     .feed(updateProfileDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(dateOfBirthFeeder)
-    .feed(userCredentials)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .exec(UpdateProfileRequest.updateProfile)
 }
