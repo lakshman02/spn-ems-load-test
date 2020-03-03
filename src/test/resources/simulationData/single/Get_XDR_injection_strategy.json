@@ -1,0 +1,14 @@
+[
+  {
+    "inject": [
+      {
+        "type": "atOnceUsers",
+        "args": [
+          10000,
+          1200
+        ]
+      }
+    ],
+    "case": "getXDR"
+  }
+]
