@@ -6,6 +6,7 @@ import com.spn.common.CommonFeedFiles
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
 
+
 //"Get Menu" scenario
 object GetMenuScenario{
 
