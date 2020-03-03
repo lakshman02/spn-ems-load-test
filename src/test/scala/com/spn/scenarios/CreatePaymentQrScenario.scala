@@ -10,7 +10,7 @@ import io.gatling.core.Predef._
 object CreatePaymentQrScenario {
 
 
-  val dataFeederOtpRequirements = csv("data/payment_details.csv").circular
+  val dataFeederPayment = csv("data/payment_details.csv").circular
 
   val createPaymentQrScenario =scenario("Create Payment QR Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
@@ -18,7 +18,7 @@ object CreatePaymentQrScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-.feed(dataFeederOtpRequirements)
+.feed(dataFeederPayment)
     .feed(CommonFeedFiles.userAuth1KUsers)
 .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
