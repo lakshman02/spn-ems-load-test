@@ -26,4 +26,7 @@ object CommonFeedFiles {
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )
+
+  // Tray search feeder
+  val contentFeeder = csv("data/traySearchQueries.csv").circular
 }
