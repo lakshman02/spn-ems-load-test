@@ -69,6 +69,7 @@ object Config {
   val GENERATE_DEVICE_ACTIVATION_CODE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GENERATEDEVICEACTIVATIONCODE"
   val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH"
   val SEARCH_DESCRIPTION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SUGGESTION"
+  val NEXT_URL ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXT/${contentId}"
   val DELETE_XDR_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR/DELETE"
   val PREVIOUS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/PREVIOUS/${contentId}"
   val GET_XDR = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR"
