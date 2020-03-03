@@ -10,7 +10,7 @@ object NextScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val dataFeederContentID = csv("data/contentId.csv").circular
+  val dataFeederContentID = csv("data/contentID.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
 

@@ -10,7 +10,7 @@ object NextAndPreviousScenario {
   val dataFeederLocale = csv("data/locale.csv").circular
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
-  val contentFeeder = csv("data/contentId.csv").circular
+  val contentFeeder = csv("data/contentID.csv").circular
   val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
 
   val nextAndPreviousScenario = scenario("Next and Previous Scenario")
