@@ -609,8 +609,20 @@
       }
     ],
     "case": "searchDescription"
-
-  },{
+  },
+  {
+    "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        2,
+        5
+      ]
+    }
+  ],
+    "case": "nextAndPrevious"
+  },
+  {
   "inject": [
     {
       "type": "rampUsers",
@@ -620,7 +632,7 @@
       ]
     }
   ],
-  "case": "nextAndPrevious"
+  "case": "getXDR"
 
 },
   {
