@@ -6,7 +6,6 @@ import io.gatling.core.Predef.{scenario, _}
 
 object DeleteSearchHistoryScenario {
 
- val userCredentials = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.circular
 
 val scnDeleteSearchHistory = scenario (" Delete Search History")
   .feed(CommonFeedFiles.dataFeederChannel)
@@ -14,7 +13,7 @@ val scnDeleteSearchHistory = scenario (" Delete Search History")
   .feed(CommonFeedFiles.dataFeederCluster)
   .feed(CommonFeedFiles.dataFeederTenant)
   .feed(CommonFeedFiles.dataFeederProperty)
-  .feed(userCredentials)
+  .feed(CommonFeedFiles.userAuth1KUsers)
   .exec(DeleteSearchHistoryRequest.DeleteSearchHistory)
 
 }

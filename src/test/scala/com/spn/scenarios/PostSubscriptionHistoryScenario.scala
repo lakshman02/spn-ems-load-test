@@ -7,7 +7,6 @@ import io.gatling.core.Predef.{scenario, _}
 object PostSubscriptionHistoryScenario {
 
   val bodydatafeeder = csv("data/LoginID.csv").circular
-  val userAuthFeeder = csv ("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
 
   val SubscriptionHistory = scenario(" Subscription History")
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -16,7 +15,7 @@ object PostSubscriptionHistoryScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(bodydatafeeder)
-    .feed(userAuthFeeder)
+    .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
 }
