@@ -634,7 +634,6 @@
       }
     ],
     "case": "getDRMDeviceId"
-
   },
   {
     "inject": [
