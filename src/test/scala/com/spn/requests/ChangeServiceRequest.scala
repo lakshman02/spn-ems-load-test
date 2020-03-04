@@ -11,9 +11,9 @@ object ChangeServiceRequest {
     .headers(Config.sentHeaders)
       .body(StringBody(
         """{
-          |"oldServiceID": "${oldServiceID}",
-          |"newServiceID" : "${newServiceID}",
-          |"channelPartnerID" : "${channelPartnerID}",
+          |"oldServiceID": "${service_id_old}",
+          |"newServiceID" : "${service_id_new}",
+          |"channelPartnerID" : "${single_channel_partner_id}",
           |"timestamp" : "${getDateTime}"
           |}""".stripMargin)).asJson
       .check(status is 200)

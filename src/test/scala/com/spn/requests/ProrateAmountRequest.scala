@@ -10,8 +10,8 @@ object ProrateAmountRequest {
     .post(Config.app_url + Config.PRORATE_AMOUNT_URL)
     .headers(Config.sentHeaders)
     .body(StringBody("""{
-                       |"serviceID": "${newServiceID}",
-                       |"channelPartnerID": "${channelPartnerID}",
+                       |"serviceID": "${service_id_old}",
+                       |"channelPartnerID": "${single_channel_partner_id}",
                        |"timestamp": "${getDateTime}"
                        |}""".stripMargin)).asJson
     .check(status is 200)
