@@ -14,9 +14,9 @@ object SubscriptionRemoveRequest {
 
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
-            "serviceID": "${single_service_id}",
+            "serviceID": "${service_id_new}",
              "reason": "sb load testing",
-             "serviceType": "${single_service_type}",
+             "serviceType": "${service_type}",
              "channelPartnerID": "${single_channel_partner_id}",
              "timestamp": "${getDateTime}"
                  }""")).asJson

@@ -14,7 +14,7 @@ object SubscriptionRemoveScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(CommonFeedFiles.dataFeederSingleServiceDetails)
+    .feed(CommonFeedFiles.dataFeederServiceIDOnlyDetails)
     .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dateTimeFeeder)
 
