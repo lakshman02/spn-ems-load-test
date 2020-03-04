@@ -14,8 +14,10 @@ object ChangeServiceScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(CommonFeedFiles.dataFeederOtpRequirements)
-    .feed(CommonFeedFiles.dataFeederServiceDetails)
+
+    .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
+    .feed(CommonFeedFiles.dataFeederServiceIDOnlyDetails)
+
     .exec(ChangeServiceRequest.changeServiceRequest)
 
 }
