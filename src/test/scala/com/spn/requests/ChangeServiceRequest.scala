@@ -8,8 +8,7 @@ object ChangeServiceRequest {
 
   val changeServiceRequest = exec(http("Change Service Request")
     .post(Config.app_url + Config.CHANGE_SERVICE_URL)
-      .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
       .body(StringBody(
         """{
           |"oldServiceID": "${oldServiceID}",

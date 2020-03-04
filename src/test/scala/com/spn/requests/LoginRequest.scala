@@ -7,10 +7,9 @@ import io.gatling.http.Predef._
 
 object LoginRequest {
 
-  val sentHeaders = Map("x-via-device" -> "true")
   val LoginRequest = exec(http("User Login (mobile) Request")
     .post(Config.app_url + Config.Login_URL)
-    .headers(sentHeaders)
+    .header("x-via-device","true")
     .body(StringBody(
       """{
              "mobileNumber": "${evg_phone_number}",

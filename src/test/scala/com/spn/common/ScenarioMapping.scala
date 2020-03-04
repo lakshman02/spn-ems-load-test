@@ -60,7 +60,7 @@ object ScenarioMapping {
     "getSearchHistory" -> GetSearchHistoryScenario.getSearchHistoryScenario,
     "traySearch" -> TraySearchScenario.traySearchScenario,
     "traySearchVOD" -> TraySearchVODScenario.traySearchVODScenario,
-    "GenerateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
+    "generateDeviceActivationCode" -> GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario,
     "searchDescription" -> SearchDescriptionScenario.searchDescriptionScenario,
     "deleteSearchHistory" -> DeleteSearchHistoryScenario.scnDeleteSearchHistory,
     "createRazorPayOrder" -> CreateRazorPayOrderScenario.createRazorPayOrderScenario,

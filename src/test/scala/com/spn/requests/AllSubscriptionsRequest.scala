@@ -8,8 +8,7 @@ object AllSubscriptionsRequest {
 
   val getAllSubscriptions= exec(http("Get all subscription of the user")
     .post(Config.app_url + Config.GET_ALL_SUBSCRIPTIONS_URL)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
               "channelPartnerID": "${channelPartnerID}",
               "timestamp":"${getDateTime}"

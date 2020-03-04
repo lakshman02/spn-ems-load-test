@@ -6,13 +6,9 @@ import io.gatling.http.Predef._
 
 object AddXdrRequest {
 
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
-
   val addXdr= exec(http("Add XDR Request")
     .post(Config.app_url + Config.ADD_XDR_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "assetId": "${contentId}",
     "offset": {

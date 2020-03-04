@@ -9,8 +9,7 @@ object ProcessRazorPayOrderRequest {
 
   val processRazorPayOrderRequest = exec(http("ProcessRazorPayOrderRequest")
     .post(Config.app_url + Config.PROCESSRAZORPAYORDER_URL )
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .body(StringBody("""{
                        "paymentID": "${paymentID}",
                        "timestamp": "${getDateTime}",

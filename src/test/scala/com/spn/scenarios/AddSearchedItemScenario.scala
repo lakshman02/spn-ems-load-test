@@ -6,8 +6,6 @@ import io.gatling.core.Predef._
 
 object AddSearchedItemScenario {
 
-  val dataFeederSearchvalue =csv ("data/traySearchQueries.csv").circular
-
   val scnAddSearchedItem = scenario("Add Searched item")
 
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -16,6 +14,6 @@ object AddSearchedItemScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(dataFeederSearchvalue)
+    .feed(CommonFeedFiles.contentFeeder)
     .exec(AddSearchedItemRequest.AddSearchedItem)
 }

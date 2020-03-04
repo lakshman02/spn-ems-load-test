@@ -5,14 +5,14 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object SubscriptionRemoveRequest {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
 
   val subscriptionRemove= exec(http("Remove subscription request")
     .post(Config.app_url + Config.SUBSCRIPTION_REMOVE_URL)
-    .headers(sentHeaders)
+    .headers(Map ("Authorization" -> "${RESP_AUTH_TOKEN}",
+      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
 
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
             "serviceID": "${single_service_id}",
              "reason": "sb load testing",

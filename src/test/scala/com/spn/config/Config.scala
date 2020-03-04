@@ -97,5 +97,8 @@ object Config {
     .contentTypeHeader("application/json")
     .header("restful","yes")
 
+  val sentHeaders = Map(
+    "Authorization" -> "${RESP_AUTH_TOKEN}",
+    "x-via-device" -> "true")
 }
 

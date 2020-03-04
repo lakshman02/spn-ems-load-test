@@ -4,14 +4,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object Subscription_PaymentURL {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true",
-    "Content-Type" -> "application/json"
-  )
+
   val Subscription_Payment = exec(http("Subscription Payment URL")
     .post(Config.app_url + Config.SUBSCRIPTION_PAYMENTURL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
 	"retControlUrl":"${retControlUrl}",
 	"itemId":"${itemId}",

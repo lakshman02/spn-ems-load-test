@@ -2,6 +2,12 @@
   {
     "inject": [
       {
+        "type": "nothingFor",
+        "args": [
+          300
+        ]
+      },
+      {
         "type": "rampUsersPerSec",
         "args": [
           0,
@@ -27,7 +33,7 @@
       {
         "type": "nothingFor",
         "args": [
-          1800
+          2100
         ]
       },
       {
@@ -56,7 +62,7 @@
       {
         "type": "nothingFor",
         "args": [
-          3600
+          3900
         ]
       },
       {
@@ -85,7 +91,7 @@
       {
         "type": "nothingFor",
         "args": [
-          5400
+          5700
         ]
       },
       {
@@ -114,7 +120,7 @@
       {
         "type": "nothingFor",
         "args": [
-          7200
+          7500
         ]
       },
       {

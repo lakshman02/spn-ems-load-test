@@ -9,8 +9,7 @@ object PreviousRequest {
   val Previous = exec(http("Content Previous Request details")
 
     .get(Config.app_url + Config.PREVIOUS)
-      .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-        "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

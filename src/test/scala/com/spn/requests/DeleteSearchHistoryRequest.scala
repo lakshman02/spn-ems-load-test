@@ -6,10 +6,11 @@ import io.gatling.http.Predef._
 
 object DeleteSearchHistoryRequest {
 
-  val DeleteSearchHistory = http("Post Delete Search History")
+  val DeleteSearchHistory = http("Delete Search History")
     .post (Config.app_url + Config.DELETE_SEARCH_HISTORY)
     .headers(Map ("Authorization" -> "${RESP_AUTH_TOKEN}",
       "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
 
     .body(StringBody("""{
                        "delSearchParams": [

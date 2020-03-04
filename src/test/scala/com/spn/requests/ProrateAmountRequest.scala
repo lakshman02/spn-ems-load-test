@@ -8,8 +8,7 @@ object ProrateAmountRequest {
 
   val prorateAmountRequest = exec(http("Prorate Amount Request")
     .post(Config.app_url + Config.PRORATE_AMOUNT_URL)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .body(StringBody("""{
                        |"serviceID": "${newServiceID}",
                        |"channelPartnerID": "${channelPartnerID}",

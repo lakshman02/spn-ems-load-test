@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 
 object EpisodeDetailRequest {
 
-  val Episode_Detail = exec(http("POST Episode Id Detail")
+  val Episode_Detail = exec(http("Get Episode Detail")
     .get(Config.app_url + Config.EPISODE_DETAILS)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))

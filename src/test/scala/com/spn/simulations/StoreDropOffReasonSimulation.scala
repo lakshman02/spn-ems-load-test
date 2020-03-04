@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class StoreDropOffReasonSimulation extends Simulation {
   private val storeDropOffReasonExec = StoreDropOffReasonScenario.storeDropOffReasonScenario
-        .inject(constantUsersPerSec(1) during (1))
+    .inject(rampUsers(15) during (30))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)

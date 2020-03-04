@@ -7,10 +7,9 @@ import io.gatling.http.Predef._
 
 object PostSyncStateRequest {
 
-  val postSyncStateRequest = exec(http("Post Sync State Request")
+  val postSyncStateRequest = exec(http("Sync State Request")
     .post(Config.app_url + Config.Post_Sync_State_URL)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .body(StringBody("""{
                        |"packageId":"${packageId}",
                        |"packageName":"${packageName}",

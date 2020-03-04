@@ -17,7 +17,6 @@ object UpdateProfileScenario{
     Map("dateOfBirth" -> ThreadLocalRandom.current().nextInt(1551081657,1582617662))
   )
 
-
   val updateProfileScenario =scenario("Update Profile Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)

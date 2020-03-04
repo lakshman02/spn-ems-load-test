@@ -7,10 +7,9 @@ import io.gatling.http.Predef._
 
 object PostGenericCouponsRequest {
 
-  val Generic_Coupons = exec(http("POST Generic Coupon")
+  val Generic_Coupons = exec(http("Generic Coupon")
     .post(Config.app_url + Config.Post_Generic_Coupon)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true", "Content-Type" -> "application/json"))
+    .headers(Config.sentHeaders)
     .body(StringBody(
       """
         {

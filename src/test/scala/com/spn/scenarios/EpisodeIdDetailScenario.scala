@@ -6,7 +6,7 @@ import com.spn.requests.EpisodeDetailRequest
 object EpisodeIdDetailScenario {
   val dataFeederEpisodeId = csv("data/episodeid.csv").circular
 
-  val scnEpisodeIdDetails = scenario("Get Episode Id Details ")
+  val scnEpisodeIdDetails = scenario("Get Episode Details ")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
