@@ -13,7 +13,7 @@ object ProductsByCouponRequest {
     .post(Config.app_url + Config.PRODUCTS_BY_COUPON_URL)
       .headers(sentHeaders)
     .body(StringBody ("""{
-             "voucherCode": "${gen_CouponCode}",
+             "voucherCode": "${couponCode}",
     "channelPartnerID": "${channelPartnerID}",
     "timestamp": "${getDateTime}"
         }""")).asJson
