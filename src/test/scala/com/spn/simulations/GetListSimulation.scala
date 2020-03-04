@@ -9,7 +9,7 @@ class GetListSimulation extends Simulation{
 
   private val getListSimulationExec = GetListScenario.getListScenario
     .inject(
-      rampUsers(10) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(getListSimulationExec)
