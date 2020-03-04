@@ -665,5 +665,63 @@
       }
     ],
     "case": "subscriptionRemove"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          41700
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "getLAUrl"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          43500
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "getDRMDeviceId"
   }
 ]
