@@ -7,7 +7,7 @@ import com.spn.config.Config
 
 object PostSubscriptionHistoryRequest {
 
-  val subscriptionHistory = exec(http("Post Subscription History")
+  val subscriptionHistory = exec(http("Subscription History")
     .post(Config.app_url + Config.Post_Subscription_History)
       .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
         "x-via-device" -> "true" ))

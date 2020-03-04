@@ -5,7 +5,7 @@ import com.spn.requests.PaymentModesRequest
 import io.gatling.core.Predef._
 object PaymentModesScenario {
 
- val scnPaymentMode = scenario(" Payment Modes ")
+ val scnPaymentMode = scenario("Payment Modes")
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.dataFeederChannel)

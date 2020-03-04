@@ -1,12 +1,12 @@
 package com.spn.requests
 
+import akka.japi.pf.FI.Apply
 import io.gatling.http.Predef._
 import io.gatling.core.Predef._
-
 import com.spn.config.Config
 object PostApplyCouponRequest {
 
-  val ApplyCoupon = http("Post Apply Coupon")
+  val ApplyCoupon = http( "Apply Coupon")
     .post (Config.app_url + Config.Post_Apply_Coupon_URL)
     .headers(Map ("Authorization" -> "${RESP_AUTH_TOKEN}",
       "x-via-device" -> "true"))

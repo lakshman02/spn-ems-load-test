@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 import com.spn.config.Config
 
 object PaymentModesRequest {
-  val Payment_mode = exec(http("Post Payment Modes")
+  val Payment_mode = exec(http("Payment Modes")
     .post(Config.app_url + Config.PAYMENT_MODES_URL)
   .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true"))
