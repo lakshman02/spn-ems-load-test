@@ -39,8 +39,8 @@
 	</logger>
 
 	<root level="DEBUG">
-		<appender-ref ref="CONSOLE" />
-		<!--<appender-ref ref="ROLLING" />-->
+		<!--<appender-ref ref="CONSOLE" />-->
+		<appender-ref ref="ROLLING" />
 	</root>
 
 </configuration>
