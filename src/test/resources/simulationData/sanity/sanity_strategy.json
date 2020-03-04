@@ -429,18 +429,6 @@
         ]
       }
     ],
-    "case": "subscriptionPayment"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
     "case": "deleteList"
   },
   {
@@ -635,19 +623,6 @@
   "case": "getXDR"
 
 },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "getDRMDeviceId"
-
-  },
   {
     "inject": [
       {
