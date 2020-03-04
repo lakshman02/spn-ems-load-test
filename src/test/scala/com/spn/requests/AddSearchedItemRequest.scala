@@ -11,7 +11,7 @@ object AddSearchedItemRequest {
     .get(Config.app_url + Config.ADDSEARCHEDITEM)
       .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
         "x-via-device" -> "true"))
-    .queryParam("searchedItem" , "king")
+    .queryParam("searchedItem" , "${query}")
 
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("success")))

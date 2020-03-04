@@ -10,9 +10,9 @@ object SearchDescriptionRequest {
     .get(Config.app_url + Config.SEARCH_DESCRIPTION_URL)
     .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
       "x-via-device" -> "true"))
-    .queryParam("query", "king")
-    .queryParam("filter_contentType", "VOD")
-    .queryParam("maxResults", "20")
+    .queryParam("query", "${query}")
+    .queryParam("filter_contentType", "${filter_contentType}")
+    .queryParam("maxResults", "${maxResults}")
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

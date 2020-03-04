@@ -9,7 +9,7 @@ class SearchDescriptionSimulation extends Simulation{
 
   private val searchDescriptionSimulationExec = SearchDescriptionScenario.searchDescriptionScenario
     .inject(
-      rampUsers(5) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(searchDescriptionSimulationExec)

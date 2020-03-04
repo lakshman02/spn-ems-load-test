@@ -9,7 +9,7 @@ class NextAndPreviousSimulation extends Simulation{
 
   private val nextAndPreviousSimulationExec = NextAndPreviousScenario.nextAndPreviousScenario
     .inject(
-      rampUsers(5) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(nextAndPreviousSimulationExec)
