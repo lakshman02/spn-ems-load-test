@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{scenario, _}
 object DeleteSearchHistoryScenario {
 
 
-val scnDeleteSearchHistory = scenario (" Delete Search History")
+val scnDeleteSearchHistory = scenario ("Delete Search History")
   .feed(CommonFeedFiles.dataFeederChannel)
   .feed(CommonFeedFiles.dataFeederLocale)
   .feed(CommonFeedFiles.dataFeederCluster)

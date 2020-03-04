@@ -6,8 +6,8 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class AddListSimulation extends Simulation {
   private val addListExec = AddListScenario.addListScenario
-        .inject(constantUsersPerSec(1) during (1))
-//    .inject(
+    .inject(rampUsers(15) during (30))
+  //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)
 //        .eachLevelLasting(Config.eachLevelLasting)

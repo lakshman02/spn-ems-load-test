@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class IsSubscribedSimulation extends Simulation {
   private val isSubscribedExec = IsSubscribedScenario.isSubscribedScenario
-        .inject(constantUsersPerSec(1) during (1))
+    .inject(rampUsers(15) during (30))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)

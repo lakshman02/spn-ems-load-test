@@ -8,10 +8,10 @@ import io.gatling.core.Predef._
 //simulation
 class GetMenuSimulation extends Simulation {
   private val getMenuExec = GetMenuScenario.getMenuScenario
-//    .inject(constantUsersPerSec(Config.users) during (Config.duration))
-    .inject(
-      rampUsers(Config.rampUp) during(Config.duration)
-    )
+ .inject(rampUsers(15) during (30))
+//    .inject(
+//      rampUsers(Config.rampUp) during(Config.duration)
+//    )
 
   setUp(getMenuExec).protocols(Config.httpProtocol)
     .assertions(
