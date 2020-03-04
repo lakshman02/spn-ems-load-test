@@ -9,16 +9,17 @@ object SubscriptionRemoveRequest {
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true")
 
-  val subscriptionRemove= exec(http("SubscribedRemove Request")
+  val subscriptionRemove= exec(http("Remove subscription request")
     .post(Config.app_url + Config.SUBSCRIPTION_REMOVE_URL)
     .headers(sentHeaders)
+
     .body(StringBody ("""{
-  "serviceID": "${skuORQuickCode}",
-  "reason": "testing",
-  "serviceType": "${serviceType}",
-  "channelPartnerID": "${channelPartnerID}",
-  "timestamp": "${getDateTime}"
-        }""")).asJson
+            "serviceID": "${single_service_id}",
+             "reason": "sb load testing",
+             "serviceType": "${single_service_type}",
+             "channelPartnerID": "${single_channel_partner_id}",
+             "timestamp": "${getDateTime}"
+                 }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

@@ -25,6 +25,12 @@ object CommonFeedFiles {
   // inputStagingWeb
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
 
+  //singleServiceDetails
+  val dataFeederSingleServiceDetails = csv("data/single_serviceId.csv").circular
+
+  //singleChannelpartnerid
+  val dataFeederSingleChannelpartnerid = csv("data/single_channel_partner_id.csv").circular
+
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )

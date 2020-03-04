@@ -13,12 +13,12 @@ object IsSubscribedRequest {
     .post(Config.app_url + Config.IS_SUBSCRIBED_URL)
     .headers(sentHeaders)
     .body(StringBody ("""{
-    "isContent": "true",
-  "id": "${TVODID}",
-  "type": "${ShowType}",
-  "showName": "${ShowName}",
-  "channelPartnerID": "${channelPartnerID}",
-  "timestamp": "${getDateTime}"
+         "isContent": "true",
+          "id": "${TVODID}",
+          "type": "${ShowType}",
+          "showName": "${ShowName}",
+           "channelPartnerID": "${channelPartnerID}",
+           "timestamp": "${getDateTime}"
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))

@@ -13,9 +13,9 @@ object SubscriptionRemoveScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(CommonFeedFiles.dataFeederServiceDetails)
+    .feed(CommonFeedFiles.dataFeederSingleServiceDetails)
+    .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dateTimeFeeder)
 
 
