@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class UpdateProfileSimulation extends Simulation {
   private val updateProfileExec = UpdateProfileScenario.updateProfileScenario
-        .inject(constantUsersPerSec(2) during (1))
+    .inject(rampUsers(15) during (30))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)

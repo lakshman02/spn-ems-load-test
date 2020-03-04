@@ -9,14 +9,14 @@ import io.gatling.core.Predef._
 //Account Search Simulation
 class AccountSearchSimulation extends Simulation {
   private val AccountSearchExec = AccountSearchScenario.accountSearchScenario
-    //    .inject(constantUsersPerSec(Config.users) during (Config.duration))
-    .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
-    )
+       .inject(rampUsers(15) during (30))
+//    .inject(
+//      incrementUsersPerSec(Config.users)
+//        .times(Config.times)
+//        .eachLevelLasting(Config.eachLevelLasting)
+//        .separatedByRampsLasting(Config.separatedByRampsLasting)
+//        .startingFrom(Config.startingFrom)
+//    )
 
   setUp(AccountSearchExec).protocols(Config.httpProtocol)
     .assertions(

@@ -7,14 +7,14 @@ import io.gatling.core.Predef.{Simulation, _}
 //simulation
 class GetSyncStateSimulation extends Simulation {
   private val getSyncStateExec = GetSyncStateScenario.getSyncStateScenario
-//    .inject(constantUsersPerSec(Config.users) during (Config.duration))
-    .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
-    )
+  .inject(rampUsers(15) during (30))
+//    .inject(
+//      incrementUsersPerSec(Config.users)
+//        .times(Config.times)
+//        .eachLevelLasting(Config.eachLevelLasting)
+//        .separatedByRampsLasting(Config.separatedByRampsLasting)
+//        .startingFrom(Config.startingFrom)
+//    )
 
   setUp(getSyncStateExec).protocols(Config.httpProtocol)
     .assertions(
