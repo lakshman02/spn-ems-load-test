@@ -6,11 +6,9 @@ import io.gatling.http.Predef._
 
 object CreateOTPRequest {
 
-  val otpHeader = Map("x-via-device" -> "true")
-
   val createOTPRequest = exec(http("Create OTP Request")
    .post(Config.app_url + Config.CREATE_OTP_URL)
-   .headers(otpHeader)
+    .header("x-via-device", "true")
     .body(StringBody("""{
         |"channelPartnerID": "${channelPartnerID}",
         |"mobileNumber": "${evg_phone_number}",

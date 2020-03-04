@@ -5,13 +5,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object CreateRazorPayOrderRequest {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
 
   val createRazorPayOrder= exec(http("Create Razor Pay Order Request")
     .post(Config.app_url + Config.CREATE_RAZOR_PAY_ORDER_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "serviceID": "${serviceID}",
     "serviceType": "${serviceTypeTVOD}",

@@ -9,9 +9,8 @@ object PostSubscriptionHistoryRequest {
 
   val subscriptionHistory = exec(http("Subscription History")
     .post(Config.app_url + Config.Post_Subscription_History)
-      .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-        "x-via-device" -> "true" ))
-  .body(StringBody("""{
+    .headers(Config.sentHeaders)
+    .body(StringBody("""{
                        "channelPartnerID": "${channelPartnerID}",
                        "timestamp": "${getDateTime}"
                      } """)).asJson

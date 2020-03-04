@@ -8,9 +8,8 @@ object IsCustomerEligibleForFreeTrialRequest {
 
   val checkCustomerEligibleForFreeTrial = exec(http("Check if the user is eligible for free trial")
     .get(Config.app_url + Config.CHECK_FREE_TRIAL)
-      .queryParam("timestamp", "${getDateTime}")
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .queryParam("timestamp", "${getDateTime}")
+    .headers(Config.sentHeaders)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

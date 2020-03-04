@@ -8,8 +8,7 @@ object SearchDescriptionRequest {
 
   val searchDescriptionRequest = exec(http("Search Description Request")
     .get(Config.app_url + Config.SEARCH_DESCRIPTION_URL)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .queryParam("query", "king")
     .queryParam("filter_contentType", "VOD")
     .queryParam("maxResults", "20")

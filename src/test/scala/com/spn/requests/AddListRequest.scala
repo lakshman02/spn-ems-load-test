@@ -6,13 +6,9 @@ import io.gatling.http.Predef._
 
 object AddListRequest {
 
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
-
   val addList= exec(http("Add list Request")
     .post(Config.app_url + Config.ADD_LIST_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "assets": [
         "1000000189",

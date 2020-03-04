@@ -11,13 +11,9 @@ import scala.util.Random
 
 object UpdateProfileRequest {
 
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
-
   val updateProfile= exec(http("Update Profile Request")
     .post(Config.app_url + Config.UPDATE_PROFILE_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "dateOfBirth": ${dateOfBirth},
     "gender": "${gender}",

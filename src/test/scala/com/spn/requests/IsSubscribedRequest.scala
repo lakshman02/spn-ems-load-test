@@ -5,13 +5,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object IsSubscribedRequest {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
 
   val isSubscribed= exec(http("Is Subscribed Request")
     .post(Config.app_url + Config.IS_SUBSCRIBED_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "isContent": "true",
   "id": "${TVODID}",

@@ -6,15 +6,10 @@ import io.gatling.http.Predef._
 
 object ActiveSubscription  {
 
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true",
-    "Content-Type" -> "application/json"
-  )
   val ActiveSubscription   = exec(http("Active Subscription Request")
 
     .post(Config.app_url + Config.ACTIVE_SUBSCRIPTIONS_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
   "channelPartnerID": "${channelPartnerID}",
   "timestamp": "${getDateTime}"

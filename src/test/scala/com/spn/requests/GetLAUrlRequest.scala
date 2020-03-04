@@ -8,7 +8,7 @@ object GetLAUrlRequest {
 
   val getLaUrl = exec(http("Get LA URL Request")
     .post(Config.app_url + Config.LA_URL)
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}"))
+    .headers(Config.sentHeaders)
     .body(StringBody("""{
                        "platform": "${platform_name}",
                        "deviceId": "${deviceId}",

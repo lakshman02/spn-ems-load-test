@@ -5,13 +5,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object PlaceOrderRequest {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
 
   val placeOrder= exec(http("Place Order Request")
     .post(Config.app_url + Config.PLACE_ORDER_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
 "serviceID": "${skuORQuickCode}",
 "priceCharged": 159.00,

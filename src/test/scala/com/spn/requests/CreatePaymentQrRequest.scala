@@ -8,8 +8,7 @@ object CreatePaymentQrRequest {
 
   val createPaymentQrRequest = exec(http("Create paymentQrRequest")
     .post(Config.app_url + Config.CREATE_PAYMENT_QR )
-    .headers(Map("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
+    .headers(Config.sentHeaders)
     .body(StringBody("""{
                        "channelPartnerID": "${channelPartnerID}",
                        "serviceID": "${serviceID}",

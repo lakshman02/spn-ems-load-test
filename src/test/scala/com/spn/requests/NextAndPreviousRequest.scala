@@ -8,9 +8,7 @@ object NextAndPreviousRequest {
 
   val nextAndPreviousRequest = exec(http("Next & Previous Request")
     .get(Config.app_url + Config.NEXT_AND_PREVIOUS_URL)
-      .headers(Map(
-        "Authorization" -> "${RESP_AUTH_TOKEN}",
-        "x-via-device" -> "true"))
+    .header("x-via-device","true")
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

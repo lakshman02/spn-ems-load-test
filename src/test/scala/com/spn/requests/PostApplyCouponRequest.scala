@@ -8,9 +8,7 @@ object PostApplyCouponRequest {
 
   val ApplyCoupon = http( "Apply Coupon")
     .post (Config.app_url + Config.Post_Apply_Coupon_URL)
-    .headers(Map ("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
-
+    .headers(Config.sentHeaders)
     .body(StringBody(""" {
                        "couponCode": "SONYTEST",
                         "price": 1.99,
