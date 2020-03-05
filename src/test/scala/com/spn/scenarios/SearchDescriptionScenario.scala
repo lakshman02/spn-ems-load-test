@@ -12,7 +12,7 @@ object SearchDescriptionScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
     .feed(CommonFeedFiles.contentFeeder)
     .exec(SearchDescriptionRequest.searchDescriptionRequest)
 
