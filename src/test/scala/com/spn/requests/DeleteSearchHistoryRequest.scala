@@ -14,7 +14,7 @@ object DeleteSearchHistoryRequest {
 
     .body(StringBody("""{
                        "delSearchParams": [
-                        "king","football"
+                        "${query}"
                        ]
                        }""".stripMargin)).asJson
     //Hardcoded body string
