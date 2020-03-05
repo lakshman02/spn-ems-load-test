@@ -14,6 +14,6 @@ object AllSubscriptionsScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .exec(AllSubscriptionsRequest.getAllSubscriptions)
 }

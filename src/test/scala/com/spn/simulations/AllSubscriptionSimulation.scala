@@ -9,11 +9,7 @@ class AllSubscriptionSimulation extends Simulation{
 
   private val allSubscriptionsScenarioExec = AllSubscriptionsScenario.getAllSubscriptionsScenario
     .inject(
-      incrementUsersPerSec(Config.users)
-        .times(Config.times)
-        .eachLevelLasting(Config.eachLevelLasting)
-        .separatedByRampsLasting(Config.separatedByRampsLasting)
-        .startingFrom(Config.startingFrom)
+      rampUsers(15) during(30)
     )
 
   setUp(allSubscriptionsScenarioExec)

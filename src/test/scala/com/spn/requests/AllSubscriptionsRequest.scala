@@ -10,7 +10,7 @@ object AllSubscriptionsRequest {
     .post(Config.app_url + Config.GET_ALL_SUBSCRIPTIONS_URL)
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
-              "channelPartnerID": "${channelPartnerID}",
+              "channelPartnerID": "${single_channel_partner_id}",
               "timestamp":"${getDateTime}"
         }""")).asJson
     .check(status is 200)
