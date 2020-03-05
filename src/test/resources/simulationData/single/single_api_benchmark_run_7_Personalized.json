@@ -204,13 +204,41 @@
     ],
     "case": "deleteSearchHistory"
   },
-
   {
     "inject": [
       {
         "type": "nothingFor",
         "args": [
           12900
+        ]
+      },
+      {
+        "type": "rampUsersPerSec",
+        "args": [
+          0,
+          100,
+          60
+        ]
+      },
+      {
+        "type": "incrementUsersInSteps",
+        "args": [
+          100,
+          200,
+          6,
+          60,
+          180
+        ]
+      }
+    ],
+    "case": "placeOrder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          14700
         ]
       },
       {
@@ -239,7 +267,7 @@
       {
         "type": "nothingFor",
         "args": [
-          14700
+          16500
         ]
       },
       {
@@ -269,7 +297,7 @@
       {
         "type": "nothingFor",
         "args": [
-          16500
+          18300
         ]
       },
       {
