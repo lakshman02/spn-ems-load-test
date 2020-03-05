@@ -21,7 +21,7 @@ object CommonFeedFiles {
   val dataFeederServiceIDOnlyDetails = csv("data/service_id_data.csv").circular
 
   // User Specific
-  val userAuth1KUsers = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
+  val userAuth1KUsers = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
 
   // inputStagingWeb
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
