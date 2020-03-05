@@ -13,7 +13,7 @@ object SubscriptionRemoveScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
     .feed(CommonFeedFiles.dataFeederServiceIDOnlyDetails)
     .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dateTimeFeeder)

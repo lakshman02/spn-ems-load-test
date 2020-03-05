@@ -14,7 +14,7 @@ object DeleteXdrScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
     .feed(dataFeederContentId)
     .exec(DeleteXdrRequest.deleteXdrRequest)
 

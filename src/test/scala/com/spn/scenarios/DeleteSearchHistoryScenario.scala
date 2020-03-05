@@ -13,7 +13,7 @@ val scnDeleteSearchHistory = scenario ("Delete Search History")
   .feed(CommonFeedFiles.dataFeederCluster)
   .feed(CommonFeedFiles.dataFeederTenant)
   .feed(CommonFeedFiles.dataFeederProperty)
-  .feed(CommonFeedFiles.userAuth1KUsers)
+  .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
   .exec(DeleteSearchHistoryRequest.DeleteSearchHistory)
 
 }

@@ -9,7 +9,7 @@ class ProrateAmountSimulation extends Simulation {
   private val ProrateAmountSimulation = ProrateAmountScenario.prorateAmountScenario
     //.inject(constantUsersPerSec(Config.users) during (Config.duration seconds))
     .inject(
-      rampUsers(Config.users) during(Config.duration)
+      rampUsers(15) during(30)
     )
 
   setUp(ProrateAmountSimulation)
