@@ -8,7 +8,7 @@ import io.gatling.core.Predef._
 object PostGenericCouponScenario {
 
 
-  val scnGeneric_Coupon = scenario(" Generic Coupon")
+  val scnGeneric_Coupon = scenario("Generic Coupon")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
