@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{scenario, _}
 object PostSubscriptionHistoryScenario {
 
 
-  val SubscriptionHistory = scenario(" Subscription History")
+  val SubscriptionHistory = scenario("Subscription History")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
