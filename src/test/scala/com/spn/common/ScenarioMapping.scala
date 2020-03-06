@@ -71,6 +71,9 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "deleteReminder" -> DeleteReminderScenario.deleteReminderScenario,
+
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
