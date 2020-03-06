@@ -7,14 +7,14 @@ import io.gatling.http.Predef._
 object Config {
   //Baseurl
 
-  var app_url: String = System.getProperty("appURL")
-
-  if(app_url == null || app_url.equals("")) {
-    app_url = "https://apiqa.sonyliv.com/"
-  }
+//  var app_url: String = System.getProperty("appURL")
+//
+//  if(app_url == null || app_url.equals("")) {
+//    app_url = "https://apiqa.sonyliv.com/"
+//  }
 
   //  val app_url = "https://apiqa.sonyliv.com/"
-// val app_url = "https://apipreprod.sonyliv.com/"
+ val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG?"
@@ -77,6 +77,9 @@ object Config {
   val GET_XDR = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR"
   val NEXT_AND_PREVIOUS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXTANDPREVIOUS/${contentId}"
   val GET_DRM_DEVICEID_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETDRMDEVICEID"
+  val GET_SETTINGS_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/GETSETTINGS"
+
+
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt

@@ -18,13 +18,11 @@ object ScenarioMapping {
     "getULD" -> GetULDScenario.getULDScenario,
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
-
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
     "contentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
     "postGenericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
     "postSubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
-
     "getVODDetails" -> VODDetailsScenario.vodDetailsScenario,
     "allSubscriptions" -> AllSubscriptionsScenario.getAllSubscriptionsScenario,
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
@@ -71,6 +69,8 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "getSettings" -> GetSettingsScenario.getSettingsScenario,
+
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
