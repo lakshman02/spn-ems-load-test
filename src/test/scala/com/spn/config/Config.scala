@@ -104,8 +104,8 @@ object Config {
   val sentHeadersNew = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
-    "app_version" -> "1.0",
-    "build_number" -> "1.0")
+    "build_number" -> "1.0",
+    "app_version" -> "1.0")
 
 }
 
