@@ -697,5 +697,16 @@
       }
     ],
     "case": "deleteSearchHistory"
-  }
+  },{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "getDevices"
+}
 ]
