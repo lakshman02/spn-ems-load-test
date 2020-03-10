@@ -78,6 +78,7 @@ object Config {
   val NEXT_AND_PREVIOUS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXTANDPREVIOUS/${contentId}"
   val GET_DRM_DEVICEID_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETDRMDEVICEID"
   val ADD_SETTINGS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/ADDSETTINGS"
+  val EPG_REMINDER_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER"
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt

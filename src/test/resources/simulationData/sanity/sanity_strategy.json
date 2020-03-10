@@ -707,5 +707,17 @@
       }
     ],
     "case": "addSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "epgReminder"
   }
 ]
