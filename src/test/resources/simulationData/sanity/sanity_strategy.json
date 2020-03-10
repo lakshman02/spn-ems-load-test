@@ -741,6 +741,18 @@
         ]
       }
     ],
+    "case": "epgReminderDelete"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
     "case": "trayRecommendationRecosense"
   },
   {

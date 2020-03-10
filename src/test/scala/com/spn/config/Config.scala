@@ -82,7 +82,7 @@ object Config {
   val EPG_REMINDER_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER"
   val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION"
   val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${contentId}/DETAIL/EPISODE"
-
+  val EPG_REMINDER_DELETE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER/${assetId}/1582680600530"
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
