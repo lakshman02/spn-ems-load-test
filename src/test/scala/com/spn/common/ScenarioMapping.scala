@@ -43,6 +43,8 @@ object ScenarioMapping {
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
+    "addSettings" -> AddSettingsScenario.addSettingsScenario,
+    "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
