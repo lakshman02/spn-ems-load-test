@@ -1,0 +1,26 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          10000,
+          1200
+        ]
+      }
+    ],
+    "case": "epgReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          10000,
+          1200
+        ]
+      }
+    ],
+    "case": "epgReminderDelete"
+  }
+]

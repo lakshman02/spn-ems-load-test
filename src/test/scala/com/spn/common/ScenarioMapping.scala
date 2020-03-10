@@ -44,6 +44,7 @@ object ScenarioMapping {
     "addSettings" -> AddSettingsScenario.addSettingsScenario,
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
+    "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,

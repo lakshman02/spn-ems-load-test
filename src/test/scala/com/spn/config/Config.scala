@@ -91,6 +91,7 @@ object Config {
   val EPG_REMINDER_GET_LIST_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/LIST"
   val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}/LANDING/SHOW"
 
+  val EPG_REMINDER_DELETE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER/${assetId}/1582680600530"
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
