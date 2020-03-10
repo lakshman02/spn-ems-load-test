@@ -14,8 +14,12 @@ object UserRecommendationDetailsScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(contentIdData)
-    .exec(UserRecommendationDetailsRequest.userRecommendationDetailsRequest)
-
+   .exec(UserRecommendationDetailsRequest.userRecommendationDetailsRequest)
+//    .exec(session => {
+//
+//      println("Testing 50 k users processing time")
+//      session
+//    })
 }
