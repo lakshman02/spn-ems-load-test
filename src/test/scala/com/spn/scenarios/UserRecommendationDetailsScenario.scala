@@ -14,7 +14,7 @@ object UserRecommendationDetailsScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
     .feed(contentIdData)
     .exec(UserRecommendationDetailsRequest.userRecommendationDetailsRequest)
 
