@@ -766,6 +766,18 @@
         ]
       }
     ],
+    "case": "epgReminderGetList"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
     "case": "userRecommendationDetails"
 
   },
