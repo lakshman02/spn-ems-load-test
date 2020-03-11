@@ -695,7 +695,6 @@
       }
     ],
     "case": "deleteSearchHistory"
-
   },
   {
   "inject": [
@@ -780,6 +779,42 @@
       }
     ],
     "case": "userRecommendationDetails"
-  }
 
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userPreferences"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userRecommendationLanding"
+  }
 ]
