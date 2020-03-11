@@ -1,13 +1,12 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.PostSubscriptionHistoryRequest
+import com.spn.requests.AddSettingsRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object PostSubscriptionHistoryScenario {
+object AddSettingsScenario   {
 
-
-  val SubscriptionHistory = scenario("Subscription History")
+  val addSettingsScenario = scenario("Add Settings Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
@@ -15,6 +14,5 @@ object PostSubscriptionHistoryScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth1KUsers)
-    .feed(CommonFeedFiles.dateTimeFeeder)
-    .exec(PostSubscriptionHistoryRequest.subscriptionHistory)
+    .exec(AddSettingsRequest.addSettings)
 }
