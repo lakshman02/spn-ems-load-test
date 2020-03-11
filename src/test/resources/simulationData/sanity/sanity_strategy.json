@@ -695,8 +695,6 @@
       }
     ],
     "case": "deleteSearchHistory"
-
-
   },
   {
   "inject": [
@@ -782,6 +780,18 @@
       }
     ],
     "case": "userPreferences"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteSettings"
   },
   {
     "inject": [
