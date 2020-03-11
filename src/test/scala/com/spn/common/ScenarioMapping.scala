@@ -73,11 +73,13 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "userPreferences" -> UserPerferencesScenario.scnUserPerferences,
     "getDevices" -> GetDevicesScenario.getDevicesScenario,
     "trayRecommendationCatchMedia" -> TrayRecommendationCatchMediaScenario.trayRecommendationCatchMediaScenario,
     "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
