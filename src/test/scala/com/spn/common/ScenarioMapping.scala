@@ -43,6 +43,8 @@ object ScenarioMapping {
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
+    "addSettings" -> AddSettingsScenario.addSettingsScenario,
+    "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
@@ -72,6 +74,12 @@ object ScenarioMapping {
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
     "userPreferences" -> UserPerferencesScenario.scnUserPerferences,
+    "getDevices" -> GetDevicesScenario.getDevicesScenario,
+    "trayRecommendationCatchMedia" -> TrayRecommendationCatchMediaScenario.trayRecommendationCatchMediaScenario,
+    "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
+    "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
+    "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+
 
     // All Journey mapping goes here
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
