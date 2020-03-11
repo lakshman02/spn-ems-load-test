@@ -82,7 +82,7 @@ object Config {
   val EPG_REMINDER_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER"
   val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION"
   val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${contentId}/DETAIL/EPISODE"
-  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/667/LANDING/SHOW"
+  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}/LANDING/SHOW"
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
