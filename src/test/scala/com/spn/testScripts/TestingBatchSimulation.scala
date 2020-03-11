@@ -4,8 +4,11 @@ import com.spn.common.CommonFeedFiles
 import com.spn.config.Config
 import io.gatling.core.Predef.{rampUsers, _}
 import io.gatling.core.scenario.Simulation
+import org.slf4j.LoggerFactory
 
 class TestingBatchSimulation extends Simulation{
+
+  val logger = LoggerFactory.getLogger(getClass)
 
   val testingBatchScenario = scenario("Testing Batch Scenario")
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
@@ -13,7 +16,7 @@ class TestingBatchSimulation extends Simulation{
 
         val evg_email = session("evg_email").as[String]
 
-        println(s"Testing users processing time : $evg_email")
+        logger.info(s"Testing users processing time : $evg_email")
         session
       })
 
