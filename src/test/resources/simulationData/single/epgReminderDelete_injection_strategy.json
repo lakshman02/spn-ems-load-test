@@ -5,7 +5,7 @@
         "type": "rampUsers",
         "args": [
           10,
-          12
+          30
         ]
       }
     ],
@@ -14,10 +14,17 @@
   {
     "inject": [
       {
+        "type": "nothingFor",
+        "args": [
+          10,
+          60
+        ]
+      },
+      {
         "type": "rampUsers",
         "args": [
           10,
-          12
+          30
         ]
       }
     ],

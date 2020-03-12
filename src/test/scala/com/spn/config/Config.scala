@@ -91,6 +91,7 @@ object Config {
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
+  val nothingFor  = Integer.getInteger("nothingFor", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
   val throughput = Integer.getInteger("throughput", 1).toInt
   val times = Integer.getInteger("times", 1).toInt
