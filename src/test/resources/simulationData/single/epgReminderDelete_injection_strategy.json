@@ -16,7 +16,6 @@
       {
         "type": "nothingFor",
         "args": [
-          10,
           60
         ]
       },
@@ -24,7 +23,7 @@
         "type": "rampUsers",
         "args": [
           10,
-          10
+          30
         ]
       }
     ],
