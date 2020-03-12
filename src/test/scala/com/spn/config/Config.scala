@@ -94,6 +94,7 @@ object Config {
   val EPG_REMINDER_DELETE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER/${assetId}/1582680600530"
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
+  val nothingFor  = Integer.getInteger("nothingFor", 1).toInt
   val duration = Integer.getInteger("duration",1).toInt
   val throughput = Integer.getInteger("throughput", 1).toInt
   val times = Integer.getInteger("times", 1).toInt
