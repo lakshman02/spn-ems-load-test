@@ -26,6 +26,6 @@ object UpdateProfileScenario{
     .feed(updateProfileDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(dateOfBirthFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(UpdateProfileRequest.updateProfile)
 }
