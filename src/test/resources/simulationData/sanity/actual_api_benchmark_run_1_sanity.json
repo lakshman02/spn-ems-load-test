@@ -1,0 +1,134 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getToken"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getInitialConfig"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getULD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getPage"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "accountSearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "loginWithEmail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "updateProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getProfile"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getSearchHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addSearchedItem"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "applycoupon"
+  }
+]

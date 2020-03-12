@@ -646,8 +646,6 @@
       }
     ],
     "case": "deleteXdr"
-
-
   },
   {
     "inject": [
@@ -697,6 +695,127 @@
       }
     ],
     "case": "deleteSearchHistory"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "getDevices"
+},
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "epgReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "trayRecommendationRecosense"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "trayRecommendationCatchMedia"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "epgReminderGetList"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userRecommendationDetails"
+
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userPreferences"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userRecommendationLanding"
   },
   {
     "inject": [
