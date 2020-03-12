@@ -25,6 +25,8 @@ object CommonFeedFiles {
 
   val userAuth1KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
 
+  val userAuth50KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
   // inputStagingWeb
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
 

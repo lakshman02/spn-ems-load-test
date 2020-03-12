@@ -1,18 +1,17 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.GetTokenRequest
-import io.gatling.core.Predef.{scenario, _}
+import io.gatling.core.Predef._
 
-object GetTokenScenario {
+import com.spn.requests.DeleteSettingsRequest
 
-
-  val getTokenScenario =scenario("Get Token Scenario")
+object DeleteSettingsScenario {
+  val scnDeleteSetting = scenario(" Delete Settings")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-    .exec(GetTokenRequest.getToken)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .exec(DeleteSettingsRequest.Delete_Settings)
 }
