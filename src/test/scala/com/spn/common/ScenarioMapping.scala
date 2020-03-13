@@ -41,6 +41,9 @@ object ScenarioMapping {
     "postSyncState" -> PostSyncStateScenario.postSyncStateScenario,
     "getSyncState" -> GetSyncStateScenario.getSyncStateScenario,
     "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
+    "addSettings" -> AddSettingsScenario.addSettingsScenario,
+    "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
+    "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
@@ -69,7 +72,21 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+<<<<<<< HEAD
     "getSettings" -> GetSettingsScenario.getSettingsScenario,
+=======
+    "addReminder" -> AddReminderScenario.addReminderScenario,
+    "getReminders" -> GetRemindersScenario.getRemindersScenario,
+    "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "deleteReminder" -> DeleteReminderScenario.deleteReminderScenario,
+    "deleteSettings" -> DeleteSettingsScenario.scnDeleteSetting,
+    "userPreferences" -> UserPerferencesScenario.scnUserPerferences,
+    "getDevices" -> GetDevicesScenario.getDevicesScenario,
+    "trayRecommendationCatchMedia" -> TrayRecommendationCatchMediaScenario.trayRecommendationCatchMediaScenario,
+    "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
+    "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
+    "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+>>>>>>> c2e88d9db8a10705dab01167ed46113c759de887
 
 
     // All Journey mapping goes here

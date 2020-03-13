@@ -13,7 +13,7 @@ object AddSearchedItemScenario {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.contentFeeder)
     .exec(AddSearchedItemRequest.AddSearchedItem)
 }
