@@ -1,19 +1,18 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.GetProfileRequest
+import com.spn.requests.GetDevicesRequest
 import io.gatling.core.Predef.scenario
 
-object GetProfileScenario {
+object GetDevicesScenario {
 
-
-  val getProfileScenario =scenario("Get Profile Scenario")
+  val getDevicesScenario = scenario("Get Devices Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .exec(GetDevicesRequest.getDevicesRequest)
 
-    .exec(GetProfileRequest.getProfile)
 }

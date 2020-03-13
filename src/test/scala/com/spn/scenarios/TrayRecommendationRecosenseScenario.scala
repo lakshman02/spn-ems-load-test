@@ -1,19 +1,18 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.GetProfileRequest
+import com.spn.requests.TrayRecommendationRecosenseRequest
 import io.gatling.core.Predef.scenario
 
-object GetProfileScenario {
+object TrayRecommendationRecosenseScenario {
 
-
-  val getProfileScenario =scenario("Get Profile Scenario")
+  val trayRecommendationRecosenseScenario = scenario("Tray Recommendation Recosense Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.contentFeeder)
+    .exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 
-    .exec(GetProfileRequest.getProfile)
 }
