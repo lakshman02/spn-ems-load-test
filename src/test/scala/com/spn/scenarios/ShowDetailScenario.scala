@@ -12,6 +12,7 @@ object ShowDetailScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.userAuth1KUsers)
     .exec(ShowDetailRequest.showDetailRequest)
 }
