@@ -1,17 +1,19 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.GetSearchHistoryRequest
+import com.spn.requests.GetRemindersRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object GetSearchHistoryScenario {
+object GetRemindersScenario {
 
-  val getSearchHistoryScenario = scenario("Get Search History Scenario")
+
+  val getRemindersScenario = scenario("Get Reminders Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-    .exec(GetSearchHistoryRequest.getSearchHistory)
+    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .exec(GetRemindersRequest.getRemindersRequest)
+
 }
