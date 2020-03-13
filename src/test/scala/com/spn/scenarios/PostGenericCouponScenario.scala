@@ -7,6 +7,7 @@ import io.gatling.core.Predef._
 
 object PostGenericCouponScenario {
 
+val langCode = csv("data/languageCode.csv")
 
   val scnGeneric_Coupon = scenario("Generic Coupon")
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -17,6 +18,7 @@ object PostGenericCouponScenario {
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
+    .feed(langCode)
     .exec(PostGenericCouponsRequest.Generic_Coupons)
 
 }

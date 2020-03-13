@@ -14,7 +14,7 @@ object PostGenericCouponsRequest {
       """
         {
           "channelPartnerID": "${channelPartnerID}",
-          "languageCode": "en_IN",
+          "languageCode": "${languageCode}",
           "timestamp": "${getDateTime}"
         }""")).asJson
     .check(status is 200)
