@@ -11,7 +11,7 @@ object AddSettingsRequest  {
     .post(Config.app_url + Config.ADD_SETTINGS_URL)
     .headers(Config.sentHeadersNew)
     .body(StringBody ("""{
-    "videoStreamingQuality": "2"
+    "videoStreamingQuality": "${videoStreamingQuality}"
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))

@@ -11,10 +11,7 @@ object AddListRequest {
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "assets": [
-        "1000000189",
-        "1000000190",
-        "1000000191",
-        "1000000192"
+        "${assetID}"
     ]
       }""")).asJson
     .check(status is 200)

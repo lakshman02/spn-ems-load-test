@@ -16,5 +16,6 @@ object GenerateDeviceActivationCodeScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
+
     .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
 }

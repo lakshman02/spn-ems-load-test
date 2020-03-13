@@ -12,11 +12,11 @@ object AddXdrRequest {
     .body(StringBody ("""{
     "assetId": "${contentId}",
     "offset": {
-      "assetDuration": 1223000,
-      "position": 866000
+      "assetDuration": ${assetDuration},
+      "position": ${position}
        },
-    "updatedTime": 1550480470267,
-    "isOnAir": true
+    "updatedTime": ${updatedTime},
+    "isOnAir": ${isOnAir}
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))

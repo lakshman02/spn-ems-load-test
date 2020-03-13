@@ -14,5 +14,7 @@ object GetSyncStateScenario{
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.inputStagingDataFeeder)
+
     .exec(GetSyncStateRequest.getSyncState)
 }
