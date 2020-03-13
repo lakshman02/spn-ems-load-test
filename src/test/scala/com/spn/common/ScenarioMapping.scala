@@ -73,6 +73,8 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "deleteReminder" -> DeleteReminderScenario.deleteReminderScenario,
     "deleteSettings" -> DeleteSettingsScenario.scnDeleteSetting,
     "userPreferences" -> UserPerferencesScenario.scnUserPerferences,
     "getDevices" -> GetDevicesScenario.getDevicesScenario,
