@@ -73,6 +73,7 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "addReminder" -> AddReminderScenario.addReminderScenario,
     "getReminders" -> GetRemindersScenario.getRemindersScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
     "deleteReminder" -> DeleteReminderScenario.deleteReminderScenario,
