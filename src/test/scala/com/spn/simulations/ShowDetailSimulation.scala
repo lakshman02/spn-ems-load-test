@@ -7,12 +7,10 @@ import io.gatling.core.Predef.{Simulation, _}
 class ShowDetailSimulation extends Simulation
 {
 private val showDetail = ShowDetailScenario.showDetailScenario
-  .inject(incrementUsersPerSec(Config.users)
-    .times(Config.times)
-    .eachLevelLasting(Config.eachLevelLasting)
-    .separatedByRampsLasting(Config.separatedByRampsLasting)
-    .startingFrom(Config.startingFrom)
+  .inject(
+    rampUsers(15) during(30)
   )
+
 
 
 setUp(showDetail).protocols(Config.httpProtocol)
