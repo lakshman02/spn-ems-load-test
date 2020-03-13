@@ -11,12 +11,12 @@ object PostApplyCouponRequest {
     .headers(Config.sentHeaders)
     .body(StringBody(""" {
                        "couponCode": "SONYTEST",
-                        "price": 1.99,
-                        "productID": "daily_india",
+                        "price": "${price}",
+                        "productID": "${productID}",
                         "channelPartnerID": "${channelPartnerID}",
                         "timestamp": "${getDateTime}"
                        }""")).asJson
-    //Hardcoded body string
+    //individual csv files are created for body string
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 }

@@ -10,13 +10,13 @@ object PaymentModesRequest {
     .post(Config.app_url + Config.PAYMENT_MODES_URL)
     .headers(Config.sentHeaders)
       .body(StringBody(""" {
-                           "serviceID": "1mn_99_india",
-                           "serviceType": "SVOD",
-                           "channelPartnerID": "${channelPartnerID}",
-                           "platform": "Desktop",
-                           "appType": "Web",
+                           "serviceID": "${single_service_id}",
+                           "serviceType": "${single_service_type}",
+                           "channelPartnerID": "${single_channel_partner_id}",
+                           "platform": "${platform}",
+                           "appType": "${appType}",
                            "deviceType": "${deviceType}",
-                           "languageCode": "en-IN",
+                           "languageCode": "${languageCode}",
                            "timestamp": "${getDateTime}"
                          }""")).asJson
     .check(status is 200)
