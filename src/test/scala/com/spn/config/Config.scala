@@ -53,7 +53,7 @@ object Config {
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
   val VIDEO_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/VIDEOURL/VOD/${contentId}"
-  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/SHOW/1700000003"
+  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/SHOW/${Group_Of_Bundle}"
   val GET_SEARCH_HISTORY_URL ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETSEARCHHISTORY"
   val GET_USER_PLAYBACK_PREVIEW_DETAILS_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/GETUSERPLAYBACKPREVIEWDETAILS"
   val DELETE_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/DELETEMYLIST"
