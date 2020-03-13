@@ -5,7 +5,7 @@ import com.spn.requests.ContentDetailBundle
 import io.gatling.core.Predef.{scenario, _}
 
 object ContentDetailBundleScenario {
-
+val bundleIdFeed = csv("data/bundleId.csv")
 
   val contentDetail_BundleScenario = scenario("Content Detail Bundle Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
@@ -15,6 +15,7 @@ object ContentDetailBundleScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsers)
     .feed(CommonFeedFiles.dateTimeFeeder)
+    .feed(bundleIdFeed)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .exec(ContentDetailBundle.ContentDetailBundle)
 }

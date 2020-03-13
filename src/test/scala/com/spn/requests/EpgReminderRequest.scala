@@ -13,8 +13,8 @@ object EpgReminderRequest {
     "channelId": "${channelId}",
     "assetId": "${assetId}",
     "title": "${title}",
-    "startDateTime": 1582680600530,
-    "endDateTime": 1582680600840
+    "startDateTime": ${startDateTime},
+    "endDateTime": ${endDateTime}
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
