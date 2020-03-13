@@ -14,6 +14,7 @@ object GetProfileScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .exec(GetProfileRequest.getProfile)
 }

@@ -22,7 +22,7 @@ object Config {
 //  val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PAGE/${pageID}"
   val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/${RANDOM_PAGE_URL}"
   val Login_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/LOGIN"
-  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID=MSMIND1"
+  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID=${channelPartnerID}"
   val GET_ULD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ULD"
   val CREATE_OTP_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CREATEOTP"
   val ACCOUNT_SEARCH_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ACCOUNTS/SEARCH"
@@ -48,7 +48,7 @@ object Config {
   val PRORATE_AMOUNT_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PRORATEAMOUNT"
   val PAYMENT_MODES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/PAYMENTMODES"
   val SUBSCRIPTION_REMOVE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/REMOVE"
-  val GetSyncState_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE?packageId=daily_india"
+  val GetSyncState_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE?packageId=${packageId}"
   val CHANGE_SERVICE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/CHANGESERVICE"
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
@@ -78,14 +78,9 @@ object Config {
   val NEXT_AND_PREVIOUS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXTANDPREVIOUS/${contentId}"
   val GET_DRM_DEVICEID_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETDRMDEVICEID"
   val GET_SETTINGS_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/GETSETTINGS"
-
-
   val ADD_REMINDER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/FIXTURE/ADDREMINDER"
-
   val GET_REMINDER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/FIXTURE/GETREMINDERS/ALL"
-
   val DELETE_REMINDER_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/FIXTURE/DELETEREMINDER/${contentId}"
-
   val DELETE_SETTINGS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/DELETESETTINGS"
   val USER_PERFERENCES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/PREFERENCES"
   val GET_DEVICES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DEVICES/USER/GETDEVICES"

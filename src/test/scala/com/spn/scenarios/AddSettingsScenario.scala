@@ -14,5 +14,7 @@ object AddSettingsScenario   {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.inputStagingDataFeeder)
+
     .exec(AddSettingsRequest.addSettings)
 }

@@ -14,5 +14,6 @@ object PlaceOrderScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+
     .exec(PlaceOrderRequest.placeOrder)
 }

@@ -7,8 +7,6 @@ import io.gatling.core.Predef.scenario
 
 //Account Search Scenario
 object AccountSearchScenario {
-
-
   val accountSearchScenario =scenario("Account Search Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
@@ -16,5 +14,7 @@ object AccountSearchScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.inputStagingDataFeeder)
+
     .exec(AccountSearchRequest.accountSearch)
 }
