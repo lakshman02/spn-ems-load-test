@@ -18,7 +18,6 @@ object ScenarioMapping {
     "getULD" -> GetULDScenario.getULDScenario,
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
-
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
     "contentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
@@ -73,6 +72,9 @@ object ScenarioMapping {
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
+<<<<<<< HEAD
+    "getSettings" -> GetSettingsScenario.getSettingsScenario,
+=======
     "addReminder" -> AddReminderScenario.addReminderScenario,
     "getReminders" -> GetRemindersScenario.getRemindersScenario,
     "getPrevious" -> PreviousScenario.scnPreviousContent,
@@ -84,6 +86,7 @@ object ScenarioMapping {
     "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+>>>>>>> c2e88d9db8a10705dab01167ed46113c759de887
 
 
     // All Journey mapping goes here

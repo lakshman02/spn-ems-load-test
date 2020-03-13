@@ -852,6 +852,18 @@
       }
     ],
     "case": "addReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getSettings"
   }
 
 ]

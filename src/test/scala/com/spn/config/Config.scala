@@ -77,6 +77,9 @@ object Config {
   val GET_XDR = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR"
   val NEXT_AND_PREVIOUS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/NEXTANDPREVIOUS/${contentId}"
   val GET_DRM_DEVICEID_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETDRMDEVICEID"
+  val GET_SETTINGS_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/GETSETTINGS"
+
+
   val ADD_REMINDER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/FIXTURE/ADDREMINDER"
 
   val GET_REMINDER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/FIXTURE/GETREMINDERS/ALL"
