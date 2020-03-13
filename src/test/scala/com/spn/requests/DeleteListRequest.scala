@@ -14,7 +14,7 @@ object DeleteListRequest {
     .headers(sentHeaders)
     .body(StringBody ("""{
     "assets": [
-        "1000000189"
+        "${assetID}"
     ]
 }""")).asJson
     .check(status is 200)
