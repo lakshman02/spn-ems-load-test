@@ -16,7 +16,7 @@ object PostSyncStateScenario {
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.dataFeederServiceDetails)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 
     .exec(PostSyncStateRequest.postSyncStateRequest)
 }

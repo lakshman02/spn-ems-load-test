@@ -12,13 +12,20 @@ import scala.io.{BufferedSource, Source}
 
 class SPNAPISimulation extends Simulation {
 
+  val fileSource = System.getProperty("fileSource")
   val filePath = System.getProperty("filePath")
 
- val source: BufferedSource = Source.fromURL(filePath)
-
-  val rawTestList = source.mkString
-
   def scnList() : Seq[PopulationBuilder] = {
+
+    var source: BufferedSource = null;
+
+    if(fileSource!=null && fileSource.equals("s3")) {
+      source = Source.fromURL(filePath)
+    } else {
+      source = Source.fromFile(filePath)
+    }
+
+    val rawTestList = source.mkString
 
     val testList = new JSONArray(rawTestList)
     val scnList = new ArraySeq[PopulationBuilder](testList.length())

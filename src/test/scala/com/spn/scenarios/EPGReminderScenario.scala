@@ -12,7 +12,7 @@ object EPGReminderScenario{
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDReminder)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDEpgReminder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .exec(EpgReminderRequest.epgReminder)

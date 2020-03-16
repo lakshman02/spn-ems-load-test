@@ -14,7 +14,7 @@ object DeleteReminderScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteReminder)
     .feed(dataFeederContentId)
     .exec(DeleteReminderRequest.deleteReminderRequest)
 

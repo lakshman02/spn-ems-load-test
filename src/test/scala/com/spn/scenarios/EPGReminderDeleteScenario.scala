@@ -14,7 +14,7 @@ object EPGReminderDeleteScenario{
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteReminder)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteEpgReminder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .exec(EpgReminderDeleteRequest.epgReminderDelete)
 }

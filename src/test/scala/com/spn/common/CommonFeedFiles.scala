@@ -40,10 +40,14 @@ object CommonFeedFiles {
 
 
   //Scenario specific - EPG/REMINDER ADD, GET, DELETE
+  val userAuth50KUsersUsingCircular_ADDEpgReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_GetEpgReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_DeleteEpgReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
+  //Scenario specific - REMINDER ADD, GET, DELETE
   val userAuth50KUsersUsingCircular_ADDReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
   val userAuth50KUsersUsingCircular_GetReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
   val userAuth50KUsersUsingCircular_DeleteReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
-
 
 
   // inputStagingWeb
