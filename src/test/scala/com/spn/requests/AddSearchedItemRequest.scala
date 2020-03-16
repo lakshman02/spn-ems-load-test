@@ -11,5 +11,5 @@ object AddSearchedItemRequest {
     .headers(Config.sentHeaders)
     .queryParam("searchedItem" , "${query}")
     .check(status is 200)
-    .check(jsonPath("$.resultCode").is("success")))
+    .check(jsonPath("$.resultCode").is("OK")))
 }

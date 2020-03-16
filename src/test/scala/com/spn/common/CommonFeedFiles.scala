@@ -27,6 +27,25 @@ object CommonFeedFiles {
 
   val userAuth50KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
 
+
+  //Scenario specific - ADD List, GET List, DELETE List
+  val userAuth50KUsersUsingCircular_ADDList = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_GetList = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_DeleteList = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
+  //Scenario specific - ADD Settings, GET Settings, Delete Setings
+  val userAuth50KUsersUsingCircular_ADDSetting = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_GetSetting = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_DeleteSetting = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
+
+  //Scenario specific - EPG/REMINDER ADD, GET, DELETE
+  val userAuth50KUsersUsingCircular_ADDReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_GetReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_DeleteReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
+
+
   // inputStagingWeb
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
 

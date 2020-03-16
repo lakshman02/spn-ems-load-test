@@ -12,7 +12,7 @@ object DeleteListScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteList)
     .feed(CommonFeedFiles.dataFeederAssetID)
     .exec(DeleteListRequest.deleteList)
 }

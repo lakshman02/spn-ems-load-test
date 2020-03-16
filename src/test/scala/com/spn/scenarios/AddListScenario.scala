@@ -13,7 +13,7 @@ object AddListScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDList)
     .feed(CommonFeedFiles.dataFeederAssetID)
 
     .exec(AddListRequest.addList)
