@@ -1,9 +1,7 @@
 package com.spn.scenarios.journey
 
-import java.time.LocalDateTime
-
 import com.spn.common.{CommonFeedFiles, Constants}
-import com.spn.requests.{ActiveSubscription, AllSubscriptionsRequest, GetInitialConfigRequest, GetPageIdRequest, GetProfileRequest, GetTokenRequest, GetULDRequest, LoginRequest}
+import com.spn.requests.{ GetInitialConfigRequest, GetPageIdRequest, GetTokenRequest, GetULDRequest}
 import io.gatling.core.Predef._
 
 import scala.concurrent.duration._
@@ -27,6 +25,12 @@ object GuestUserAppLaunchScenario {
       })
         .pause(1, 3 seconds)
         .exec(GetInitialConfigRequest.getInitialConfig)
+        .exec(session => {
+          val initialConfigResponse = session(Constants.RESP_RANDOM_PAGE_URL).as[String]
+          println(s"\nRESP_RANDOM_PAGE_URL : $initialConfigResponse")
+          session
+
+        })
         .pause(1, 3 seconds)
         .exec(GetULDRequest.getULD)
         .pause(1, 3 seconds)
@@ -34,8 +38,7 @@ object GuestUserAppLaunchScenario {
     }
 }
 
-// 1) We will have to identify the targetType type and it should be PAGE
-// 2) Multiple result objects as in menu, menu mobile and menu footer
+
 
 
 

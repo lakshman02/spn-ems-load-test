@@ -11,6 +11,7 @@ object GetInitialConfigRequest {
     .get(Config.app_url + Config.URL_INITIAL_CONFIG)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_INITIAL_CONFIG))
+    .check(jsonPath("$.resultObj.*.containers[*].actions[?(@.targetType == 'PAGE')].uri").findRandom.saveAs(Constants.RESP_RANDOM_PAGE_URL))
+    // .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findAll.saveAs(Constants.RESP_RANDOM_PAGE_URL))
   )
 }
