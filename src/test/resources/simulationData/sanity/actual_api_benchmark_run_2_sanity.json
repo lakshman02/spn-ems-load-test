@@ -9,18 +9,6 @@
         ]
       }
     ],
-    "case": "getProduct"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
     "case": "addList"
   },
   {
@@ -58,30 +46,6 @@
       }
     ],
     "case": "getUserPlayBackPreviewDetails"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "postSyncState"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "getSyncState"
   },
   {
   "inject": [
