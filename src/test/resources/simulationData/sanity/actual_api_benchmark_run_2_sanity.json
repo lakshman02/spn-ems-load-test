@@ -57,30 +57,6 @@
         ]
       }
     ],
-    "case": "getXDR"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "deleteXdr"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
     "case": "getUserPlayBackPreviewDetails"
   },
   {
@@ -107,6 +83,18 @@
     ],
     "case": "getSyncState"
   },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "addSearchedItem"
+},
   {
     "inject": [
       {
