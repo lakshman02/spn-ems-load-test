@@ -12,6 +12,6 @@ object DeleteSettingsScenario {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteSetting)
     .exec(DeleteSettingsRequest.Delete_Settings)
 }

@@ -6,7 +6,7 @@ import com.spn.common.CommonFeedFiles
 import com.spn.requests.EpgReminderGetListRequest
 
 object EpgReminderGetListScenario {
-  val inputParams = csv("data/epgGetReminderQueryParams.csv")
+  val inputParams = csv("data/epgGetReminderQueryParams.csv").circular
 
   val scnEpg_reminder_GetList = scenario("EPG Reminder GET LIST")
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -15,6 +15,6 @@ object EpgReminderGetListScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(inputParams)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_GetReminder)
     .exec(EpgReminderGetListRequest.EPG_GetList)
 }
