@@ -14,7 +14,7 @@ object GenerateDeviceActivationCodeRequest {
              "channelPartnerID": "${channelPartnerID}",
              "deviceName": "${deviceName}",
              "deviceModelNumber": "${deviceModelNumber}",
-             "serialNo": "d6acc46e-5a09-d432-1afb-d8c4eb6dd811"
+             "serialNo": "${serialNo}"
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))

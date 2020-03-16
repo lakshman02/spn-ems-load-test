@@ -9,11 +9,11 @@ object EpgReminderGetListRequest {
   val EPG_GetList = exec(http("EPG Reminder GET LIST")
     .get(Config.app_url + Config.EPG_REMINDER_GET_LIST_URL)
     .headers(Config.sentHeadersNew)
-    .queryParamMap(Map("channelId" -> "ALL",
-      "offset" -> "500",
-      "from" -> "0",
-      "size" -> "20",
-      "startDate" -> "2019-01-01"))
+    .queryParamMap(Map("channelId" -> "${channelId}",
+      "offset" -> "${offset}",
+      "from" -> "${from}",
+      "size" -> "${size}",
+      "startDate" -> "${startDate}"))
     .check(status.is(200))
     .check(jsonPath("$.resultCode").is("OK"))
   )

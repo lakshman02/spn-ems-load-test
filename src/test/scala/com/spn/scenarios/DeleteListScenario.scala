@@ -13,5 +13,6 @@ object DeleteListScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.dataFeederAssetID)
     .exec(DeleteListRequest.deleteList)
 }

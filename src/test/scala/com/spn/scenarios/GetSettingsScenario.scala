@@ -1,19 +1,17 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.PlaceOrderRequest
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.GetSettingsRequest
+import io.gatling.core.Predef.scenario
 
-object PlaceOrderScenario{
+object GetSettingsScenario {
 
-  val placeOrderScenario =scenario("Place Order Scenario")
+  val getSettingsScenario = scenario("Get settings Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
-
-    .exec(PlaceOrderRequest.placeOrder)
+    .exec(GetSettingsRequest.getSettings)
 }

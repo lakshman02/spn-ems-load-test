@@ -10,9 +10,9 @@ object StoreDropOffReasonRequest {
     .post(Config.app_url + Config.STORE_DROP_OFF_REASON_URL)
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
-    "reasonCode": "1001",
-    "reasonDescription": "Content not good",
-    "serviceID": "1mn_99_india",
+    "reasonCode": "${reasonCode}",
+    "reasonDescription": "${reasonDescription}",
+    "serviceID": "${serviceIDNew}",
     "serviceType": "${serviceType}",
     "channelPartnerID": "${channelPartnerID}",
     "timestamp": "${getDateTime}"

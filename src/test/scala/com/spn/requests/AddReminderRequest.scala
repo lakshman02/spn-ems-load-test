@@ -4,14 +4,15 @@ import com.spn.config.Config
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
-object AddSettingsRequest  {
+object AddReminderRequest {
 
-  val addSettings = exec(http("Add Settings Request")
-
-    .post(Config.app_url + Config.ADD_SETTINGS_URL)
+  val addReminder= exec(http("Add Reminder Request")
+    .post(Config.app_url + Config.ADD_REMINDER_URL)
     .headers(Config.sentHeadersNew)
     .body(StringBody ("""{
-    "videoStreamingQuality": "${videoStreamingQuality}"
+      "assetId": "${contentId}",
+      "matchId": "${matchId}",
+      "startDateTime": 1582546604733
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))

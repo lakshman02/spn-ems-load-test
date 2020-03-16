@@ -1,19 +1,24 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.PlaceOrderRequest
+import com.spn.requests.AddReminderRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object PlaceOrderScenario{
+object AddReminderScenario {
 
-  val placeOrderScenario =scenario("Place Order Scenario")
+  val contentIdData = csv("data/contentID.csv").circular
+  val matchIdData = csv("data/matchID.csv").circular
+
+
+  val addReminderScenario = scenario("Add reminder Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.inputStagingDataFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
-
-    .exec(PlaceOrderRequest.placeOrder)
+    .feed(contentIdData)
+    .feed(matchIdData)
+    .exec(AddReminderRequest.addReminder)
 }
