@@ -15,6 +15,6 @@ object GetUserPlayBackPreviewDetailsScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(previewDetailsDataFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
 }

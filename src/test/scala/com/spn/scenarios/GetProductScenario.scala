@@ -16,7 +16,7 @@ object GetProductScenario   {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(dataSalesFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 
     .exec(GetProduct .GetProduct)
   //.exec (session => println(session) session)

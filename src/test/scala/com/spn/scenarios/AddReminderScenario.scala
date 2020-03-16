@@ -17,7 +17,7 @@ object AddReminderScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDReminder)
     .feed(contentIdData)
     .feed(matchIdData)
     .exec(AddReminderRequest.addReminder)

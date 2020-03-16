@@ -6,15 +6,15 @@ import io.gatling.http.Predef._
 object GetProduct {
 
   val GetProduct  = exec(http("Get_Product Request")
-    .post(Config.app_url + Config.GET_PRODUCTS_URL)
+    .get(Config.app_url + Config.GET_PRODUCTS_URL)
     .headers(Config.sentHeaders)
-    .body(StringBody ("""{
+/*    .body(StringBody ("""{
    "channelPartnerID": "${channelPartnerID}",
   "dmaID": "IN",
   "salesChannel": "web",
   "offerType": "Existing Customer",
   "languageCode": "en_US"
-        }""")).asJson
+        }""")).asJson*/
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

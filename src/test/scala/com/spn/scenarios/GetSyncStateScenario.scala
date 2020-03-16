@@ -13,7 +13,7 @@ object GetSyncStateScenario{
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .exec(GetSyncStateRequest.getSyncState)
