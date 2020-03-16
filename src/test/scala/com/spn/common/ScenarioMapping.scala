@@ -43,6 +43,7 @@ object ScenarioMapping {
     "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
     "addSettings" -> AddSettingsScenario.addSettingsScenario,
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
+    "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,

@@ -1,12 +1,14 @@
 package com.spn.scenarios
 
+import com.redis.E
 import com.spn.common.CommonFeedFiles
 import com.spn.requests.EpgReminderRequest
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.EpgReminderDeleteRequest
+import io.gatling.core.Predef.scenario
 
-object EPGReminderScenario{
+object EPGReminderDeleteScenario{
 
-  val EPGReminderScenario =scenario("EPG Reminder Save Scenario")
+  val EPGReminderDeleteScenario =scenario("EPG Reminder Delete Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -14,6 +16,5 @@ object EPGReminderScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
-    .exec(EpgReminderRequest.epgReminder)
+    .exec(EpgReminderDeleteRequest.epgReminderDelete)
 }
