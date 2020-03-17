@@ -1,22 +1,18 @@
 package com.spn.scenarios
 
-import java.time.LocalDateTime
-
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.ProductsByCouponRequest
+import com.spn.requests.DeleteAllSearchHistory
 import io.gatling.core.Predef.scenario
-import io.gatling.core.Predef._
 
-object ProductsByCouponScenario{
+object DeleteAllSearchHistoryScenario {
 
-  val productsByCouponScenario =scenario("Products By Coupon Scenario")
+
+  val scnDeleteAllSearchHistory =scenario("Delete All Search History")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-    .feed(CommonFeedFiles.dateTimeFeeder)
-    .exec(ProductsByCouponRequest.productsByCoupon)
+    .exec(DeleteAllSearchHistory.DeleteAllSearchHistory)
 }

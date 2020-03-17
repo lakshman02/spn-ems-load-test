@@ -621,7 +621,6 @@
     }
   ],
   "case": "getXDR"
-
 },
   {
     "inject": [
@@ -658,7 +657,6 @@
       }
     ],
     "case": "next"
-
   },
   {
     "inject": [
@@ -791,7 +789,6 @@
       }
     ],
     "case": "userRecommendationDetails"
-
   },
   {
     "inject": [
@@ -876,6 +873,17 @@
       }
     ],
     "case": "getSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteAllSearchHistory"
   }
-
 ]

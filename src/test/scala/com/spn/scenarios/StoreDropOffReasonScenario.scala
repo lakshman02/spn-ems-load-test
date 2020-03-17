@@ -12,7 +12,7 @@ object StoreDropOffReasonScenario{
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 

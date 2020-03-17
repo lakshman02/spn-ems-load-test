@@ -14,6 +14,6 @@ object UpgradablePlansScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(UpgradablePlansRequest.upgradablePlans)
 }

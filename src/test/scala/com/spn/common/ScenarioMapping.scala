@@ -43,6 +43,7 @@ object ScenarioMapping {
     "processRazorPayOrder" -> ProcessRazorPayOrderScenario.processRazorPayOrderScenario,
     "addSettings" -> AddSettingsScenario.addSettingsScenario,
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
+    "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     // All Journey mapping goes here
@@ -85,6 +86,7 @@ object ScenarioMapping {
     "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+    "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
 
 
     // All Journey mapping goes here

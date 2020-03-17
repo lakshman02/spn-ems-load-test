@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object VideoUrlScenario {
 
-  val contentID = csv("data/contentID.csv").random
+  val contentID = csv("data/contentID.csv").circular
 
   val videoUrlScenario =scenario("Video Url Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)

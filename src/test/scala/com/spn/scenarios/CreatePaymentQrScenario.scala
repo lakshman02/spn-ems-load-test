@@ -19,7 +19,7 @@ object CreatePaymentQrScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
 .feed(dataFeederPayment)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .exec(CreatePaymentQrRequest.createPaymentQrRequest)

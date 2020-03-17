@@ -15,7 +15,7 @@ object GetDRMDeviceIdScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(deviceFeeder)
     .exec(GetDRMDeviceIdRequest.getDRMDeviceIdRequest)
 }

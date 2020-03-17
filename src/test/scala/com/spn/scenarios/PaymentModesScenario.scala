@@ -5,11 +5,11 @@ import com.spn.requests.PaymentModesRequest
 import io.gatling.core.Predef._
 
 object PaymentModesScenario {
-  val langBody = csv("data/languageCode.csv")
-  val serviceBody = csv("data/single_serviceId.csv")
-  val platformBody = csv("data/platform_PaymentMode.csv")
-  val appTypeBody = csv("data/appType.csv")
-  val channelPartneridBody = csv("data/single_channel_partner_id.csv")
+  val langBody = csv("data/languageCode.csv").circular
+  val serviceBody = csv("data/single_serviceId.csv").circular
+  val platformBody = csv("data/platform_PaymentMode.csv").circular
+  val appTypeBody = csv("data/appType.csv").circular
+  val channelPartneridBody = csv("data/single_channel_partner_id.csv").circular
 
   val scnPaymentMode = scenario("Payment Modes")
     .feed(CommonFeedFiles.dateTimeFeeder)
@@ -24,6 +24,6 @@ object PaymentModesScenario {
     .feed(serviceBody)
     .feed(platformBody)
     .feed(appTypeBody)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(PaymentModesRequest.Payment_mode)
 }

@@ -13,7 +13,7 @@ object ChangeServiceScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 
     .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dataFeederServiceIDOnlyDetails)

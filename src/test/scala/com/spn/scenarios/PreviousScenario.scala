@@ -16,6 +16,6 @@ object PreviousScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederContentid)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(PreviousRequest.Previous)
 }
