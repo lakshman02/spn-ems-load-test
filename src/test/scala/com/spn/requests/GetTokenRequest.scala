@@ -12,6 +12,6 @@ object GetTokenRequest {
     .header("x-via-device" , "true")
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_TOKEN))
+    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_SECURITY_TOKEN))
   )
 }
