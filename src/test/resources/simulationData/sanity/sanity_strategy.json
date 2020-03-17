@@ -621,7 +621,6 @@
     }
   ],
   "case": "getXDR"
-
 },
   {
     "inject": [
@@ -658,7 +657,6 @@
       }
     ],
     "case": "next"
-
   },
   {
     "inject": [
@@ -791,7 +789,6 @@
       }
     ],
     "case": "userRecommendationDetails"
-
   },
   {
     "inject": [
@@ -877,5 +874,4 @@
     ],
     "case": "getSettings"
   }
-
 ]
