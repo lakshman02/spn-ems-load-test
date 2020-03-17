@@ -18,7 +18,7 @@ object AddXdrScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(contentIdData)
 

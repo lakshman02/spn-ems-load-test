@@ -17,7 +17,7 @@ object IsSubscribedScenario{
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(IsSubscribedRequest.isSubscribed)

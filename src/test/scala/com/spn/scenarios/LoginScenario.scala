@@ -12,7 +12,7 @@ import io.gatling.core.Predef.{scenario, _}
       .feed(CommonFeedFiles.dataFeederChannel)
       .feed(CommonFeedFiles.dataFeederProperty)
       .feed(CommonFeedFiles.dateTimeFeeder)
-      .feed(CommonFeedFiles.userAuth1KUsers)
+      .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
       .feed(CommonFeedFiles.dataFeederOtpRequirements)
       .exec(LoginRequest.LoginRequest)
 

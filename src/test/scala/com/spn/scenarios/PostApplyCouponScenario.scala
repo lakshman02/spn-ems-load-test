@@ -6,9 +6,9 @@ import io.gatling.core.Predef._
 import com.spn.requests.PostApplyCouponRequest
 
 object PostApplyCouponScenario {
-  val couponCodeBody = csv("data/couponCode.csv")
-  val priceBody = csv("data/price_ApplyCoupon.csv")
-  val productBody = csv("data/productId.csv")
+  val couponCodeBody = csv("data/couponCode.csv").circular
+  val priceBody = csv("data/price_ApplyCoupon.csv").circular
+  val productBody = csv("data/productId.csv").circular
 
   val scnApplyCoupon = scenario("Apply Coupon")
     .feed(CommonFeedFiles.dataFeederChannel)

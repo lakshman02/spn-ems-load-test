@@ -13,6 +13,6 @@ object ShowDetailScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(ShowDetailRequest.showDetailRequest)
 }

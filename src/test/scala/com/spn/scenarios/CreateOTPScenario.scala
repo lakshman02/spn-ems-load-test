@@ -14,7 +14,7 @@ object CreateOTPScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .exec(CreateOTPRequest.createOTPRequest)
 

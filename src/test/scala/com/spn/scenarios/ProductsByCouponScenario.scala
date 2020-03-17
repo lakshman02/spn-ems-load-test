@@ -16,7 +16,7 @@ object ProductsByCouponScenario{
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .exec(ProductsByCouponRequest.productsByCoupon)
 }

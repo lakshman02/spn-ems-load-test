@@ -14,7 +14,7 @@ object NextAndPreviousScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth1KUsers)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(contentFeeder)
     .exec(NextAndPreviousRequest.nextAndPreviousRequest)
 
