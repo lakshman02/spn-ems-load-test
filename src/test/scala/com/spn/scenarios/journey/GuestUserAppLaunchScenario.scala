@@ -33,7 +33,13 @@ object GuestUserAppLaunchScenario {
 
             })
             .pause(1, 3 seconds)
-            .exec(GetPageIdRequest.PageId)
+            .exec(GetPageIdRequest.PageId) // Definitly invoke Home Page
+            .pause(1, 3 seconds)
+            .doIf("GO_TO_MOVIE" == true) { //Decide if we need to take the user to Movies Page?
+              exec(GetPageIdRequest.PageId)
+            }.doIf("GO_TO_TV_SHOWS" == true) { //Decide if we need to take the user to TV Shows Page?
+              exec(GetPageIdRequest.PageId)
+            }
             .pause(1, 3 seconds)
             .exec(GetULDRequest.getULD)
         }
