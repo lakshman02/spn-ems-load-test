@@ -86,6 +86,7 @@ object ScenarioMapping {
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
     "removeDevices" -> RemoveDevicesScenario.removeDevicesScenario,
+    "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
 
 
     // All Journey mapping goes here
