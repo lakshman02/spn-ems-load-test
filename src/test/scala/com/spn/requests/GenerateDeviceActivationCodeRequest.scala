@@ -20,4 +20,10 @@ object GenerateDeviceActivationCodeRequest {
     .check(jsonPath("$.resultCode").is("OK"))
     .check(jsonPath("$.resultObj.activationCode").findRandom.saveAs(Constants.RESP_ACTIVATION_CODE)
   ))
+    .exec(session => {
+      val printActivationCode = session(Constants.RESP_ACTIVATION_CODE).asOption[String]
+      println("======================================================")
+      println("activationCode: =====>> " + printActivationCode.getOrElse("COULD NOT FIND activationCode"))
+      println("======================================================")
+      session})
 }

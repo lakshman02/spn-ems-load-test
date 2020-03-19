@@ -14,12 +14,6 @@
   {
     "inject": [
       {
-        "type": "nothingFor",
-        "args": [
-          60
-        ]
-      },
-      {
         "type": "rampUsers",
         "args": [
           10,

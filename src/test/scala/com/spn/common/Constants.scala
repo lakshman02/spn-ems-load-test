@@ -7,3 +7,4 @@ object Constants {
   val RESP_AUTH_TOKEN = "RESP_AUTH_TOKEN"
   val RESP_ACTIVATION_CODE= "RESP_ACTIVATION_CODE"
 }
+
