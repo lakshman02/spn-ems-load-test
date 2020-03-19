@@ -1,11 +1,10 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests.GetTokenRequest
 import io.gatling.core.Predef.{scenario, _}
 
 object GetTokenScenario {
-
 
   val getTokenScenario =scenario("Get Token Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
@@ -15,4 +14,10 @@ object GetTokenScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(GetTokenRequest.getToken)
+    .exec(session => {
+      val printToken = session(Constants.RESP_TOKEN).as[String]
+      println("======================================================")
+      println("token: =====>> " + printToken)
+      println("======================================================")
+      session})
 }

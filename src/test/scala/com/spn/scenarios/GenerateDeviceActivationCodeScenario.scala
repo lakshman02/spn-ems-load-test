@@ -2,7 +2,7 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests.GenerateDeviceActivationCodeRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -18,4 +18,10 @@ object GenerateDeviceActivationCodeScenario{
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
+    .exec(session => {
+      val printActivationCode = session(Constants.RESP_ACTIVATION_CODE).as[String]
+      println("======================================================")
+      println("activationCode: =====>> " + printActivationCode)
+      println("======================================================")
+      session})
 }

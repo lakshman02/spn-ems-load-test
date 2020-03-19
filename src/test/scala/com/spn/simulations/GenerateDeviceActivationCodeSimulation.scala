@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class GenerateDeviceActivationCodeSimulation extends Simulation {
   private val GenerateDeviceActivationCodeExec = GenerateDeviceActivationCodeScenario.generateDeviceActivationCodeScenario
-        .inject(rampUsers(5) during (30))
+        .inject(rampUsers(1) during (1))
 
   setUp(GenerateDeviceActivationCodeExec).protocols(Config.httpProtocol)
     .assertions(

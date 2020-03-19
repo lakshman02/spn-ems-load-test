@@ -3,6 +3,7 @@ package com.spn.scenarios
 import com.spn.common.CommonFeedFiles
 import com.spn.requests.RegisterDeviceRequest
 import io.gatling.core.Predef.scenario
+import com.spn.common.Constants
 
 object RegisterDeviceScenario{
 
