@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{CommonFeedFiles, Constants}
-import com.spn.requests.{ GetInitialConfigRequest, GetPageIdRequest, GetTokenRequest, GetULDRequest}
+import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetTokenRequest, GetULDRequest}
 import io.gatling.core.Predef._
 
 import scala.concurrent.duration._
@@ -35,11 +35,9 @@ object GuestUserAppLaunchScenario {
             .pause(1, 3 seconds)
             .exec(GetPageIdRequest.PageId) // Definitly invoke Home Page
             .pause(1, 3 seconds)
-            .doIf("GO_TO_MOVIE" == true) { //Decide if we need to take the user to Movies Page?
-              exec(GetPageIdRequest.PageId)
-            }.doIf("GO_TO_TV_SHOWS" == true) { //Decide if we need to take the user to TV Shows Page?
-              exec(GetPageIdRequest.PageId)
-            }
+            .randomSwitch(
+              80d -> exec(GetTokenRequest.getToken),
+              20d -> exec(GetULDRequest.getULD))
             .pause(1, 3 seconds)
             .exec(GetULDRequest.getULD)
         }
