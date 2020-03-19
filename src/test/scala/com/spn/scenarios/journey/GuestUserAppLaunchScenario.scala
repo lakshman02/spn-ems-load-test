@@ -41,8 +41,22 @@ object GuestUserAppLaunchScenario {
               println(s"\nallContainersUnderMenu : $allContainersUnderMenu")*/
 
               val context = JsonPath.parse(initialConfigResponse)
-              val value = context.read[JSONArray]("$.*.containers[*].actions[?(@.targetType == 'PAGE')].uri")
-              println(s"\nvalue : $value")
+              val pageValue = context.read[JSONArray]("$.*.containers[*].actions[?(@.targetType == 'PAGE')].uri")
+
+            //  val pageValue = context.read[JSONArray]("$.*.containers[*].metadata[?(@.label == 'Home').actions[?(@.targetType == 'PAGE')].uri").toString
+
+             // val labelValue = context.read[JSONArray]("$.*.containers[*].metadata[?(@.label == 'Home')")
+           //  val labelValue = context.read[JSONArray]("$.*.containers[*].metadata.label").get(0)
+            //  val labelValuesSize = labelValue.size()
+
+//              println(s"$labelValue")
+//
+//              if(labelValue.equals("Home")){
+//                println("Home Is Here")
+//              }
+             val RANDOM_PAGE_URL = pageValue.get(0).toString
+
+              println(s"\nvalue : $RANDOM_PAGE_URL")
 
               //              val value = context.read("$.*.containers[*].actions[?(@.targetType == 'PAGE')].uri")
 //              println(s"\nparsedValueExtracted : $parsedValueExtracted")
@@ -50,8 +64,8 @@ object GuestUserAppLaunchScenario {
               session
 
             })
-//            .pause(1, 3 seconds)
-//            .exec(GetPageIdRequest.PageId) // Definitly invoke Home Page
+            .pause(1, 3 seconds)
+            .exec(GetPageIdRequest.PageId) // Definitly invoke Home Page
 //            .pause(1, 3 seconds)
 //            .randomSwitch(
 //              80d -> exec(GetTokenRequest.getToken),
