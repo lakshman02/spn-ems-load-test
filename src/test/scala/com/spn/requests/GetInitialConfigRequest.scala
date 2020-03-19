@@ -12,7 +12,9 @@ object GetInitialConfigRequest {
     // TODO - add the security_token header here
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultObj.*.containers[*].actions[?(@.targetType == 'PAGE')].uri").findRandom.saveAs(Constants.RESP_RANDOM_PAGE_URL)) // TODO - Save complete JSON
+    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_INITIAL_CONFIG)) // TODO - Save complete JSON
+
+    //    .check(jsonPath("$.resultObj.*.containers[*].actions[?(@.targetType == 'PAGE')].uri").findRandom.saveAs(Constants.RESP_RANDOM_PAGE_URL)) // TODO - Save complete JSON
     // .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findAll.saveAs(Constants.RESP_RANDOM_PAGE_URL))
   )
 }
