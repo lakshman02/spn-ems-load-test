@@ -62,6 +62,10 @@ object CommonFeedFiles {
   //assetID
   val dataFeederAssetID= csv("data/assets.csv").circular
 
+  //serialNo
+  val dataFeederSerialNum= csv("data/serialNum.csv").circular
+
+
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())
   )

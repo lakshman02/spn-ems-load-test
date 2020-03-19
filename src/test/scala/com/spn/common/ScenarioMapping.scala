@@ -85,6 +85,7 @@ object ScenarioMapping {
     "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
+    "removeDevices" -> RemoveDevicesScenario.removeDevicesScenario,
 
 
     // All Journey mapping goes here
