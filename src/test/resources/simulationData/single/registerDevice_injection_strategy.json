@@ -1,0 +1,32 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          10,
+          30
+        ]
+      }
+    ],
+    "case": "generateDeviceActivationCode"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          60
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          10,
+          30
+        ]
+      }
+    ],
+    "case": "registerDevice"
+  }
+]

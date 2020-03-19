@@ -45,6 +45,7 @@ object ScenarioMapping {
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
+    "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
@@ -86,6 +87,7 @@ object ScenarioMapping {
     "userRecommendationDetails" -> UserRecommendationDetailsScenario.userRecommendationDetailsScenario,
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
     "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
+    "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
 
 
     // All Journey mapping goes here

@@ -1,9 +1,9 @@
 package com.spn.requests
 
-import akka.actor.FSM.->
 import com.spn.config.Config
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import com.spn.common.Constants
 
 object GenerateDeviceActivationCodeRequest {
 
@@ -18,5 +18,6 @@ object GenerateDeviceActivationCodeRequest {
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-  )
+    .check(jsonPath("$.resultObj.activationCode").findRandom.saveAs(Constants.RESP_ACTIVATION_CODE)
+  ))
 }
