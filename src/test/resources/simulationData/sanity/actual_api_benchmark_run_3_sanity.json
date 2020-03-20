@@ -142,5 +142,17 @@
       }
     ],
     "case": "bundleId"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getULD"
   }
 ]
