@@ -20,8 +20,8 @@ object GenerateDeviceActivationCodeScenario{
     .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
     .exec(session => {
       val printActivationCode = session(Constants.RESP_ACTIVATION_CODE).as[String]
-      println("======================================================")
-      println("activationCode: =====>> " + printActivationCode)
-      println("======================================================")
+//      println("======================================================")
+//      println("activationCode: =====>> " + printActivationCode)
+//      println("======================================================")
       session})
 }
