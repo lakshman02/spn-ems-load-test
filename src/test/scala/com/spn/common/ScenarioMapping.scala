@@ -21,8 +21,8 @@ object ScenarioMapping {
     "getProduct" -> GetProductScenario .getProductScenario,
     "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
     "contentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
-    "postGenericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
-    "postSubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
+    "genericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
+    "SubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
     "getVODDetails" -> VODDetailsScenario.vodDetailsScenario,
     "allSubscriptions" -> AllSubscriptionsScenario.getAllSubscriptionsScenario,
     "groupOfBundles" -> GroupOfBundlesScenario.groupOfBundlesScenario,
@@ -45,6 +45,7 @@ object ScenarioMapping {
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
+    "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
     "storeDropOffReason" -> StoreDropOffReasonScenario.storeDropOffReasonScenario,
@@ -52,7 +53,7 @@ object ScenarioMapping {
     "getUserPlayBackPreviewDetails" -> GetUserPlayBackPreviewDetailsScenario.getUserPlayBackPreviewDetailsScenario,
     "deleteList" -> DeleteListScenario.deleteListScenario,
     "addSearchedItem" -> AddSearchedItemScenario.scnAddSearchedItem,
-    "episodeIdDetails" -> EpisodeIdDetailScenario.scnEpisodeIdDetails,
+    "episodeDetails" -> EpisodeIdDetailScenario.scnEpisodeIdDetails,
     "bundleId" -> BundleIdScenario.scnbundle,
     "getList" -> GetListScenario.getListScenario,
     "movieDetail" -> MovieDetailScenario.movieDetailScenario,
@@ -72,7 +73,7 @@ object ScenarioMapping {
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
-    "getPrevious" -> PreviousScenario.scnPreviousContent,
+    "previous" -> PreviousScenario.scnPreviousContent,
     "getSettings" -> GetSettingsScenario.getSettingsScenario,
     "addReminder" -> AddReminderScenario.addReminderScenario,
     "getReminders" -> GetRemindersScenario.getRemindersScenario,
@@ -87,6 +88,7 @@ object ScenarioMapping {
     "userRecommendationLanding" -> UserRecommendationLandingScenario.scnuserRecommendationLandingScenario,
     "removeDevices" -> RemoveDevicesScenario.removeDevicesScenario,
     "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
+    "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
 
 
     // All Journey mapping goes here

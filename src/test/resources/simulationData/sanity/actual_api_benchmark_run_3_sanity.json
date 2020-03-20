@@ -1,0 +1,205 @@
+[
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getProduct"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "applycoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "productsByCoupon"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "genericCoupon"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "upgradablePlans"
+},
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addXDR"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getXDR"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteXdr"
+  },
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "getSyncState"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "postSyncState"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "next"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "previous"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "nextAndPrevious"
+},{
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "generateDeviceActivationCode"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "movieDetail"
+},
+  {
+  "inject": [
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "case": "episodeDetails"
+},
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "showDetail"
+  }
+]
