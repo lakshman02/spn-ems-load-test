@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object NextScenario {
 
-  val dataFeederContentID = csv("data/contentID.csv").circular
+  val dataFeederContentID = csv("data/next_previous_nextAndPrevious_data.csv").circular
 
   val nextScenario = scenario("Next Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
