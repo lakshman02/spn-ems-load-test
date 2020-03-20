@@ -318,7 +318,7 @@
     ],
     "case": "previous"
   },
-  ,{
+  {
   "inject": [
     {
       "type": "nothingFor",
