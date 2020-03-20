@@ -1,125 +1,5 @@
 [
   {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "getProduct"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "applycoupon"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "productsByCoupon"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "genericCoupon"
-  },
-  {
-  "inject": [
-    {
-      "type": "rampUsers",
-      "args": [
-        15,
-        30
-      ]
-    }
-  ],
-  "case": "upgradablePlans"
-},
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "addXDR"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "getXDR"
-  },
-  {
-    "inject": [
-      {
-        "type": "rampUsers",
-        "args": [
-          15,
-          30
-        ]
-      }
-    ],
-    "case": "deleteXdr"
-  },
-  {
-  "inject": [
-    {
-      "type": "rampUsers",
-      "args": [
-        15,
-        30
-      ]
-    }
-  ],
-  "case": "getSyncState"
-},
-  {
-  "inject": [
-    {
-      "type": "rampUsers",
-      "args": [
-        15,
-        30
-      ]
-    }
-  ],
-  "case": "postSyncState"
-},
-  {
   "inject": [
     {
       "type": "rampUsers",
@@ -154,17 +34,6 @@
     }
   ],
   "case": "nextAndPrevious"
-},{
-  "inject": [
-    {
-      "type": "rampUsers",
-      "args": [
-        15,
-        30
-      ]
-    }
-  ],
-  "case": "generateDeviceActivationCode"
 },
   {
   "inject": [
@@ -201,5 +70,77 @@
       }
     ],
     "case": "showDetail"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getPage"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "traySearch"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "traySearchVOD"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getVODDetails"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "groupOfBundles"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "bundleId"
   }
 ]
