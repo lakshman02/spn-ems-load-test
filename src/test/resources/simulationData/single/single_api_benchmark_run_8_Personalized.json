@@ -26,36 +26,6 @@
         ]
       }
     ],
-    "case": "deleteSearchHistory"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          2100
-
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
     "case": "addList"
   },
   {
@@ -63,8 +33,7 @@
       {
         "type": "nothingFor",
         "args": [
-          3900
-
+          2100
         ]
       },
       {
@@ -93,7 +62,7 @@
       {
         "type": "nothingFor",
         "args": [
-          5700
+          3900
         ]
       },
       {
@@ -122,7 +91,7 @@
       {
         "type": "nothingFor",
         "args": [
-          7500
+          5700
         ]
       },
       {
@@ -151,7 +120,7 @@
       {
         "type": "nothingFor",
         "args": [
-          9300
+          7500
         ]
       },
       {
@@ -180,7 +149,7 @@
       {
         "type": "nothingFor",
         "args": [
-          11100
+          9300
         ]
       },
       {
@@ -209,7 +178,7 @@
       {
         "type": "nothingFor",
         "args": [
-          12900
+          11100
         ]
       },
       {
@@ -238,7 +207,7 @@
       {
         "type": "nothingFor",
         "args": [
-          14700
+          12900
         ]
       },
       {
@@ -267,7 +236,7 @@
       {
         "type": "nothingFor",
         "args": [
-          16500
+          14700
         ]
       },
       {
@@ -296,36 +265,7 @@
       {
         "type": "nothingFor",
         "args": [
-          18300
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "deleteAllSearchHistory"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          20100
+          16500
         ]
       },
       {
@@ -354,7 +294,7 @@
       {
         "type": "nothingFor",
         "args": [
-          21900
+          18300
         ]
       },
       {
@@ -383,7 +323,7 @@
       {
         "type": "nothingFor",
         "args": [
-          23700
+          20100
         ]
       },
       {
@@ -412,7 +352,7 @@
       {
         "type": "nothingFor",
         "args": [
-          25500
+          21900
         ]
       },
       {
@@ -441,36 +381,7 @@
       {
         "type": "nothingFor",
         "args": [
-          27300
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "removeDevices"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          29100
+          23700
         ]
       },
       {
@@ -499,7 +410,7 @@
       {
         "type": "nothingFor",
         "args": [
-          30900
+          25500
         ]
       },
       {
@@ -527,7 +438,7 @@
     {
       "type": "nothingFor",
       "args": [
-        32700
+        27300
       ]
     },
     {
@@ -555,7 +466,7 @@
     {
       "type": "nothingFor",
       "args": [
-        34500
+        29100
       ]
     },
     {
@@ -584,7 +495,7 @@
       {
         "type": "nothingFor",
         "args": [
-          36300
+          30900
         ]
       },
       {
@@ -613,36 +524,7 @@
       {
         "type": "nothingFor",
         "args": [
-          38100
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "epgReminderGetList"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          39900
+          32700
         ]
       },
       {
@@ -671,36 +553,7 @@
       {
         "type": "nothingFor",
         "args": [
-          41700
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getULD"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          43500
+          34500
         ]
       },
       {
@@ -729,65 +582,7 @@
       {
         "type": "nothingFor",
         "args": [
-          45300
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getLAUrl"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          47100
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getDRMDeviceId"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          48900
+          36300
         ]
       },
       {
@@ -810,92 +605,5 @@
       }
     ],
     "case": "getToken"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          50700
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "trayRecommendationCatchMedia"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          52500
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "trayRecommendationRecosense"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          54300
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "userRecommendationLanding"
   }
 ]
