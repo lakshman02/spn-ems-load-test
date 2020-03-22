@@ -16,6 +16,6 @@ object GetXDRScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederContentId)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_GetXDR)
     .exec(GetXDRRequest.getXDR)
 }
