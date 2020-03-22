@@ -200,7 +200,7 @@
         ]
       }
     ],
-    "case": "getUserPlayBackPreviewDetails"
+    "case": "addSearchedItem"
   },
   {
     "inject": [
@@ -229,7 +229,7 @@
         ]
       }
     ],
-    "case": "addSearchedItem"
+    "case": "getSearchHistory"
   },
   {
     "inject": [
@@ -258,7 +258,7 @@
         ]
       }
     ],
-    "case": "getSearchHistory"
+    "case": "addSettings"
   },
   {
     "inject": [
@@ -287,7 +287,7 @@
         ]
       }
     ],
-    "case": "addSettings"
+    "case": "getSettings"
   },
   {
     "inject": [
@@ -316,7 +316,7 @@
         ]
       }
     ],
-    "case": "getSettings"
+    "case": "deleteSettings"
   },
   {
     "inject": [
@@ -345,7 +345,7 @@
         ]
       }
     ],
-    "case": "deleteSettings"
+    "case": "userPreferences"
   },
   {
     "inject": [
@@ -374,71 +374,13 @@
         ]
       }
     ],
-    "case": "getDevices"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          23700
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "userPreferences"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          25500
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
     "case": "addReminder"
   },  {
   "inject": [
     {
       "type": "nothingFor",
       "args": [
-        27300
+        23700
       ]
     },
     {
@@ -466,7 +408,7 @@
     {
       "type": "nothingFor",
       "args": [
-        29100
+        25500
       ]
     },
     {
@@ -495,7 +437,7 @@
       {
         "type": "nothingFor",
         "args": [
-          30900
+          27300
         ]
       },
       {
@@ -524,7 +466,7 @@
       {
         "type": "nothingFor",
         "args": [
-          32700
+          29100
         ]
       },
       {
@@ -553,7 +495,7 @@
       {
         "type": "nothingFor",
         "args": [
-          34500
+          30900
         ]
       },
       {
@@ -576,34 +518,5 @@
       }
     ],
     "case": "videoUrl"
-  },
-  {
-    "inject": [
-      {
-        "type": "nothingFor",
-        "args": [
-          36300
-        ]
-      },
-      {
-        "type": "rampUsersPerSec",
-        "args": [
-          0,
-          100,
-          60
-        ]
-      },
-      {
-        "type": "incrementUsersInSteps",
-        "args": [
-          100,
-          200,
-          6,
-          60,
-          180
-        ]
-      }
-    ],
-    "case": "getToken"
   }
 ]
