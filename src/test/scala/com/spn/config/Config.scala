@@ -98,6 +98,7 @@ object Config {
   val REGISTER_DEVICE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/REGISTERDEVICE"
   val SUBSCRIPTION_ORDER_STATUS_DATE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/DATE"
   val PREVIEW_ADD_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/ADD"
+  val SUBSCRIPTION_ORDER_STATUS_USER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/USER"
 
 
   val users = Integer.getInteger("users", 1).toInt

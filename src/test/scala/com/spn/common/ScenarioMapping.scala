@@ -91,6 +91,7 @@ object ScenarioMapping {
     "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
     "previewAdd" -> PreviewAddScenario.previewAddScenario,
+    "subscriptionOrderStatusUser" -> SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario,
 
 
     // All Journey mapping goes here

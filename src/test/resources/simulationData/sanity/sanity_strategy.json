@@ -921,5 +921,17 @@
       }
     ],
     "case": "previewAdd"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "subscriptionOrderStatusUser"
   }
 ]
