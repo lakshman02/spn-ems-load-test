@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 object PreviewAddRequest {
 
   val previewAddRequest = exec(http("Preview Add Request")
-    .get(Config.app_url + Config.PREVIEW_ADD_URL)
+    .post(Config.app_url + Config.PREVIEW_ADD_URL)
     .headers(Config.sentHeaders)
     .body(StringBody(""" {
                            "deviceId": "${deviceId}",
@@ -15,10 +15,10 @@ object PreviewAddRequest {
                            "assetType": "${type}",
                            "previewConsumed": "${previewConsumed}",
                            "created_at": "${created_at}",
-                           "previewDuration": "${previewDuration}",
+                           "previewDuration": "${previewDuration}"
                          }""")).asJson
     .check(status is 200)
-    .check(jsonPath("$.resultCode").is("OK"))
+    .check(jsonPath("$.resultCode").is("success"))
   )
 
 }

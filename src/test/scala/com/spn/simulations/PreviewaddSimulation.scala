@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class PreviewaddSimulation extends Simulation {
   private val previewAddExec = PreviewAddScenario.previewAddScenario
-    .inject(rampUsers(1) during (1))
+    .inject(rampUsers(15) during (30))
 
 
   setUp(previewAddExec).protocols(Config.httpProtocol)
