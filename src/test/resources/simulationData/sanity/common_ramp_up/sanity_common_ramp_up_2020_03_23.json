@@ -1,0 +1,38 @@
+{
+  "waitBetweenTests":40,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "cases" : [
+    "addList",
+    "getList",
+    "deleteList",
+    "addXDR",
+    "getXDR",
+    "deleteXdr",
+    "addSearchedItem",
+    "getSearchHistory",
+    "addSettings",
+    "getSettings",
+    "deleteSettings",
+    "userPreferences",
+    "addReminder",
+    "getReminders",
+    "deleteReminder",
+    "epgReminder",
+    "epgReminderDelete",
+    "videoUrl"
+  ]
+}
