@@ -1,6 +1,5 @@
 package com.spn.scenarios.journey
 
-import com.fasterxml.jackson.databind.{JsonNode, ObjectMapper}
 import com.jayway.jsonpath.JsonPath
 import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetTokenRequest, GetULDRequest}
@@ -22,9 +21,9 @@ object GuestUserAppLaunchScenario {
 
     .group("App Launch - Guest User"){
       exec(GetTokenRequest.getToken)
-        .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)){
+        .doIf(session => session.contains(Constants.RESP_TOKEN)){
           exec(session => {
-            val getSecurityToken = session(Constants.RESP_SECURITY_TOKEN).as[String]
+            val getSecurityToken = session(Constants.RESP_TOKEN).as[String]
             println(s"\nRESP_SECURITY_TOKEN is: $getSecurityToken")
 
             session

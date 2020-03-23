@@ -1,21 +1,19 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.NextRequest
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.RemoveDevicesRequest
+import io.gatling.core.Predef.scenario
 
-object NextScenario {
+object RemoveDevicesScenario {
 
-  val dataFeederContentID = csv("data/next_nextAndPrevious_data.csv").circular
-
-  val nextScenario = scenario("Next Scenario")
+  val removeDevicesScenario = scenario("Remove Devices Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-    .feed(dataFeederContentID)
-    .exec(NextRequest.nextRequest)
+    .feed(CommonFeedFiles.dataFeederSerialNum)
+    .exec(RemoveDevicesRequest.removeDevicesRequest)
 
 }

@@ -49,6 +49,13 @@ object CommonFeedFiles {
   val userAuth50KUsersUsingCircular_GetReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
   val userAuth50KUsersUsingCircular_DeleteReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
 
+  //Scenario specific - ADD XDR, GET XDR, DELETE XDR
+  val userAuth50KUsersUsingCircular_ADDXDR = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_GetXDR = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val userAuth50KUsersUsingCircular_DeleteXDR = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+
+  //Scenario specific - Register Device
+  val userAuth50KUsersUsingCircular_RegisterDevice = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
 
   // inputStagingWeb
   val inputStagingDataFeeder=csv("data/inputStagingWeb.csv").circular
@@ -61,6 +68,10 @@ object CommonFeedFiles {
 
   //assetID
   val dataFeederAssetID= csv("data/assets.csv").circular
+
+  //serialNo
+  val dataFeederSerialNum= csv("data/serialNum.csv").circular
+
 
   val dateTimeFeeder = Iterator.continually(
     Map("getDateTime" -> LocalDateTime.now())

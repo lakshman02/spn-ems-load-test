@@ -8,7 +8,6 @@ import io.gatling.http.Predef._
 object ShowDetailRequest {
   val showDetailRequest  = exec(http("Show Detail Request")
     .get(Config.app_url + Config.SHOW_DETAIL_URL )
-
-      .check(status is 200)
+    .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

@@ -12,7 +12,6 @@ object AddSettingsScenario   {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDSetting)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 

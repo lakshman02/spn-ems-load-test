@@ -1,0 +1,326 @@
+[
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          10
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addList"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          50
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getList"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          90
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteList"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          130
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addXDR"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          170
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getXDR"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          210
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteXdr"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          250
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addSearchedItem"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          290
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getSearchHistory"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          330
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          370
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          410
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteSettings"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          450
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "userPreferences"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          490
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "addReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          530
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "getReminders"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          570
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "deleteReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          610
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "epgReminder"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          650
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "epgReminderDelete"
+  },
+  {
+    "inject": [
+      {
+        "type": "nothingFor",
+        "args": [
+          690
+        ]
+      },
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "videoUrl"
+  }
+]

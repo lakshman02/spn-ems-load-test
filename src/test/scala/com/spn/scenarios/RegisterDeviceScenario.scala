@@ -1,17 +1,19 @@
 package com.spn.scenarios
 
 import com.spn.common.CommonFeedFiles
-import com.spn.requests.ShowDetailRequest
-import io.gatling.core.Predef.{scenario, _}
+import com.spn.requests.RegisterDeviceRequest
+import io.gatling.core.Predef.scenario
+import com.spn.common.Constants
 
-object ShowDetailScenario {
+object RegisterDeviceScenario{
 
-  val showDetailScenario = scenario("Show Detail Scenario")
+  val registerDeviceScenario =scenario("Register Device Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_RegisterDevice)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-    .exec(ShowDetailRequest.showDetailRequest)
+    .exec(RegisterDeviceRequest.registerDevice)
 }
