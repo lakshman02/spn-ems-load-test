@@ -1,10 +1,10 @@
 package com.spn.scenarios
 
-import com.spn.common.Constants
+import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.{GetInitialConfigRequest, GetTokenRequest}
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
-import com.spn.common.CommonFeedFiles
+import com.spn.config.Config
 
 object GetInitialConfigScenario {
 
@@ -15,8 +15,6 @@ object GetInitialConfigScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
 
-    .doIf(session => !session.contains(Constants.RESP_SECURITY_TOKEN)){
-      exec(GetTokenRequest.getToken)
-    }
+    .exec(ApiSecurity.getToken)
     .exec(GetInitialConfigRequest.getInitialConfig)
 }

@@ -109,6 +109,8 @@ object Config {
   val defaultResponseTime=Integer.getInteger("responseTime", 1).toInt
   val maxResponseTime=Integer.getInteger("responseTime", 1).toInt
 
+  val enableAPISecurity=Integer.getInteger("enableAPISecurity", 0).toInt
+
   //http protocol configuration
   val httpProtocol = http
     .baseUrl(app_url)
