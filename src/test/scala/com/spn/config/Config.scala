@@ -13,7 +13,7 @@ object Config {
 //    app_url = "https://apiqa.sonyliv.com/"
 //  }
 
-  //  val app_url = "https://apiqa.sonyliv.com/"
+   // val app_url = "https://apiqa.sonyliv.com/"
  val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
@@ -97,6 +97,7 @@ object Config {
   val DELETE_ALL_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETEALLSEARCHHISTORY"
   val REGISTER_DEVICE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/REGISTERDEVICE"
   val SUBSCRIPTION_ORDER_STATUS_DATE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/DATE"
+  val PREVIEW_ADD_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/ADD"
 
 
   val users = Integer.getInteger("users", 1).toInt
