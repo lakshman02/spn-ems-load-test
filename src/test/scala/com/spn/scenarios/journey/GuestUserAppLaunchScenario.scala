@@ -38,21 +38,19 @@ object GuestUserAppLaunchScenario {
               val randomPageUrl = context
                 .read[JSONArray]("$.*.containers[?(@.metadata.label== 'Home')].actions[?(@.targetType== 'PAGE')].uri").get(0).toString
 
+              println(s"\nPage URL : $randomPageUrl")
 
               session.set(Constants.RESP_RANDOM_PAGE_URL,s"$randomPageUrl")
-
-              println(s"\nPage URL : $randomPageUrl")
-              session
 
             })
             .pause(1, 3 seconds)
             .exec(GetPageIdRequest.PageId) // Definitely invoke Home Page
-//            .pause(1, 3 seconds)
-//            .randomSwitch(
-//              80d -> exec(GetTokenRequest.getToken),
-//              20d -> exec(GetULDRequest.getULD))
-//            .pause(1, 3 seconds)
-//            .exec(GetULDRequest.getULD)
+            .pause(1, 3 seconds)
+            .randomSwitch(
+              80d -> exec(GetPageIdRequest.PageId),
+              20d -> exec(GetPageIdRequest.PageId))
+            .pause(1, 3 seconds)
+            .exec(GetULDRequest.getULD)
         }
 
     }
