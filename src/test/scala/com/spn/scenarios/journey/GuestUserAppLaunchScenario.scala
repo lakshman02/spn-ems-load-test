@@ -4,11 +4,20 @@ import com.jayway.jsonpath.{DocumentContext, JsonPath}
 import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetTokenRequest, GetULDRequest}
 import io.gatling.core.Predef._
+import io.gatling.core.structure.ChainBuilder
 import net.minidev.json.JSONArray
 
 import scala.concurrent.duration._
 
 object GuestUserAppLaunchScenario {
+
+  def function1 : ChainBuilder = {
+   exec(GetPageIdRequest.PageId)
+  }
+
+  def function2 : ChainBuilder = {
+     exec(GetPageIdRequest.PageId)
+  }
 
 
   val guestUserAppLaunchScenario = scenario("Guest User App Launch Scenario")
@@ -46,11 +55,11 @@ object GuestUserAppLaunchScenario {
             .pause(1, 3 seconds)
             .exec(GetPageIdRequest.PageId) // Definitely invoke Home Page
             .pause(1, 3 seconds)
-            .randomSwitch(
-              80d -> exec(GetPageIdRequest.PageId),
-              20d -> exec(GetPageIdRequest.PageId))
-            .pause(1, 3 seconds)
             .exec(GetULDRequest.getULD)
+            .pause(1, 3 seconds)
+            .randomSwitch(
+              80d -> function1,
+              20d -> function2)
         }
 
     }
