@@ -117,15 +117,19 @@ object Config {
     .contentTypeHeader("application/json")
     .header("restful","yes")
 
+  val header=Map("security_Token" -> "${RESP_SECURITY_TOKEN}")
+
   val sentHeaders = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
+    "x-via-device" -> "true",
+    "security_Token" -> "${RESP_SECURITY_TOKEN}")
 
   val sentHeadersNew = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
     "build_number" -> "1.0",
-    "app_version" -> "1.0")
+    "app_version" -> "1.0",
+    "security_Token" -> "${RESP_SECURITY_TOKEN}")
 
 }
 

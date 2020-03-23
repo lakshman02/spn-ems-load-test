@@ -9,6 +9,7 @@ object GetInitialConfigRequest {
 
   val getInitialConfig = exec(http("Get Initial Config Request")
     .get(Config.app_url + Config.URL_INITIAL_CONFIG)
+    .headers(Config.header)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 //    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_INITIAL_CONFIG))
