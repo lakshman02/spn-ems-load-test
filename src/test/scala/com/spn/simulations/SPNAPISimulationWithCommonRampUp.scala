@@ -48,14 +48,15 @@ class SPNAPISimulationWithCommonRampUp extends Simulation {
     for(i <- 0 until testCases.length()) {
 
       // For adding default wait time between tests - starts
-      testStartAt = testStartAt + waitBetweenTests
       if(i != 0) {
-        val jsonArray = new JSONArray();
-        jsonArray.put(testStartAt)
-        injectStepListTemp = new ArraySeq[OpenInjectionStep](commonRampUp.length() + 1)
-        injectStepListTemp(0) = InjectionStrategy.getInjectionStep("nothingFor",  jsonArray)
-        injectStepList.copyToArray(injectStepListTemp.array.asInstanceOf[Array[Any]], 1)
+        testStartAt = testStartAt + waitBetweenTests
       }
+      val jsonArray = new JSONArray();
+      jsonArray.put(testStartAt)
+      injectStepListTemp = new ArraySeq[OpenInjectionStep](commonRampUp.length() + 1)
+      injectStepListTemp(0) = InjectionStrategy.getInjectionStep("nothingFor",  jsonArray)
+      injectStepList.copyToArray(injectStepListTemp.array.asInstanceOf[Array[Any]], 1)
+
       // For adding default wait time between tests - ends
 
       //For each scenario
