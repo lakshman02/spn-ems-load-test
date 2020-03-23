@@ -5,7 +5,7 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 object GetProduct {
 
-  val GetProduct  = exec(http("Get_Product Request")
+  val GetProduct  = exec(http("Get Product Request")
     .get(Config.app_url + Config.GET_PRODUCTS_URL)
     .headers(Config.sentHeaders)
 /*    .body(StringBody ("""{
