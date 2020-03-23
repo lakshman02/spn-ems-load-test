@@ -897,5 +897,17 @@
       }
     ],
     "case": "removeDevices"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
+    "case": "subscriptionOrderStatusDate"
   }
 ]
