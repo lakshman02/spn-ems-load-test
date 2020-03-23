@@ -90,6 +90,8 @@ object ScenarioMapping {
     "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
     "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     "logout" -> LogoutScenario.logoutScenario,
+    "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
+    "previewAdd" -> PreviewAddScenario.previewAddScenario,
 
 
     // All Journey mapping goes here
