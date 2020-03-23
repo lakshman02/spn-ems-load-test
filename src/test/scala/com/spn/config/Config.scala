@@ -96,6 +96,8 @@ object Config {
 
   val DELETE_ALL_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETEALLSEARCHHISTORY"
   val REGISTER_DEVICE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/REGISTERDEVICE"
+  val LOGOUT_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/LOGOUT"
+
 
   val users = Integer.getInteger("users", 1).toInt
   val rampUp = Integer.getInteger("rampup", 1).toInt
