@@ -15,8 +15,8 @@ object GetInitialConfigScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
 
-//    .doIf(session => !session.contains(Constants.RESP_SECURITY_TOKEN)){
-//      .exec(GetTokenRequest.getToken)
-//    }
+    .doIf(session => !session.contains(Constants.RESP_SECURITY_TOKEN)){
+      exec(GetTokenRequest.getToken)
+    }
     .exec(GetInitialConfigRequest.getInitialConfig)
 }
