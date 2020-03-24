@@ -24,7 +24,7 @@ object GuestUserAppLaunchScenario  {
 
           def setRandomPageURLToSession(session: Session, searchString: String) : Session = {
 
-            var expression = "$.menu.containers[*][?(@.metadata.label == '" + searchString + "' )].actions[?(@.targetType== 'PAGE')].uri"
+            var expression = "$.menu.containers[?(@.metadata.label == '" + searchString + "' )].actions[?(@.targetType== 'PAGE')].uri"
            println(s"\nExpression : $expression")
 
             val respInitialConfig = session(Constants.RESP_INITIAL_CONFIG).as[String]
@@ -93,7 +93,7 @@ object GuestUserAppLaunchScenario  {
 
           // Show related
           val openTVShowsPageDefault = exec(session => {
-            setRandomPageURLToSession(session, "Shows") // Where we are getting and setting TV Shows URL
+            setRandomPageURLToSession(session, "TV Shows") // Where we are getting and setting TV Shows URL
           }).exec(GetPageIdRequest.PageId)
 
           val openTVShowsPageSabShows = exec(session => {
