@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.EpgReminderRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,6 +14,6 @@ object EPGReminderScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDEpgReminder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
+    .exec(ApiSecurity.getToken)
     .exec(EpgReminderRequest.epgReminder)
 }

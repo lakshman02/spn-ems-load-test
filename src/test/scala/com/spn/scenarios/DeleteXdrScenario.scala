@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.DeleteXdrRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -16,6 +16,7 @@ object DeleteXdrScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteXDR)
     .feed(dataFeederContentId)
+    .exec(ApiSecurity.getToken)
     .exec(DeleteXdrRequest.deleteXdrRequest)
 
 }

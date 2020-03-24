@@ -2,7 +2,7 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.AddXdrRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -21,6 +21,6 @@ object AddXdrScenario {
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDXDR)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(contentIdData)
-
+    .exec(ApiSecurity.getToken)
     .exec(AddXdrRequest.addXdr)
 }

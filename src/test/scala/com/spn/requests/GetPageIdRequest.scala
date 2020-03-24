@@ -10,6 +10,7 @@ object GetPageIdRequest {
   val PageId = exec(http("Get Page Id")
 
     .get(Config.app_url + Config.GET_PageID)
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

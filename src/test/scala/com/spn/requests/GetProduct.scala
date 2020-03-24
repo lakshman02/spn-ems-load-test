@@ -8,13 +8,6 @@ object GetProduct {
   val GetProduct  = exec(http("Get_Product Request")
     .get(Config.app_url + Config.GET_PRODUCTS_URL)
     .headers(Config.sentHeaders)
-/*    .body(StringBody ("""{
-   "channelPartnerID": "${channelPartnerID}",
-  "dmaID": "IN",
-  "salesChannel": "web",
-  "offerType": "Existing Customer",
-  "languageCode": "en_US"
-        }""")).asJson*/
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

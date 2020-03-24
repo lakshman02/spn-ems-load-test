@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GetProduct
 import io.gatling.core.Predef.{scenario, _}
 
@@ -17,7 +17,7 @@ object GetProductScenario   {
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(dataSalesFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-
+    .exec(ApiSecurity.getToken)
     .exec(GetProduct .GetProduct)
   //.exec (session => println(session) session)
 

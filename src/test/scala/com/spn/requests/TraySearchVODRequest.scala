@@ -10,6 +10,7 @@ object TraySearchVODRequest {
     .get(Config.app_url + Config.TRAY_SEARCH_VOD_URL)
     .queryParam("filter_contentSubtype", "${filter_contentSubtype}")
     .queryParam("sortOrder", "${sortOrder}")
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

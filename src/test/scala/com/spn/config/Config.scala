@@ -1,6 +1,7 @@
 package com.spn.config
 import java.time.LocalDateTime
 
+import akka.actor.FSM.->
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
@@ -119,13 +120,24 @@ object Config {
     .contentTypeHeader("application/json")
     .header("restful","yes")
 
-  val header=Map("security_Token" -> "${RESP_SECURITY_TOKEN}")
+  // only security header
+  val secHeader=Map("security_Token" -> "${RESP_SECURITY_TOKEN}")
 
+  //device and security header
+  val devAuthHeader=Map("x-via-device" -> "true",
+    "Authorization" -> "${RESP_AUTH_TOKEN}")
+
+  //device and security header
+  val devSecHeader=Map("x-via-device" -> "true",
+    "security_Token" -> "${RESP_SECURITY_TOKEN}")
+
+  //auth, device, security header
   val sentHeaders = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
     "security_Token" -> "${RESP_SECURITY_TOKEN}")
 
+  //all headers
   val sentHeadersNew = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",

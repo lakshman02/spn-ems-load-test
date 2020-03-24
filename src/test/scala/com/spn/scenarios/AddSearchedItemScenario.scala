@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.AddSearchedItemRequest
 import io.gatling.core.Predef._
 
@@ -15,5 +15,6 @@ object AddSearchedItemScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.contentFeeder)
+    .exec(ApiSecurity.getToken)
     .exec(AddSearchedItemRequest.AddSearchedItem)
 }
