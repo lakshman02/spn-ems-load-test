@@ -1,16 +1,16 @@
 {
-  "waitBetweenTests":40,
+  "waitBetweenTests":10,
   "commonRampUp" : [
     {
      "type": "nothingFor",
      "args": [
-        10
+        5
       ]
     },
     {
       "type": "rampUsers",
       "args": [
-        15,
+        5,
         30
       ]
     }

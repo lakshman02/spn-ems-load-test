@@ -125,7 +125,7 @@ object Config {
     .header("restful","yes")
 
   // only security header
-  val secHeader=Map("security_Token" -> "${RESP_SECURITY_TOKEN}")
+  val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}")
 
   //device and security header
   val devAuthHeader=Map("x-via-device" -> "true",
@@ -133,13 +133,13 @@ object Config {
 
   //device and security header
   val devSecHeader=Map("x-via-device" -> "true",
-    "security_Token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
 
   //auth, device, security header
   val sentHeaders = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
-    "security_Token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
 
   //all headers
   val sentHeadersNew = Map(
@@ -147,7 +147,7 @@ object Config {
     "x-via-device" -> "true",
     "build_number" -> "1.0",
     "app_version" -> "1.0",
-    "security_Token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
 
 }
 
