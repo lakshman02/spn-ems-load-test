@@ -11,7 +11,7 @@
       "type": "rampUsers",
       "args": [
         5,
-        30
+        10
       ]
     }
   ],
