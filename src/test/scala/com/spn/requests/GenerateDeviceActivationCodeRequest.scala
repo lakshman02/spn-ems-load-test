@@ -9,7 +9,7 @@ object GenerateDeviceActivationCodeRequest {
 
   val generateDeviceActivationCode= exec(http("Generate Device Activation Code Request")
     .post(Config.app_url + Config.GENERATE_DEVICE_ACTIVATION_CODE_URL)
-    .header("x-via-device", "true")
+    .headers(Config.devSecHeader)
     .body(StringBody ("""{
              "channelPartnerID": "${channelPartnerID}",
              "deviceName": "${deviceName}",

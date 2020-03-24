@@ -9,6 +9,7 @@ import io.gatling.http.Predef._
 object GetMenuRequest {
   val getMenu= exec(http("Get Menu Request")
     .get(Config.app_url + Config.GET_MENU_URL)
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 //    .check(jsonPath("$.resultObj.containers[*].actions[?(@.targetType == 'PAGE')].uri").findAll.saveAs(Constants.RESP_MENU))

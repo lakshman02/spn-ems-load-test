@@ -6,10 +6,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object LoginRequest {
-
+//TODO observation: duplicate of LoginWithMobileNumRequest
   val LoginRequest = exec(http("User Login (mobile) Request")
     .post(Config.app_url + Config.Login_URL)
-    .header("x-via-device","true")
+    .headers(Config.devSecHeader)
     .body(StringBody(
       """{
              "mobileNumber": "${evg_phone_number}",

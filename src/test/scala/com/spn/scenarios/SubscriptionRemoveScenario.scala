@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.SubscriptionRemoveRequest
 import io.gatling.core.Predef._
 
@@ -18,7 +18,7 @@ object SubscriptionRemoveScenario {
     .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dateTimeFeeder)
 
-
+    .exec(ApiSecurity.getToken)
     .exec(SubscriptionRemoveRequest.subscriptionRemove)
   //.exec (session => println(session) session)
 }

@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.MovieDetailRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
@@ -16,5 +16,6 @@ object MovieDetailScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(movieDetailData)
+    .exec(ApiSecurity.getToken)
     .exec(MovieDetailRequest.movieDetail)
 }

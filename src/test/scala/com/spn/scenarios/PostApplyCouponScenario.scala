@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 import com.spn.requests.PostApplyCouponRequest
@@ -22,6 +22,7 @@ object PostApplyCouponScenario {
     .feed(couponCodeBody)
     .feed(priceBody)
     .feed(productBody)
+    .exec(ApiSecurity.getToken)
     .exec(PostApplyCouponRequest.ApplyCoupon)
 
 }

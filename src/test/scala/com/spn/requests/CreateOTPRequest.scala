@@ -8,7 +8,7 @@ object CreateOTPRequest {
 
   val createOTPRequest = exec(http("Create OTP Request")
    .post(Config.app_url + Config.CREATE_OTP_URL)
-    .header("x-via-device", "true")
+    .headers(Config.devSecHeader)
     .body(StringBody("""{
         |"channelPartnerID": "${channelPartnerID}",
         |"mobileNumber": "${evg_phone_number}",

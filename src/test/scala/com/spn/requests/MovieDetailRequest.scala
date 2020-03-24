@@ -7,6 +7,7 @@ import io.gatling.http.Predef._
 object MovieDetailRequest {
   val movieDetail= exec(http("Movie Detail Request")
     .get(Config.app_url + Config.MOVIE_DETAIL_URL)
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
 

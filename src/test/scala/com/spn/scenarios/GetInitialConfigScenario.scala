@@ -1,9 +1,11 @@
 package com.spn.scenarios
-import com.spn.common.Constants
-import com.spn.requests.GetInitialConfigRequest
+
+import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
+import com.spn.requests.{GetInitialConfigRequest, GetTokenRequest}
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
-import com.spn.common.CommonFeedFiles
+import com.spn.config.Config
+
 object GetInitialConfigScenario {
 
   val getInitialConfigScenario = scenario("Get Initial Config Scenario")
@@ -12,6 +14,7 @@ object GetInitialConfigScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .exec(GetInitialConfigRequest.getInitialConfig)
 
+    .exec(ApiSecurity.getToken)
+    .exec(GetInitialConfigRequest.getInitialConfig)
 }

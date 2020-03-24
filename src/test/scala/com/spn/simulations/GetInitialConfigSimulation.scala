@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, rampUsers, _}
 class GetInitialConfigSimulation extends Simulation {
 
   private val getInitialConfigExec = GetInitialConfigScenario.getInitialConfigScenario
-    .inject(atOnceUsers(14))
+    .inject(atOnceUsers(15))
     //.inject(constantUsersPerSec(Config.users) during (Config.duration seconds))
     /*.inject(
       incrementUsersPerSec(Config.users)

@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.TraySearchVODRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -13,6 +13,7 @@ object TraySearchVODScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.contentFeeder)
+    .exec(ApiSecurity.getToken)
     .exec(TraySearchVODRequest.traySearchVODRequest)
 
 }

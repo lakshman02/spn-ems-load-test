@@ -1,8 +1,10 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.ContentDetailBundle
 import io.gatling.core.Predef.{scenario, _}
+
+//TODO observation: duplicate of BundleID
 
 object ContentDetailBundleScenario {
 val bundleIdFeed = csv("data/bundleId.csv").circular
@@ -17,5 +19,6 @@ val bundleIdFeed = csv("data/bundleId.csv").circular
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(bundleIdFeed)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .exec(ApiSecurity.getToken)
     .exec(ContentDetailBundle.ContentDetailBundle)
 }

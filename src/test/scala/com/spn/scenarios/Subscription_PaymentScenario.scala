@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.Subscription_PaymentURL
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,7 +14,7 @@ object Subscription_PaymentScenario  {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
+    .exec(ApiSecurity.getToken)
     .exec(Subscription_PaymentURL.Subscription_Payment)
   //.exec (session => println(session) session)
 

@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import io.gatling.core.Predef._
-
 import com.spn.requests.DeleteSettingsRequest
 
 object DeleteSettingsScenario {
@@ -13,5 +12,6 @@ object DeleteSettingsScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteSetting)
+    .exec(ApiSecurity.getToken)
     .exec(DeleteSettingsRequest.Delete_Settings)
 }

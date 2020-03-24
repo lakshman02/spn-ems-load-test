@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.PostGenericCouponsRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
@@ -19,6 +19,7 @@ val langCode = csv("data/languageCode.csv").circular
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(langCode)
+    .exec(ApiSecurity.getToken)
     .exec(PostGenericCouponsRequest.Generic_Coupons)
 
 }

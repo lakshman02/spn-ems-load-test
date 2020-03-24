@@ -8,7 +8,7 @@ object LoginWithEmailRequest {
 
   val LoginWithEmail = exec(http("User Login (email) Request")
     .post(Config.app_url + Config.Login_URL)
-    .header("x-via-device","true")
+    .headers(Config.devSecHeader)
     .body(StringBody ("""{
              "email": "${evg_email}",
               "password": "${evg_password}",

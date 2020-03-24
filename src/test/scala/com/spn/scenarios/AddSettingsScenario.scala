@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.AddSettingsRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,6 +14,6 @@ object AddSettingsScenario   {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDSetting)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
+    .exec(ApiSecurity.getToken)
     .exec(AddSettingsRequest.addSettings)
 }

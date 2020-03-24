@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.ProrateAmountRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -17,7 +17,7 @@ object ProrateAmountScenario {
 
     .feed(CommonFeedFiles.dataFeederSingleChannelpartnerid)
     .feed(CommonFeedFiles.dataFeederServiceIDOnlyDetails)
-
+    .exec(ApiSecurity.getToken)
     .exec(ProrateAmountRequest.prorateAmountRequest)
 
 }

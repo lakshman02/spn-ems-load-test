@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.UpgradablePlansRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -15,5 +15,6 @@ object UpgradablePlansScenario{
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .exec(ApiSecurity.getToken)
     .exec(UpgradablePlansRequest.upgradablePlans)
 }

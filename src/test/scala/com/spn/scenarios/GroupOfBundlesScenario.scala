@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GroupOfBundlesRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -16,5 +16,6 @@ object GroupOfBundlesScenario{
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederBundleId)
+    .exec(ApiSecurity.getToken)
     .exec(GroupOfBundlesRequest.groupOfBundles)
 }

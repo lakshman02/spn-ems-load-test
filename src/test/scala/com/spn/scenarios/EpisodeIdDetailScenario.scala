@@ -1,5 +1,5 @@
 package com.spn.scenarios
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import io.gatling.core.Predef._
 import com.spn.requests.EpisodeDetailRequest
 
@@ -13,6 +13,6 @@ object EpisodeIdDetailScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederEpisodeId)
+    .exec(ApiSecurity.getToken)
     .exec(EpisodeDetailRequest.Episode_Detail)
-
 }

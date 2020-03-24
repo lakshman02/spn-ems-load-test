@@ -1,5 +1,5 @@
 package com.spn.scenarios
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.LoginRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,6 +14,7 @@ import io.gatling.core.Predef.{scenario, _}
       .feed(CommonFeedFiles.dateTimeFeeder)
       .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
       .feed(CommonFeedFiles.dataFeederOtpRequirements)
+      .exec(ApiSecurity.getToken)
       .exec(LoginRequest.LoginRequest)
 
 

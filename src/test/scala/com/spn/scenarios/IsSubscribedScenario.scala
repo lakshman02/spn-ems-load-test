@@ -2,7 +2,7 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.IsSubscribedRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
@@ -20,5 +20,6 @@ object IsSubscribedScenario{
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
+    .exec(ApiSecurity.getToken)
     .exec(IsSubscribedRequest.isSubscribed)
 }

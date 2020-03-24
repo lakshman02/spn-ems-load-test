@@ -5,13 +5,10 @@ import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
 object DeleteListRequest {
-  val sentHeaders = Map(
-    "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
 
   val deleteList= exec(http("Delete list Request")
     .post(Config.app_url + Config.DELETE_LIST_URL)
-    .headers(sentHeaders)
+    .headers(Config.sentHeaders)
     .body(StringBody ("""{
     "assets": [
         "${assetID}"

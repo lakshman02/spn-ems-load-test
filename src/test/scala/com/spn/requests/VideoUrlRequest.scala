@@ -8,6 +8,7 @@ object VideoUrlRequest {
 
   val videoUrl= exec(http("Video Url Request")
     .get(Config.app_url + Config.VIDEO_URL)
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
     )

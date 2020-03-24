@@ -1,8 +1,7 @@
 package com.spn.scenarios
 
-import com.spn.common.Constants
+import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.GetMenuRequest
-import com.spn.common.CommonFeedFiles
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
 
@@ -16,6 +15,7 @@ object GetMenuScenario{
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .exec(ApiSecurity.getToken)
     .exec(GetMenuRequest.getMenu)
 //    .exec(session => {
 //       val channel = session("channel").as[String]
