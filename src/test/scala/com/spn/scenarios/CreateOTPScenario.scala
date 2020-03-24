@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.CreateOTPRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
@@ -16,6 +16,7 @@ object CreateOTPScenario {
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .exec(ApiSecurity.getToken)
     .exec(CreateOTPRequest.createOTPRequest)
 
 }

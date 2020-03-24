@@ -8,6 +8,7 @@ object VODDetailsRequest {
 
   val vodDetails= exec(http("VOD Details")
     .get(Config.app_url + Config.VOD_DETAILS)
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK")))
 }

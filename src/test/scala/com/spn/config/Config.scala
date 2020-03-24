@@ -1,6 +1,7 @@
 package com.spn.config
 import java.time.LocalDateTime
 
+import akka.actor.FSM.->
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
 
@@ -114,6 +115,8 @@ object Config {
   val defaultResponseTime=Integer.getInteger("responseTime", 1).toInt
   val maxResponseTime=Integer.getInteger("responseTime", 1).toInt
 
+  val enableAPISecurity=Integer.getInteger("enableAPISecurity", 0).toInt
+
   //http protocol configuration
   val httpProtocol = http
     .baseUrl(app_url)
@@ -122,15 +125,30 @@ object Config {
     .contentTypeHeader("application/json")
     .header("restful","yes")
 
+  // only security header
+  val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}")
+
+  //device and security header
+  val devAuthHeader=Map("x-via-device" -> "true",
+    "Authorization" -> "${RESP_AUTH_TOKEN}")
+
+  //device and security header
+  val devSecHeader=Map("x-via-device" -> "true",
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
+
+  //auth, device, security header
   val sentHeaders = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
-    "x-via-device" -> "true")
+    "x-via-device" -> "true",
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
 
+  //all headers
   val sentHeadersNew = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
     "build_number" -> "1.0",
-    "app_version" -> "1.0")
+    "app_version" -> "1.0",
+    "security_token" -> "${RESP_SECURITY_TOKEN}")
 
 }
 

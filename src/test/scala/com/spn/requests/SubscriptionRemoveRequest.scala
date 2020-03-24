@@ -8,10 +8,6 @@ object SubscriptionRemoveRequest {
 
   val subscriptionRemove= exec(http("Remove subscription request")
     .post(Config.app_url + Config.SUBSCRIPTION_REMOVE_URL)
-    .headers(Map ("Authorization" -> "${RESP_AUTH_TOKEN}",
-      "x-via-device" -> "true"))
-    .headers(Config.sentHeaders)
-
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
             "serviceID": "${service_id_new}",

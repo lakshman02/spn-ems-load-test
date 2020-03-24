@@ -3,7 +3,7 @@ package com.spn.scenarios
 import java.time.LocalDateTime
 import java.util.concurrent.ThreadLocalRandom
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.UpdateProfileRequest
 import io.gatling.core.Predef._
 import io.gatling.core.Predef.scenario
@@ -27,5 +27,6 @@ object UpdateProfileScenario{
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(dateOfBirthFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .exec(ApiSecurity.getToken)
     .exec(UpdateProfileRequest.updateProfile)
 }

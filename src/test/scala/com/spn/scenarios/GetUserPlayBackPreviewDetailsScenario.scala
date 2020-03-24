@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GetUserPlayBackPreviewDetailsRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -16,5 +16,6 @@ object GetUserPlayBackPreviewDetailsScenario{
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(previewDetailsDataFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .exec(ApiSecurity.getToken)
     .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
 }

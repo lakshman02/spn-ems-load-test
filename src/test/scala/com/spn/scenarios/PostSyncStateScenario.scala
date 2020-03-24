@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.PostSyncStateRequest
 import io.gatling.core.Predef._
 
@@ -17,6 +17,6 @@ object PostSyncStateScenario {
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
     .feed(CommonFeedFiles.dataFeederServiceDetails)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
-
+    .exec(ApiSecurity.getToken)
     .exec(PostSyncStateRequest.postSyncStateRequest)
 }

@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.UserRecommendationDetailsRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -16,7 +16,8 @@ object UserRecommendationDetailsScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(contentIdData)
-   .exec(UserRecommendationDetailsRequest.userRecommendationDetailsRequest)
+    .exec(ApiSecurity.getToken)
+    .exec(UserRecommendationDetailsRequest.userRecommendationDetailsRequest)
 //    .exec(session => {
 //
 //      println("Testing 50 k users processing time")

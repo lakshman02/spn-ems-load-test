@@ -12,6 +12,7 @@ object TraySearchRequest {
     .queryParam("filter_objectSubtype", "${filter_objectSubtype}")
     .queryParam("orderBy", "${orderBy}")
     .queryParam("sortOrder", "${sortOrder}")
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

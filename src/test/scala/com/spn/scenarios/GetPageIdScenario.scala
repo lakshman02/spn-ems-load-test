@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.{CommonFeedFiles, Constants}
+import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
 import com.spn.requests.{GetMenuRequest, GetPageIdRequest}
@@ -19,7 +19,7 @@ object GetPageIdScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederPageId)
-
+    .exec(ApiSecurity.getToken)
     .exec(GetPageIdRequest.PageId)
 
 //    .pause(500 milliseconds)

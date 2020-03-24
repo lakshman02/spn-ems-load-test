@@ -2,7 +2,7 @@ package com.spn.scenarios
 
 import java.time.LocalDateTime
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.CreatePaymentQrRequest
 import io.gatling.core.Predef.scenario
 import io.gatling.core.Predef._
@@ -22,5 +22,6 @@ object CreatePaymentQrScenario {
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.dataFeederOtpRequirements)
+    .exec(ApiSecurity.getToken)
     .exec(CreatePaymentQrRequest.createPaymentQrRequest)
 }

@@ -13,6 +13,7 @@ object TrayRecommendationRecosenseRequest {
     .queryParam("recommendationType", recommendationType)
     .queryParam("railType", "${railType}")
     .queryParam("objectSubType", "${filter_contentSubtype}")
+    .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

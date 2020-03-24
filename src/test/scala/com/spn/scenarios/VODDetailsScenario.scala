@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.VODDetailsRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -16,6 +16,7 @@ object VODDetailsScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(contentFeeder)
+    .exec(ApiSecurity.getToken)
     .exec(VODDetailsRequest.vodDetails)
 
 }

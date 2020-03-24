@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GetSyncStateRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -15,6 +15,6 @@ object GetSyncStateScenario{
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
+    .exec(ApiSecurity.getToken)
     .exec(GetSyncStateRequest.getSyncState)
 }

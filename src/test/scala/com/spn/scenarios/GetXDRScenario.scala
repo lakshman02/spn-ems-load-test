@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GetXDRRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -17,5 +17,6 @@ object GetXDRScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederContentId)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_GetXDR)
+    .exec(ApiSecurity.getToken)
     .exec(GetXDRRequest.getXDR)
 }

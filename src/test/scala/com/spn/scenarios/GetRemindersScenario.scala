@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.GetRemindersRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,6 +14,7 @@ object GetRemindersScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_GetReminder)
+    .exec(ApiSecurity.getToken)
     .exec(GetRemindersRequest.getRemindersRequest)
 
 }

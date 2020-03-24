@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.StoreDropOffReasonRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -15,6 +15,6 @@ object StoreDropOffReasonScenario{
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-
+    .exec(ApiSecurity.getToken)
     .exec(StoreDropOffReasonRequest.storeDropOffReason)
 }

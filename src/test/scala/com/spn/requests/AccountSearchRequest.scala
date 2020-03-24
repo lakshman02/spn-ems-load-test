@@ -8,6 +8,7 @@ import io.gatling.http.Predef._
 object AccountSearchRequest {
   val accountSearch= exec(http("Account Search Request")
     .post(Config.app_url + Config.ACCOUNT_SEARCH_URL)
+    .headers(Config.secHeader)
     .body(StringBody ("""{
              "mobileNumber": "${evg_phone_number}",
              "email": "${evg_email}",

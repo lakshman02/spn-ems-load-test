@@ -1,6 +1,6 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.DeleteListRequest
 import io.gatling.core.Predef.{scenario, _}
 
@@ -14,5 +14,6 @@ object DeleteListScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteList)
     .feed(CommonFeedFiles.dataFeederAssetID)
+    .exec(ApiSecurity.getToken)
     .exec(DeleteListRequest.deleteList)
 }
