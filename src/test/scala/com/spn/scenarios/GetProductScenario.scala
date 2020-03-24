@@ -18,7 +18,7 @@ object GetProductScenario   {
     .feed(dataSalesFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
 
-    .exec(GetProduct .GetProduct)
+    .exec(GetProduct.GetProduct)
   //.exec (session => println(session) session)
 
 }
