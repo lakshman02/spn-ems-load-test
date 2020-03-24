@@ -9,7 +9,7 @@ import io.gatling.core.Predef._
 class GuestUserAppLaunchSimulation extends Simulation {
   private val guestUserAppLaunchExec = GuestUserAppLaunchScenario.guestUserAppLaunchScenario
     .inject(
-      rampUsers(1) during(1)
+      rampUsers(2) during(2)
     )
 
   setUp(guestUserAppLaunchExec).protocols(Config.httpProtocol)
