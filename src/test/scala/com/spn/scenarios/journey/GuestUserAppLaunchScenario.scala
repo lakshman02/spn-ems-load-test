@@ -24,7 +24,7 @@ object GuestUserAppLaunchScenario  {
 
           def setRandomPageURLToSession(session: Session, searchString: String) : Session = {
 
-            var expression = "$.menu.containers[?(@.metadata.url_path == '" + searchString + "' )].actions[?(@.targetType== 'PAGE')].uri"
+            var expression = "$.menu.containers[*][?(@.metadata.label == '" + searchString + "' )].actions[?(@.targetType== 'PAGE')].uri"
            println(s"\nExpression : $expression")
 
             val respInitialConfig = session(Constants.RESP_INITIAL_CONFIG).as[String]
@@ -37,7 +37,7 @@ object GuestUserAppLaunchScenario  {
             // Primary expression didn't give any result, so fallback on the new expression
             if(pageURLFound == null || pageURLFound.isEmpty) {
               // Fallback mechanism
-              expression = "$.menu.containers[*].items[?(@.metadata.url_path == '" + searchString + "')].actions[?(@.targetType== 'PAGE')].uri"
+              expression = "$.menu.containers[*].items[*][?(@.metadata.label == '" + searchString + "')].actions[?(@.targetType== 'PAGE')].uri"
               println(s"\nFallback Expression : $expression")
 
               context = JsonPath.parse(respInitialConfig)
@@ -60,28 +60,28 @@ object GuestUserAppLaunchScenario  {
           }
 
           val openHomePage = exec(session => {
-            setRandomPageURLToSession(session, "home") // Where we are getting and setting Home URL
+            setRandomPageURLToSession(session, "Home") // Where we are getting and setting Home URL
           }).exec(GetPageIdRequest.PageId)
 
           val openSearchPage = exec(session => {
-            setRandomPageURLToSession(session, "search") // Where we are getting and setting Search URL
+            setRandomPageURLToSession(session, "Search") // Where we are getting and setting Search URL
           }).exec(GetPageIdRequest.PageId)
 
           val openSportsPage = exec(session => {
-            setRandomPageURLToSession(session, "sports") // Where we are getting and setting Sports URL
+            setRandomPageURLToSession(session, "Sports") // Where we are getting and setting Sports URL
           }).exec(GetPageIdRequest.PageId)
 
           // Movie related
           val openMoviesPageDefault = exec(session => {
-            setRandomPageURLToSession(session, "movies") // Where we are getting and setting Movie URL
+            setRandomPageURLToSession(session, "Movies") // Where we are getting and setting Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openActionMovies = exec(session => {
-            setRandomPageURLToSession(session, "actionmovies") // Where we are getting and setting Action Movie URL
+            setRandomPageURLToSession(session, "Action Movies") // Where we are getting and setting Action Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openDramaMovies = exec(session => {
-            setRandomPageURLToSession(session, "dramamovies") // Where we are getting and setting Drama Movie URL
+            setRandomPageURLToSession(session, "Drama Movies") // Where we are getting and setting Drama Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openMoviesPage = randomSwitch(
@@ -93,15 +93,15 @@ object GuestUserAppLaunchScenario  {
 
           // Show related
           val openTVShowsPageDefault = exec(session => {
-            setRandomPageURLToSession(session, "shows") // Where we are getting and setting TV Shows URL
+            setRandomPageURLToSession(session, "Shows") // Where we are getting and setting TV Shows URL
           }).exec(GetPageIdRequest.PageId)
 
           val openTVShowsPageSabShows = exec(session => {
-            setRandomPageURLToSession(session, "sabshows") // Where we are getting and setting Sab TV Shows URL
+            setRandomPageURLToSession(session, "SAB Shows") // Where we are getting and setting Sab TV Shows URL
           }).exec(GetPageIdRequest.PageId)
 
           val openTVShowsPageSetShows = exec(session => {
-            setRandomPageURLToSession(session, "setshows") // Where we are getting and setting Set TV Shows URL
+            setRandomPageURLToSession(session, "SET Shows") // Where we are getting and setting Set TV Shows URL
           }).exec(GetPageIdRequest.PageId)
 
           val openTVShowsPage = randomSwitch(
@@ -112,19 +112,19 @@ object GuestUserAppLaunchScenario  {
 
           // Channels related
           val openChannelsPageDefault = exec(session => {
-            setRandomPageURLToSession(session, "channels") // Where we are getting and setting Movie URL
+            setRandomPageURLToSession(session, "Channels") // Where we are getting and setting Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openEntertainmentChannels = exec(session => {
-            setRandomPageURLToSession(session, "entertainmentchannels") // Where we are getting and setting Action Movie URL
+            setRandomPageURLToSession(session, "Entertainment") // Where we are getting and setting Action Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openNewsChannels = exec(session => {
-            setRandomPageURLToSession(session, "newschannels") // Where we are getting and setting Drama Movie URL
+            setRandomPageURLToSession(session, "News") // Where we are getting and setting Drama Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openInfotainmentChannels = exec(session => {
-            setRandomPageURLToSession(session, "infotainmentchannels") // Where we are getting and setting Drama Movie URL
+            setRandomPageURLToSession(session, "Infotainment") // Where we are getting and setting Drama Movie URL
           }).exec(GetPageIdRequest.PageId)
 
           val openChannelsPage = randomSwitch(
