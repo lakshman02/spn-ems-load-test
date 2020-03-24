@@ -1,0 +1,32 @@
+{
+  "waitBetweenTests":40,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "cases" : [
+    "getProfile",
+    "updateProfile",
+    "accountSearch",
+    "getProduct",
+    "applycoupon",
+    "genericCoupon",
+    "productsByCoupon",
+    "upgradablePlans",
+    "postSyncState",
+    "getSyncState",
+    "generateDeviceActivationCode",
+    "getDevices"
+  ]
+}
