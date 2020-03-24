@@ -92,6 +92,7 @@ object ScenarioMapping {
     "logout" -> LogoutScenario.logoutScenario,
     "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
     "previewAdd" -> PreviewAddScenario.previewAddScenario,
+    "subscriptionOrderStatusUser" -> SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario,
 
 
     // All Journey mapping goes here
