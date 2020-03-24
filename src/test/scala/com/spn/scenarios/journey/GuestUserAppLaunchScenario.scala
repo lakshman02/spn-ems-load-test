@@ -67,9 +67,28 @@ object GuestUserAppLaunchScenario  {
             setRandomPageURLToSession(session, "movies") // Where we are getting and setting Movie URL
           }).exec(GetPageIdRequest.PageId)
 
-          val openTVShowsPage = exec(session => {
+//          val openTVShowsPage = exec(session => {
+//            setRandomPageURLToSession(session, "shows") // Where we are getting and setting TV Shows URL
+//          }).exec(GetPageIdRequest.PageId)
+
+          // Show related
+          val openTVShowsPageDefault = exec(session => {
             setRandomPageURLToSession(session, "shows") // Where we are getting and setting TV Shows URL
           }).exec(GetPageIdRequest.PageId)
+
+          val openTVShowsPageSabShows = exec(session => {
+            setRandomPageURLToSession(session, "sabshows")
+          }).exec(GetPageIdRequest.PageId)
+
+          val openTVShowsPageSetShows = exec(session => {
+            setRandomPageURLToSession(session, "setshows")
+          }).exec(GetPageIdRequest.PageId)
+
+          val openTVShowsPage = randomSwitch(
+            50d -> openTVShowsPageDefault,
+            25d -> openTVShowsPageSabShows,
+            25d -> openTVShowsPageSetShows,
+          )
 
           exec(session => {
             val getSecurityToken = session(Constants.RESP_TOKEN).as[String]
@@ -85,8 +104,8 @@ object GuestUserAppLaunchScenario  {
             .exec(GetULDRequest.getULD)
             .pause(1, 3 seconds)
             .randomSwitch(
-              50d -> openMoviesPage,
-              50d -> openTVShowsPage)
+              50d -> openTVShowsPage,
+              50d -> openMoviesPage)
         }
     }
 }
