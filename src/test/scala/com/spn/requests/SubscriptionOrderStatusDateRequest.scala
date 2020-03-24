@@ -10,13 +10,9 @@ object SubscriptionOrderStatusDateRequest {
     .post(Config.app_url + Config.SUBSCRIPTION_ORDER_STATUS_DATE_URL)
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
-    "startDateTime": ${startDateTime},
-    "endDateTime": ${endDateTime},
-        "page_limit": "${page_limit}",
-    "last_evaluated_key": {
-      "PK":"${PK}",
-    "SK":"${SK}"
-    }
+    "start_date": ${start_date},
+    "end_date": ${end_date},
+        "page_limit": "${page_limit}"
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
