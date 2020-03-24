@@ -20,7 +20,7 @@ object GuestUserAppLaunchScenario  {
 
     .group("App Launch - Guest User") {
       exec(GetTokenRequest.getToken) // TODO This section needs a revisit as the security token implementation is changed
-        .doIf(session => session.contains(Constants.RESP_TOKEN)) {
+        .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
 
           def setRandomPageURLToSession(session: Session, searchString: String) : Session = {
 
@@ -135,7 +135,7 @@ object GuestUserAppLaunchScenario  {
           )
 
           exec(session => {
-            val getSecurityToken = session(Constants.RESP_TOKEN).as[String]
+            val getSecurityToken = session(Constants.RESP_SECURITY_TOKEN).as[String]
             println(s"\nRESP_SECURITY_TOKEN is: $getSecurityToken")
             session
           })
