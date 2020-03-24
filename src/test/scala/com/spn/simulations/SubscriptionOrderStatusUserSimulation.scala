@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class SubscriptionOrderStatusUserSimulation extends Simulation {
   private val SubscriptionOrderStatusUserScenariorExec = SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario
-    .inject(rampUsers(1) during (1))
+    .inject(rampUsers(15) during (30))
 
   setUp(SubscriptionOrderStatusUserScenariorExec).protocols(Config.httpProtocol)
     .assertions(

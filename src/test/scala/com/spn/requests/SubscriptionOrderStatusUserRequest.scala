@@ -10,11 +10,7 @@ object SubscriptionOrderStatusUserRequest {
     .post(Config.app_url + Config.SUBSCRIPTION_ORDER_STATUS_USER_URL)
     .headers(Config.sentHeaders)
     .body(StringBody ("""{
-        "page_limit": "${page_limit}",
-    "last_evaluated_key": {
-      "PK":"${PK}",
-    "SK":"${SK}"
-    }
+        "page_limit": "${page_limit}"
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
