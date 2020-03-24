@@ -920,6 +920,18 @@
         ]
       }
     ],
+    "case": "logout"
+  },
+  {
+    "inject": [
+      {
+        "type": "rampUsers",
+        "args": [
+          15,
+          30
+        ]
+      }
+    ],
     "case": "previewAdd"
   },
   {

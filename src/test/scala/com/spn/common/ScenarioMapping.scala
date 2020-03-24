@@ -89,6 +89,7 @@ object ScenarioMapping {
     "removeDevices" -> RemoveDevicesScenario.removeDevicesScenario,
     "deleteAllSearchHistory" -> DeleteAllSearchHistoryScenario.scnDeleteAllSearchHistory,
     "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
+    "logout" -> LogoutScenario.logoutScenario,
     "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
     "previewAdd" -> PreviewAddScenario.previewAddScenario,
     "subscriptionOrderStatusUser" -> SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario,

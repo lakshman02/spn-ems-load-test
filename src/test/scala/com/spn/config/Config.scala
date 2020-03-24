@@ -96,6 +96,7 @@ object Config {
 
   val DELETE_ALL_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETEALLSEARCHHISTORY"
   val REGISTER_DEVICE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/REGISTERDEVICE"
+  val LOGOUT_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/LOGOUT"
   val SUBSCRIPTION_ORDER_STATUS_DATE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/DATE"
   val PREVIEW_ADD_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/ADD"
   val SUBSCRIPTION_ORDER_STATUS_USER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/USER"
