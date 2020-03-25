@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 
 
 object GetPageIdRequest {
-  val PageId = exec(http("Get Page - ${pageSuffix}")
+  val PageId = exec(http("Get Page - ${RANDOM_PAGE_URL} - ${pageSuffix}")
 
     .get(Config.app_url + Config.GET_PageID)
     .headers(Config.secHeader)
