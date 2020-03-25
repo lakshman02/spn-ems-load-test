@@ -6,16 +6,33 @@ import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetTokenRequ
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
 
-import scala.concurrent.duration._
 import scala.util.Random
 
 object GuestUserAppLaunchScenario  {
+
+  val channelFeederOverride = Array(
+    Map("channel" -> "IPHONE"),
+    Map("channel" -> "IPAD"),
+    Map("channel" -> "ANDROID_PHONE"),
+    Map("channel" -> "ANDROID_TAB"),
+//    Map("channel" -> "APPLE_TV"),
+//    Map("channel" -> "FIRE_TV"),
+//    Map("channel" -> "SONY_ANDROID_TV"),
+//    Map("channel" -> "XIAOMI_ANDROID_TV"),
+//    Map("channel" -> "JIO_ANDROID_TV"),
+//    Map("channel" -> "SONY_HTML_TV"),
+//    Map("channel" -> "SAMSUNG_HTML_TV"),
+//    Map("channel" -> "JIO_KIOS"),
+    Map("channel" -> "WEB"),
+    Map("channel" -> "IOS")
+  ).random
 
   val guestUserAppLaunchScenario = scenario("Guest User App Launch Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
-    .feed(CommonFeedFiles.dataFeederChannel)
+//    .feed(CommonFeedFiles.dataFeederChannel)
+    .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
 
     .group("App Launch - Guest User - Channel - ${channel}") {
@@ -57,11 +74,12 @@ object GuestUserAppLaunchScenario  {
 
             println(s"\nFinal selected Page to Navigate To for '$searchString' is : $finalSelectedPageToNavigateTo")
 
-            if(finalSelectedPageToNavigateTo == null || finalSelectedPageToNavigateTo.isEmpty) {
-              println(s"\nAll attempts failed, do a final Fall Back for '$searchString' is : $finalSelectedPageToNavigateTo")
+            if(finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty) {
+              session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo)
+            } else {
+              println(s"\nAll attempts failed, do a final Fall Back for '$searchString'")
+              session
             }
-
-            session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo)
           }
 
           val openHomePage = exec(session => {
@@ -70,7 +88,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix", "Home Landing - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openSearchPage = exec(session => {
             // Where we are getting and setting Search URL
@@ -78,7 +98,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Search")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openSportsPage = exec(session => {
             // Where we are getting and setting Sports URL
@@ -86,7 +108,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Sports - Pagination:5-10")
               .set("paginationFrom", "5")
               .set("paginationTo", "10")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           // Movie related
           val openMoviesPageDefault = exec(session => {
@@ -95,7 +119,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Movies Landing - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openActionMovies = exec(session => {
             // Where we are getting and setting Action Movie URL
@@ -103,7 +129,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Action Movies - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openDramaMovies = exec(session => {
             // Where we are getting and setting Drama Movie URL
@@ -111,7 +139,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Drama Movies - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           // Movies Page
           val openMoviesPage = randomSwitch(
@@ -127,7 +157,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","TV Shows Landing - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openTVShowsPageSabShows = exec(session => {
             // Where we are getting and setting Sab TV Shows URL
@@ -135,7 +167,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","TV Shows - SAB Shows - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openTVShowsPageSetShows = exec(session => {
             // Where we are getting and setting Set TV Shows URL
@@ -143,7 +177,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","TV Shows - SET Shows - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           // TV Shows
           val openTVShowsPage = randomSwitch(
@@ -159,7 +195,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Channels Landing - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openEntertainmentChannels = exec(session => {
             // Where we are getting and setting Entertainment URL
@@ -167,7 +205,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Channels - Entertainment - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openNewsChannels = exec(session => {
             // Where we are getting and setting News URL
@@ -175,7 +215,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Channels - News - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           val openInfotainmentChannels = exec(session => {
             // Where we are getting and setting Infotainment URL
@@ -183,7 +225,9 @@ object GuestUserAppLaunchScenario  {
               .set("pageSuffix","Channels - Infotainment - Pagination:0-5")
               .set("paginationFrom", "0")
               .set("paginationTo", "5")
-          }).exec(GetPageIdRequest.PageId)
+          }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+            exec(GetPageIdRequest.PageId)
+          }
 
           // Channels
           val openChannelsPage = randomSwitch(
