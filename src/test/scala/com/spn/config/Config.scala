@@ -128,7 +128,7 @@ object Config {
   // only security header
   val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}")
 
-  //device and security header
+  //device and auth header
   val devAuthHeader=Map("x-via-device" -> "true",
     "Authorization" -> "${RESP_AUTH_TOKEN}")
 
@@ -149,6 +149,5 @@ object Config {
     "build_number" -> "1.0",
     "app_version" -> "1.0",
     "security_token" -> "${RESP_SECURITY_TOKEN}")
-
 }
 
