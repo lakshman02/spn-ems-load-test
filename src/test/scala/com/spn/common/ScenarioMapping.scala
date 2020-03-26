@@ -103,7 +103,7 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
 
-
+    "loggedInUserAppLaunchScenario" -> LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario,
     "GuestUserAppLaunchScenario" -> GuestUserAppLaunchScenario.guestUserAppLaunchScenario
 
   )
