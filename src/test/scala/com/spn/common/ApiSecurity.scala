@@ -8,7 +8,9 @@ object ApiSecurity {
 
   val getToken = exec(
     doIfOrElse(session => (Config.enableAPISecurity == 1 && !session.contains(Constants.RESP_SECURITY_TOKEN))){
-      exec(GetTokenRequest.getToken)
+      tryMax(2, "tokenRetry") {
+        exec(GetTokenRequest.getToken)
+      }.exitHereIfFailed
     }{
       exec(session => {
         session.set(Constants.RESP_SECURITY_TOKEN, Constants.RESP_SECURITY_TOKEN_DUMMY_VAL)
