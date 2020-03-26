@@ -25,7 +25,7 @@ object GuestUserAppLaunchScenario  {
 //    Map("channel" -> "JIO_KIOS"),
     Map("channel" -> "WEB"),
     Map("channel" -> "IOS")
-  ).random
+  ).circular
 
   val guestUserAppLaunchScenario = scenario("Guest User App Launch Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
