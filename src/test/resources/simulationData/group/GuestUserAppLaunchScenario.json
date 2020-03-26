@@ -1,17 +1,24 @@
 {
-  "waitBetweenTests":40,
+  "waitBetweenTests":1800,
   "commonRampUp" : [
     {
       "type": "nothingFor",
       "args": [
-        10
+        300
       ]
     },
     {
-      "type": "rampUsers",
+      "type": "atOnceUsers",
       "args": [
-        50,
-        60
+        420
+      ]
+    },
+    {
+      "type": "rampUsersPerSec",
+      "args": [
+        166,
+        0,
+        1200
       ]
     }
   ],
