@@ -9,7 +9,7 @@ import io.gatling.core.Predef._
 class GuestUserAppLaunchSimulation extends Simulation {
   private val guestUserAppLaunchExec = GuestUserAppLaunchScenario.guestUserAppLaunchScenario
     .inject(
-      rampUsersPerSec(20) to(1) during(60)
+      rampUsersPerSec(60) to(0) during(60)
 //      rampConcurrentUsers(20) to(1) during(60)
     )
 
