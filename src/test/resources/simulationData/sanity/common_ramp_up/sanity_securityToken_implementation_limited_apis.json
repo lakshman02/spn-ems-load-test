@@ -1,0 +1,29 @@
+{
+  "waitBetweenTests":40,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "cases": [
+    "getInitialConfig",
+    "getPage",
+    "getULD",
+    "videoUrl",
+    "movieDetail",
+    "episodeDetails",
+    "showDetail",
+    "addXDR",
+    "addSearchedItem"
+  ]
+}
