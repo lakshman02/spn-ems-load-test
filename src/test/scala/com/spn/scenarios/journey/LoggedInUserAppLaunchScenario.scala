@@ -37,12 +37,8 @@ object LoggedInUserAppLaunchScenario  {
     .group("App Launch - Logged In User - Channel - ${channel}") {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
       exec(UserAppLaunchScenario.userAppLaunchScenario)
-      exec(GetProfileRequest.getProfile)
-//      .randomSwitch(
-//              20d -> UserAppLaunchScenario.openSearchPage,
-//              30d -> UserAppLaunchScenario.openTVShowsPage,
-//              10d -> UserAppLaunchScenario.openMoviesPage,
-//              30d -> UserAppLaunchScenario.openSportsPage,
-//              10d -> UserAppLaunchScenario.openChannelsPage)
+        .doIf(session => session.contains(Constants.REQ_USER_TYPE) && session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
+          exec(GetProfileRequest.getProfile)
+        }
     }
 }

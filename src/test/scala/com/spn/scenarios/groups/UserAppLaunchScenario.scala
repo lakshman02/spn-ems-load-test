@@ -216,9 +216,9 @@ object UserAppLaunchScenario  {
         exec(GetInitialConfigRequest.getInitialConfig)
           .exec(GetULDRequest.getULD)
           .exec(openHomePage) // Definitely invoke Home Page (as that is where user lands)
-          .doIf(session => session.contains(Constants.REQ_USER_TYPE) && session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
-            exec(GetProfileRequest.getProfile)
-          }
+//          .doIf(session => session.contains(Constants.REQ_USER_TYPE) && session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
+//            exec(GetProfileRequest.getProfile)
+//          }
       }
   // App launch User Journey goes here - ends
 }
