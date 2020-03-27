@@ -233,7 +233,9 @@ object UserAppLaunchScenario  {
   val UserLoginScenario = exec(ApiSecurity.getToken)
     .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
       exec(GetInitialConfigRequest.getInitialConfig)
-        .exec(LoginWithEmailRequest.LoginWithEmail)
+        .doIf(session => session.contains(Constants.REQ_USER_TYPE) && session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_GUEST)){
+          exec(LoginWithEmailRequest.LoginWithEmail)
+        }
         .doIf(session => session.contains(Constants.REQ_USER_TYPE) && session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
           exec(GetProfileRequest.getProfile)
         }
