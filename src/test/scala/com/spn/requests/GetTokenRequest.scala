@@ -1,5 +1,6 @@
 package com.spn.requests
 
+import com.spn.common.Constants
 import com.spn.config.Config
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._

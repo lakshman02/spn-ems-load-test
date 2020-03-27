@@ -45,6 +45,7 @@ object ScenarioMapping {
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
+    "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     // All Journey mapping goes here
     "videoUrl" -> VideoUrlScenario.videoUrlScenario,
@@ -100,7 +101,10 @@ object ScenarioMapping {
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
     "UserJourneyLoggedInWithMobileAndGetProfile" -> UserJourneyMobileLoginAndGetProfile.scnLoginAndGetProfile,
-    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile
+    "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
+
+    "loggedInUserAppLaunchScenario" -> LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario,
+    "GuestUserAppLaunchScenario" -> GuestUserAppLaunchScenario.guestUserAppLaunchScenario
 
   )
 }
