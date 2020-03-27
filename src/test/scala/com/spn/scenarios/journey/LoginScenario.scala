@@ -23,7 +23,7 @@ object LoginScenario  {
 //    Map("channel" -> "IOS")
   ).circular
 
-  val loggedInUserAppLaunchScenario = scenario("Login Scenario")
+  val loginScenario = scenario("Login Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
