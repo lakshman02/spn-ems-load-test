@@ -22,7 +22,7 @@ object LoggedInUserAppLaunchScenario  {
 //    Map("channel" -> "JIO_KIOS"),
     Map("channel" -> "WEB")
 //    Map("channel" -> "IOS")
-  ).circular
+  ).random
 
   val loggedInUserAppLaunchScenario = scenario("Logged In User App Launch Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
