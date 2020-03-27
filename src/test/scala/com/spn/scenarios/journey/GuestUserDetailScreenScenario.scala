@@ -36,7 +36,7 @@ object GuestUserDetailScreenScenario {
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
 
-    .group("App Launch - Guest User - Channel - ${channel}") {
+    .group("Detail Screen - Guest User - Channel - ${channel}") {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST))
       exec(UserAppLaunchScenario.userAppLaunchScenario)
 
