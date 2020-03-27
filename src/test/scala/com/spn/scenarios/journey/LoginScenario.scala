@@ -1,9 +1,12 @@
 package com.spn.scenarios.journey
 
+import com.jayway.jsonpath._
 import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.scenarios.groups.UserAppLaunchScenario
 import io.gatling.core.Predef._
-import com.spn.requests.LoginWithEmailRequest
+import net.minidev.json.JSONArray
+import com.spn.requests.{LoginWithEmailRequest,GetProfileRequest}
+import scala.util.Random
 
 object LoginScenario  {
 
@@ -31,11 +34,12 @@ object LoginScenario  {
 //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.dateTimeFeeder)
+    .feed(CommonFeedFiles.userEmailLoginData)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .group("Login - Channel - ${channel}") {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
-        .exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .exec(LoginWithEmailRequest.LoginWithEmail)
+        .exec(UserAppLaunchScenario.UserLoginScenario)
     }
 }

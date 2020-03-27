@@ -27,6 +27,8 @@ object CommonFeedFiles {
 
   val userAuth50KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
 
+  //login with email data
+  val userEmailLoginData= csv("data/evergent/evergent_data_for_email_login.csv.gz").unzip.shard.batch.circular
 
   //Scenario specific - ADD List, GET List, DELETE List
   val userAuth50KUsersUsingCircular_ADDList = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular

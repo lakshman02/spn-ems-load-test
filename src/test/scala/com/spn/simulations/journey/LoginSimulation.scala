@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class LoginSimulation extends Simulation {
   private val loginExec = LoginScenario.loginScenario
     .inject(
-      rampUsers(50) during(60)
+      rampUsers(5) during(8)
     )
 
   setUp(loginExec).protocols(Config.httpProtocol)
