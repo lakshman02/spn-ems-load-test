@@ -150,5 +150,12 @@ object Config {
     "app_version" -> "1.0",
     "security_token" -> "${RESP_SECURITY_TOKEN}")
 
+  val headerWithoutAuth = Map(
+    "x-via-device" -> "true",
+    "build_number" -> "1.0",
+    "app_version" -> "1.0",
+    "security_token" -> "${RESP_SECURITY_TOKEN}"
+  )
+
 }
 

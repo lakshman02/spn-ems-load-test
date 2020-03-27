@@ -8,7 +8,7 @@ import com.spn.config.Config
 object EpgReminderGetListRequest {
   val EPG_GetList = exec(http("EPG Reminder GET LIST")
     .get(Config.app_url + Config.EPG_REMINDER_GET_LIST_URL)
-    .headers(Config.sentHeadersNew)
+    .headers(Config.headerWithoutAuth)
     .queryParamMap(Map("channelId" -> "${channelId}",
       "offset" -> "${offset}",
       "from" -> "${from}",

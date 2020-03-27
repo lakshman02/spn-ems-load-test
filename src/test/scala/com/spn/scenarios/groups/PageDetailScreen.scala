@@ -2,7 +2,8 @@ package com.spn.scenarios.groups
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, VODDetailsRequest}
+import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest}
+import com.spn.scenarios.TrayRecommendationRecosenseScenario
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
 
@@ -84,19 +85,27 @@ object PageDetailScreen {
     exec(BundleIdRequest.BundleId)
   }
 
-  val openGroupOfBundlesDetails = exec(session => {
-    setTheUrlIdToSession(session, "","","GROUP_OF_BUNDLES","groupBundleId")
-  }).doIf(session => session.contains("groupBundleId")){
-    exec(GroupOfBundlesRequest.groupOfBundles)
-  }
 
   val openEpgList = exec(session => {
     session.set("channelId", "ALL")
-    session.set("offset","100")
-    session.set("startDate", s"${CommonFeedFiles.dateTimeFeeder}")
-    session.set("from","0")
-    session.set("size", "10")
+      .set("offset","100")
+      .set("startDate", s"${CommonFeedFiles.dateTimeFeeder}")
+    .set("from","0")
+    .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
+
+
+  val openTrayRecommendationRecosenseList = exec(session => {
+    session.set("recommendationType", "recosense")
+      .set("railType","you_may_like")
+      .set("filter_contentSubtype", "SHOW")
+  }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
+
+  val openTrayRecommendationCatchMediaList = exec(session => {
+    session.set("recommendationType", "catchmedia")
+      .set("railType","cm_more_like_this")
+      .set("filter_contentSubtype", "SHOW")
+  }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 
 
 
@@ -106,9 +115,13 @@ object PageDetailScreen {
     10d -> openShowDetails,
     10d -> openEpisodeDetails,
     10d -> openBundleDetails,
-    10d -> openGroupOfBundlesDetails,
-    10d -> openEpgList
+    10d -> openEpgList,
+    10d -> openTrayRecommendationCatchMediaList,
+    10d -> openTrayRecommendationRecosenseList
+
   )
+
+ // val openDetailsPage = randomSwitch(100d -> openEpgList)
 
   val guestUserDetailScreenScenario = exec(openDetailsPage)
 
