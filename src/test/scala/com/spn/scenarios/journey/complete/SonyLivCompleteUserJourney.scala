@@ -13,17 +13,17 @@ object SonyLivCompleteUserJourney {
     Map("channel" -> "IPHONE"),
     Map("channel" -> "IPAD"),
     Map("channel" -> "ANDROID_PHONE"),
-    //    Map("channel" -> "ANDROID_TAB"),
+        Map("channel" -> "ANDROID_TAB"),
     Map("channel" -> "APPLE_TV"),
-    Map("channel" -> "FIRE_TV")
-    //    Map("channel" -> "SONY_ANDROID_TV"),
-    //    Map("channel" -> "XIAOMI_ANDROID_TV"),
-    //    Map("channel" -> "JIO_ANDROID_TV"),
-    //    Map("channel" -> "SONY_HTML_TV"),
-    //    Map("channel" -> "SAMSUNG_HTML_TV"),
-    //    Map("channel" -> "JIO_KIOS"),
-    //    Map("channel" -> "WEB"),
-    //    Map("channel" -> "IOS")
+    Map("channel" -> "FIRE_TV"),
+        Map("channel" -> "SONY_ANDROID_TV"),
+       Map("channel" -> "XIAOMI_ANDROID_TV"),
+        Map("channel" -> "JIO_ANDROID_TV"),
+        Map("channel" -> "SONY_HTML_TV"),
+        Map("channel" -> "SAMSUNG_HTML_TV"),
+        Map("channel" -> "JIO_KIOS"),
+       Map("channel" -> "WEB"),
+        Map("channel" -> "IOS")
   ).random
 
   val guestUserDetailScreenScenario = scenario("Guest User Detail Screen Scenario")
@@ -35,7 +35,8 @@ object SonyLivCompleteUserJourney {
     .feed(CommonFeedFiles.dataFeederProperty)
 
     .group("Detail Screen - Guest User - Channel - ${channel}") {
-      exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST))
+     // exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST))
+      exec(ApiSecurity.getToken)
         .exec(UserAppLaunchScenario.userAppLaunchScenario)
         .exec(PageDetailScreen.guestUserDetailScreenScenario)
 
