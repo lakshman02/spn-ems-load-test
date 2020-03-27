@@ -38,7 +38,7 @@ object LoggedInUserAppLaunchScenario  {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
       .exec(UserAppLaunchScenario.userAppLaunchScenario)
         .group("After Launch - User moves around different landing pages - Channel - ${channel}") {
-            pause(1)
+            pause(2, 5)
               .randomSwitch(
                 20d -> UserAppLaunchScenario.openSearchPage,
                 30d -> UserAppLaunchScenario.openTVShowsPage,
