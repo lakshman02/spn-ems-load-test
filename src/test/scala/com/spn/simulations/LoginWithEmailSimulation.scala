@@ -9,7 +9,7 @@ class LoginWithEmailSimulation extends Simulation {
   private val LoginWithEmailSimulationExec = LoginWithEmailScenario.LoginWithEmailScenario
     //.inject(constantUsersPerSec(Config.users) during (Config.duration seconds))
     .inject(
-      rampUsers(100) during(300)
+      rampUsers(5) during(10)
     )
 
   setUp(LoginWithEmailSimulationExec)
