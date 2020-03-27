@@ -1,11 +1,13 @@
 package com.spn.scenarios.journey.complete
 
+import java.util.concurrent.ThreadLocalRandom
+
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetProfileRequest, GetTokenRequest, GetULDRequest}
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
-import com.spn.scenarios.groups.{PageDetailScreen,_}
+import com.spn.scenarios.groups.{PageDetailScreen, _}
 
 object SonyLivCompleteUserJourney {
 
@@ -25,6 +27,8 @@ object SonyLivCompleteUserJourney {
        Map("channel" -> "WEB"),
         Map("channel" -> "IOS")
   ).random
+
+
 
   val guestUserDetailScreenScenario = scenario("Guest User Detail Screen Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)

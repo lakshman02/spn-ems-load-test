@@ -18,15 +18,15 @@ object PageDetailScreen {
 
     var expression = ""
 
-    if(contentSubtype.isEmpty || contentSubtype==null){
+    if(contentSubtype.isEmpty && parentType.isEmpty){
       expression = "$.containers[*].assets.containers[?(@.metadata.contentType == '"+contentType+"')].id"
       println(s"\nExpression : $expression")
 
-    }else if((contentSubtype.isEmpty || contentSubtype==null) && (contentType.isEmpty || contentType ==null)){
+    }else if(contentSubtype.isEmpty && contentType.isEmpty ){
       expression = "$.containers[*].assets.containers[*].parents[?(@.parentType == '"+parentType+"')].parentId"
       println(s"\nExpression : $expression")
 
-    }else {
+    }else if(parentType.isEmpty) {
       expression = "$.containers[*].assets.containers[?(@.metadata.contentType == '"+contentType+"' && @.metadata.contentSubtype == '"+contentSubtype+"')].id"
       println(s"\nExpression : $expression")
     }
@@ -49,7 +49,7 @@ object PageDetailScreen {
     if (finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) {
       session.set(contentIdKey, finalIdToNavigateTo)
     } else {
-      println(s"\nAll attempts failed, for '$contentType' & '$contentSubtype'")
+      println(s"\nAll attempts failed, for '$contentType' & '$contentSubtype' & '$parentType'")
       session
     }
   }
@@ -89,7 +89,7 @@ object PageDetailScreen {
   val openEpgList = exec(session => {
     session.set("channelId", "ALL")
       .set("offset","100")
-      .set("startDate", s"${CommonFeedFiles.dateTimeFeeder}")
+      .set("startDate", "2020-02-26")
     .set("from","0")
     .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
@@ -110,14 +110,14 @@ object PageDetailScreen {
 
 
   val openDetailsPage = randomSwitch(
-    20d -> openVODDetails,
-    10d -> openMovieDetails,
-    10d -> openShowDetails,
+    5d -> openVODDetails,
+    5d -> openMovieDetails,
+    5d -> openShowDetails,
     10d -> openEpisodeDetails,
     10d -> openBundleDetails,
-    10d -> openEpgList,
+    50d -> openEpgList,
     10d -> openTrayRecommendationCatchMediaList,
-    10d -> openTrayRecommendationRecosenseList
+    5d -> openTrayRecommendationRecosenseList
 
   )
 
