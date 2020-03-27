@@ -3,6 +3,7 @@ package com.spn.scenarios.journey
 import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.scenarios.groups.UserAppLaunchScenario
 import io.gatling.core.Predef._
+import com.spn.requests.LoginWithEmailRequest
 
 object LoginScenario  {
 
@@ -35,5 +36,6 @@ object LoginScenario  {
     .group("Login - Channel - ${channel}") {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
         .exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .exec(LoginWithEmailRequest.LoginWithEmail)
     }
 }
