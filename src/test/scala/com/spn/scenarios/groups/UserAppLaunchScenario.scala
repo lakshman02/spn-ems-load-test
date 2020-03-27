@@ -220,8 +220,7 @@ object UserAppLaunchScenario  {
   // ALL the functions goes here - ends
 
   // App launch User Journey goes here - starts
-  val userAppLaunchScenario = exec(ApiSecurity.getToken)
-      .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+  val userAppLaunchScenario = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
         exec(GetInitialConfigRequest.getInitialConfig)
           .exec(GetULDRequest.getULD)
           .exec(openHomePage) // Definitely invoke Home Page (as that is where user lands)
