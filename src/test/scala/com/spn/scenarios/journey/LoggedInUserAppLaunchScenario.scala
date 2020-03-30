@@ -31,7 +31,7 @@ object LoggedInUserAppLaunchScenario  {
 //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .group("App Launch - Logged In User - Channel - ${channel}") {
