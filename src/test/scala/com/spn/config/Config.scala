@@ -162,6 +162,5 @@ object Config {
     "security_token" -> "${RESP_SECURITY_TOKEN}",
     "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable"
   )
-
 }
 

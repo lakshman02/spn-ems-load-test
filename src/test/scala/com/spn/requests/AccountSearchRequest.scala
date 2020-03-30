@@ -10,7 +10,6 @@ object AccountSearchRequest {
     .post(Config.app_url + Config.ACCOUNT_SEARCH_URL)
     .headers(Config.secHeader)
     .body(StringBody ("""{
-             "mobileNumber": "${evg_phone_number}",
              "email": "${evg_email}",
              "channelPartnerID": "${channelPartnerID}"
         }""")).asJson

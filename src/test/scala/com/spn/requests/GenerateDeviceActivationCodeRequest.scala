@@ -18,6 +18,6 @@ object GenerateDeviceActivationCodeRequest {
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultObj.activationCode").findAll.saveAs(Constants.RESP_ACTIVATION_CODE)
+    .check(jsonPath("$.resultObj.activationCode").saveAs(Constants.RESP_ACTIVATION_CODE)
   ))
 }

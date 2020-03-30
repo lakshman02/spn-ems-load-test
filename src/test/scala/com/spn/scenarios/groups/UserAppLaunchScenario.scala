@@ -2,7 +2,7 @@ package com.spn.scenarios.groups
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetProfileRequest, GetTokenRequest, GetULDRequest}
+import com.spn.requests.{GetInitialConfigRequest, GetPageIdRequest, GetProfileRequest, GetTokenRequest, GetULDRequest, LoginWithEmailRequest,UpdateProfileRequest,AccountSearchRequest,GenerateDeviceActivationCodeRequest,RegisterDeviceRequest}
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
 
@@ -228,5 +228,7 @@ object UserAppLaunchScenario  {
             exec(GetProfileRequest.getProfile)
           }
       }
+
   // App launch User Journey goes here - ends
 }
+

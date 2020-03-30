@@ -12,6 +12,10 @@ object CommonFeedFiles {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
 
+  //TODO - this should be from some feed file
+  val channelPartnerIdAndAppClientId = Array(
+    Map("channelPartnerID" -> "MSMIND1", "appClientId" -> "1212475532.1575468358")
+  ).circular
 
   // TODO - check the impact of this if removed
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular
@@ -26,6 +30,8 @@ object CommonFeedFiles {
   val userAuth1KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
 
   val userAuth50KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  //login with email data
+  val userEmailLoginData= csv("data/evergent/evergent_data_for_email_login.csv.gz").unzip.shard.batch.circular
   val userAuthForScenarioTestingUsersUsingRandom = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.random
 
   //Scenario specific - ADD List, GET List, DELETE List

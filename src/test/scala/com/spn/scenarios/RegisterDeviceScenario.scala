@@ -1,8 +1,11 @@
 package com.spn.scenarios
 
-import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
+import com.spn.common.{ApiSecurity, AuthActivationCode, CommonFeedFiles, Constants}
 import com.spn.requests.RegisterDeviceRequest
-import io.gatling.core.Predef.scenario
+import com.spn.requests.GenerateDeviceActivationCodeRequest
+import com.spn.scenarios.GenerateDeviceActivationCodeScenario.activationCode
+import io.gatling.core.Predef.{exec, scenario}
+import io.gatling.core.Predef._
 
 object RegisterDeviceScenario{
 
@@ -15,5 +18,6 @@ object RegisterDeviceScenario{
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_RegisterDevice)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .exec(ApiSecurity.getToken)
+    .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
     .exec(RegisterDeviceRequest.registerDevice)
 }
