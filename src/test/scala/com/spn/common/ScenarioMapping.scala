@@ -104,7 +104,10 @@ object ScenarioMapping {
     "UserJourneyEmailLoginAndGetProfile" -> UserJourneyEmailLoginAndGetProfile.scnLoginAndGetProfile,
 
     "loggedInUserAppLaunchScenario" -> LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario,
-    "GuestUserAppLaunchScenario" -> GuestUserAppLaunchScenario.guestUserAppLaunchScenario
+    "GuestUserAppLaunchScenario" -> GuestUserAppLaunchScenario.guestUserAppLaunchScenario,
+  "guestUserDetailScreenScenario" -> GuestUserDetailScreenScenario.guestUserDetailScreenScenario,
+  "guestUserHomeScreenScenario" -> GuestUserHomeScreenScenario.guestUserHomeScreenScenario
+
 
   )
 }

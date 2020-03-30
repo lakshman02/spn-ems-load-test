@@ -1,0 +1,21 @@
+{
+  "waitBetweenTests":10,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        50,
+        60
+      ]
+    }
+  ],
+  "cases" : [
+    "guestUserHomeScreenScenario"
+  ]
+}
