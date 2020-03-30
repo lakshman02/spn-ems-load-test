@@ -56,7 +56,7 @@ object UserAppLaunchScenario  {
     println(s"\nFinal selected Page to Navigate To for '$urlPath' is : $finalSelectedPageToNavigateTo")
 
     if(finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty) {
-      session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo)
+      session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo.replaceFirst("/",""))
     } else {
       println(s"\nAll attempts failed, for '$urlPath' & '$fallBackLabel'")
       session
