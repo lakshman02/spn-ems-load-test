@@ -12,6 +12,10 @@ object CommonFeedFiles {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
 
+  //TODO - this should be from some feed file
+  val channelPartnerIdAndAppClientId = Array(
+    Map("channelPartnerID" -> "MSMIND1", "appClientId" -> "1212475532.1575468358")
+  ).circular
 
   // TODO - check the impact of this if removed
   val dataFeederOtpRequirements = csv("data/LoginID.csv").circular

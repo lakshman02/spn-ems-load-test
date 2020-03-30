@@ -1,36 +1,43 @@
 package com.spn.scenarios.groups
 
-import com.jayway.jsonpath._
 import com.spn.common.Constants
-import com.spn.requests.{GetInitialConfigRequest,GetProfileRequest,LoginWithEmailRequest,UpdateProfileRequest,AccountSearchRequest,GenerateDeviceActivationCodeRequest,RegisterDeviceRequest}
+import com.spn.requests.{AccountSearchRequest, GenerateDeviceActivationCodeRequest, GetInitialConfigRequest, GetProfileRequest, LoginWithEmailRequest, RegisterDeviceRequest, UpdateProfileRequest}
 import io.gatling.core.Predef._
+
+import scala.util.Random
 
 object LoginWithEmailGroup {
   val invokeProfileApis= randomSwitch(
-    50d -> exec(UpdateProfileRequest.updateProfile),
-    50d -> exec(AccountSearchRequest.accountSearch)
+    2d -> exec(UpdateProfileRequest.updateProfile),
+    2d -> exec(AccountSearchRequest.accountSearch)
   )
   val invokeTVRegistrationApis= randomSwitch(
-    100d -> exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
+    2d -> exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
   )
+
   // User Login Journey goes here - starts
   val doLoginWithEmail = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
       exec(GetInitialConfigRequest.getInitialConfig)
         .exec(LoginWithEmailRequest.LoginWithEmail)
         .exec(GetProfileRequest.getProfile)
         .exec(invokeProfileApis)
-        .doIf(session => session.contains("channel") && (session("channel").equals("APPLE_TV"))){//We need to check for tv platforms here
+        .doIf(session => session.contains("channel") && ( // Do this only for TV platforms
+          session("channel").as[String].equals("APPLE_TV")
+          || session("channel").as[String].equals("FIRE_TV")
+          || session("channel").as[String].equals("SONY_ANDROID_TV")
+          || session("channel").as[String].equals("XIAOMI_ANDROID_TV")
+          || session("channel").as[String].equals("JIO_ANDROID_TV")
+          || session("channel").as[String].equals("SONY_HTML_TV")
+          || session("channel").as[String].equals("SAMSUNG_HTML_TV")
+          )){
           exec(invokeTVRegistrationApis)
+            .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)){
+              exec(session => {
+                val randomPhonePlatform = Array("ANDROID_PHONE","IPAD","IPHONE","ANDROID_TAB") //Switch over from TV platform to any mobile device
+                session.set("channel", randomPhonePlatform(Random.nextInt(randomPhonePlatform.size - 1)))
+              })
+              .exec(RegisterDeviceRequest.registerDevice)
+            }
         }
-        .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)){
-        exec(RegisterDeviceRequest.registerDevice)
-      }
     }
 }
-//APPLE_TV
-//FIRE_TV
-//SONY_ANDROID_TV
-//XIAOMI_ANDROID_TV
-//JIO_ANDROID_TV
-//SONY_HTML_TV
-//SAMSUNG_HTML_TV
