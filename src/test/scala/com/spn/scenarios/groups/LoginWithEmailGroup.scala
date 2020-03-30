@@ -3,7 +3,7 @@ package com.spn.scenarios.groups
 import java.util.concurrent.ThreadLocalRandom
 
 import com.spn.common.Constants
-import com.spn.requests.{AccountSearchRequest, GenerateDeviceActivationCodeRequest, GetInitialConfigRequest, GetProfileRequest, LoginWithEmailRequest, RegisterDeviceRequest, UpdateProfileRequest}
+import com.spn.requests._
 import io.gatling.core.Predef._
 
 import scala.util.Random
@@ -48,34 +48,36 @@ object LoginWithEmailGroup {
 
   // User Login Journey goes here - starts
   val doLoginWithEmail = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
-//      exec(GetInitialConfigRequest.getInitialConfig) //as this is only needed for deep-link, no need of it here
-        exec(LoginWithEmailRequest.LoginWithEmail)
-        .exec(GetProfileRequest.getProfile)
-        .exec(invokeProfileApis)
-        .doIf(session => session.contains("channel") && ( // Do this only for TV platforms
-          session("channel").as[String].equals("APPLE_TV")
-          || session("channel").as[String].equals("FIRE_TV")
-          || session("channel").as[String].equals("SONY_ANDROID_TV")
-          || session("channel").as[String].equals("XIAOMI_ANDROID_TV")
-          || session("channel").as[String].equals("JIO_ANDROID_TV")
-          || session("channel").as[String].equals("SONY_HTML_TV")
-          || session("channel").as[String].equals("SAMSUNG_HTML_TV")
-          )){
-          exec(invokeTVRegistrationApis)
-            .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)){
-              exec(session => {
-                //Switch over from TV platform to any mobile device
-                val randomPhonePlatform = Array("ANDROID_PHONE","IPAD","IPHONE","ANDROID_TAB")
-                session
+    //      exec(GetInitialConfigRequest.getInitialConfig) //as this is only needed for deep-link, no need of it here
+    exec(LoginWithEmailRequest.LoginWithEmail)
+      .doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
+        exec(GetProfileRequest.getProfile)
+          .exec(invokeProfileApis)
+          .doIf(session => session.contains("channel") && (// Do this only for TV platforms
+            session("channel").as[String].equals("APPLE_TV")
+              || session("channel").as[String].equals("FIRE_TV")
+              || session("channel").as[String].equals("SONY_ANDROID_TV")
+              || session("channel").as[String].equals("XIAOMI_ANDROID_TV")
+              || session("channel").as[String].equals("JIO_ANDROID_TV")
+              || session("channel").as[String].equals("SONY_HTML_TV")
+              || session("channel").as[String].equals("SAMSUNG_HTML_TV")
+            )) {
+            exec(invokeTVRegistrationApis)
+              .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
+                exec(session => {
+                  //Switch over from TV platform to any mobile device
+                  val randomPhonePlatform = Array("ANDROID_PHONE", "IPAD", "IPHONE", "ANDROID_TAB")
+                  session
                     .set("oldChannel", session("channel").as[String]) // Storing the old channel here
                     .set("channel", randomPhonePlatform(Random.nextInt(randomPhonePlatform.size - 1)))
-              })
-              .exec(RegisterDeviceRequest.registerDevice)
-              exec(session => {
-                //Switch over from TV platform to any mobile device and back to the original
-                session.set("channel", session("oldChannel").as[String]) // Restoring the old channel here
-              })
-            }
-        }
-    }
+                })
+                  .exec(RegisterDeviceRequest.registerDevice)
+                  .exec(session => {
+                    //Switch over from TV platform to any mobile device and back to the original
+                    session.set("channel", session("oldChannel").as[String]) // Restoring the old channel here
+                  })
+              }
+          }
+      }
+  }
 }
