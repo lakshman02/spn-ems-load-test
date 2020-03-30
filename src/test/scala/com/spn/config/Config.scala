@@ -127,7 +127,8 @@ object Config {
     .header("restful","yes")
 
   // only security header
-  val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}")
+  val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}",
+  "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   //device and auth header
   val devAuthHeader=Map("x-via-device" -> "true",
@@ -135,13 +136,15 @@ object Config {
 
   //device and security header
   val devSecHeader=Map("x-via-device" -> "true",
-    "security_token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}",
+    "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   //auth, device, security header
   val sentHeaders = Map(
     "Authorization" -> "${RESP_AUTH_TOKEN}",
     "x-via-device" -> "true",
-    "security_token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}",
+    "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   //all headers
   val sentHeadersNew = Map(
@@ -149,13 +152,15 @@ object Config {
     "x-via-device" -> "true",
     "build_number" -> "1.0",
     "app_version" -> "1.0",
-    "security_token" -> "${RESP_SECURITY_TOKEN}")
+    "security_token" -> "${RESP_SECURITY_TOKEN}",
+    "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   val headerWithoutAuth = Map(
     "x-via-device" -> "true",
     "build_number" -> "1.0",
     "app_version" -> "1.0",
-    "security_token" -> "${RESP_SECURITY_TOKEN}"
+    "security_token" -> "${RESP_SECURITY_TOKEN}",
+    "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable"
   )
 
 }
