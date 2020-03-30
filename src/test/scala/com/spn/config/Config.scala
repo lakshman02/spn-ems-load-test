@@ -131,8 +131,7 @@ object Config {
   "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   //device and auth header
-  val devAuthHeader=Map("x-via-device" -> "true",
-    "Authorization" -> "${RESP_AUTH_TOKEN}")
+  val onlyPragmaHeader=Map("Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable")
 
   //device and security header
   val devSecHeader=Map("x-via-device" -> "true",

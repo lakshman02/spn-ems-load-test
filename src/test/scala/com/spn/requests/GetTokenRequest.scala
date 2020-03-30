@@ -10,6 +10,7 @@ object GetTokenRequest {
 
   val getToken= exec(http("Get Token Request")
     .get(Config.app_url + Config.GET_TOKEN_URL)
+    .headers(Config.onlyPragmaHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
     .check(jsonPath("$.resultObj").saveAs(Constants.RESP_SECURITY_TOKEN))
