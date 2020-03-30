@@ -22,8 +22,4 @@ object GenerateDeviceActivationCodeScenario{
     .feed(CommonFeedFiles.inputStagingDataFeeder)
     .exec(ApiSecurity.getToken)
     .exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
-      exec(session => {
-        session.set(activationCode, Constants.RESP_ACTIVATION_CODE)
-        session
-      })
 }
