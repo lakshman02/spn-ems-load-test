@@ -1,4 +1,4 @@
-package com.spn.simulations.journey
+package com.spn.simulations.journey.complete
 
 import com.spn.config.Config
 import com.spn.scenarios.journey.complete.SonyLivCompleteUserJourney
@@ -8,7 +8,7 @@ class SonyLivCompleteUserJourneySimulation extends Simulation {
 
   private val guestUserDetailScreenExec = SonyLivCompleteUserJourney.guestUserDetailScreenScenario
     .inject(
-      rampUsers(10) during(10)
+      rampUsers(10) during(1)
     )
 
   setUp(guestUserDetailScreenExec).protocols(Config.httpProtocol)

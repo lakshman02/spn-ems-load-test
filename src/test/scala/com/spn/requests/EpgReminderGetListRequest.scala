@@ -13,7 +13,7 @@ object EpgReminderGetListRequest {
       "offset" -> "${offset}",
       "from" -> "${from}",
       "size" -> "${size}",
-      "startDate" -> "${startDate}"))
+      "startDate" -> "${getDateTime}"))
     .check(status.is(200))
     .check(jsonPath("$.resultCode").is("OK"))
   )
