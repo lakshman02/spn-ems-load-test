@@ -8,7 +8,7 @@ class SonyLivCompleteUserJourneySimulation extends Simulation {
 
   private val guestUserDetailScreenExec = SonyLivCompleteUserJourney.guestUserDetailScreenScenario
     .inject(
-      rampUsers(10) during(1)
+      rampUsers(50) during(50)
     )
 
   setUp(guestUserDetailScreenExec).protocols(Config.httpProtocol)

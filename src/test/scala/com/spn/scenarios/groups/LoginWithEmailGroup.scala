@@ -1,5 +1,7 @@
 package com.spn.scenarios.groups
 
+import java.util.concurrent.ThreadLocalRandom
+
 import com.spn.common.Constants
 import com.spn.requests.{AccountSearchRequest, GenerateDeviceActivationCodeRequest, GetInitialConfigRequest, GetProfileRequest, LoginWithEmailRequest, RegisterDeviceRequest, UpdateProfileRequest}
 import io.gatling.core.Predef._
@@ -7,6 +9,35 @@ import io.gatling.core.Predef._
 import scala.util.Random
 
 object LoginWithEmailGroup {
+  // All possible feeders - encapsulated inside this group - starts
+  private def randomSerialNumber: String = {
+    val r = Random
+    "d6acc46e-5a09-d432-1afb-" + r.nextInt(2000000000)
+  }
+
+  private def randomModelNumber: String = {
+    val r = Random
+    "abc-" + r.nextInt(1000)
+  }
+
+  val feederDeviceDetails = Array(
+    Map("serialNo" -> randomSerialNumber, "deviceName" -> "webClient", "deviceModelNumber" -> randomModelNumber, "deviceType" -> "webClient")
+  ).circular
+
+  val dateOfBirthFeeder = Iterator.continually(
+    Map("dateOfBirth" -> ThreadLocalRandom.current().nextInt(1551081657, 1582617662))
+  )
+
+  val genderFeeder = Array(
+    Map("gender" -> "Male"),
+    Map("gender" -> "Female")
+  ).random
+
+  val pinCodeFeeder = Iterator.continually(
+    Map("pincode" -> ThreadLocalRandom.current().nextInt(500072, 600000))
+  )
+  // All possible feeders - encapsulated inside this group - ends
+
   val invokeProfileApis= randomSwitch(
     2d -> exec(UpdateProfileRequest.updateProfile),
     2d -> exec(AccountSearchRequest.accountSearch)
