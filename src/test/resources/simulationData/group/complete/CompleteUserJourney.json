@@ -8,6 +8,19 @@
       ]
     },
     {
+      "type": "constantUsersPerSec",
+      "args": [
+        5,
+        60
+      ]
+    },
+    {
+      "type": "nothingFor",
+      "args": [
+        2
+      ]
+    },
+    {
       "type": "atOnceUsers",
       "args": [
         1600
