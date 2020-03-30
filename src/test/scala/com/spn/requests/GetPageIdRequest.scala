@@ -16,5 +16,6 @@ object GetPageIdRequest {
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
       .check(jsonPath("$.resultObj").saveAs(Constants.RESP_PAGE_RESPONSE))
+      .check(jsonPath("$.resultObj.total").saveAs(Constants.RESP_COUNT_OF_ITEMS_IN_PAGE))
   )
 }

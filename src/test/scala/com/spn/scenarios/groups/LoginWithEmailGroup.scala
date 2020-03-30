@@ -48,8 +48,8 @@ object LoginWithEmailGroup {
 
   // User Login Journey goes here - starts
   val doLoginWithEmail = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
-      exec(GetInitialConfigRequest.getInitialConfig)
-        .exec(LoginWithEmailRequest.LoginWithEmail)
+//      exec(GetInitialConfigRequest.getInitialConfig) //as this is only needed for deep-link, no need of it here
+        exec(LoginWithEmailRequest.LoginWithEmail)
         .exec(GetProfileRequest.getProfile)
         .exec(invokeProfileApis)
         .doIf(session => session.contains("channel") && ( // Do this only for TV platforms
@@ -64,10 +64,17 @@ object LoginWithEmailGroup {
           exec(invokeTVRegistrationApis)
             .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)){
               exec(session => {
-                val randomPhonePlatform = Array("ANDROID_PHONE","IPAD","IPHONE","ANDROID_TAB") //Switch over from TV platform to any mobile device
-                session.set("channel", randomPhonePlatform(Random.nextInt(randomPhonePlatform.size - 1)))
+                //Switch over from TV platform to any mobile device
+                val randomPhonePlatform = Array("ANDROID_PHONE","IPAD","IPHONE","ANDROID_TAB")
+                session
+                    .set("oldChannel", session("channel").as[String]) // Storing the old channel here
+                    .set("channel", randomPhonePlatform(Random.nextInt(randomPhonePlatform.size - 1)))
               })
               .exec(RegisterDeviceRequest.registerDevice)
+              exec(session => {
+                //Switch over from TV platform to any mobile device and back to the original
+                session.set("channel", session("oldChannel").as[String]) // Restoring the old channel here
+              })
             }
         }
     }
