@@ -40,5 +40,8 @@ object SonyLivCompleteUserJourney {
         .group("Guest User Page Details - Channel - ${channel}") {
           exec(PageDetailScreen.guestUserDetailScreenScenario)
         }
+        .group("Guest User Home Screen - Channel - ${channel}") {
+          exec(HomeScreen.guestUserHomeScreenScenario)
+        }
     }
 }
