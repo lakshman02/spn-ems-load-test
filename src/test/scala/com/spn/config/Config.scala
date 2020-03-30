@@ -16,6 +16,7 @@ object Config {
 
    // val app_url = "https://apiqa.sonyliv.com/"
  val app_url = "https://apipreprod.sonyliv.com/"
+// val app_url_origin = "https://origin-apipreprod.sonyliv.com/"
 
   //Api urls
   val URL_INITIAL_CONFIG = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/INITIAL/CONFIG"
@@ -149,5 +150,12 @@ object Config {
     "build_number" -> "1.0",
     "app_version" -> "1.0",
     "security_token" -> "${RESP_SECURITY_TOKEN}")
+
+  val headerWithoutAuth = Map(
+    "x-via-device" -> "true",
+    "build_number" -> "1.0",
+    "app_version" -> "1.0",
+    "security_token" -> "${RESP_SECURITY_TOKEN}"
+  )
 }
 
