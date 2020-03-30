@@ -14,5 +14,7 @@ object GetPageIdRequest {
     .queryParam("from" , "${paginationFrom}")
     .queryParam("to" , "${paginationTo}")
     .check(status is 200)
-    .check(jsonPath("$.resultCode").is("OK")))
+    .check(jsonPath("$.resultCode").is("OK"))
+      .check(jsonPath("$.resultObj").saveAs(Constants.RESP_PAGE_RESPONSE))
+  )
 }
