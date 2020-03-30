@@ -1,5 +1,7 @@
 package com.spn.scenarios.groups
 
+import java.time.LocalDateTime
+
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest}
@@ -85,11 +87,15 @@ object PageDetailScreen {
     exec(BundleIdRequest.BundleId)
   }
 
+  val VODDistribution = randomSwitch(40d -> openVODDetails,
+    20d -> openMovieDetails,
+    20d -> openEpisodeDetails,
+    20d -> openShowDetails)
 
   val openEpgList = exec(session => {
     session.set("channelId", "ALL")
       .set("offset","100")
-      .set("startDate", "2020-02-26")
+      .set("getDateTime", s"${LocalDateTime.now()}")
     .set("from","0")
     .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
@@ -109,17 +115,14 @@ object PageDetailScreen {
 
   // TODO - this needs further breakup like Under VOD comes Movie, show and Episode
   val openDetailsPage = randomSwitch(
-    5d -> openVODDetails,
-    5d -> openMovieDetails,
-    5d -> openShowDetails,
-    10d -> openEpisodeDetails,
+    25d -> VODDistribution,
     10d -> openBundleDetails,
-    50d -> openEpgList,
-    10d -> openTrayRecommendationCatchMediaList,
-    5d -> openTrayRecommendationRecosenseList
+    25d -> openEpgList,
+    15d -> openTrayRecommendationCatchMediaList,
+    15d -> openTrayRecommendationRecosenseList
   )
 
- // val openDetailsPage = randomSwitch(100d -> openEpgList)
+  //val openDetailsPage = randomSwitch(100d -> openEpgList)
 
   val guestUserDetailScreenScenario = exec(openDetailsPage)
 

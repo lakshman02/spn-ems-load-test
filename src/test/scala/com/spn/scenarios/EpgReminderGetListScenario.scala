@@ -14,6 +14,7 @@ object EpgReminderGetListScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(inputParams)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_GetEpgReminder)
     .exec(ApiSecurity.getToken)
     .exec(EpgReminderGetListRequest.EPG_GetList)
