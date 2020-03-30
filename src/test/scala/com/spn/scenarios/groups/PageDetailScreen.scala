@@ -107,8 +107,7 @@ object PageDetailScreen {
       .set("filter_contentSubtype", "SHOW")
   }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 
-
-
+  // TODO - this needs further breakup like Under VOD comes Movie, show and Episode
   val openDetailsPage = randomSwitch(
     5d -> openVODDetails,
     5d -> openMovieDetails,
@@ -118,7 +117,6 @@ object PageDetailScreen {
     50d -> openEpgList,
     10d -> openTrayRecommendationCatchMediaList,
     5d -> openTrayRecommendationRecosenseList
-
   )
 
  // val openDetailsPage = randomSwitch(100d -> openEpgList)
