@@ -22,7 +22,7 @@ object LoggedInUserAppLaunchScenario  {
 //    Map("channel" -> "JIO_KIOS"),
     Map("channel" -> "WEB")
 //    Map("channel" -> "IOS")
-  ).circular
+  ).random
 
   val loggedInUserAppLaunchScenario = scenario("Logged In User App Launch Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
@@ -31,14 +31,14 @@ object LoggedInUserAppLaunchScenario  {
 //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
 
     .group("App Launch - Logged In User - Channel - ${channel}") {
       exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
       .exec(UserAppLaunchScenario.userAppLaunchScenario)
         .group("After Launch - User moves around different landing pages - Channel - ${channel}") {
-            pause(1)
+            pause(2, 5)
               .randomSwitch(
                 20d -> UserAppLaunchScenario.openSearchPage,
                 30d -> UserAppLaunchScenario.openTVShowsPage,

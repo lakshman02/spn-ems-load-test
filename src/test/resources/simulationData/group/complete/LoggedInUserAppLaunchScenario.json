@@ -10,7 +10,7 @@
     {
       "type": "atOnceUsers",
       "args": [
-        420
+        1600
       ]
     },
     {
@@ -22,7 +22,7 @@
     {
       "type": "atOnceUsers",
       "args": [
-        420
+        800
       ]
     },
     {
@@ -34,7 +34,7 @@
     {
       "type": "atOnceUsers",
       "args": [
-        420
+        400
       ]
     },
     {
