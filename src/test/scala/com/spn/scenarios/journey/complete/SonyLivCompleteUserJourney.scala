@@ -27,7 +27,7 @@ object SonyLivCompleteUserJourney {
   val doUserLogin = true
 
 
-  val guestUserDetailScreenScenario = scenario("Complete User Journey")
+  val doSonyLivCompleteUserJourney = scenario("Complete User Journey")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)

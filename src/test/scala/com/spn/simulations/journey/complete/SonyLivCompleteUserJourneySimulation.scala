@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class SonyLivCompleteUserJourneySimulation extends Simulation {
 
-  private val guestUserDetailScreenExec = SonyLivCompleteUserJourney.guestUserDetailScreenScenario
+  private val guestUserDetailScreenExec = SonyLivCompleteUserJourney.doSonyLivCompleteUserJourney
     .inject(
       rampUsers(50) during(50)
     )
