@@ -1,10 +1,10 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.LoginWithEmailGroup
+import com.spn.scenarios.groups.{LoginWithEmailGroup, SearchFunctionalityForUserGroup}
 import io.gatling.core.Predef._
 
-object LoginScenario {
+object SearchFunctionalityForUserScenario {
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
@@ -23,22 +23,30 @@ object LoginScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val loginScenario = scenario("Login Scenario")
+  val doSearchScenario = scenario("Search Logged In User Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-    .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
+    .feed(CommonFeedFiles.contentFeeder)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
     .feed(LoginWithEmailGroup.dateOfBirthFeeder)
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
 
-    .group("Email Login- Channel - ${channel}") {
+    .group("Search Functionality - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
-        .exec(LoginWithEmailGroup.doLoginWithEmail)
+      .randomSwitch(
+        20d -> group("Search Functionality for Logged-In user - Channel - ${channel}"){
+          exec(LoginWithEmailGroup.doLoginWithEmail).exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
+        },
+        80d -> group("Search Functionality for Guest user - Channel - ${channel}"){
+          exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
+        }
+      )
     }
 }

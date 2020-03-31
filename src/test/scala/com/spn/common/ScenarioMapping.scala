@@ -6,7 +6,7 @@ import com.spn.scenarios.{AccountSearchScenario, ActiveSubscriptionScenario, All
 
 object ScenarioMapping {
 
-  val scenarioNames = Map (
+  val scenarioNames = Map(
 
     // All single request mapping goes here
     "accountSearch" -> AccountSearchScenario.accountSearchScenario,
@@ -19,9 +19,9 @@ object ScenarioMapping {
     "getULD" -> GetULDScenario.getULDScenario,
     "login" -> LoginScenario.loginScenario,
     "loginWithEmail" -> LoginWithEmailScenario.LoginWithEmailScenario,
-    "getProduct" -> GetProductScenario .getProductScenario,
-    "activeSubscription" -> ActiveSubscriptionScenario .activeSubscriptionScenario,
-    "contentDetailBundle" -> ContentDetailBundleScenario .contentDetail_BundleScenario,
+    "getProduct" -> GetProductScenario.getProductScenario,
+    "activeSubscription" -> ActiveSubscriptionScenario.activeSubscriptionScenario,
+    "contentDetailBundle" -> ContentDetailBundleScenario.contentDetail_BundleScenario,
     "genericCoupon" -> PostGenericCouponScenario.scnGeneric_Coupon,
     "SubscriptionHistory" -> PostSubscriptionHistoryScenario.SubscriptionHistory,
     "getVODDetails" -> VODDetailsScenario.vodDetailsScenario,
@@ -32,7 +32,7 @@ object ScenarioMapping {
     "placeOrder" -> PlaceOrderScenario.placeOrderScenario,
     "subscriptionPayment" -> Subscription_PaymentScenario.subscription_PaymentScenario,
     "isCustomerEligibleForFreeTrial" -> IsCustomerEligibleForFreeTrialScenario.checkCustomerEligibleForFreeTrial,
-    "productsByCoupon" ->ProductsByCouponScenario.productsByCouponScenario,
+    "productsByCoupon" -> ProductsByCouponScenario.productsByCouponScenario,
     "upgradablePlans" -> UpgradablePlansScenario.upgradablePlansScenario,
     "applycoupon" -> PostApplyCouponScenario.scnApplyCoupon,
     "prorateAmount" -> ProrateAmountScenario.prorateAmountScenario,
@@ -45,7 +45,7 @@ object ScenarioMapping {
     "addSettings" -> AddSettingsScenario.addSettingsScenario,
     "epgReminder" -> EPGReminderScenario.EPGReminderScenario,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
-    "epgReminderGetList"  -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
+    "epgReminderGetList" -> EpgReminderGetListScenario.scnEpg_reminder_GetList,
     "epgReminderDelete" -> EPGReminderDeleteScenario.EPGReminderDeleteScenario,
     "registerDevice" -> RegisterDeviceScenario.registerDeviceScenario,
     // All Journey mapping goes here
@@ -71,7 +71,7 @@ object ScenarioMapping {
     "createRazorPayOrder" -> CreateRazorPayOrderScenario.createRazorPayOrderScenario,
     "addXDR" -> AddXdrScenario.addXdrScenario,
     "next" -> NextScenario.nextScenario,
-    "deleteXdr" ->DeleteXdrScenario.deleteXdrScenario,
+    "deleteXdr" -> DeleteXdrScenario.deleteXdrScenario,
     "getXDR" -> GetXDRScenario.scn_Get_XDR,
     "nextAndPrevious" -> NextAndPreviousScenario.nextAndPreviousScenario,
     "getDRMDeviceId" -> GetDRMDeviceIdScenario.getDRMDeviceIdScenario,
@@ -103,7 +103,6 @@ object ScenarioMapping {
     "SonyLivCompleteUserJourney" -> SonyLivCompleteUserJourney.doSonyLivCompleteUserJourney,
 
 
-
     "getProfileJourney" -> GetProfileJourneyScenario.getProfileJourneyScenario,
     "UserJourneyLoggedInWithEmail" -> UserJourneyLoggedInWithEmailScenario.userJourneyLoggedInUser,
     "UserJourneyLoggedInWithMobile" -> UserJourneyMobileLoginAndGetSubscription.scnLoginAndSubscription,
@@ -112,9 +111,9 @@ object ScenarioMapping {
 
     "loggedInUserAppLaunchScenario" -> LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario,
     "GuestUserAppLaunchScenario" -> GuestUserAppLaunchScenario.guestUserAppLaunchScenario,
-  "guestUserDetailScreenScenario" -> GuestUserDetailScreenScenario.guestUserDetailScreenScenario,
-  "guestUserHomeScreenScenario" -> GuestUserHomeScreenScenario.guestUserHomeScreenScenario
-
-
+    "guestUserDetailScreenScenario" -> GuestUserDetailScreenScenario.guestUserDetailScreenScenario,
+    "guestUserHomeScreenScenario" -> GuestUserHomeScreenScenario.guestUserHomeScreenScenario,
+    "loginScenario" -> LoginScenario.loginScenario,
+    "SearchFunctionalityScenario" -> SearchFunctionalityForUserScenario.doSearchScenario
   )
 }
