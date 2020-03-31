@@ -1,7 +1,5 @@
 package com.spn.scenarios
-
 import java.time.LocalDateTime
-
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.GenerateDeviceActivationCodeRequest
 import io.gatling.commons.validation.Validation
@@ -11,7 +9,6 @@ import io.gatling.core.session
 
 object GenerateDeviceActivationCodeScenario{
   var activationCode=""
-
   val generateDeviceActivationCodeScenario =scenario("Generate Device Activation Code Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
