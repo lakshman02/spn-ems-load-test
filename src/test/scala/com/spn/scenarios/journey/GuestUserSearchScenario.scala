@@ -23,7 +23,7 @@ object GuestUserSearchScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val guestSearch_scn = scenario("Guest User Search")
+  val guestSearch = scenario("Guest User Search")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
