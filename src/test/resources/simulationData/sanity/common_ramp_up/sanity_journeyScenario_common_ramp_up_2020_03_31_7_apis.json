@@ -21,7 +21,6 @@
     "guestUserDetailScreenScenario",
     "guestUserHomeScreenScenario",
     "loginScenario",
-    "GuestUserSearchScenario",
-    "SearchLoggedInUserScenario"
+    "SearchFunctionalityScenario"
   ]
 }

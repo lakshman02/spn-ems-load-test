@@ -1,10 +1,10 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.SearchLoggedInUserGroup
+import com.spn.scenarios.groups.{LoginWithEmailGroup, SearchFunctionalityForUserGroup}
 import io.gatling.core.Predef._
 
-object SearchLoggedInUserScenario {
+object SearchFunctionalityForUserScenario {
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
@@ -23,7 +23,7 @@ object SearchLoggedInUserScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val SearchLoggedInUserScenario = scenario("Search Logged In User Scenario")
+  val doSearchScenario = scenario("Search Logged In User Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -32,12 +32,21 @@ object SearchLoggedInUserScenario {
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-    .feed(SearchLoggedInUserGroup.feederDeviceDetails)
-    .feed(SearchLoggedInUserGroup.dateOfBirthFeeder)
     .feed(CommonFeedFiles.contentFeeder)
+    .feed(LoginWithEmailGroup.feederDeviceDetails)
+    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
+    .feed(LoginWithEmailGroup.genderFeeder)
+    .feed(LoginWithEmailGroup.pinCodeFeeder)
 
-    .group("Search Logged In User - Channel - ${channel}") {
+    .group("Search Functionality - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
-        .exec(SearchLoggedInUserGroup.doLoginWithEmailAndSearch)
+      .randomSwitch(
+        20d -> group("Search Functionality for Logged-In user - Channel - ${channel}"){
+          exec(LoginWithEmailGroup.doLoginWithEmail).exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
+        },
+        80d -> group("Search Functionality for Guest user - Channel - ${channel}"){
+          exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
+        }
+      )
     }
 }

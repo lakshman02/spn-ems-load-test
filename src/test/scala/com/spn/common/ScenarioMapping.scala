@@ -114,7 +114,6 @@ object ScenarioMapping {
     "guestUserDetailScreenScenario" -> GuestUserDetailScreenScenario.guestUserDetailScreenScenario,
     "guestUserHomeScreenScenario" -> GuestUserHomeScreenScenario.guestUserHomeScreenScenario,
     "loginScenario" -> LoginScenario.loginScenario,
-    "GuestUserSearchScenario" -> GuestUserSearchScenario.guestSearch,
-    "SearchLoggedInUserScenario" -> SearchLoggedInUserScenario.SearchLoggedInUserScenario
+    "SearchFunctionalityScenario" -> SearchFunctionalityForUserScenario.doSearchScenario
   )
 }
