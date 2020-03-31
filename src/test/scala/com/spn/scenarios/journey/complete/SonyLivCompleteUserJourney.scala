@@ -56,6 +56,24 @@ object SonyLivCompleteUserJourney {
               .exec(LoginWithEmailGroup.doLoginWithEmail)
           }
         }
+        .group("Search Functionality - Channel - ${channel}") {
+            doIfOrElse(doUserLogin){
+              randomSwitch(
+                20d -> group("Search Functionality for Logged-In user - Channel - ${channel}"){
+                  feed(CommonFeedFiles.contentFeeder)
+                  .exec(LoginWithEmailGroup.doLoginWithEmail).exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
+                }
+              )
+            }
+          {
+            randomSwitch(
+              80d -> group("Search Functionality for Guest user - Channel - ${channel}"){
+                feed(CommonFeedFiles.contentFeeder)
+                .exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
+              }
+            )
+          }
+        }
         .doIf(doNavigateToDetailsPage) {
           group("Guest User Page Details - Channel - ${channel}") {
             exec(PageDetailScreen.guestUserDetailScreenScenario)
