@@ -25,6 +25,7 @@ object SonyLivCompleteUserJourney {
 
   val doNavigateToDetailsPage = false
   val doUserLogin = true
+  val doNavigateToHomePage = true
 
 
   val doSonyLivCompleteUserJourney = scenario("Complete User Journey")
@@ -41,9 +42,9 @@ object SonyLivCompleteUserJourney {
         .group("Guest User App Launch - Channel - ${channel}") {
           exec(UserAppLaunchScenario.userAppLaunchScenario)
         }
-        .group("Guest User Home Screen - Channel - ${channel}") {
-          exec(HomeScreen.guestUserHomeScreenScenario)
-        }
+//        .group("Guest User Home Screen - Channel - ${channel}") {
+//          exec(HomeScreen.guestUserHomeScreenScenario)
+//        }
         .doIf(doUserLogin) {
           group("Email Login - Channel - ${channel}") {
             feed(CommonFeedFiles.dateTimeFeeder)
@@ -55,6 +56,12 @@ object SonyLivCompleteUserJourney {
               .feed(LoginWithEmailGroup.pinCodeFeeder)
               .exec(LoginWithEmailGroup.doLoginWithEmail)
           }
+            .doIf(doNavigateToHomePage){
+              group("Logged in User Home Screen - Channel - ${channel}") {
+               exec(HomeScreen.loggedInUserHomeScreenScenario)
+              }
+            }
+
         }
         .group("Search Functionality - Channel - ${channel}") {
             doIfOrElse(doUserLogin){

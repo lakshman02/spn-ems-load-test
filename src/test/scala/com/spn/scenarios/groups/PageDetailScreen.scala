@@ -56,6 +56,89 @@ object PageDetailScreen {
     }
   }
 
+  def extractFixtureDetailsToSession(session: Session, contentIdKey : String, matchId : String): Session = {
+
+    val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
+    println(s"\npageResponse : $pageResponse")
+
+
+    val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers.containers[?(@..contentSubtype=='LIVE_SPORT')].metadata.contentId"
+      println(s"\nexpressionForContentId : $expressionForContentId")
+
+    val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
+    println(s"\nexpressionForMatchId : $expressionForMatchId")
+
+    val context = JsonPath.parse(pageResponse)
+    val contentIdFound = context.read[JSONArray](expressionForContentId)
+    val matchIdFound = context.read[JSONArray](expressionForMatchId)
+
+    // Cherry picking a url to navigate to
+    var finalIdToNavigateTo = ""
+    if (contentIdFound != null && contentIdFound.size() == 1) {
+      finalIdToNavigateTo = contentIdFound.get(0).toString
+    } else if (contentIdFound != null && contentIdFound.size() > 1) {
+      finalIdToNavigateTo = contentIdFound.get(0).toString
+    }
+
+    var finalMatchIdToNavigateTo = ""
+    if (matchIdFound != null && matchIdFound.size() == 1) {
+      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
+    } else if (matchIdFound != null && matchIdFound.size() > 1) {
+      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
+    }
+
+    println(s"\nFinal id to Navigate To for  is : $finalIdToNavigateTo")
+
+    if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
+      session.set(contentIdKey, finalIdToNavigateTo).set(matchId,finalMatchIdToNavigateTo)
+    } else {
+      println(s"\nAll attempts failed to fetch fixture details for")
+      session
+    }
+  }
+
+  def extractEPGDetailsToSession(session: Session, contentIdKey : String, matchId : String): Session = {
+
+    val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
+    println(s"\npageResponse : $pageResponse")
+
+
+    val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers.containers[?(@..contentSubtype=='LIVE_SPORT')].metadata.contentId"
+    println(s"\nexpressionForContentId : $expressionForContentId")
+
+    val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
+    println(s"\nexpressionForMatchId : $expressionForMatchId")
+
+    val context = JsonPath.parse(pageResponse)
+    val contentIdFound = context.read[JSONArray](expressionForContentId)
+    val matchIdFound = context.read[JSONArray](expressionForMatchId)
+
+    // Cherry picking a url to navigate to
+    var finalIdToNavigateTo = ""
+    if (contentIdFound != null && contentIdFound.size() == 1) {
+      finalIdToNavigateTo = contentIdFound.get(0).toString
+    } else if (contentIdFound != null && contentIdFound.size() > 1) {
+      finalIdToNavigateTo = contentIdFound.get(0).toString
+    }
+
+    var finalMatchIdToNavigateTo = ""
+    if (matchIdFound != null && matchIdFound.size() == 1) {
+      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
+    } else if (matchIdFound != null && matchIdFound.size() > 1) {
+      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
+    }
+
+    println(s"\nFinal id to Navigate To for  is : $finalIdToNavigateTo")
+
+    if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
+      session.set(contentIdKey, finalIdToNavigateTo).set(matchId,finalMatchIdToNavigateTo)
+    } else {
+      println(s"\nAll attempts failed to fetch fixture details for")
+      session
+    }
+  }
+
+
 
   val openVODDetails = exec(session => {
     setTheUrlIdToSession(session, "VOD","","","contentId")
