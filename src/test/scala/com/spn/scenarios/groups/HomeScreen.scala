@@ -72,8 +72,8 @@ object HomeScreen {
       .exec(openEpgList)
       .exec(GetListRequest.getUserListRequest)
       .exec(GetXDRRequest.getXDR)
-      .exec(PageDetailScreen.openTrayRecommendationRecosenseList)
-      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
+//      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
+//      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
       .exec(fixtureDistribution) //TODO fix this - not working
       // .exec(epgReminderDistribution) //TODO fix this - not working

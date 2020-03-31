@@ -4,6 +4,8 @@ import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.scenarios.groups.{PageDetailScreen, _}
 import io.gatling.core.Predef._
 
+import scala.util.Random
+
 object SonyLivCompleteUserJourney {
 
   val channelFeederOverride = Array(
@@ -26,7 +28,8 @@ object SonyLivCompleteUserJourney {
   val doNavigateToDetailsPage = false
 
   private def randomDoLogin: Boolean = {
-    math.random < 0.25 // with a 0.25 probability
+//    Random.nextBoolean()
+    math.random < 0.50 // with a 0.25 probability
   }
 
   val doSonyLivCompleteUserJourney = scenario("Complete User Journey")
@@ -44,9 +47,17 @@ object SonyLivCompleteUserJourney {
         .group("Guest User App Launch - Channel - ${channel}") {
           exec(UserAppLaunchScenario.userAppLaunchScenario)
         }
-        .doIf(randomDoLogin) { // Doing random Login
-          exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN))
-            .group("Email Login - Channel - ${channel}") {
+        .exec(session => {
+          // This is where we are randomly deciding whether to login or not
+          var loggedIn = Constants.USER_TYPE_GUEST
+          if(randomDoLogin) {
+            loggedIn = Constants.USER_TYPE_LOGGED_IN
+          }
+          println("loggedIn ? "+loggedIn);
+          session.set(Constants.REQ_USER_TYPE, loggedIn)
+        })
+        .doIf(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) { // Doing random Login
+            group("Email Login - Channel - ${channel}") {
               feed(CommonFeedFiles.dateTimeFeeder)
                 .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
                 .feed(LoginWithEmailGroup.feederDeviceDetails)
