@@ -1,7 +1,8 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{HomeScreen, UserAppLaunchScenario}
+import com.spn.scenarios.groups.{HomeScreen, LoginWithEmailGroup, UserAppLaunchScenario}
+import com.spn.scenarios.journey.SearchFunctionalityForUserScenario.channelFeederOverride
 import io.gatling.core.Predef._
 
 object LoggedInUserHomeScreenScenario {
@@ -27,13 +28,21 @@ object LoggedInUserHomeScreenScenario {
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
-    //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
+    .feed(CommonFeedFiles.dateTimeFeeder)
+    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
+    .feed(CommonFeedFiles.contentFeeder)
+    .feed(LoginWithEmailGroup.feederDeviceDetails)
+    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
+    .feed(LoginWithEmailGroup.genderFeeder)
+    .feed(LoginWithEmailGroup.pinCodeFeeder)
 
     .group("Home Screen - Logged In User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)
-     . exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .exec(LoginWithEmailGroup.doLoginWithEmail)
+        .exec(UserAppLaunchScenario.userAppLaunchScenario)
         .exec(HomeScreen.loggedInUserHomeScreenScenario)
   }
 }

@@ -19,25 +19,13 @@ object HomeScreen {
       .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
 
-  val openHomePage = exec(session => {
-    // Where we are getting and setting Home URL
-
-    var paginationFrom = 0;
-    var paginationTo = 5;
-    if(session.contains(Constants.RESP_COUNT_OF_ITEMS_IN_PAGE)) {
-      val countOfItemsInPage = session(Constants.RESP_COUNT_OF_ITEMS_IN_PAGE).as[Int];
-      val howMany = countOfItemsInPage / 5
-      if(howMany > 1) {
-        paginationFrom = paginationFrom + howMany
-        paginationTo = paginationFrom + 5
-      }
-    }
+  val openHomePageAgain = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
-      .set("pageSuffix", s"Home Page Scrolling - p[${paginationFrom}-${paginationTo}]")
-      .set("paginationFrom", paginationFrom)
-      .set("paginationTo", paginationTo)
+      .set("pageSuffix", "Logged In User - Navigating to top of page - p[0-5]")
+      .set("paginationFrom", "0")
+      .set("paginationTo", "5")
   }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
-    exec(GetPageIdRequest.PageId)
+      exec(GetPageIdRequest.PageId)
   }
 
   val openAddMyList = exec(session => {
@@ -52,10 +40,12 @@ object HomeScreen {
     extractFixtureDetailsToSession(session,"contentId","matchId")
       .set("startDateTime",s"${System.currentTimeMillis()}")
   }).doIf(session => session.contains("contentId") && session.contains("matchId")){
-    exec(AddReminderRequest.addReminder).exec(DeleteReminderRequest.deleteReminderRequest)
+    exec(AddReminderRequest.addReminder)
+      .exec(GetRemindersRequest.getRemindersRequest)
+      .exec(DeleteReminderRequest.deleteReminderRequest)
   }
 
-  val fixtureDistribution = randomSwitch(100d -> addFixtureReminder)
+  val fixtureDistribution = randomSwitch(10d -> addFixtureReminder)
 
   val userRecommendationLanding = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
@@ -71,21 +61,22 @@ object HomeScreen {
 
 
   val guestUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
-    exec(openHomePage)
+    exec(openHomePageAgain)
     .exec(openEpgList)
   }
 
-  val loggedInUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
-    exec(guestUserHomeScreenScenario)
-      .exec(GetProfileRequest.getProfile)
+  val loggedInUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
+    && session.contains(Constants.RESP_AUTH_TOKEN)) {
+
+    exec(openHomePageAgain)
+      .exec(openEpgList)
       .exec(GetListRequest.getUserListRequest)
-      .exec(mYListDistribution)
       .exec(GetXDRRequest.getXDR)
-      .exec(GetRemindersRequest.getRemindersRequest)
-      exec(fixtureDistribution)
-     // .exec(epgReminderDistribution)
       .exec(PageDetailScreen.openTrayRecommendationRecosenseList)
       .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
-    // .exec(userRecommendationLanding)
+      .exec(mYListDistribution)
+      .exec(fixtureDistribution) //TODO fix this - not working
+      // .exec(epgReminderDistribution) //TODO fix this - not working
+    // .exec(userRecommendationLanding) //TODO fix this - not working
   }
 }

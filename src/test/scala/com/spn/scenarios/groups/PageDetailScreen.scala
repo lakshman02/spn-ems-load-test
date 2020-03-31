@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest}
+import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest}
 import com.spn.scenarios.TrayRecommendationRecosenseScenario
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
@@ -194,7 +194,7 @@ object PageDetailScreen {
     session.set("recommendationType", "catchmedia")
       .set("railType","cm_more_like_this")
       .set("filter_contentSubtype", "SHOW")
-  }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
+  }).exec(TrayRecommendationCatchMediaRequest.trayRecommendationCatchMediaRequest)
 
   // TODO - this needs further breakup like Under VOD comes Movie, show and Episode
   val openDetailsPage = randomSwitch(

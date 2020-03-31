@@ -45,7 +45,7 @@ object SonyLivCompleteUserJourney {
 //        .group("Guest User Home Screen - Channel - ${channel}") {
 //          exec(HomeScreen.guestUserHomeScreenScenario)
 //        }
-        .doIf(doUserLogin) {
+        .doIf(doUserLogin) { // TODO - do we need to put random logins?
           group("Email Login - Channel - ${channel}") {
             feed(CommonFeedFiles.dateTimeFeeder)
               .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
@@ -55,20 +55,18 @@ object SonyLivCompleteUserJourney {
               .feed(LoginWithEmailGroup.genderFeeder)
               .feed(LoginWithEmailGroup.pinCodeFeeder)
               .exec(LoginWithEmailGroup.doLoginWithEmail)
-          }
-            .doIf(doNavigateToHomePage){
-              group("Logged in User Home Screen - Channel - ${channel}") {
-               exec(HomeScreen.loggedInUserHomeScreenScenario)
-              }
+          }.doIf(doNavigateToHomePage) {
+            group("Logged in User Home Screen - Channel - ${channel}") {
+              exec(HomeScreen.loggedInUserHomeScreenScenario) // TODO - comment some of the api calls inside
             }
-
+          }
         }
         .group("Search Functionality - Channel - ${channel}") {
             doIfOrElse(doUserLogin){
               randomSwitch(
                 20d -> group("Search Functionality for Logged-In user - Channel - ${channel}"){
                   feed(CommonFeedFiles.contentFeeder)
-                  .exec(LoginWithEmailGroup.doLoginWithEmail).exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
+                  .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
                 }
               )
             }
@@ -81,7 +79,7 @@ object SonyLivCompleteUserJourney {
             )
           }
         }
-        .doIf(doNavigateToDetailsPage) {
+        .doIf(doNavigateToDetailsPage) { //TODO - this is in progress - need to conclude
           group("Guest User Page Details - Channel - ${channel}") {
             exec(PageDetailScreen.guestUserDetailScreenScenario)
           }
