@@ -81,14 +81,12 @@ object SonyLivCompleteUserJourney {
         // This is where home navigation is happening - ends
         // Search functionality starts here
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
-          group("Logged in User Performing search - Channel - ${channel}") {
             randomSwitch(
-              20d -> group("Search Functionality - Logged-In user - Channel - ${channel}") {
+              20d -> group("Logged in User Performing search - Channel - ${channel}") {
                 feed(CommonFeedFiles.contentFeeder)
                   .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
               }
             )
-          }
         } {
           randomSwitch(
             80d -> group("Guest User Performing search - Channel - ${channel}") {
