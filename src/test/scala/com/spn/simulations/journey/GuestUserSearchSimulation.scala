@@ -5,7 +5,7 @@ import com.spn.scenarios.journey.GuestUserSearchScenario
 import io.gatling.core.Predef.{Simulation, _}
 
 class GuestUserSearchSimulation extends Simulation {
-  private val searchExec = GuestUserSearchScenario.guestSearch_scn
+  private val searchExec = GuestUserSearchScenario.guestSearch
     .inject(
       rampUsers(50) during(50)
     )
