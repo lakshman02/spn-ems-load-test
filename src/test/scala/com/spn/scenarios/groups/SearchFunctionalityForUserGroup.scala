@@ -17,9 +17,9 @@ object SearchFunctionalityForUserGroup {
     2d -> exec(DeleteAllSearchHistory.DeleteAllSearchHistory)
   )
 
-  def extractContentIdFromTraySearchResponse(session: Session, contentIdKey : String): Session = {
+  def extractContentIdFromTraySearchResponse(session: Session, contentIdKey: String): Session = {
 
-    val traySearchResponse = session(Constants.RESP_TRAY_SEARCH_VOD_RESPONSE).as[String]
+    val traySearchResponse = session(Constants.RESP_TRAY_SEARCH_RESPONSE).as[String]
     println(s"\nextractContentIdFromTraySearchResponse : traySearchResponse : $traySearchResponse")
 
     val expression = "$..metadata.contentId"
@@ -58,30 +58,36 @@ object SearchFunctionalityForUserGroup {
     exec(TraySearchRequest.traySearchRequest)
   }
 
-  val doTraySearchVODForEpisodes = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+  val doTraySearchForEpisodes = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("filter_contentSubtype","EPISODE")
-        .set("sortOrder","desc")
+        .set("query", "")
+        .set("filter_objectSubtype", "EPISODE")
+        .set("orderBy", "lastBroadcastDate")
+        .set("sortOrder", "desc")
     })
-      .exec(TraySearchVODRequest.traySearchVODRequest)
+      .exec(TraySearchRequest.traySearchRequest)
   }
 
-  val doTraySearchVODForMovie = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+  val doTraySearchForMovie = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("filter_contentSubtype","MOVIE")
-        .set("sortOrder","desc")
+        .set("query", "")
+        .set("filter_objectSubtype", "MOVIE")
+        .set("orderBy", "lastBroadcastDate")
+        .set("sortOrder", "desc")
     })
-      .exec(TraySearchVODRequest.traySearchVODRequest)
+      .exec(TraySearchRequest.traySearchRequest)
   }
 
-  val doTraySearchVODForShow = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+  val doTraySearchForShow = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("filter_contentSubtype","SHOW")
-        .set("sortOrder","desc")
+        .set("query", "")
+        .set("filter_objectSubtype", "SHOW")
+        .set("orderBy", "lastBroadcastDate")
+        .set("sortOrder", "desc")
     })
-      .exec(TraySearchVODRequest.traySearchVODRequest)
+      .exec(TraySearchRequest.traySearchRequest)
   }
 }
