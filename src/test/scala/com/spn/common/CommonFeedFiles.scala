@@ -12,7 +12,19 @@ object CommonFeedFiles {
   val dataFeederProperty = csv("data/property.csv").circular
   val dataFeederTenant = csv("data/tenant.csv").circular
 
-  //TODO - this should be from some feed file
+ //data for xdr apis
+ val contentIdData = csv("data/contentID.csv").circular
+
+ //data for next, nextPrevious Apis
+ val NextPreviousContentidDataFeeder = csv("data/next_nextAndPrevious_data.csv").circular
+
+ //data for previous api
+ val previousContentidDataFeeder = csv("data/previous_data.csv").circular
+
+ // data for playback preview Details
+ val previewDetailsDataFeeder=csv("data/previewDetails.csv").circular
+
+ //TODO - this should be from some feed file
   val channelPartnerIdAndAppClientId = Array(
     Map("channelPartnerID" -> "MSMIND1", "appClientId" -> "1212475532.1575468358")
   ).circular
