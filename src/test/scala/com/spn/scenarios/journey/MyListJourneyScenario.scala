@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{LoginWithEmailGroup, UserAppLaunchScenario,MyListScenario}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, UserAppLaunchScenario,MyListGroup}
 import io.gatling.core.Predef._
 
 object MyListJourneyScenario {
@@ -35,12 +35,9 @@ object MyListJourneyScenario {
     .feed(LoginWithEmailGroup.feederDeviceDetails)
     .feed(CommonFeedFiles.dataFeederAssetID)
 
+    .exec(ApiSecurity.getToken)
+    .exec(LoginWithEmailGroup.doLoginWithEmail)
+    .exec(UserAppLaunchScenario.userAppLaunchScenario)
+    .exec(MyListGroup.doMyListOperations)
 
-    .group("My List - Channel - ${channel}") {
-      exec(ApiSecurity.getToken)
-        .exec(LoginWithEmailGroup.doLoginWithEmail)
-        .exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .exec(MyListScenario.myListScenario)
-
-    }
 }
