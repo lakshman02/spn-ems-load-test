@@ -8,7 +8,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object AddXdrScenario {
 
-  val contentIdData = csv("data/contentID.csv").circular
+//  val contentIdData = csv("data/contentID.csv").circular
 
 
   val addXdrScenario = scenario("Add XDR Scenario")
@@ -20,7 +20,7 @@ object AddXdrScenario {
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_ADDXDR)
     .feed(CommonFeedFiles.inputStagingDataFeeder)
-    .feed(contentIdData)
+    .feed(CommonFeedFiles.contentIdData)
     .exec(ApiSecurity.getToken)
     .exec(AddXdrRequest.addXdr)
 }

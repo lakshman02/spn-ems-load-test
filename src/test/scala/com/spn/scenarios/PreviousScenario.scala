@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object PreviousScenario {
 
-  val dataFeederContentid = csv("data/previous_data.csv").circular
+//  val previousContentidDataFeeder = csv("data/previous_data.csv").circular
 
   val scnPreviousContent = scenario("Get Previous Content Details")
 
@@ -15,7 +15,7 @@ object PreviousScenario {
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(dataFeederContentid)
+    .feed(CommonFeedFiles.previousContentidDataFeeder)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(ApiSecurity.getToken)
     .exec(PreviousRequest.Previous)
