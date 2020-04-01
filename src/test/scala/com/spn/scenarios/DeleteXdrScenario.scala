@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object DeleteXdrScenario {
 
-  val dataFeederContentId = csv("data/contentID.csv").circular
+//  val dataFeederContentId = csv("data/contentID.csv").circular
 
   val deleteXdrScenario = scenario("Delete XDR Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
@@ -15,7 +15,7 @@ object DeleteXdrScenario {
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular_DeleteXDR)
-    .feed(dataFeederContentId)
+    .feed(CommonFeedFiles.contentIdData)
     .exec(ApiSecurity.getToken)
     .exec(DeleteXdrRequest.deleteXdrRequest)
 
