@@ -158,6 +158,6 @@ object HomeScreen {
       .exec(mYListDistribution)
     //  exec(fixtureDistribution) //TODO fix this - not working
        .exec(epgReminderDistribution)
-     exec(userRecommendationLanding)
+//     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }

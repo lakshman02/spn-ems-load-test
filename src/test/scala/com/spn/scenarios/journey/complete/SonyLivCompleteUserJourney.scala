@@ -2,6 +2,7 @@ package com.spn.scenarios.journey.complete
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.scenarios.groups.{PageDetailScreen, _}
+import com.spn.scenarios.journey.PlayerScenario.AddXDR_PlaybackFeeder
 import io.gatling.core.Predef._
 
 import scala.util.Random
@@ -73,6 +74,8 @@ object SonyLivCompleteUserJourney {
           group("Logged in User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.loggedInUserHomeScreenScenario)
           }
+            .feed(AddXDR_PlaybackFeeder)
+            .exec(PlayerGroup.doPlayerOperations)
         } {
           group("Guest User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.guestUserHomeScreenScenario)
