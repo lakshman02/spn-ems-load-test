@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest}
+import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest, VideoUrlRequest}
 import com.spn.scenarios.TrayRecommendationRecosenseScenario
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
@@ -56,7 +56,7 @@ object PageDetailScreen {
     }
   }
 
-  def extractFixtureDetailsToSession(session: Session, contentIdKey : String, matchId : String): Session = {
+  def extractFixtureDetailsToSession(session: Session): Session = {
 
     val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
     println(s"\npageResponse : $pageResponse")
@@ -74,71 +74,33 @@ object PageDetailScreen {
 
     // Cherry picking a url to navigate to
     var finalIdToNavigateTo = ""
-    if (contentIdFound != null && contentIdFound.size() == 1) {
-      finalIdToNavigateTo = contentIdFound.get(0).toString
-    } else if (contentIdFound != null && contentIdFound.size() > 1) {
+    if (contentIdFound != null && contentIdFound.size() >= 1) {
       finalIdToNavigateTo = contentIdFound.get(0).toString
     }
 
     var finalMatchIdToNavigateTo = ""
-    if (matchIdFound != null && matchIdFound.size() == 1) {
-      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
-    } else if (matchIdFound != null && matchIdFound.size() > 1) {
+    if (matchIdFound != null && matchIdFound.size() >= 1) {
       finalMatchIdToNavigateTo = matchIdFound.get(0).toString
     }
 
-    println(s"\nFinal id to Navigate To for  is : $finalIdToNavigateTo")
+    println(s"\nFinal id to Navigate To is : $finalIdToNavigateTo")
+
+    println(s"\nFinal match id to Navigate To is : $finalMatchIdToNavigateTo")
+
 
     if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
-      session.set(contentIdKey, finalIdToNavigateTo).set(matchId,finalMatchIdToNavigateTo)
+      session.set("contentId", finalIdToNavigateTo).set("matchId",finalMatchIdToNavigateTo)
     } else {
-      println(s"\nAll attempts failed to fetch fixture details for")
+      println(s"\nAll attempts failed to fetch fixture details")
       session
     }
   }
 
-  def extractEPGDetailsToSession(session: Session, contentIdKey : String, matchId : String): Session = {
-
-    val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
-    println(s"\npageResponse : $pageResponse")
-
-
-    val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers.containers[?(@..contentSubtype=='LIVE_SPORT')].metadata.contentId"
-    println(s"\nexpressionForContentId : $expressionForContentId")
-
-    val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
-    println(s"\nexpressionForMatchId : $expressionForMatchId")
-
-    val context = JsonPath.parse(pageResponse)
-    val contentIdFound = context.read[JSONArray](expressionForContentId)
-    val matchIdFound = context.read[JSONArray](expressionForMatchId)
-
-    // Cherry picking a url to navigate to
-    var finalIdToNavigateTo = ""
-    if (contentIdFound != null && contentIdFound.size() == 1) {
-      finalIdToNavigateTo = contentIdFound.get(0).toString
-    } else if (contentIdFound != null && contentIdFound.size() > 1) {
-      finalIdToNavigateTo = contentIdFound.get(0).toString
-    }
-
-    var finalMatchIdToNavigateTo = ""
-    if (matchIdFound != null && matchIdFound.size() == 1) {
-      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
-    } else if (matchIdFound != null && matchIdFound.size() > 1) {
-      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
-    }
-
-    println(s"\nFinal id to Navigate To for  is : $finalIdToNavigateTo")
-
-    if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
-      session.set(contentIdKey, finalIdToNavigateTo).set(matchId,finalMatchIdToNavigateTo)
-    } else {
-      println(s"\nAll attempts failed to fetch fixture details for")
-      session
-    }
+  val openVideoUrl = exec(session =>{
+    setTheUrlIdToSession(session,"VOD","","","contentId")
+  }).doIf(session => session.contains("contentId" )) {
+    exec(VideoUrlRequest.videoUrl)
   }
-
-
 
   val openVODDetails = exec(session => {
     setTheUrlIdToSession(session, "VOD","","","contentId")
@@ -198,11 +160,12 @@ object PageDetailScreen {
 
   // TODO - this needs further breakup like Under VOD comes Movie, show and Episode
   val openDetailsPage = randomSwitch(
-    25d -> VODDistribution,
+    10d -> VODDistribution,
     10d -> openBundleDetails,
-    25d -> openEpgList,
-    15d -> openTrayRecommendationCatchMediaList,
-    15d -> openTrayRecommendationRecosenseList
+    10d -> openEpgList,
+    50d -> openVideoUrl,
+    10d -> openTrayRecommendationCatchMediaList,
+    10d -> openTrayRecommendationRecosenseList
   )
 
   //val openDetailsPage = randomSwitch(100d -> openEpgList)
