@@ -21,11 +21,11 @@ object PlayerGroup {
     && session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("Player Functionality - Channel - ${channel}") {
 
-      randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchVODForEpisodes,
-        40d -> SearchFunctionalityForUserGroup.doTraySearchVODForMovie,
-        10d -> SearchFunctionalityForUserGroup.doTraySearchVODForShow
+      randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchForEpisodes,
+        40d -> SearchFunctionalityForUserGroup.doTraySearchForMovie,
+        10d -> SearchFunctionalityForUserGroup.doTraySearchForShow
       )
-      .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_VOD_RESPONSE)) {
+      .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_RESPONSE)) {
         exec(session => {
           extractContentIdFromTraySearchResponse(session, "contentId")
 //            .set("contentId", "1000005389") // TODO - hard coding for testing
@@ -35,8 +35,8 @@ object PlayerGroup {
           .exec(AddXdrRequest.addXdr)
           .exec(invokeContinueWatchingOperations)
           .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
-          .doIf(session => (session("filter_contentSubtype").as[String].equals("SHOW")
-            || session("filter_contentSubtype").as[String].equals("EPISODE"))) {
+          .doIf(session => (session("filter_objectSubtype").as[String].equals("SHOW")
+            || session("filter_objectSubtype").as[String].equals("EPISODE"))) {
             exec(invokePlayerNavigationApis)
           }
       }

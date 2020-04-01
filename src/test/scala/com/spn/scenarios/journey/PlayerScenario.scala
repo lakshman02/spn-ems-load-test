@@ -27,7 +27,7 @@ object PlayerScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val playbackPreviewFeeder = Iterator.continually(
+  val AddXDR_PlaybackFeeder = Iterator.continually(
     Map("assetDuration" -> ThreadLocalRandom.current().nextInt(1003000, 6003000),
       "position" -> ThreadLocalRandom.current().nextInt(666000),
       "updatedTime" -> ThreadLocalRandom.current().nextDouble(1000822764043L,1550822764043L),
@@ -36,7 +36,7 @@ object PlayerScenario {
     )
   )
 
-  val doPlayerOperationsScenario = scenario("Search Logged In User Scenario")
+  val doPlayerOperationsScenario = scenario("Player functionality Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -49,7 +49,7 @@ object PlayerScenario {
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(playbackPreviewFeeder)
+    .feed(AddXDR_PlaybackFeeder)
 
     .exec(ApiSecurity.getToken)
     .exec(LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario)
