@@ -127,7 +127,9 @@ object HomeScreen {
 
   val userRecommendationLanding = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
-  })exec(UserRecommendationLandingRequest.userRecommendationLandingRequest)
+  }).doIf(session => session.contains("pageid")){
+    exec(UserRecommendationLandingRequest.userRecommendationLandingRequest)
+  }
 
   val addEPGReminder = exec(session => {
     setTheEPGValuesToSession(session)
@@ -154,8 +156,8 @@ object HomeScreen {
 //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
 //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-      exec(fixtureDistribution) //TODO fix this - not working
-       .exec(epgReminderDistribution) //TODO fix this - not working
-    // .exec(userRecommendationLanding) //TODO fix this - not working
+    //  exec(fixtureDistribution) //TODO fix this - not working
+       .exec(epgReminderDistribution)
+     exec(userRecommendationLanding)
   }
 }
