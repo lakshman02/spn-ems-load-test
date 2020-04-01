@@ -2,6 +2,7 @@ package com.spn.requests
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
+import com.spn.common.Constants
 
 import com.spn.config.Config
 
@@ -16,5 +17,6 @@ object EpgReminderGetListRequest {
       "startDate" -> "${getDateTime}"))
     .check(status.is(200))
     .check(jsonPath("$.resultCode").is("OK"))
+      .check(jsonPath("$.resultObj").saveAs(Constants.RESP_EPG_RESPONSE))
   )
 }

@@ -19,9 +19,25 @@ object UserAppLaunchScenario  {
     val respInitialConfig = session(Constants.RESP_INITIAL_CONFIG).as[String]
     println(s"\nrespInitialConfig : $respInitialConfig")
 
+    var expressionForGettingPageNumber = "$.menu.containers[?(@.metadata.url_path == '" + urlPath + "')].actions[?(@.targetType== 'PAGE')].uri"
+    println(s"\nexpressionForGettingPageNumber : $expressionForGettingPageNumber")
+
     var context = JsonPath.parse(respInitialConfig)
     var pageURLFound = context.read[JSONArray](expression)
     println(s"\nPage URL Found : $pageURLFound")
+
+    var pageNumberFound = context.read[JSONArray](expressionForGettingPageNumber)
+    println(s"\nPage Number Found : $pageNumberFound")
+
+    var finalPageNumber = ""
+    if (pageNumberFound != null && pageNumberFound.size() == 1) {
+      finalPageNumber = pageNumberFound.get(0).toString
+    } else if (pageNumberFound != null && pageNumberFound.size() > 1) {
+      val size = pageNumberFound.size()
+      finalPageNumber = pageNumberFound.get(Random.nextInt(size - 1)).toString
+    }
+
+
 
     // Primary expression didn't give any result, so fallback on the new expression
     if(pageURLFound == null || pageURLFound.isEmpty) {
@@ -55,8 +71,9 @@ object UserAppLaunchScenario  {
 
     println(s"\nFinal selected Page to Navigate To for '$urlPath' is : $finalSelectedPageToNavigateTo")
 
-    if(finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty) {
+    if((finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty)||(finalPageNumber != null && !finalPageNumber.isEmpty)) {
       session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo.replaceFirst("/",""))
+        .set("pageid",finalPageNumber.replace("/PAGE/",""))
     } else {
       println(s"\nAll attempts failed, for '$urlPath' & '$fallBackLabel'")
       session
