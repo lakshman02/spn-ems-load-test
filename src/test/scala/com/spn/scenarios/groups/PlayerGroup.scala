@@ -28,7 +28,7 @@ object PlayerGroup {
       .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_VOD_RESPONSE)) {
         exec(session => {
           extractContentIdFromTraySearchResponse(session, "contentId")
-            .set("contentId", "1000005389") // TODO - hard coding for testing
+//            .set("contentId", "1000005389") // TODO - hard coding for testing
             .set("id" , "${contentId}") //Making a copy as some requests uses is as request parameter
             .set("type", "MOVIE")
         })
