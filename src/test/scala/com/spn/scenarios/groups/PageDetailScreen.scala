@@ -56,7 +56,7 @@ object PageDetailScreen {
     }
   }
 
-  def extractFixtureDetailsToSession(session: Session, contentIdKey : String, matchId : String): Session = {
+  def extractFixtureDetailsToSession(session: Session): Session = {
 
     val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
     println(s"\npageResponse : $pageResponse")
@@ -74,25 +74,24 @@ object PageDetailScreen {
 
     // Cherry picking a url to navigate to
     var finalIdToNavigateTo = ""
-    if (contentIdFound != null && contentIdFound.size() == 1) {
-      finalIdToNavigateTo = contentIdFound.get(0).toString
-    } else if (contentIdFound != null && contentIdFound.size() > 1) {
+    if (contentIdFound != null && contentIdFound.size() >= 1) {
       finalIdToNavigateTo = contentIdFound.get(0).toString
     }
 
     var finalMatchIdToNavigateTo = ""
-    if (matchIdFound != null && matchIdFound.size() == 1) {
-      finalMatchIdToNavigateTo = matchIdFound.get(0).toString
-    } else if (matchIdFound != null && matchIdFound.size() > 1) {
+    if (matchIdFound != null && matchIdFound.size() >= 1) {
       finalMatchIdToNavigateTo = matchIdFound.get(0).toString
     }
 
-    println(s"\nFinal id to Navigate To for  is : $finalIdToNavigateTo")
+    println(s"\nFinal id to Navigate To is : $finalIdToNavigateTo")
+
+    println(s"\nFinal match id to Navigate To is : $finalMatchIdToNavigateTo")
+
 
     if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
-      session.set(contentIdKey, finalIdToNavigateTo).set(matchId,finalMatchIdToNavigateTo)
+      session.set("contentId", finalIdToNavigateTo).set("matchId",finalMatchIdToNavigateTo)
     } else {
-      println(s"\nAll attempts failed to fetch fixture details for")
+      println(s"\nAll attempts failed to fetch fixture details")
       session
     }
   }

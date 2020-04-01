@@ -1,20 +1,98 @@
 package com.spn.scenarios.groups
 
 
-import java.time.LocalDateTime
+import java.time.{LocalDate, LocalDateTime, ZonedDateTime}
+import java.time.format.DateTimeFormatter
+import java.util.Date
 
+import com.jayway.jsonpath.JsonPath
 import com.spn.common.Constants
 import com.spn.requests.{AddListRequest, AddReminderRequest, DeleteListRequest, DeleteReminderRequest, EpgReminderDeleteRequest, EpgReminderGetListRequest, EpgReminderRequest, GetListRequest, GetPageIdRequest, GetProfileRequest, GetRemindersRequest, GetXDRRequest, UserRecommendationLandingRequest}
 import com.spn.scenarios.groups.UserAppLaunchScenario.setRandomPageURLToSession
-import com.spn.scenarios.groups.PageDetailScreen.{setTheUrlIdToSession,extractFixtureDetailsToSession}
+import com.spn.scenarios.groups.PageDetailScreen.{extractFixtureDetailsToSession, setTheUrlIdToSession}
 import io.gatling.core.Predef._
+import net.minidev.json.JSONArray
+
+import scala.util.Random
 
 object HomeScreen {
+
+  val oneMonthBeforeCurrentDate = LocalDate.now().minusMonths(1)
+
+  oneMonthBeforeCurrentDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
+
+  def setTheEPGValuesToSession(session: Session): Session = {
+
+    val epgResponse = session(Constants.RESP_EPG_RESPONSE).as[String]
+    println(s"\nepgResponse : $epgResponse")
+
+    val expressionForChannelId = "$.containers[*].channelId"
+      println(s"\nexpressionForChannelId : $expressionForChannelId")
+
+    val expressionForAssetId = "$.containers[*].assetId"
+    println(s"\nexpressionForAssetId : $expressionForAssetId")
+
+    val expressionForTitle = "$.containers[*].title"
+    println(s"\nexpressionForTitle : $expressionForTitle")
+
+    val expressionForStartDateTime = "$.containers[*].startDateTime"
+    println(s"\nexpressionForStartDateTime : $expressionForStartDateTime")
+
+    val expressionForEndDateTime = "$.containers[*].endDateTime"
+    println(s"\nexpressionForEndDateTime : $expressionForEndDateTime")
+
+    val context = JsonPath.parse(epgResponse)
+    val channelIdFound = context.read[JSONArray](expressionForChannelId)
+    val assetIdFound = context.read[JSONArray](expressionForAssetId)
+    val titleFound = context.read[JSONArray](expressionForTitle)
+    val startDateTimeFound = context.read[JSONArray](expressionForStartDateTime)
+    val endDateTimeFound = context.read[JSONArray](expressionForEndDateTime)
+
+    // Cherry picking a url to navigate to
+    var finalChannelIdToNavigateTo = ""
+    if (channelIdFound != null && channelIdFound.size() >= 1) {
+      finalChannelIdToNavigateTo = channelIdFound.get(0).toString
+    }
+
+    var finalAssetIdToNavigateTo = ""
+    if (assetIdFound != null && assetIdFound.size() >= 1) {
+      finalAssetIdToNavigateTo = assetIdFound.get(0).toString
+    }
+
+    var finalTitleToNavigateTo = ""
+    if (titleFound != null && titleFound.size() >= 1) {
+      finalTitleToNavigateTo = titleFound.get(0).toString
+    }
+    var finalstartDateTime = ""
+    if (startDateTimeFound != null && startDateTimeFound.size() >= 1) {
+      finalstartDateTime = startDateTimeFound.get(0).toString
+    }
+
+    var finalEndDateTime = ""
+    if (endDateTimeFound != null && endDateTimeFound.size() >=1 ) {
+      finalEndDateTime = endDateTimeFound.get(0).toString
+    }
+    println(s"\nFinal values to pass is : '$finalChannelIdToNavigateTo' & '$finalAssetIdToNavigateTo' & '$finalTitleToNavigateTo' & '$finalstartDateTime' & '$finalEndDateTime'")
+
+    if ((finalChannelIdToNavigateTo != null && !finalChannelIdToNavigateTo.isEmpty)&&(finalAssetIdToNavigateTo != null && !finalAssetIdToNavigateTo.isEmpty)
+    &&(finalTitleToNavigateTo != null && !finalTitleToNavigateTo.isEmpty)&&(finalstartDateTime != null && !finalstartDateTime.isEmpty)
+    &&(finalEndDateTime != null && !finalEndDateTime.isEmpty)) {
+      session.set("channelId", finalChannelIdToNavigateTo)
+        .set("assetId",finalAssetIdToNavigateTo)
+        .set("title",finalTitleToNavigateTo)
+        .set("startDateTime",finalstartDateTime)
+        .set("endDateTime",finalEndDateTime)
+    } else {
+      println(s"\nAll attempts failed, for '$finalChannelIdToNavigateTo' & '$finalAssetIdToNavigateTo' & '$finalTitleToNavigateTo' & '$finalstartDateTime' & '$finalEndDateTime'")
+      session
+    }
+  }
+
 
   val openEpgList = exec(session => {
     session.set("channelId", "ALL")
       .set("offset","100")
-      .set("getDateTime", s"${LocalDateTime.now()}")
+      .set("getDateTime", s"${oneMonthBeforeCurrentDate}")
       .set("from","0")
       .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
@@ -34,15 +112,15 @@ object HomeScreen {
     exec(AddListRequest.addList).exec(DeleteListRequest.deleteList)
   }
 
-  val mYListDistribution = randomSwitch(2d -> openAddMyList)
+  val mYListDistribution = randomSwitch(5d -> openAddMyList)
 
   val addFixtureReminder = exec(session => {
-    extractFixtureDetailsToSession(session,"contentId","matchId")
-      .set("startDateTime",s"${System.currentTimeMillis()}")
+    extractFixtureDetailsToSession(session)
+      .set("startDateTime",s"${System.currentTimeMillis() - 10000000}")
   }).doIf(session => session.contains("contentId") && session.contains("matchId")){
     exec(AddReminderRequest.addReminder)
       .exec(GetRemindersRequest.getRemindersRequest)
-      .exec(DeleteReminderRequest.deleteReminderRequest)
+     .exec(DeleteReminderRequest.deleteReminderRequest)
   }
 
   val fixtureDistribution = randomSwitch(10d -> addFixtureReminder)
@@ -52,12 +130,13 @@ object HomeScreen {
   })exec(UserRecommendationLandingRequest.userRecommendationLandingRequest)
 
   val addEPGReminder = exec(session => {
-    setTheUrlIdToSession(session, "VOD","","","contentId")
-  }).doIf(session => session.contains("contentId")){
+    setTheEPGValuesToSession(session)
+  }).doIf(session => session.contains("channelId") && session.contains("assetId")
+  && session.contains("title")&& session.contains("startDateTime")&&session.contains("endDateTime")){
     exec(EpgReminderRequest.epgReminder).exec(EpgReminderDeleteRequest.epgReminderDelete)
   }
 
-  val epgReminderDistribution = randomSwitch(2d -> addEPGReminder)
+  val epgReminderDistribution = randomSwitch(10d -> addEPGReminder)
 
 
   val guestUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
@@ -75,8 +154,8 @@ object HomeScreen {
 //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
 //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-      .exec(fixtureDistribution) //TODO fix this - not working
-      // .exec(epgReminderDistribution) //TODO fix this - not working
+      exec(fixtureDistribution) //TODO fix this - not working
+       .exec(epgReminderDistribution) //TODO fix this - not working
     // .exec(userRecommendationLanding) //TODO fix this - not working
   }
 }
