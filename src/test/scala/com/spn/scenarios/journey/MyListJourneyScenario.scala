@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.requests.{GetListRequest, DeleteListRequest}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, UserAppLaunchScenario,MyListScenario}
 import io.gatling.core.Predef._
 
 object MyListJourneyScenario {
@@ -29,13 +29,18 @@ object MyListJourneyScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
+    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
+    .feed(LoginWithEmailGroup.feederDeviceDetails)
     .feed(CommonFeedFiles.dataFeederAssetID)
 
 
     .group("My List - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
-        .exec(GetListRequest.getUserListRequest)
-        .exec(DeleteListRequest.deleteList)
+        .exec(LoginWithEmailGroup.doLoginWithEmail)
+        .exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .exec(MyListScenario.myListScenario)
+
     }
 }

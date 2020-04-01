@@ -14,6 +14,7 @@ object Constants {
   var RESP_PAGE_RESPONSE = "RESP_PAGE_RESPONSE"
   var RESP_COUNT_OF_ITEMS_IN_PAGE = "RESP_COUNT_OF_ITEMS_IN_PAGE"
   var RESP_CONTENT_ID = "contentId"
+  var RESP_GET_MY_LIST = "RESP_GET_MY_LIST"
 
   // Type of Users
   val REQ_USER_TYPE = "userType"
