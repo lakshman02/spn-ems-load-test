@@ -3,7 +3,7 @@ package com.spn.scenarios.journey
 import java.util.concurrent.ThreadLocalRandom
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{LoginWithEmailGroup, PlayerGroup}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, PlayerGroup, SearchFunctionalityForUserGroup}
 import io.gatling.core.Predef._
 
 import scala.util.Random
@@ -31,7 +31,8 @@ object PlayerScenario {
     Map("assetDuration" -> ThreadLocalRandom.current().nextInt(1003000, 6003000),
       "position" -> ThreadLocalRandom.current().nextInt(666000),
       "updatedTime" -> ThreadLocalRandom.current().nextDouble(1000822764043L,1550822764043L),
-      "isOnAir" -> true
+      "isOnAir" -> true,
+      "deviceId" -> Random.nextInt(99999)
     )
   )
 
@@ -48,16 +49,9 @@ object PlayerScenario {
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
     .feed(CommonFeedFiles.dateTimeFeeder)
-//    .feed(CommonFeedFiles.contentIdData)
     .feed(playbackPreviewFeeder)
-//    .feed(CommonFeedFiles.NextPreviousContentidDataFeeder)
-//    .feed(CommonFeedFiles.previousContentidDataFeeder)
-//    .feed(CommonFeedFiles.previewDetailsDataFeeder)
 
-    .group("Player Functionality - Channel - ${channel}") {
-      exec(ApiSecurity.getToken)
-        .exec(GuestUserAppLaunchScenario.guestUserAppLaunchScenario)
-        .exec(LoggedInUserHomeScreenScenario.loggedInUserHomeScreenScenario)
-        .exec(PlayerGroup.doPlayerOperations)
-    }
+    .exec(ApiSecurity.getToken)
+    .exec(LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario)
+    .exec(PlayerGroup.doPlayerOperations)
 }
