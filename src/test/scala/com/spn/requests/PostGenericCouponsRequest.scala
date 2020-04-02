@@ -20,7 +20,7 @@ object PostGenericCouponsRequest {
         }""")).asJson
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultCode").saveAs(Constants.RESP_GENERIC_COUPON))
+    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_GENERIC_COUPON))
   )
 
 }

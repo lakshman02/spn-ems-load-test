@@ -36,15 +36,16 @@ object LoggedInUserPlansAndSubscriptionScenario {
     .feed(CommonFeedFiles.contentFeeder)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
     .feed(LoginWithEmailGroup.dateOfBirthFeeder)
-//    .feed(LoginWithEmailGroup.genderFeeder)
-//    .feed(LoginWithEmailGroup.pinCodeFeeder)
+    .feed(LoginWithEmailGroup.genderFeeder)
+    .feed(LoginWithEmailGroup.pinCodeFeeder)
 
 
-    .group("Plans and Subscription - Logged In User - Channel - ${channel}") {
+    .group("Login User App Launch - Logged In User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)
         .exec(LoginWithEmailGroup.doLoginWithEmail)
-        .exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
+        .exec(UserAppLaunchScenario.userAppLaunchScenario)}
+          .group("Plans and Subscritpion - Logged In User - Channel - ${channel}"){
+          exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
   }
 }
 

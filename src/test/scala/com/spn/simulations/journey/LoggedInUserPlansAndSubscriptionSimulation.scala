@@ -8,7 +8,7 @@ class LoggedInUserPlansAndSubscriptionSimulation extends Simulation {
 
   private val plansandsubscriptionExec = LoggedInUserPlansAndSubscriptionScenario.scnPlanAndSubscription
     .inject(
-      rampUsers(1) during(1)
+      rampUsers(10) during(10)
     )
 
   setUp(plansandsubscriptionExec).protocols(Config.httpProtocol)

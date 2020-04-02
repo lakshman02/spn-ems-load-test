@@ -46,14 +46,20 @@ object PlansAndSubscriptionGroup {
     exec(ProductsByCouponRequest.productsByCoupon)
   }
 
+  val PlansandSubscriptionDistribution = randomSwitch(
+    50d -> exec(PostGenericCouponsRequest.Generic_Coupons)
+//    , 50d -> openProductsbyCoupon
+  )
 
   val doPlansAndSubscriptionOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)
     && session.contains(Constants.RESP_SECURITY_TOKEN)) {
     group("Logged In User - Plans and Subscription Operations - Channel - ${channel}") {
       exec(GetProduct.GetProduct)
-        .exec(AllSubscriptionsRequest.getAllSubscriptions)
-        .exec(PostGenericCouponsRequest.Generic_Coupons)
-        .exec(openProductsbyCoupon)
+          .exec(AllSubscriptionsRequest.getAllSubscriptions)
+          .exec(PlansandSubscriptionDistribution)
+//        .exec(AllSubscriptionsRequest.getAllSubscriptions)
+//        .exec(PostGenericCouponsRequest.Generic_Coupons)
+//        .exec(openProductsbyCoupon)
     }
   }
 }
