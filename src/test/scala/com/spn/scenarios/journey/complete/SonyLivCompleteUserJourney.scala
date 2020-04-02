@@ -26,7 +26,7 @@ object SonyLivCompleteUserJourney {
     //    Map("channel" -> "IOS")
   ).random
 
-  val doNavigateToDetailsPage = false
+  val doNavigateToDetailsPage = true
 
   private def randomDoLogin: Boolean = {
 //    Random.nextBoolean()
@@ -99,9 +99,19 @@ object SonyLivCompleteUserJourney {
             }
           )
         }
-        .doIf(doNavigateToDetailsPage) { //TODO - this is in progress - need to conclude
-          group("Guest User Page Details - Channel - ${channel}") {
-            exec(PageDetailScreen.guestUserDetailScreenScenario)
+        .doIf(doNavigateToDetailsPage){
+          doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
+            randomSwitch(
+              50d -> group("Logged in User Page Detail - Channel - $(channel)"){
+                  exec(PageDetailScreen.loggedInUserDetailScreenScenario)
+              }
+            )
+          }{
+            randomSwitch(
+              50d -> group("Guest User Page Details - Channel - ${channel} "){
+                exec(PageDetailScreen.guestUserDetailScreenScenario)
+              }
+            )
           }
         }
     }

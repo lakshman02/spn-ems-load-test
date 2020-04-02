@@ -121,7 +121,7 @@ object HomeScreen {
      .exec(DeleteReminderRequest.deleteReminderRequest)
   }
 
-  val fixtureDistribution = randomSwitch(10d -> addFixtureReminder)
+  val fixtureDistribution = randomSwitch(100d -> addFixtureReminder)
 
   val userRecommendationLanding = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
@@ -154,7 +154,7 @@ object HomeScreen {
       //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
       //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-      //  exec(fixtureDistribution) //TODO fix this - not working
+       // exec(addFixtureReminder) //TODO fix this - not working
       .exec(epgReminderDistribution)
     //     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
