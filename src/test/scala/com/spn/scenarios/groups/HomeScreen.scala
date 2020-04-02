@@ -117,7 +117,7 @@ object HomeScreen {
       .set("startDateTime",s"${System.currentTimeMillis() - 10000000}")
   }).doIf(session => session.contains("contentId") && session.contains("matchId")){
     exec(AddReminderRequest.addReminder)
-      randomSwitch(20d -> exec(GetRemindersRequest.getRemindersRequest),
+      .randomSwitch(20d -> exec(GetRemindersRequest.getRemindersRequest),
         10d -> exec(DeleteReminderRequest.deleteReminderRequest))
   }
 
