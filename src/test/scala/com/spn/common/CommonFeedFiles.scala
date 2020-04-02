@@ -90,6 +90,9 @@ object CommonFeedFiles {
   //serialNo
   val dataFeederSerialNum= csv("data/serialNum.csv").circular
 
+ //languageCode
+ val dataFeederLangCode = csv("data/languageCode.csv").circular
+
 
 
   val dateTimeFeeder = Iterator.continually(
