@@ -75,7 +75,7 @@ object SonyLivCompleteUserJourney {
             exec(HomeScreen.loggedInUserHomeScreenScenario)
           }
             .feed(AddXDR_PlaybackFeeder)
-            .exec(PlayerGroup.doPlayerOperations)
+            .exec(PlayerGroup.doPlayerOperationsForLoggedInUser)
             .exec(MyListGroup.doMyListOperations)
         } {
           group("Guest User Home Screen - Channel - ${channel}") {

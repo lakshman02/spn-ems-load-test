@@ -8,7 +8,7 @@ object NextAndPreviousRequest {
 
   val nextAndPreviousRequest = exec(http("Next & Previous Request")
     .get(Config.app_url + Config.NEXT_AND_PREVIOUS_URL)
-    .headers(Config.sentHeaders)
+    .headers(Config.headerWithoutAuth)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )
