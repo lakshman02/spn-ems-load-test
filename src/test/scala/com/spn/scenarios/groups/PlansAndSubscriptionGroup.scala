@@ -31,24 +31,26 @@ object PlansAndSubscriptionGroup {
       val size = VoucherCode.size()
       finalCouponCode = VoucherCode.get(Random.nextInt(size - 1)).toString
     }
+    println(s"\nextractCouponCodeToBePassed : Final Coupon Code : $finalCouponCode")
+
     if (finalCouponCode != null && !finalCouponCode.isEmpty) {
       session.set("couponCode", finalCouponCode)
     }
     else {
       println("Coupon Code Could NOT be fetched")
+      session
     }
-    session
   }
 
-  val openProductsbyCoupon = exec(session => {
+  val openProductsByCoupon = exec(session => {
     extractCouponCodeToBePassed(session)
   }).doIf(session => session.contains("couponCode")) {
     exec(ProductsByCouponRequest.productsByCoupon)
   }
 
-  val PlansandSubscriptionDistribution = randomSwitch(
+  val PlansAndSubscriptionDistribution = randomSwitch(
     50d -> exec(PostGenericCouponsRequest.Generic_Coupons)
-//    , 50d -> openProductsbyCoupon
+      .exec(openProductsByCoupon)
   )
 
   val doPlansAndSubscriptionOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)
@@ -56,10 +58,7 @@ object PlansAndSubscriptionGroup {
     group("Logged In User - Plans and Subscription Operations - Channel - ${channel}") {
       exec(GetProduct.GetProduct)
           .exec(AllSubscriptionsRequest.getAllSubscriptions)
-          .exec(PlansandSubscriptionDistribution)
-//        .exec(AllSubscriptionsRequest.getAllSubscriptions)
-//        .exec(PostGenericCouponsRequest.Generic_Coupons)
-//        .exec(openProductsbyCoupon)
+          .exec(PlansAndSubscriptionDistribution)
     }
   }
 }
