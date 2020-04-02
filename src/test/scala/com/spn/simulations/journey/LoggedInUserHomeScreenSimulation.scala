@@ -8,7 +8,7 @@ class LoggedInUserHomeScreenSimulation extends Simulation {
 
   private val loggedInUserHomeScreenExec = LoggedInUserHomeScreenScenario.loggedInUserHomeScreenScenario
     .inject(
-      rampUsers(50) during(50)
+      rampUsers(1) during(1)
     )
 
   setUp(loggedInUserHomeScreenExec).protocols(Config.httpProtocol)

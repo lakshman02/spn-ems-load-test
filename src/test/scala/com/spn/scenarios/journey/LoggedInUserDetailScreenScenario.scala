@@ -1,17 +1,17 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{HomeScreen, LoginWithEmailGroup, MyListGroup, UserAppLaunchScenario}
+import com.spn.scenarios.groups.{HomeScreen, LoginWithEmailGroup, UserAppLaunchScenario, PageDetailScreen}
 import io.gatling.core.Predef._
 
-object MyListJourneyScenario {
+object LoggedInUserDetailScreenScenario {
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
     //    Map("channel" -> "IPAD"),
     Map("channel" -> "ANDROID_PHONE"),
     //    Map("channel" -> "ANDROID_TAB"),
-    //    Map("channel" -> "APPLE_TV")
+    //    Map("channel" -> "APPLE_TV"),
     Map("channel" -> "FIRE_TV"),
     //    Map("channel" -> "SONY_ANDROID_TV"),
     //    Map("channel" -> "XIAOMI_ANDROID_TV"),
@@ -21,9 +21,9 @@ object MyListJourneyScenario {
     //    Map("channel" -> "JIO_KIOS"),
     Map("channel" -> "WEB")
     //    Map("channel" -> "IOS")
-  ).circular
+  ).random
 
-  val myListScenario = scenario("My List Scenario")
+  val loggedInUserHomeScreenScenario = scenario("Logged In User Home Screen Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -32,14 +32,20 @@ object MyListJourneyScenario {
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
+    .feed(CommonFeedFiles.contentFeeder)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
-    .feed(CommonFeedFiles.dataFeederAssetID)
+    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
+    .feed(LoginWithEmailGroup.genderFeeder)
+    .feed(LoginWithEmailGroup.pinCodeFeeder)
 
-    .exec(ApiSecurity.getToken)
-    .exec(LoginWithEmailGroup.doLoginWithEmail)
-    .exec(UserAppLaunchScenario.userAppLaunchScenario)
-    // TODO Raymond to make a call to Add List or you can invoke the logged in user home page scehnario
-    .exec(HomeScreen.mYListDistribution)
-    .exec(MyListGroup.doMyListOperations)
-
+    .group("Home Screen - Logged In User - Channel - ${channel}") {
+        exec(ApiSecurity.getToken)
+        .exec(LoginWithEmailGroup.doLoginWithEmail)
+        .exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .group("Logged in User Detail Screen"){
+          exec(PageDetailScreen.loggedInUserDetailScreenScenario)
+        }
+  }
 }
+
+

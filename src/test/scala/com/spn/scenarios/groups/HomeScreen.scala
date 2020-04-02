@@ -1,9 +1,8 @@
 package com.spn.scenarios.groups
 
 
-import java.time.{LocalDate, LocalDateTime, ZonedDateTime}
+import java.time.{LocalDate}
 import java.time.format.DateTimeFormatter
-import java.util.Date
 
 import com.jayway.jsonpath.JsonPath
 import com.spn.common.Constants
@@ -12,8 +11,6 @@ import com.spn.scenarios.groups.UserAppLaunchScenario.setRandomPageURLToSession
 import com.spn.scenarios.groups.PageDetailScreen.{extractFixtureDetailsToSession, setTheUrlIdToSession}
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
-
-import scala.util.Random
 
 object HomeScreen {
 
@@ -154,11 +151,11 @@ object HomeScreen {
       .exec(openEpgList)
       .exec(GetListRequest.getUserListRequest)
       .exec(GetXDRRequest.getXDR)
-//      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
-//      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
+      //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
+      //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-    //  exec(fixtureDistribution) //TODO fix this - not working
-       .exec(epgReminderDistribution)
-//     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
+      //  exec(fixtureDistribution) //TODO fix this - not working
+      .exec(epgReminderDistribution)
+    //     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }
