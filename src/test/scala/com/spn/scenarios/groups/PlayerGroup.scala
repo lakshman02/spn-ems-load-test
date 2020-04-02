@@ -3,6 +3,7 @@ package com.spn.scenarios.groups
 import com.spn.common.Constants
 import com.spn.requests._
 import com.spn.scenarios.groups.SearchFunctionalityForUserGroup.extractContentIdFromTraySearchResponse
+import com.spn.scenarios.journey.LoggedInUserAppLaunchScenario
 import io.gatling.core.Predef._
 
 object PlayerGroup {
@@ -17,29 +18,50 @@ object PlayerGroup {
   )
 
   // Player Journey goes here - starts
-  val doPlayerOperations = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
+  val doPlayerOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
     && session.contains(Constants.RESP_AUTH_TOKEN)) {
-    group("Player Functionality - Channel - ${channel}") {
+    group("Player Functionality for Logged-In user- Channel - ${channel}") {
 
       randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchForEpisodes,
         40d -> SearchFunctionalityForUserGroup.doTraySearchForMovie,
         10d -> SearchFunctionalityForUserGroup.doTraySearchForShow
       )
-      .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_RESPONSE)) {
-        exec(session => {
-          extractContentIdFromTraySearchResponse(session, "contentId")
-//            .set("contentId", "1000005389") // TODO - hard coding for testing
-            .set("id" , "${contentId}") //Making a copy as some requests uses is as request parameter
-            .set("type", "MOVIE")
-        })
-          .exec(AddXdrRequest.addXdr)
-          .exec(invokeContinueWatchingOperations)
-          .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
-          .doIf(session => (session("filter_objectSubtype").as[String].equals("SHOW")
-            || session("filter_objectSubtype").as[String].equals("EPISODE"))) {
-            exec(invokePlayerNavigationApis)
-          }
-      }
+        .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_RESPONSE)) {
+          exec(session => {
+            extractContentIdFromTraySearchResponse(session, "contentId")
+              //            .set("contentId", "1000005389") // TODO - hard coding for testing
+              .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
+              .set("type", "MOVIE")
+          })
+            .exec(AddXdrRequest.addXdr)
+            .exec(invokeContinueWatchingOperations)
+            .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
+            .doIf(session => (session("filter_objectSubtype").as[String].equals("SHOW")
+              || session("filter_objectSubtype").as[String].equals("EPISODE"))) {
+              exec(invokePlayerNavigationApis)
+            }
+        }
+    }
+  }
+  val doPlayerOperationsForGuestUser = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+    group("Player Functionality for Guest user - Channel - ${channel}") {
+      randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchForEpisodes,
+        40d -> SearchFunctionalityForUserGroup.doTraySearchForMovie,
+        10d -> SearchFunctionalityForUserGroup.doTraySearchForShow
+      )
+        .doIf(session => session.contains(Constants.RESP_TRAY_SEARCH_RESPONSE)) {
+          exec(session => {
+            extractContentIdFromTraySearchResponse(session, "contentId")
+              //            .set("contentId", "1000005389") // TODO - hard coding for testing
+              .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
+              .set("type", "MOVIE")
+          })
+            .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
+            .doIf(session => (session("filter_objectSubtype").as[String].equals("SHOW")
+              || session("filter_objectSubtype").as[String].equals("EPISODE"))) {
+              exec(invokePlayerNavigationApis)
+            }
+        }
     }
   }
 }

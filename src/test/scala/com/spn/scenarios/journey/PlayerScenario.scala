@@ -30,7 +30,7 @@ object PlayerScenario {
   val AddXDR_PlaybackFeeder = Iterator.continually(
     Map("assetDuration" -> ThreadLocalRandom.current().nextInt(1003000, 6003000),
       "position" -> ThreadLocalRandom.current().nextInt(666000),
-      "updatedTime" -> ThreadLocalRandom.current().nextDouble(1000822764043L,1550822764043L),
+      "updatedTime" -> ThreadLocalRandom.current().nextDouble(1000822764043L, 1550822764043L),
       "isOnAir" -> true,
       "deviceId" -> Random.nextInt(99999)
     )
@@ -51,7 +51,16 @@ object PlayerScenario {
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(AddXDR_PlaybackFeeder)
 
-    .exec(ApiSecurity.getToken)
-    .exec(LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario)
-    .exec(PlayerGroup.doPlayerOperations)
+    .group("Player Functionality - Channel - ${channel}") {
+      exec(ApiSecurity.getToken)
+      .randomSwitch(
+        50d -> group("Player Functionality for Logged-In user - Channel - ${channel}") {
+          exec(LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario)
+            .exec(PlayerGroup.doPlayerOperationsForLoggedInUser)
+        },
+        50d -> group("Player Functionality for Guest user - Channel - ${channel}") {
+          exec(PlayerGroup.doPlayerOperationsForGuestUser)
+        }
+      )
+    }
 }

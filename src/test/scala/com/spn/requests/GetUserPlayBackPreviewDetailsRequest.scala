@@ -8,7 +8,7 @@ object GetUserPlayBackPreviewDetailsRequest {
 
   val PreviewDetails= exec(http("Get User PlayBack Preview Details Request")
     .post(Config.app_url + Config.GET_USER_PLAYBACK_PREVIEW_DETAILS_URL)
-    .headers(Config.sentHeaders)
+    .headers(Config.headerWithoutAuth)
     .body(StringBody ("""{
     "data": [
           {
