@@ -106,10 +106,11 @@ object HomeScreen {
   val openAddMyList = exec(session => {
     setTheUrlIdToSession(session, "VOD","","","assetID")
   }).doIf(session => session.contains("assetID")){
-    exec(AddListRequest.addList).exec(DeleteListRequest.deleteList)
+    exec(AddListRequest.addList).
+      randomSwitch(1d -> exec(DeleteListRequest.deleteList)) // Only 1% of users gets to delete
   }
 
-  val mYListDistribution = randomSwitch(5d -> openAddMyList)
+  val mYListDistribution = randomSwitch(25d -> openAddMyList)
 
   val addFixtureReminder = exec(session => {
     extractFixtureDetailsToSession(session)
@@ -156,5 +157,9 @@ object HomeScreen {
       exec(addFixtureReminder) //TODO fix this - not working
     //   .exec(epgReminderDistribution)
     // exec(userRecommendationLanding)
+      .exec(mYListDistribution)
+    //  exec(fixtureDistribution) //TODO fix this - not working
+       .exec(epgReminderDistribution)
+//     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }

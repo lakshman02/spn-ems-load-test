@@ -1,10 +1,10 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{LoginWithEmailGroup, SearchFunctionalityForUserGroup}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, UserAppLaunchScenario,MyListGroup}
 import io.gatling.core.Predef._
 
-object SearchFunctionalityForUserScenario {
+object MyListJourneyScenario {
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
@@ -23,7 +23,7 @@ object SearchFunctionalityForUserScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val doSearchScenario = scenario("Search Logged In User Scenario")
+  val myListScenario = scenario("My List Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -32,22 +32,13 @@ object SearchFunctionalityForUserScenario {
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-    .feed(CommonFeedFiles.contentFeeder)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
-    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
-    .feed(LoginWithEmailGroup.genderFeeder)
-    .feed(LoginWithEmailGroup.pinCodeFeeder)
+    .feed(CommonFeedFiles.dataFeederAssetID)
 
-    .group("Search Functionality - Channel - ${channel}") {
-      exec(ApiSecurity.getToken)
-        .randomSwitch(
-          20d -> group("Search Functionality for Logged-In user - Channel - ${channel}") {
-            exec(LoginWithEmailGroup.doLoginWithEmail)
-              .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
-          },
-          80d -> group("Search Functionality for Guest user - Channel - ${channel}") {
-            exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
-          }
-        )
-    }
+    .exec(ApiSecurity.getToken)
+    .exec(LoginWithEmailGroup.doLoginWithEmail)
+    .exec(UserAppLaunchScenario.userAppLaunchScenario)
+    // TODO Raymond to make a call to Add List or you can invoke the logged in user home page scehnario
+    .exec(MyListGroup.doMyListOperations)
+
 }

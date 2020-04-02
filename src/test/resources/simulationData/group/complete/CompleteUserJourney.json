@@ -8,42 +8,6 @@
       ]
     },
     {
-      "type": "atOnceUsers",
-      "args": [
-        1600
-      ]
-    },
-    {
-      "type": "nothingFor",
-      "args": [
-        2
-      ]
-    },
-    {
-      "type": "atOnceUsers",
-      "args": [
-        800
-      ]
-    },
-    {
-      "type": "nothingFor",
-      "args": [
-        2
-      ]
-    },
-    {
-      "type": "atOnceUsers",
-      "args": [
-        400
-      ]
-    },
-    {
-      "type": "nothingFor",
-      "args": [
-        2
-      ]
-    },
-    {
       "type": "rampUsersPerSec",
       "args": [
         166,

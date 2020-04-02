@@ -1,10 +1,14 @@
 package com.spn.scenarios.journey
 
+import java.util.concurrent.ThreadLocalRandom
+
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{LoginWithEmailGroup, SearchFunctionalityForUserGroup}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, PlayerGroup, SearchFunctionalityForUserGroup}
 import io.gatling.core.Predef._
 
-object SearchFunctionalityForUserScenario {
+import scala.util.Random
+
+object PlayerScenario {
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
@@ -23,31 +27,31 @@ object SearchFunctionalityForUserScenario {
     //    Map("channel" -> "IOS")
   ).circular
 
-  val doSearchScenario = scenario("Search Logged In User Scenario")
+  val AddXDR_PlaybackFeeder = Iterator.continually(
+    Map("assetDuration" -> ThreadLocalRandom.current().nextInt(1003000, 6003000),
+      "position" -> ThreadLocalRandom.current().nextInt(666000),
+      "updatedTime" -> ThreadLocalRandom.current().nextDouble(1000822764043L,1550822764043L),
+      "isOnAir" -> true,
+      "deviceId" -> Random.nextInt(99999)
+    )
+  )
+
+  val doPlayerOperationsScenario = scenario("Player functionality Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
-    .feed(CommonFeedFiles.dateTimeFeeder)
     .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-    .feed(CommonFeedFiles.contentFeeder)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
     .feed(LoginWithEmailGroup.dateOfBirthFeeder)
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
+    .feed(CommonFeedFiles.dateTimeFeeder)
+    .feed(AddXDR_PlaybackFeeder)
 
-    .group("Search Functionality - Channel - ${channel}") {
-      exec(ApiSecurity.getToken)
-        .randomSwitch(
-          20d -> group("Search Functionality for Logged-In user - Channel - ${channel}") {
-            exec(LoginWithEmailGroup.doLoginWithEmail)
-              .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
-          },
-          80d -> group("Search Functionality for Guest user - Channel - ${channel}") {
-            exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
-          }
-        )
-    }
+    .exec(ApiSecurity.getToken)
+    .exec(LoggedInUserAppLaunchScenario.loggedInUserAppLaunchScenario)
+    .exec(PlayerGroup.doPlayerOperations)
 }
