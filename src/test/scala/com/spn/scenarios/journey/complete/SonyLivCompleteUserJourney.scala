@@ -26,7 +26,7 @@ object SonyLivCompleteUserJourney {
     //    Map("channel" -> "IOS")
   ).random
 
-  val doNavigateToDetailsPage = true
+  val doNavigateToDetailsPage = false
 
   private def randomDoLogin: Boolean = {
 //    Random.nextBoolean()
@@ -80,6 +80,8 @@ object SonyLivCompleteUserJourney {
         } {
           group("Guest User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToGuestUserHomePage)
+              .feed(AddXDR_PlaybackFeeder)
+              .exec(PlayerGroup.doPlayerOperationsForGuestUser)
           }
         }
         // This is where home navigation is happening - ends
@@ -98,7 +100,6 @@ object SonyLivCompleteUserJourney {
                 .exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
             }
           )
-            .exec(PlayerGroup.doPlayerOperationsForGuestUser)
         }
         .doIf(doNavigateToDetailsPage){
           doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
