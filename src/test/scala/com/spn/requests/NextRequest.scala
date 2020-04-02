@@ -8,7 +8,7 @@ object NextRequest {
 
   val nextRequest = exec(http("Next Request")
     .get(Config.app_url + Config.NEXT_URL)
-    .headers(Config.sentHeaders)
+    .headers(Config.headerWithoutAuth)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )
