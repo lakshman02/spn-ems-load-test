@@ -18,6 +18,7 @@ object Constants {
   var RESP_CONTENT_ID = "contentId"
   var RESP_GET_MY_LIST = "RESP_GET_MY_LIST"
   val RESP_EPG_RESPONSE = "RESP_EPG_RESPONSE"
+  val RESP_GENERIC_COUPON ="RESP_GENERIC_COUPON"
 
   // Type of Users
   val REQ_USER_TYPE = "userType"
