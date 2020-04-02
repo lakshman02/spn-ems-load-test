@@ -117,11 +117,11 @@ object HomeScreen {
       .set("startDateTime",s"${System.currentTimeMillis() - 10000000}")
   }).doIf(session => session.contains("contentId") && session.contains("matchId")){
     exec(AddReminderRequest.addReminder)
-      .exec(GetRemindersRequest.getRemindersRequest)
-     .exec(DeleteReminderRequest.deleteReminderRequest)
+      randomSwitch(20d -> exec(GetRemindersRequest.getRemindersRequest),
+        10d -> exec(DeleteReminderRequest.deleteReminderRequest))
   }
 
-  val fixtureDistribution = randomSwitch(100d -> addFixtureReminder)
+  val fixtureDistribution = randomSwitch(50d -> addFixtureReminder)
 
   val userRecommendationLanding = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
@@ -138,24 +138,23 @@ object HomeScreen {
 
   val epgReminderDistribution = randomSwitch(10d -> addEPGReminder)
 
-
-  val guestUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+  val doNavigateToGuestUserHomePage = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
     exec(openHomePageAgain)
     .exec(openEpgList)
   }
 
-  val loggedInUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
+  val doNavigateToLoggedInUserHomePage = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
     && session.contains(Constants.RESP_AUTH_TOKEN)) {
 
     exec(openHomePageAgain)
       .exec(openEpgList)
       .exec(GetListRequest.getUserListRequest)
       .exec(GetXDRRequest.getXDR)
-      //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
-      //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-       // exec(addFixtureReminder) //TODO fix this - not working
+      .exec(fixtureDistribution) // TODO - Call the SI Fixture Get API for integrating here - Check with Kamraj (TE)
       .exec(epgReminderDistribution)
+    //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
+    //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
     //     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }

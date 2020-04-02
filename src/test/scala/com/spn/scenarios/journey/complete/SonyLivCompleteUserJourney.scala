@@ -72,14 +72,14 @@ object SonyLivCompleteUserJourney {
         // This is where home navigation is happening - starts
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
           group("Logged in User Home Screen - Channel - ${channel}") {
-            exec(HomeScreen.loggedInUserHomeScreenScenario)
+            exec(HomeScreen.doNavigateToLoggedInUserHomePage)
           }
             .feed(AddXDR_PlaybackFeeder)
             .exec(PlayerGroup.doPlayerOperationsForLoggedInUser)
             .exec(MyListGroup.doMyListOperations)
         } {
           group("Guest User Home Screen - Channel - ${channel}") {
-            exec(HomeScreen.guestUserHomeScreenScenario)
+            exec(HomeScreen.doNavigateToGuestUserHomePage)
           }
         }
         // This is where home navigation is happening - ends
@@ -104,13 +104,13 @@ object SonyLivCompleteUserJourney {
           doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
             randomSwitch(
               50d -> group("Logged in User Page Detail - Channel - $(channel)"){
-                  exec(PageDetailScreen.loggedInUserDetailScreenScenario)
+                  exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
               }
             )
           }{
             randomSwitch(
               50d -> group("Guest User Page Details - Channel - ${channel} "){
-                exec(PageDetailScreen.guestUserDetailScreenScenario)
+                exec(PageDetailScreen.doNavigateToGuestUserDetailsPage)
               }
             )
           }

@@ -43,7 +43,7 @@ object LoggedInUserDetailScreenScenario {
         .exec(LoginWithEmailGroup.doLoginWithEmail)
         .exec(UserAppLaunchScenario.userAppLaunchScenario)
         .group("Logged In User - Detail - Channel - ${channel}"){
-          exec(PageDetailScreen.loggedInUserDetailScreenScenario)
+          exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
         }
     }
 }

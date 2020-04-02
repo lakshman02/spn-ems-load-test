@@ -1,6 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
+import com.spn.requests.{GetInitialConfigRequest, LoginWithEmailRequest}
 import com.spn.scenarios.groups.{HomeScreen, LoginWithEmailGroup, UserAppLaunchScenario}
 import com.spn.scenarios.journey.SearchFunctionalityForUserScenario.channelFeederOverride
 import io.gatling.core.Predef._
@@ -41,9 +42,11 @@ object LoggedInUserHomeScreenScenario {
 
     .group("Home Screen - Logged In User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)
-        .exec(LoginWithEmailGroup.doLoginWithEmail)
-        .exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .exec(HomeScreen.loggedInUserHomeScreenScenario)
+        .exec(GetInitialConfigRequest.getInitialConfig)
+        .exec(LoginWithEmailRequest.LoginWithEmail)
+        .exec(HomeScreen.openHomePageAgain)
+//        .exec(HomeScreen.addFixtureReminder)
+        .exec(HomeScreen.doNavigateToLoggedInUserHomePage)
   }
 }
 

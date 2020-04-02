@@ -33,8 +33,8 @@ object GuestUserHomeScreenScenario {
 
     .group("Home Screen - Guest User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)
-     . exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .exec(HomeScreen.guestUserHomeScreenScenario)
+     .exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .exec(HomeScreen.doNavigateToGuestUserHomePage)
   }
 }
 
