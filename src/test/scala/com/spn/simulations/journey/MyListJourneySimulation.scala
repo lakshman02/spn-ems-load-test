@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class MyListJourneySimulation extends Simulation {
   private val myListExec =MyListJourneyScenario.myListScenario
     .inject(
-      rampUsers(10) during(5)
+      rampUsers(50) during(50)
     )
 
   setUp(myListExec).protocols(Config.httpProtocol)

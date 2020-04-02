@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{LoginWithEmailGroup, UserAppLaunchScenario,MyListGroup}
+import com.spn.scenarios.groups.{HomeScreen, LoginWithEmailGroup, MyListGroup, UserAppLaunchScenario}
 import io.gatling.core.Predef._
 
 object MyListJourneyScenario {
@@ -39,6 +39,7 @@ object MyListJourneyScenario {
     .exec(LoginWithEmailGroup.doLoginWithEmail)
     .exec(UserAppLaunchScenario.userAppLaunchScenario)
     // TODO Raymond to make a call to Add List or you can invoke the logged in user home page scehnario
+    .exec(HomeScreen.mYListDistribution)
     .exec(MyListGroup.doMyListOperations)
 
 }

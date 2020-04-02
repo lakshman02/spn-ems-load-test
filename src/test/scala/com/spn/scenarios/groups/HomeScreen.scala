@@ -147,19 +147,15 @@ object HomeScreen {
   val loggedInUserHomeScreenScenario = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
     && session.contains(Constants.RESP_AUTH_TOKEN)) {
 
-   // exec(openHomePageAgain)
-    //  .exec(openEpgList)
-    //  .exec(GetListRequest.getUserListRequest)
-    //  .exec(GetXDRRequest.getXDR)
-//      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
-//      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
-    //  .exec(mYListDistribution)
-      exec(addFixtureReminder) //TODO fix this - not working
-    //   .exec(epgReminderDistribution)
-    // exec(userRecommendationLanding)
+    exec(openHomePageAgain)
+      .exec(openEpgList)
+      .exec(GetListRequest.getUserListRequest)
+      .exec(GetXDRRequest.getXDR)
+      //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
+      //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
       .exec(mYListDistribution)
-    //  exec(fixtureDistribution) //TODO fix this - not working
-       .exec(epgReminderDistribution)
-//     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
+      //  exec(fixtureDistribution) //TODO fix this - not working
+      .exec(epgReminderDistribution)
+    //     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }

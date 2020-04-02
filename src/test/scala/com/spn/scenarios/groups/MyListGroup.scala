@@ -42,13 +42,13 @@ object MyListGroup {
   val deleteList = exec(session => {
     extractContentIdToBeRemovedFromMyList(session)
   })
-  .doIf(session => session.contains("deleteList")
+  .doIf(session => session.contains("assetID")
     && session("deleteList").as[Boolean].equals(true)) {
     exec(DeleteListRequest.deleteList)
   }
 
   val myListDistribution = randomSwitch(
-    2d -> deleteList
+    10d -> deleteList
   )
   val doMyListOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)
     && session.contains(Constants.RESP_SECURITY_TOKEN)) {
