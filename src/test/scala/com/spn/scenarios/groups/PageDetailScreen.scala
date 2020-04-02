@@ -61,18 +61,18 @@ object PageDetailScreen {
     val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
     println(s"\npageResponse : $pageResponse")
 
-
-    val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers.containers[?(@..contentSubtype=='LIVE_SPORT')].metadata.contentId"
-
-   // val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers..metadata.contentId"
-      println(s"\nexpressionForContentId : $expressionForContentId")
+    val expressionForContentId = "$.containers[*].assets.containers.containers.containers[?(@..contentSubtype=='LIVE_SPORT')&&(@..matchid !='')].metadata.contentId"
+    println(s"\nexpressionForContentId : $expressionForContentId")
 
     val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
     println(s"\nexpressionForMatchId : $expressionForMatchId")
 
+
     val context = JsonPath.parse(pageResponse)
+
     val contentIdFound = context.read[JSONArray](expressionForContentId)
     println(s"\n Content id is : $contentIdFound")
+
     val matchIdFound = context.read[JSONArray](expressionForMatchId)
     println(s"\n Match id is : $matchIdFound")
 
@@ -192,11 +192,11 @@ object PageDetailScreen {
      // .exec(HomeScreen.fixtureDistribution)
       .exec(HomeScreen.openEpgList)
       .exec(HomeScreen.epgReminderDistribution)
-      .exec(VODDistribution)
+   //   .exec(VODDistribution)
       .exec(openVideoUrl)
       .exec(openTrayRecommendationCatchMediaList)
       .exec(openTrayRecommendationRecosenseList)
-      .exec(HomeScreen.userRecommendationLanding)
+   //   .exec(HomeScreen.userRecommendationLanding)
   }
 
 

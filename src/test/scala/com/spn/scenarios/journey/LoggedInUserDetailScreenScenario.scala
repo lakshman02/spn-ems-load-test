@@ -23,7 +23,7 @@ object LoggedInUserDetailScreenScenario {
     //    Map("channel" -> "IOS")
   ).random
 
-  val loggedInUserHomeScreenScenario = scenario("Logged In User Home Screen Scenario")
+  val doLoggedInUserDetailScreenScenario = scenario("Logged In User Detail Screen Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
@@ -38,14 +38,14 @@ object LoggedInUserDetailScreenScenario {
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
 
-    .group("Home Screen - Logged In User - Channel - ${channel}") {
+    .group("Detail Screen - Logged In User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)
         .exec(LoginWithEmailGroup.doLoginWithEmail)
         .exec(UserAppLaunchScenario.userAppLaunchScenario)
-        .group("Logged in User Detail Screen"){
+        .group("Logged In User - Detail - Channel - ${channel}"){
           exec(PageDetailScreen.loggedInUserDetailScreenScenario)
         }
-  }
+    }
 }
 
 
