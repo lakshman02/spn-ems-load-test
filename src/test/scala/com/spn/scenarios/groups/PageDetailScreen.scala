@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{BundleIdRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GroupOfBundlesRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest, VideoUrlRequest}
+import com.spn.requests.{AddListRequest, BundleIdRequest, DeleteListRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GetXDRRequest, GroupOfBundlesRequest, IsSubscribedRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest, VideoUrlRequest}
 import com.spn.scenarios.TrayRecommendationRecosenseScenario
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
@@ -63,6 +63,8 @@ object PageDetailScreen {
 
 
     val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers.containers[?(@..contentSubtype=='LIVE_SPORT')].metadata.contentId"
+
+   // val expressionForContentId = "$.containers[*].assets.containers[?(@..matchid !='')].containers..metadata.contentId"
       println(s"\nexpressionForContentId : $expressionForContentId")
 
     val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
@@ -70,7 +72,9 @@ object PageDetailScreen {
 
     val context = JsonPath.parse(pageResponse)
     val contentIdFound = context.read[JSONArray](expressionForContentId)
+    println(s"\n Content id is : $contentIdFound")
     val matchIdFound = context.read[JSONArray](expressionForMatchId)
+    println(s"\n Match id is : $matchIdFound")
 
     // Cherry picking a url to navigate to
     var finalIdToNavigateTo = ""
@@ -168,8 +172,32 @@ object PageDetailScreen {
     10d -> openTrayRecommendationRecosenseList
   )
 
-  //val openDetailsPage = randomSwitch(100d -> openEpgList)
+  // Below methods and values are related to Logged in User
+
+  val openAddMyList = exec(session => {
+    setTheUrlIdToSession(session, "VOD","","","assetID")
+  }).doIf(session => session.contains("assetID")){
+    exec(AddListRequest.addList)
+  }
+
+//  val openIsSubscribed = exec(session => {
+//    session
+//  }).exec(IsSubscribedRequest.isSubscribed)
 
   val guestUserDetailScreenScenario = exec(openDetailsPage)
+
+  val loggedInUserDetailScreenScenario = doIf(session => session.contains((Constants.RESP_AUTH_TOKEN)) && session.contains(Constants.RESP_SECURITY_TOKEN)){
+    exec(openAddMyList)
+      .exec(GetXDRRequest.getXDR)
+     // .exec(HomeScreen.fixtureDistribution)
+      .exec(HomeScreen.openEpgList)
+      .exec(HomeScreen.epgReminderDistribution)
+      .exec(VODDistribution)
+      .exec(openVideoUrl)
+      .exec(openTrayRecommendationCatchMediaList)
+      .exec(openTrayRecommendationRecosenseList)
+      .exec(HomeScreen.userRecommendationLanding)
+  }
+
 
 }
