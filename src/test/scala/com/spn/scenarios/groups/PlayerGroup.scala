@@ -57,8 +57,7 @@ object PlayerGroup {
               .set("type", "MOVIE")
           })
             .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
-            .doIf(session => (session("filter_objectSubtype").as[String].equals("SHOW")
-              || session("filter_objectSubtype").as[String].equals("EPISODE"))) {
+            .doIf(session => (session("filter_objectSubtype").as[String].equals("EPISODE"))) {
               exec(invokePlayerNavigationApis)
             }
         }

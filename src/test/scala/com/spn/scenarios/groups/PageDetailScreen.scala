@@ -59,22 +59,23 @@ object PageDetailScreen {
   def extractFixtureDetailsToSession(session: Session): Session = {
 
     val pageResponse = session(Constants.RESP_PAGE_RESPONSE).as[String]
-    println(s"\npageResponse : $pageResponse")
+    println(s"\nextractFixtureDetailsToSession : pageResponse : $pageResponse")
 
-    val expressionForContentId = "$.containers[*].assets.containers.containers.containers[?(@..contentSubtype=='LIVE_SPORT')&&(@..matchid !='')].metadata.contentId"
-    println(s"\nexpressionForContentId : $expressionForContentId")
+//    val expressionForContentId = "$.containers[*].assets.containers.containers.containers[?(@..contentSubtype=='LIVE_SPORT')&&(@..matchid !='')].metadata.contentId"
+    val expressionForContentId = "$.containers[*].assets.containers[*].containers.containers[?(@.metadata.objectSubtype == 'LIVE_SPORT')].metadata.contentId"
+    println(s"\nextractFixtureDetailsToSession : expressionForContentId : $expressionForContentId")
 
-    val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
-    println(s"\nexpressionForMatchId : $expressionForMatchId")
-
+//    val expressionForMatchId = "$.containers[?(@..matchid !='' && @..contentSubtype=='LIVE_SPORT')].assets.containers[*]..metadata.emfAttributes.matchid"
+    val expressionForMatchId = "$.containers[*].assets.containers[*].containers.containers[?(@.metadata.objectSubtype == 'LIVE_SPORT')].metadata.emfAttributes.matchid"
+    println(s"\nextractFixtureDetailsToSession : expressionForMatchId : $expressionForMatchId")
 
     val context = JsonPath.parse(pageResponse)
 
     val contentIdFound = context.read[JSONArray](expressionForContentId)
-    println(s"\n Content id is : $contentIdFound")
+    println(s"\nextractFixtureDetailsToSession : Content id is : $contentIdFound")
 
     val matchIdFound = context.read[JSONArray](expressionForMatchId)
-    println(s"\n Match id is : $matchIdFound")
+    println(s"\nextractFixtureDetailsToSession : Match id is : $matchIdFound")
 
     // Cherry picking a url to navigate to
     var finalIdToNavigateTo = ""
@@ -87,13 +88,12 @@ object PageDetailScreen {
       finalMatchIdToNavigateTo = matchIdFound.get(0).toString
     }
 
-    println(s"\nFinal id to Navigate To is : $finalIdToNavigateTo")
-
-    println(s"\nFinal match id to Navigate To is : $finalMatchIdToNavigateTo")
-
+    println(s"\nextractFixtureDetailsToSession : Final Content id to Navigate To is : $finalIdToNavigateTo")
+    println(s"\nextractFixtureDetailsToSession : Final match id to Navigate To is : $finalMatchIdToNavigateTo")
 
     if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalMatchIdToNavigateTo != null && !finalMatchIdToNavigateTo.isEmpty)) {
-      session.set("contentId", finalIdToNavigateTo).set("matchId",finalMatchIdToNavigateTo)
+      session.set("contentId", finalIdToNavigateTo)
+        .set("matchId",finalMatchIdToNavigateTo)
     } else {
       println(s"\nAll attempts failed to fetch fixture details")
       session
@@ -184,12 +184,12 @@ object PageDetailScreen {
 //    session
 //  }).exec(IsSubscribedRequest.isSubscribed)
 
-  val guestUserDetailScreenScenario = exec(openDetailsPage)
+  val doNavigateToGuestUserDetailsPage = exec(openDetailsPage)
 
-  val loggedInUserDetailScreenScenario = doIf(session => session.contains((Constants.RESP_AUTH_TOKEN)) && session.contains(Constants.RESP_SECURITY_TOKEN)){
+  val doNavigateToLoggedInUserDetailsPage = doIf(session => session.contains((Constants.RESP_AUTH_TOKEN)) && session.contains(Constants.RESP_SECURITY_TOKEN)){
     exec(openAddMyList)
       .exec(GetXDRRequest.getXDR)
-     // .exec(HomeScreen.fixtureDistribution)
+     .exec(HomeScreen.fixtureDistribution)
       .exec(HomeScreen.openEpgList)
       .exec(HomeScreen.epgReminderDistribution)
    //   .exec(VODDistribution)
@@ -198,6 +198,4 @@ object PageDetailScreen {
       .exec(openTrayRecommendationRecosenseList)
    //   .exec(HomeScreen.userRecommendationLanding)
   }
-
-
 }
