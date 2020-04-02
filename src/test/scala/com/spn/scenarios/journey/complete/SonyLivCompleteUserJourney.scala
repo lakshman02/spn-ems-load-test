@@ -98,6 +98,7 @@ object SonyLivCompleteUserJourney {
                 .exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
             }
           )
+            .exec(PlayerGroup.doPlayerOperationsForGuestUser)
         }
         .doIf(doNavigateToDetailsPage){
           doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
