@@ -109,10 +109,11 @@ object HomeScreen {
   val openAddMyList = exec(session => {
     setTheUrlIdToSession(session, "VOD","","","assetID")
   }).doIf(session => session.contains("assetID")){
-    exec(AddListRequest.addList).exec(DeleteListRequest.deleteList)
+    exec(AddListRequest.addList).
+      randomSwitch(1d -> exec(DeleteListRequest.deleteList)) // Only 1% of users gets to delete
   }
 
-  val mYListDistribution = randomSwitch(5d -> openAddMyList)
+  val mYListDistribution = randomSwitch(25d -> openAddMyList)
 
   val addFixtureReminder = exec(session => {
     extractFixtureDetailsToSession(session)

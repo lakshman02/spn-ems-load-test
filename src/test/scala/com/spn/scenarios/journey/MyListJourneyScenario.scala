@@ -38,6 +38,7 @@ object MyListJourneyScenario {
     .exec(ApiSecurity.getToken)
     .exec(LoginWithEmailGroup.doLoginWithEmail)
     .exec(UserAppLaunchScenario.userAppLaunchScenario)
+    // TODO Raymond to make a call to Add List or you can invoke the logged in user home page scehnario
     .exec(MyListGroup.doMyListOperations)
 
 }
