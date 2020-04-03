@@ -83,6 +83,4 @@ object CommonFeedFiles {
   // Tray search feeder
   val contentFeeder = csv("data/traySearchQueries.csv").circular
 
-  val userAuthForScenarioIndividualTestingUsersUsingRandom = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.random
-
 }
