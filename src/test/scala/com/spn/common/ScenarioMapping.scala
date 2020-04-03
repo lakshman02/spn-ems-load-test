@@ -93,6 +93,7 @@ object ScenarioMapping {
     "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
     "previewAdd" -> PreviewAddScenario.previewAddScenario,
     "subscriptionOrderStatusUser" -> SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario,
+    "userRecommendation" -> UserRecommendationScenario.userRecommendationScenario,
 
 
     // All Journey mapping goes here
