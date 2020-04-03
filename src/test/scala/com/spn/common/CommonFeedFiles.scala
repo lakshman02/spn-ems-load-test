@@ -56,6 +56,8 @@ object CommonFeedFiles {
   val userAuth50KUsersUsingCircular_GetSetting = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
   val userAuth50KUsersUsingCircular_DeleteSetting = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
 
+  val userAuthForScenarioIndividualTestingUsersUsingRandom = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.random
+
 
   //Scenario specific - EPG/REMINDER ADD, GET, DELETE
   val userAuth50KUsersUsingCircular_ADDEpgReminder = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
@@ -101,4 +103,5 @@ object CommonFeedFiles {
 
   // Tray search feeder
   val contentFeeder = csv("data/traySearchQueries.csv").circular
+
 }
