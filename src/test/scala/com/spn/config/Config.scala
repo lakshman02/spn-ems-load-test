@@ -14,7 +14,7 @@ object Config {
 //    app_url = "https://apiqa.sonyliv.com/"
 //  }
 
-   // val app_url = "https://apiqa.sonyliv.com/"
+//    val app_url = "https://apiqa.sonyliv.com/"
  val app_url = "https://apipreprod.sonyliv.com/"
 
   //Api urls
@@ -101,6 +101,7 @@ object Config {
   val SUBSCRIPTION_ORDER_STATUS_DATE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/DATE"
   val PREVIEW_ADD_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/ADD"
   val SUBSCRIPTION_ORDER_STATUS_USER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/ORDERSTATUS/USER"
+  val DETAILS_FOR_EPISODE_MOVIE_SHOW= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${contentId}"
 
 
   val users = Integer.getInteger("users", 1).toInt
@@ -149,5 +150,13 @@ object Config {
     "build_number" -> "1.0",
     "app_version" -> "1.0",
     "security_token" -> "${RESP_SECURITY_TOKEN}")
+
+  val headerWithoutAuth = Map(
+    "x-via-device" -> "true",
+    "build_number" -> "1.0",
+    "app_version" -> "1.0",
+    "security_token" -> "${RESP_SECURITY_TOKEN}",
+    "Pragma" -> "akamai-x-get-request-id,akamai-x-cache-on,akamai-x-cache-remote-on,akamai-x-check-cacheable"
+  )
 }
 
