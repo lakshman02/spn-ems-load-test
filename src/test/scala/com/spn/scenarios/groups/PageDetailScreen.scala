@@ -6,6 +6,7 @@ import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
 import com.spn.requests.{AddListRequest, BundleIdRequest, DeleteListRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GetXDRRequest, GroupOfBundlesRequest, IsSubscribedRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest, VideoUrlRequest}
 import com.spn.scenarios.TrayRecommendationRecosenseScenario
+import io.gatling.commons.validation.Validation
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
 
@@ -100,6 +101,63 @@ object PageDetailScreen {
     }
   }
 
+  def setContentDetailsToSession(session: Session,value : String): Session = {
+
+    val detailPageResponse = session(Constants.RESP_DETAIL_PAGE_RESPONSE).as[String]
+    println(s"\nsetContentDetailsToSession : detailPageResponse : $detailPageResponse")
+
+    val expressionForId = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentId"
+    println(s"\nsetContentDetailsToSession : expressionForId : $expressionForId")
+
+    val expressionForTitle = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.title"
+    println(s"\nsetContentDetailsToSession : expressionForTitle : $expressionForTitle")
+
+    val expressionForType = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentSubtype"
+    println(s"\nsetContentDetailsToSession : expressionForType : $expressionForType")
+
+    val context = JsonPath.parse(detailPageResponse)
+
+    val contentIdFound = context.read[JSONArray](expressionForId)
+    println(s"\nsetContentDetailsToSession : content id is : $contentIdFound")
+
+    val titleFound = context.read[JSONArray](expressionForTitle)
+    println(s"\nsetContentDetailsToSession : title is : $titleFound")
+
+    val typeFound = context.read[JSONArray](expressionForType)
+    println(s"\nsetContentDetailsToSession : type is : $typeFound")
+
+    // Cherry picking a url to navigate to
+    var finalIdToNavigateTo = ""
+    if (contentIdFound != null && contentIdFound.size() >= 1) {
+      finalIdToNavigateTo = contentIdFound.get(0).toString
+    }
+
+    var finalTitleToNavigateTo = ""
+    if (titleFound != null && titleFound.size() >= 1) {
+      finalTitleToNavigateTo = titleFound.get(0).toString
+    }
+
+    var finalTypeToNavigateTo = ""
+    if (typeFound != null && typeFound.size() >= 1) {
+      finalTypeToNavigateTo = typeFound.get(0).toString
+    }
+
+    println(s"\nsetContentDetailsToSession : Final Content id to Navigate To is : $finalIdToNavigateTo")
+    println(s"\nsetContentDetailsToSession : Final title to Navigate To is : $finalTitleToNavigateTo")
+    println(s"\nsetContentDetailsToSession : Final type to Navigate To is : $finalTypeToNavigateTo")
+
+
+    if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalTitleToNavigateTo != null && !finalTitleToNavigateTo.isEmpty)
+    && (finalTypeToNavigateTo != null && !finalTypeToNavigateTo.isEmpty)) {
+      session.set("TVODID", finalIdToNavigateTo).set("ShowType",finalTypeToNavigateTo).set("ShowName",finalTitleToNavigateTo)
+    } else {
+      println(s"\nAll attempts failed to fetch fixture details")
+      session
+    }
+  }
+
+
+
   val openVideoUrl = exec(session =>{
     setTheUrlIdToSession(session,"VOD","","","contentId")
   }).doIf(session => session.contains("contentId" )) {
@@ -181,8 +239,12 @@ object PageDetailScreen {
   }
 
 //  val openIsSubscribed = exec(session => {
-//    session
-//  }).exec(IsSubscribedRequest.isSubscribed)
+//    setContentDetailsToSession(session,"SVOD")
+//      .set("channelPartnerID","MSMIND1")
+//      .set("getDateTime","${getDateTime}")
+//  }).doIf(session => session.contains("TVODID") && session.contains("ShowType") && session.contains("ShowName")) {
+//    exec(IsSubscribedRequest.isSubscribed)
+//  }
 
   val doNavigateToGuestUserDetailsPage = exec(openDetailsPage)
 
@@ -194,6 +256,7 @@ object PageDetailScreen {
       .exec(HomeScreen.epgReminderDistribution)
    //   .exec(VODDistribution)
       .exec(openVideoUrl)
+    //  .exec(openIsSubscribed)
       .exec(openTrayRecommendationCatchMediaList)
       .exec(openTrayRecommendationRecosenseList)
    //   .exec(HomeScreen.userRecommendationLanding)
