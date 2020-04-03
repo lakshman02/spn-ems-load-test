@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 
 object UserRecommendationRequest {
 
-  val userRecommendationRequest = exec(http("User Recommendation  Request")
+  val userRecommendationRequest = exec(http("User Recommendation Request")
     .get(Config.app_url + Config.USER_RECOMMENDATION_URL)
     .headers(Config.sentHeadersNew)
     .check(status is 200)
