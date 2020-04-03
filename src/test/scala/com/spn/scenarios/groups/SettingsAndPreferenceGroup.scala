@@ -20,7 +20,7 @@ object SettingsAndPreferenceGroup {
     2d -> exec(UpdateProfileRequest.updateProfile)
   )
   val invokeSettingAndPreferenceApis = randomSwitch(
-    60d -> exec(UserPreferencesRequest.userPreferences),
+    20d -> exec(UserPreferencesRequest.userPreferences),
     2d -> exec(DeleteSettingsRequest.Delete_Settings)
   )
 
