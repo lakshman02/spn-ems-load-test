@@ -17,12 +17,20 @@ object SearchFunctionalityForUserGroup {
     2d -> exec(DeleteAllSearchHistory.DeleteAllSearchHistory)
   )
 
-  def extractContentIdFromTraySearchResponse(session: Session, contentIdKey: String): Session = {
+  def extractContentIdFromTraySearchResponse(session: Session, contentIdKey: String, contentType : String): Session = {
 
     val traySearchResponse = session(Constants.RESP_TRAY_SEARCH_RESPONSE).as[String]
     println(s"\nextractContentIdFromTraySearchResponse : traySearchResponse : $traySearchResponse")
 
-    val expression = "$..metadata.contentId"
+    var expression = "$..metadata.contentId"
+
+    if(contentType.equals("EPISODE")) {
+      expression = "$.containers[*].containers[?(@.metadata.contentSubtype == 'EPISODE' && @.metadata.episodeNumber > 2 && @.metadata.episodeNumber < 14)].id"
+    } else {
+      expression = "$.containers[*].containers[*].id"
+    }
+
+    println(s"\nextractContentIdFromTraySearchResponse : expression : $expression")
 
     val context = JsonPath.parse(traySearchResponse)
     val contentIdFound = context.read[JSONArray](expression)
@@ -61,7 +69,7 @@ object SearchFunctionalityForUserGroup {
   val doTraySearchForEpisodes = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("query", "")
+        .set("query", "The Good Doctor")//TODO possible randomization?
         .set("filter_objectSubtype", "EPISODE")
         .set("orderBy", "lastBroadcastDate")
         .set("sortOrder", "desc")

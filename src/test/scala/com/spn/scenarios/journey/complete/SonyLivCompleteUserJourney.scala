@@ -77,12 +77,14 @@ object SonyLivCompleteUserJourney {
             .feed(AddXDR_PlaybackFeeder)
             .exec(PlayerGroup.doPlayerOperationsForLoggedInUser)
             .exec(MyListGroup.doMyListOperations)
+            .feed(CommonFeedFiles.dataFeederLangCode)
+            .exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
         } {
           group("Guest User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToGuestUserHomePage)
-              .feed(AddXDR_PlaybackFeeder)
-              .exec(PlayerGroup.doPlayerOperationsForGuestUser)
           }
+            .feed(AddXDR_PlaybackFeeder)
+              .exec(PlayerGroup.doPlayerOperationsForGuestUser)
         }
         // This is where home navigation is happening - ends
         // Search functionality starts here
