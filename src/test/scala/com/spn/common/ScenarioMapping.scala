@@ -82,7 +82,7 @@ object ScenarioMapping {
     "getPrevious" -> PreviousScenario.scnPreviousContent,
     "deleteReminder" -> DeleteReminderScenario.deleteReminderScenario,
     "deleteSettings" -> DeleteSettingsScenario.scnDeleteSetting,
-    "userPreferences" -> UserPerferencesScenario.scnUserPerferences,
+    "userPreferences" -> UserPreferencesScenario.userPreferencesScenario,
     "getDevices" -> GetDevicesScenario.getDevicesScenario,
     "trayRecommendationCatchMedia" -> TrayRecommendationCatchMediaScenario.trayRecommendationCatchMediaScenario,
     "trayRecommendationRecosense" -> TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario,
