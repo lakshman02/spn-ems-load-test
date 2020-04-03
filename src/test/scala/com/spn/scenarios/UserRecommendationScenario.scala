@@ -14,7 +14,7 @@ object UserRecommendationScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
     .feed(dataFeederPageID)
     .exec(ApiSecurity.getToken)
     .exec(UserRecommendationRequest.userRecommendationRequest)

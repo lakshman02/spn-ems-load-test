@@ -8,7 +8,7 @@ import io.gatling.core.Predef.{Simulation, rampUsers, _}
 class UserRecommendationSimulation extends Simulation{
 
   private val userRecommendationSimulation = UserRecommendationScenario.userRecommendationScenario
-    .inject(rampUsers(50) during(15))
+    .inject(rampUsers(1) during(1))
 
   setUp(userRecommendationSimulation)
     .protocols(Config.httpProtocol)
