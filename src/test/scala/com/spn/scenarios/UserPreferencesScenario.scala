@@ -1,12 +1,12 @@
 package com.spn.scenarios
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.requests.UserPerferencesRequest
+import com.spn.requests.UserPreferencesRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object UserPerferencesScenario {
+object UserPreferencesScenario {
 
-  val scnUserPerferences = scenario("User Perferences Scenario")
+  val userPreferencesScenario = scenario("User Preferences Scenario")
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederCluster)
@@ -14,5 +14,5 @@ object UserPerferencesScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .exec(ApiSecurity.getToken)
-    .exec(UserPerferencesRequest.userPerferencesAPI)
+    .exec(UserPreferencesRequest.userPreferences)
 }
