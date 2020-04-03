@@ -79,7 +79,10 @@ object SonyLivCompleteUserJourney {
             .exec(MyListGroup.doMyListOperations)
             .feed(CommonFeedFiles.dataFeederLangCode)
             .exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
-        } {
+            .feed(SettingsAndPreferenceGroup.addSettingsFeeder)
+            .exec(SettingsAndPreferenceGroup.doSettingsAndPreferenceOperations)
+        }
+        {
           group("Guest User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToGuestUserHomePage)
           }

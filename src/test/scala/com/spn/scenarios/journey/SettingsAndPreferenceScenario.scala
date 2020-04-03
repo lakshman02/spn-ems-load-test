@@ -39,7 +39,7 @@ object SettingsAndPreferenceScenario {
     .feed(LoginWithEmailGroup.pinCodeFeeder)
     .feed(SettingsAndPreferenceGroup.addSettingsFeeder)
 
-    .group("Settings and Preferences Functionality - Channel - ${channel}") {
+    .group("Settings and Preferences Logged-In User - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
         .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN) ){
           exec(LoginWithEmailRequest.LoginWithEmail)

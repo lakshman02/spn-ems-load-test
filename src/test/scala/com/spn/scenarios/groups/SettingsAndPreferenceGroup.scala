@@ -26,9 +26,11 @@ object SettingsAndPreferenceGroup {
 
   // User Login Journey goes here - starts
   val doSettingsAndPreferenceOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
-    exec(AddSettingsRequest.addSettings)
-      .exec(GetSettingsRequest.getSettings)
-      .exec(invokeProfileApis)
-      .exec(invokeSettingAndPreferenceApis)
+    group("Settings And Preferences Logged-In User - Channel - ${channel}"){
+      exec(AddSettingsRequest.addSettings)
+        .exec(GetSettingsRequest.getSettings)
+        .exec(invokeProfileApis)
+        .exec(invokeSettingAndPreferenceApis)
+    }
   }
 }
