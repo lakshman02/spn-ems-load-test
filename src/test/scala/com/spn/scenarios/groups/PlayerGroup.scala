@@ -32,7 +32,7 @@ object PlayerGroup {
               .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
               .set("type", "MOVIE")
           })
-            .doIf(session => session.contains("contentId")) {
+            .doIf(session => session.contains("found_content_id") && session("found_content_id").as[Boolean]) {
               exec(AddXdrRequest.addXdr)
                 .exec(invokeContinueWatchingOperations)
                 .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
@@ -60,8 +60,8 @@ object PlayerGroup {
               .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
               .set("type", "MOVIE")
           })
-            .doIf(session => session.contains("contentId")) {
-            exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
+            .doIf(session => session.contains("found_content_id") && session("found_content_id").as[Boolean]) {
+              exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
               .doIf(session => session("filter_objectSubtype").as[String].equals("EPISODE")) {
                 exec(session => {
                   extractContentIdFromTraySearchResponse(session, "contentId", "EPISODE")

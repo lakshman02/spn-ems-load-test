@@ -47,6 +47,7 @@ object SearchFunctionalityForUserGroup {
 
     if (contentId != null && !contentId.isEmpty) {
       session.set(contentIdKey, contentId)
+        .set("found_content_id", "true")
     } else {
       println(s"\nextractContentIdFromTraySearchResponse : All attempts failed!!")
       session
