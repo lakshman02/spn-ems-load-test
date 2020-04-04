@@ -32,15 +32,17 @@ object PlayerGroup {
               .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
               .set("type", "MOVIE")
           })
-            .exec(AddXdrRequest.addXdr)
-            .exec(invokeContinueWatchingOperations)
-            .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
-            .doIf(session => session("filter_objectSubtype").as[String].equals("EPISODE")) {
-              exec(session => {
-                extractContentIdFromTraySearchResponse(session, "contentId", "EPISODE")
-                  .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
-              })
-              .exec(invokePlayerNavigationApis)
+            .doIf(session => session.contains("contentId")) {
+              exec(AddXdrRequest.addXdr)
+                .exec(invokeContinueWatchingOperations)
+                .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
+                .doIf(session => session("filter_objectSubtype").as[String].equals("EPISODE")) {
+                  exec(session => {
+                    extractContentIdFromTraySearchResponse(session, "contentId", "EPISODE")
+                      .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
+                  })
+                    .exec(invokePlayerNavigationApis)
+                }
             }
         }
     }
@@ -58,14 +60,16 @@ object PlayerGroup {
               .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
               .set("type", "MOVIE")
           })
-            .exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
-            .doIf(session => session("filter_objectSubtype").as[String].equals("EPISODE")) {
-              exec(session => {
-                extractContentIdFromTraySearchResponse(session, "contentId", "EPISODE")
-                  .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
-              })
-                .exec(invokePlayerNavigationApis)
-            }
+            .doIf(session => session.contains("contentId")) {
+            exec(GetUserPlayBackPreviewDetailsRequest.PreviewDetails)
+              .doIf(session => session("filter_objectSubtype").as[String].equals("EPISODE")) {
+                exec(session => {
+                  extractContentIdFromTraySearchResponse(session, "contentId", "EPISODE")
+                    .set("id", "${contentId}") //Making a copy as some requests uses is as request parameter
+                })
+                  .exec(invokePlayerNavigationApis)
+              }
+          }
         }
     }
   }
