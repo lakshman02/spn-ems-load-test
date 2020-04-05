@@ -104,4 +104,8 @@ object CommonFeedFiles {
   // Tray search feeder
   val contentFeeder = csv("data/traySearchQueries.csv").circular
 
+  val feederTraySearchForEpisode = csv("data/tray.search.episode.csv").random
+  val feederTraySearchForMovie = csv("data/tray.search.movie.csv").random
+  val feederTraySearchForShow = csv("data/tray.search.show.csv").random
+
 }

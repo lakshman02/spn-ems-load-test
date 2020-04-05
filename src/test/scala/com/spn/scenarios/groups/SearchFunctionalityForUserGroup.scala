@@ -3,7 +3,7 @@ package com.spn.scenarios.groups
 import java.util.concurrent.ThreadLocalRandom
 
 import com.jayway.jsonpath.JsonPath
-import com.spn.common.Constants
+import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests._
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
@@ -70,33 +70,39 @@ object SearchFunctionalityForUserGroup {
   val doTraySearchForEpisodes = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("query", "The Good Doctor")//TODO possible randomization?
+//        .set("query", "${query_string_episode}")
+        .set("maxResults", "5")
         .set("filter_objectSubtype", "EPISODE")
         .set("orderBy", "lastBroadcastDate")
         .set("sortOrder", "desc")
     })
+      .feed(CommonFeedFiles.feederTraySearchForEpisode)
       .exec(TraySearchRequest.traySearchRequest)
   }
 
   val doTraySearchForMovie = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("query", "")
+//        .set("query", "${query_string_movie}")
+        .set("maxResults", "5")
         .set("filter_objectSubtype", "MOVIE")
         .set("orderBy", "lastBroadcastDate")
         .set("sortOrder", "desc")
     })
+      .feed(CommonFeedFiles.feederTraySearchForMovie)
       .exec(TraySearchRequest.traySearchRequest)
   }
 
   val doTraySearchForShow = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     exec(session => {
       session
-        .set("query", "")
+//        .set("query", "${query_string_show}")
+        .set("maxResults", "5")
         .set("filter_objectSubtype", "SHOW")
         .set("orderBy", "lastBroadcastDate")
         .set("sortOrder", "desc")
     })
+      .feed(CommonFeedFiles.feederTraySearchForShow)
       .exec(TraySearchRequest.traySearchRequest)
   }
 }
