@@ -4,7 +4,7 @@ import java.time.LocalDateTime
 
 import com.jayway.jsonpath._
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.{AddListRequest, BundleIdRequest, DeleteListRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GetXDRRequest, GroupOfBundlesRequest, IsSubscribedRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, VODDetailsRequest, VideoUrlRequest}
+import com.spn.requests.{AddListRequest, AddReminderRequest, BundleIdRequest, DeleteListRequest, DeleteReminderRequest, DetailsForEpisodeMovieShowRequest, EpgReminderGetListRequest, EpisodeDetailRequest, GetRemindersRequest, GetXDRRequest, GroupOfBundlesRequest, IsSubscribedRequest, MovieDetailRequest, ShowDetailRequest, TrayRecommendationCatchMediaRequest, TrayRecommendationRecosenseRequest, UserRecommendationRequest, VODDetailsRequest, VideoUrlRequest}
 import com.spn.scenarios.TrayRecommendationRecosenseScenario
 import io.gatling.commons.validation.Validation
 import io.gatling.core.Predef._
@@ -101,18 +101,21 @@ object PageDetailScreen {
     }
   }
 
-  def setContentDetailsToSession(session: Session,value : String): Session = {
+  def setContentDetailsToSession(session: Session): Session = {
 
     val detailPageResponse = session(Constants.RESP_DETAIL_PAGE_RESPONSE).as[String]
     println(s"\nsetContentDetailsToSession : detailPageResponse : $detailPageResponse")
 
-    val expressionForId = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentId"
+   // val expressionForId = "$.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentId"
+    val expressionForId = "$.containers[*].metadata.contentId"
     println(s"\nsetContentDetailsToSession : expressionForId : $expressionForId")
 
-    val expressionForTitle = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.title"
+   // val expressionForTitle = "$.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.title"
+    val expressionForTitle = "$.containers[*].metadata.title"
     println(s"\nsetContentDetailsToSession : expressionForTitle : $expressionForTitle")
 
-    val expressionForType = "$.resultObj.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentSubtype"
+   // val expressionForType = "$.containers[?(@.metadata.emfAttributes.value =='"+value+"')].metadata.contentSubtype"
+    val expressionForType = "$.containers[*].metadata.contentSubtype"
     println(s"\nsetContentDetailsToSession : expressionForType : $expressionForType")
 
     val context = JsonPath.parse(detailPageResponse)
@@ -149,7 +152,9 @@ object PageDetailScreen {
 
     if ((finalIdToNavigateTo != null && !finalIdToNavigateTo.isEmpty) && (finalTitleToNavigateTo != null && !finalTitleToNavigateTo.isEmpty)
     && (finalTypeToNavigateTo != null && !finalTypeToNavigateTo.isEmpty)) {
+
       session.set("TVODID", finalIdToNavigateTo).set("ShowType",finalTypeToNavigateTo).set("ShowName",finalTitleToNavigateTo)
+
     } else {
       println(s"\nAll attempts failed to fetch fixture details")
       session
@@ -171,21 +176,21 @@ object PageDetailScreen {
   }
 
   val openMovieDetails = exec(session => {
-    setTheUrlIdToSession(session, "VOD","MOVIE","","movieId")
-  }).doIf(session => session.contains("movieId" )){
-    exec(MovieDetailRequest.movieDetail)
+    setTheUrlIdToSession(session, "VOD","MOVIE","","contentId")
+  }).doIf(session => session.contains("contentId" )){
+    exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
 
   val openShowDetails = exec(session => {
-    setTheUrlIdToSession(session, "VOD","SHOW","","Group_Of_Bundle")
-  }).doIf(session => session.contains("Group_Of_Bundle" )){
-    exec(ShowDetailRequest.showDetailRequest)
+    setTheUrlIdToSession(session, "VOD","SHOW","","contentId")
+  }).doIf(session => session.contains("contentId" )){
+    exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
 
   val openEpisodeDetails = exec(session => {
-    setTheUrlIdToSession(session, "VOD","EPISODE","","episodeid")
-  }).doIf(session => session.contains("episodeid" )){
-    exec(EpisodeDetailRequest.Episode_Detail)
+    setTheUrlIdToSession(session, "VOD","EPISODE","","contentId")
+  }).doIf(session => session.contains("contentId" )){
+    exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
 
   val openBundleDetails = exec(session => {
@@ -194,10 +199,10 @@ object PageDetailScreen {
     exec(BundleIdRequest.BundleId)
   }
 
-  val VODDistribution = randomSwitch(40d -> openVODDetails,
-    20d -> openMovieDetails,
-    20d -> openEpisodeDetails,
-    20d -> openShowDetails)
+  val openDetailDistribution = randomSwitch(
+    50d -> openMovieDetails,
+    25d -> openEpisodeDetails,
+    25d -> openShowDetails)
 
   val openEpgList = exec(session => {
     session.set("channelId", "ALL")
@@ -206,6 +211,8 @@ object PageDetailScreen {
     .set("from","0")
     .set("size", "10")
   }).exec(EpgReminderGetListRequest.EPG_GetList)
+
+  val getEpgListDistribution = randomSwitch(30d -> openEpgList)
 
 
   val openTrayRecommendationRecosenseList = exec(session => {
@@ -220,15 +227,6 @@ object PageDetailScreen {
       .set("filter_contentSubtype", "SHOW")
   }).exec(TrayRecommendationCatchMediaRequest.trayRecommendationCatchMediaRequest)
 
-  // TODO - this needs further breakup like Under VOD comes Movie, show and Episode
-  val openDetailsPage = randomSwitch(
-    10d -> VODDistribution,
-    10d -> openBundleDetails,
-    10d -> openEpgList,
-    50d -> openVideoUrl,
-    10d -> openTrayRecommendationCatchMediaList,
-    10d -> openTrayRecommendationRecosenseList
-  )
 
   // Below methods and values are related to Logged in User
 
@@ -238,27 +236,54 @@ object PageDetailScreen {
     exec(AddListRequest.addList)
   }
 
-//  val openIsSubscribed = exec(session => {
-//    setContentDetailsToSession(session,"SVOD")
-//      .set("channelPartnerID","MSMIND1")
-//      .set("getDateTime","${getDateTime}")
-//  }).doIf(session => session.contains("TVODID") && session.contains("ShowType") && session.contains("ShowName")) {
-//    exec(IsSubscribedRequest.isSubscribed)
-//  }
+  val distributionForAddingList = randomSwitch(30d -> openAddMyList)
 
-  val doNavigateToGuestUserDetailsPage = exec(openDetailsPage)
+  val executeFixtureReminder = exec(session => {
+    extractFixtureDetailsToSession(session)
+      .set("startDateTime",s"${System.currentTimeMillis() - 10000000}")
+  }).doIf(session => session.contains("contentId") && session.contains("matchId")){
+    exec(AddReminderRequest.addReminder)
+      .randomSwitch(30d -> exec(DeleteReminderRequest.deleteReminderRequest))
+  }
+
+  val distributionForFixtures = randomSwitch(25d -> executeFixtureReminder)
+
+  val openIsSubscribed = exec(session => {      //TODO Until phase 2, where we will check for value TVOD
+    setContentDetailsToSession(session)
+      .set("isContent","false")
+      .set("channelPartnerID","MSMIND1")
+      .set("getDateTime",s"${LocalDateTime.now()}")
+  }).doIf(session => session.contains("TVODID") && session.contains("ShowType") && session.contains("ShowName") && session.contains("isContent")) {
+    exec(IsSubscribedRequest.isSubscribed)
+  }
+
+  val distributionForSubscribed = randomSwitch(25d -> openIsSubscribed)
+
+  val distributionForTrayRecommendation = randomSwitch(50d -> openTrayRecommendationRecosenseList,
+    50d -> openTrayRecommendationCatchMediaList)
+
+
+
+  val doNavigateToGuestUserDetailsPage =
+    exec(openVODDetails)
+    .exec(openDetailDistribution)
+    .exec(openBundleDetails)
+    .exec(openVideoUrl)
+    .exec(HomeScreen.epgReminderDistribution)
+    .exec(distributionForTrayRecommendation)
 
   val doNavigateToLoggedInUserDetailsPage = doIf(session => session.contains((Constants.RESP_AUTH_TOKEN)) && session.contains(Constants.RESP_SECURITY_TOKEN)){
-    exec(openAddMyList)
-      .exec(GetXDRRequest.getXDR)
-     .exec(HomeScreen.fixtureDistribution)
-      .exec(HomeScreen.openEpgList)
-      .exec(HomeScreen.epgReminderDistribution)
-   //   .exec(VODDistribution)
+    exec(openVODDetails)
+      .exec(openDetailDistribution)
       .exec(openVideoUrl)
-    //  .exec(openIsSubscribed)
+      .exec(openBundleDetails)
+      .exec(distributionForAddingList)
+      .exec(GetXDRRequest.getXDR)
+     .exec(distributionForFixtures)
+      .exec(HomeScreen.epgReminderDistribution)
+      .exec(distributionForSubscribed)
       .exec(openTrayRecommendationCatchMediaList)
       .exec(openTrayRecommendationRecosenseList)
-   //   .exec(HomeScreen.userRecommendationLanding)
+      .exec(HomeScreen.userRecommendationLanding)
   }
 }

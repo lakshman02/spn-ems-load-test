@@ -8,7 +8,7 @@ class GuestUserDetailScreenSimulation extends Simulation {
 
   private val guestUserDetailScreenExec = GuestUserDetailScreenScenario.guestUserDetailScreenScenario
     .inject(
-      rampUsers(10) during(10)
+      rampUsers(50) during(50)
     )
 
   setUp(guestUserDetailScreenExec).protocols(Config.httpProtocol)
