@@ -1,14 +1,14 @@
 package com.spn.simulations
 
 import com.spn.config.Config
-import com.spn.scenarios.DetailsForEpisodeMovieShowScenario
+import com.spn.scenarios.DetailsForEpisodeScenario
 import io.gatling.core.Predef.{Simulation, rampUsers, _}
 
 class DetailsForEpisodeMovieShowSimulation extends Simulation{
 
-  private val DetailsForEpisodeMovieShowExec = DetailsForEpisodeMovieShowScenario.detailsForEpisodeMovieShowScenario
+  private val DetailsForEpisodeMovieShowExec = DetailsForEpisodeScenario.detailsForEpisodeScenario
     .inject(
-      rampUsers(1) during(1)
+      rampUsers(15) during(30)
     )
 
   setUp(DetailsForEpisodeMovieShowExec)
