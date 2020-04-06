@@ -14,7 +14,7 @@ object NextScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
+    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom) // TODO - is this needed?
     .feed(CommonFeedFiles.NextPreviousContentidDataFeeder)
     .exec(ApiSecurity.getToken)
     .exec(NextRequest.nextRequest)
