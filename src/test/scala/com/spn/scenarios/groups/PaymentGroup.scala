@@ -3,7 +3,7 @@ package com.spn.scenarios.groups
 import com.spn.common.Constants
 import com.spn.requests._
 import com.spn.scenarios.groups.PlansAndSubscriptionGroup
-import com.spn.scenarios.groups.PlansAndSubscriptionGroup.extractCouponCodeToBePassed
+import com.spn.scenarios.groups.PlansAndSubscriptionGroup.{extractCouponCodeToBePassed, openProductsByCoupon}
 import io.gatling.core.Predef._
 
 import scala.util.Random
@@ -33,21 +33,20 @@ object PaymentGroup {
     exec(PostApplyCouponRequest.ApplyCoupon)
   }
   //Reusing productsByCoupon and generic coupons
-  val invokeCouponOperations = randomSwitch(
-    50d -> PlansAndSubscriptionGroup.PlansAndSubscriptionDistribution,
-    20d -> openApplyCoupon
+  val invokeApplyCouponApi = randomSwitch(
+    10d -> openApplyCoupon
   )
   val invokePostSyncstateApi = randomSwitch(
-    25d -> exec(PostSyncStateRequest.postSyncStateRequest)
+    50d -> exec(GetSyncStateRequest.getSyncState),
+    10d -> exec(PostSyncStateRequest.postSyncStateRequest)
   )
-
   // Payment Journey goes here - starts
-  val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
-    && session.contains(Constants.RESP_AUTH_TOKEN)) {
+  val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("Payment Functionality for Logged-In user- Channel - ${channel}") {
-      exec(GetSyncStateRequest.getSyncState)
-        .exec(PaymentModesRequest.Payment_mode)
-        .exec(invokeCouponOperations)
+      exec(PaymentModesRequest.Payment_mode)
+        .exec(PostGenericCouponsRequest.Generic_Coupons)
+        .exec(openProductsByCoupon)
+        .exec(invokeApplyCouponApi)
         .exec(invokePostSyncstateApi)
     }
   }
