@@ -8,7 +8,7 @@ import io.gatling.core.Predef._
 class GetPageIdSimulation extends Simulation
 {
 private val getPageId = GetPageIdScenario.PageId
-  .inject(rampUsers(5)during(Config.duration)
+  .inject(rampUsers(30)during(30)
   )
 
 
