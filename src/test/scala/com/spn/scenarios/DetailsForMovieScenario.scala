@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{scenario, _}
 
 object DetailsForMovieScenario {
 
-  val dataFeederContentId = csv("data/newContentID.csv").random
+  val dataFeederContentId = csv("data/movie_contentIds.csv").random
 
   val detailsForMovieScenario = scenario("Details For Movie Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
@@ -16,5 +16,6 @@ object DetailsForMovieScenario {
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(dataFeederContentId)
     .exec(ApiSecurity.getToken)
+    .exec(session => session.set("details_type","Movie"))
     .exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
 }
