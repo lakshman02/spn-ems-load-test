@@ -36,9 +36,6 @@
     "traySearch",
     "next",
     "previous",
-    "nextAndPrevious",
-    "addList",
-    "getList",
-    "deleteList"
+    "nextAndPrevious"
   ]
 }
