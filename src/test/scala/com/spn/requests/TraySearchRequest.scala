@@ -7,7 +7,7 @@ import io.gatling.http.Predef._
 
 object TraySearchRequest {
 
-  val traySearchRequest = exec(http("Tray Search Request - ${filter_objectSubtype} - ${query}")
+  val traySearchRequest = exec(http("Tray Search Request")
     .get(Config.app_url + Config.TRAY_SEARCH_URL)
     .queryParam("query", "${query}")
     .queryParam("filter_objectSubtype", "${filter_objectSubtype}")

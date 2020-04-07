@@ -95,7 +95,9 @@ object ScenarioMapping {
     "subscriptionOrderStatusDate" -> SubscriptionOrderStatusDateScenario.subscriptionOrderStatusDateScenario,
     "previewAdd" -> PreviewAddScenario.previewAddScenario,
     "subscriptionOrderStatusUser" -> SubscriptionOrderStatusUserScenario.subscriptionOrderStatusUserScenario,
-    "detailsForEpisodeMovieShow" -> DetailsForEpisodeMovieShowScenario.detailsForEpisodeMovieShowScenario,
+    "detailsForEpisode" -> DetailsForEpisodeScenario.detailsForEpisodeScenario,
+    "detailsForMovie" -> DetailsForMovieScenario.detailsForMovieScenario,
+    "detailsForShow" -> DetailsForShowScenario.detailsForShowScenario,
     "userRecommendation" -> UserRecommendationScenario.userRecommendationScenario,
 
 

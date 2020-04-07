@@ -1,0 +1,33 @@
+{
+  "waitBetweenTests": 10,
+  "commonRampUp": [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        25,
+        25
+      ]
+    }
+  ],
+  "cases": [
+    "getInitialConfig",
+    "getPage",
+    "bundleId",
+    "detailsForMovie",
+    "detailsForEpisode",
+    "detailsForShow",
+    "traySearch",
+    "next",
+    "previous",
+    "nextAndPrevious",
+    "addList",
+    "getList",
+    "deleteList"
+  ]
+}

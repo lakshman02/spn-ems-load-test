@@ -1,22 +1,20 @@
 package com.spn.scenarios
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.requests.NextRequest
+import com.spn.requests.DetailsForEpisodeMovieShowRequest
 import io.gatling.core.Predef.{scenario, _}
 
-object NextScenario {
+object DetailsForShowScenario {
 
-//  val dataFeederContentID = csv("data/next_nextAndPrevious_data.csv").circular
+  val dataFeederContentId = csv("data/newContentID.csv").random
 
-  val nextScenario = scenario("Next Scenario")
+  val detailsForShowScenario = scenario("Details For Show Scenario")
     .feed(CommonFeedFiles.dataFeederTenant)
     .feed(CommonFeedFiles.dataFeederCluster)
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom) // TODO - is this needed?
-    .feed(CommonFeedFiles.NextPreviousContentidDataFeeder)
+    .feed(dataFeederContentId)
     .exec(ApiSecurity.getToken)
-    .exec(NextRequest.nextRequest)
-
+    .exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
 }

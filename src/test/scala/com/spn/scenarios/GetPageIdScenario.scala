@@ -11,9 +11,8 @@ object GetPageIdScenario {
 
   val dataFeederPageId = csv("data/pageid.csv").circular
 
-  val PageId = scenario("Get Page Id").group("Get Page Group") {
-
-    feed(CommonFeedFiles.dataFeederChannel)
+  val PageId = scenario("Get Page")
+    .feed(CommonFeedFiles.dataFeederChannel)
       .feed(CommonFeedFiles.dataFeederLocale)
       .feed(CommonFeedFiles.dataFeederCluster)
       .feed(CommonFeedFiles.dataFeederTenant)
@@ -25,5 +24,4 @@ object GetPageIdScenario {
       .pause(1, 3 seconds)
       .exec(session => session.set("paginationFrom","5").set("paginationTo","10").set("pageSuffix", "Pagination:5-10"))
       .exec(GetPageIdRequest.PageId)
-  }
 }
