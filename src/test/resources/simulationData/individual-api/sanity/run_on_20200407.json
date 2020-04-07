@@ -1,0 +1,32 @@
+{
+  "waitBetweenTests": 10,
+  "commonRampUp": [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        50,
+        60
+      ]
+    }
+  ],
+  "cases": [
+    "detailsForEpisode",
+    "detailsForShow",
+    "traySearch",
+    "next",
+    "previous",
+    "nextAndPrevious",
+    "getVODDetails",
+    "groupOfBundles",
+    "getUserPlayBackPreviewDetails",
+    "addList",
+    "getList",
+    "deleteList"
+  ]
+}
