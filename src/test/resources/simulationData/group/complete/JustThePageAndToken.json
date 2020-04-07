@@ -10,7 +10,7 @@
     {
       "type": "rampUsersPerSec",
       "args": [
-        166,
+        2000,
         0,
         1200
       ]
