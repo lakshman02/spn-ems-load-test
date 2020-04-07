@@ -55,21 +55,21 @@ object Config {
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
   val VIDEO_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/VIDEOURL/VOD/${contentId}"
-  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/SHOW/${Group_Of_Bundle}"
+  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL" //update to /DETAIL
   val GET_SEARCH_HISTORY_URL ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETSEARCHHISTORY"
   val GET_USER_PLAYBACK_PREVIEW_DETAILS_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/GETUSERPLAYBACKPREVIEWDETAILS"
   val DELETE_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/DELETEMYLIST"
   val ADDSEARCHEDITEM = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/ADDSEARCHEDITEM"
-  val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/EPISODE/${episodeid}"
-  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${bundleId}"             //todo removed - Content // Bundle from URL
+  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${bundleId}"             //todo removed - CONTENT /_ / BUNDLE from URL
+  val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL" //update to /DETAIL
   val DELETE_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETESEARCHHISTORY"
   val TRAY_SEARCH_VOD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH/VOD"
   val GET_LIST ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/MYLIST"
-  val MOVIE_DETAIL_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/MOVIE/${movieId}"
+  val MOVIE_DETAIL_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL" //update to /DETAIL
   val ADD_LIST_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ADDMYLIST"
   val GET_TOKEN_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETTOKEN"
   val GENERATE_DEVICE_ACTIVATION_CODE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GENERATEDEVICEACTIVATIONCODE"
-  val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH"
+  val TRAY_SEARCH_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH" //todo only query param is required as per confluence
   val SEARCH_DESCRIPTION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SUGGESTION"
   val CREATE_RAZOR_PAY_ORDER_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/CREATERAZORPAYORDER"
   val ADD_XDR_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/XDR"
@@ -88,12 +88,12 @@ object Config {
   val GET_DEVICES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DEVICES/USER/GETDEVICES"
   val ADD_SETTINGS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/ADDSETTINGS"
   val EPG_REMINDER_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER"
-  val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION"
-  val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/DETAIL/${contentId}" //updated to USER/RECOMMENDATION/DETAIL/1000000021/
+  val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION" //todo catch media query params need to be updated. There are 3 urls in confluence
+  val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/DETAIL/${contentId}" //updated to /USER/RECOMMENDATION/DETAIL/1000000021/
   val EPG_REMINDER_DELETE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER/${assetId}/${startDateTime}"
 
-  val EPG_REMINDER_GET_LIST_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/LIST"
-  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}/LANDING/SHOW"
+  val EPG_REMINDER_GET_LIST_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/LIST" //todo query params need to be updated
+  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}" //updated to /USER/RECOMMENDATION/667
   val REMOVE_DEVICES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DEVICES/USER/REMOVEDEVICES/${RESP_DEVICE_SERIAL_NUMBER}"
 
   val DELETE_ALL_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETEALLSEARCHHISTORY"
