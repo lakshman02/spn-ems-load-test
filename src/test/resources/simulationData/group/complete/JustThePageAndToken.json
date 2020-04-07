@@ -1,0 +1,22 @@
+{
+  "waitBetweenTests":1800,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        300
+      ]
+    },
+    {
+      "type": "rampUsersPerSec",
+      "args": [
+        166,
+        0,
+        1200
+      ]
+    }
+  ],
+  "cases" : [
+    "getPage"
+  ]
+}
