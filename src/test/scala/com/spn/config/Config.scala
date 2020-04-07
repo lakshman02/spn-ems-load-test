@@ -24,18 +24,18 @@ object Config {
 //  val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PAGE/${pageID}"
   val GET_PageID = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/${RANDOM_PAGE_URL}"
   val Login_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/LOGIN"
-  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID=${channelPartnerID}"
+  val GET_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETPROFILE?channelPartnerID=${channelPartnerID}" //todo - can we pass the channel id as input param?
   val GET_ULD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ULD"
   val CREATE_OTP_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CREATEOTP"
   val ACCOUNT_SEARCH_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ACCOUNTS/SEARCH"
   val Post_Generic_Coupon = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/GENERICCOUPONS "
   val Post_Subscription_History = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/HISTORY"
-  val VOD_DETAILS="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/VOD/${contentId}"
+  val VOD_DETAILS="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL"                          //todo - removed the  VOD/${contentId}"
   val GET_ALL_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ALLSUBSCRIPTIONS"
-  val GROUP_OF_BUNDLES_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/GROUP_OF_BUNDLES/${groupBundleId}"
+  val GROUP_OF_BUNDLES_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL"                       // todo - removed /CONTENT/(DETAIL)/GROUP_OF_BUNDLES/${groupBundleId}
   val UPDATE_PROFILE_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/UPDATEPROFILE"
   val IS_SUBSCRIBED_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/ISSUBSCRIBED"
-  val GET_PRODUCTS_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/GETPRODUCTS"
+  val GET_PRODUCTS_URL="${tenant}/1.4/${cluster}/E/${channel}/${propertyName}/SUBSCRIPTION/GETPRODUCTS"     //todo - no inclusion of input param in url. (getproducts?test=ev) not mandatory
   val ACTIVE_SUBSCRIPTIONS_URL = "${tenant}/1.4/${cluster}/E/WEB/${propertyName}/SUBSCRIPTION/ACTIVESUBSCRIPTIONS"
   val CONTENT_DETAIL_BUNDLE_URL = "${tenant}/1.4/${cluster}/${channel}/${propertyName}/CONTENT/DETAIL/BUNDLE/${bundleId}"
   val CREATE_PAYMENT_QR = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/SUBSCRIPTION/CREATEPAYMENTQR"
@@ -61,7 +61,7 @@ object Config {
   val DELETE_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/DELETEMYLIST"
   val ADDSEARCHEDITEM = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/ADDSEARCHEDITEM"
   val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/EPISODE/${episodeid}"
-  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/BUNDLE/${bundleId}"
+  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${bundleId}"             //todo removed - Content // Bundle from URL
   val DELETE_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETESEARCHHISTORY"
   val TRAY_SEARCH_VOD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH/VOD"
   val GET_LIST ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/MYLIST"
