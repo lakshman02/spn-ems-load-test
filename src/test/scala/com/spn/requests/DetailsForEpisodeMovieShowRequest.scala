@@ -6,7 +6,7 @@ import io.gatling.http.Predef._
 
 object DetailsForEpisodeMovieShowRequest {
 
-  val detailsForEpisodeMovieShowRequest= exec(http("Details For Episode Or Movie Or Show Request")
+  val detailsForEpisodeMovieShowRequest= exec(http("Details For ${details_type} Request")
     .get(Config.app_url + Config.DETAILS_FOR_EPISODE_MOVIE_SHOW)
     .headers(Config.headerWithoutAuth)
     .check(status is 200)

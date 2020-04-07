@@ -10,8 +10,8 @@
     {
       "type": "rampUsers",
       "args": [
-        25,
-        25
+        50,
+        60
       ]
     }
   ],
@@ -25,9 +25,6 @@
     "traySearch",
     "next",
     "previous",
-    "nextAndPrevious",
-    "addList",
-    "getList",
-    "deleteList"
+    "nextAndPrevious"
   ]
 }
