@@ -8,11 +8,16 @@ import io.gatling.http.Predef._
 object Config {
   //Baseurl
 
-//  var app_url: String = System.getProperty("appURL")
-  var app_url: String = ""
+  var app_url: String = System.getProperty("appURL")
 
-//  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
-  var appUrlLBList = List(
+  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+
+  if(app_url != null && !app_url.isEmpty) {
+    appUrlLBList = List(app_url)
+  }
+
+  // New IPs that Akamai gave
+/*  var appUrlLBList = List(
     "https://115.248.238.20/",
     "https://115.248.238.21/",
     "https://115.248.238.22/",
@@ -43,11 +48,8 @@ object Config {
     "https://23.212.252.4/",
     "https://23.212.252.5/",
     "https://23.212.252.6/"
-  )
+  )*/
 
-//  if(app_url == null || app_url.equals("")) {
-//    app_url = "https://apipreprod.sonyliv.com/"
-//  }
 
    // val app_url = "https://apiqa.sonyliv.com/"
 // val app_url = "https://apipreprod.sonyliv.com/"
