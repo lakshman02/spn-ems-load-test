@@ -11,7 +11,39 @@ object Config {
 //  var app_url: String = System.getProperty("appURL")
   var app_url: String = ""
 
-  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+//  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+  var appUrlLBList = List(
+    "https://115.248.238.20/",
+    "https://115.248.238.21/",
+    "https://115.248.238.22/",
+    "https://23.212.50.64/",
+    "https://23.212.50.65/",
+    "https://23.212.50.66/",
+    "https://23.45.91.38/",
+    "https://23.45.91.39/",
+    "https://23.45.91.40/",
+    "https://23.200.79.4/",
+    "https://23.200.79.5/",
+    "https://23.200.79.6/",
+    "https://23.45.91.103/",
+    "https://23.45.91.104/",
+    "https://23.45.91.105/",
+    "https://23.57.69.32/",
+    "https://23.57.69.33/",
+    "https://23.57.69.34/",
+    "https://23.210.93.4/",
+    "https://23.210.93.5/",
+    "https://23.210.93.6/",
+    "https://23.210.93.132/",
+    "https://23.210.93.133/",
+    "https://23.210.93.134/",
+    "https://23.213.1.84/",
+    "https://23.213.1.85/",
+    "https://23.213.1.86/",
+    "https://23.212.252.4/",
+    "https://23.212.252.5/",
+    "https://23.212.252.6/"
+  )
 
 //  if(app_url == null || app_url.equals("")) {
 //    app_url = "https://apipreprod.sonyliv.com/"
