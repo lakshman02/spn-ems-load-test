@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class GetVODSimulation extends Simulation
 {
 private val getPageId = VODDetailsScenario.vodDetailsScenario
-    .inject(atOnceUsers(14))
+    .inject(atOnceUsers(3))
 
   setUp(getPageId).protocols(Config.httpProtocol)
     .assertions(/*global.responseTime.max.lt(Config.defaultResponseTime),*/
