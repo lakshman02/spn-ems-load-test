@@ -8,11 +8,14 @@ import io.gatling.http.Predef._
 object Config {
   //Baseurl
 
-  var app_url: String = System.getProperty("appURL")
+//  var app_url: String = System.getProperty("appURL")
+  var app_url: String = ""
 
-  if(app_url == null || app_url.equals("")) {
-    app_url = "https://apipreprod.sonyliv.com/"
-  }
+  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+
+//  if(app_url == null || app_url.equals("")) {
+//    app_url = "https://apipreprod.sonyliv.com/"
+//  }
 
    // val app_url = "https://apiqa.sonyliv.com/"
 // val app_url = "https://apipreprod.sonyliv.com/"
@@ -123,7 +126,8 @@ object Config {
 
   //http protocol configuration
   val httpProtocol = http
-    .baseUrl(app_url)
+//    .baseUrl(app_url)
+    .baseUrls(appUrlLBList)
     .acceptLanguageHeader("en-US,en;q=0.5")
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
     .contentTypeHeader("application/json")
