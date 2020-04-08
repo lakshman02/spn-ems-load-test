@@ -12,12 +12,8 @@ object Config {
 
   var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
 
-  if(app_url != null && !app_url.isEmpty) {
-    appUrlLBList = List(app_url)
-  }
-
   // New IPs that Akamai gave
-  appUrlLBList = List(
+/*  appUrlLBList = List(
     "https://115.248.238.20/",
     "https://115.248.238.21/",
     "https://115.248.238.22/",
@@ -48,9 +44,13 @@ object Config {
     "https://23.212.252.4/",
     "https://23.212.252.5/",
     "https://23.212.252.6/"
-  )
+  )*/
 
-   // val app_url = "https://apiqa.sonyliv.com/"
+  if(app_url != null && !app_url.isEmpty) {
+    appUrlLBList = List(app_url)
+  }
+
+  // val app_url = "https://apiqa.sonyliv.com/"
 // val app_url = "https://apipreprod.sonyliv.com/"
 // val app_url = "https://origin-apipreprod.sonyliv.com/"
 
@@ -165,7 +165,7 @@ object Config {
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
     .contentTypeHeader("application/json")
     .header("restful","yes")
-    .header("Host","apipreprod.sonyliv.com")
+//    .header("Host","apipreprod.sonyliv.com")
 
   // only security header
   val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}",
