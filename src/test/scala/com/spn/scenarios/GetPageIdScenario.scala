@@ -21,7 +21,7 @@ object GetPageIdScenario {
       .exec(ApiSecurity.getToken)
       .exec(session => session.set("paginationFrom","0").set("paginationTo","5").set("pageSuffix", "Pagination:0-5"))
       .exec(GetPageIdRequest.PageId)
-      .pause(1, 3 seconds)
-      .exec(session => session.set("paginationFrom","5").set("paginationTo","10").set("pageSuffix", "Pagination:5-10"))
-      .exec(GetPageIdRequest.PageId)
+//      .pause(1, 3 seconds)
+//      .exec(session => session.set("paginationFrom","5").set("paginationTo","10").set("pageSuffix", "Pagination:5-10"))
+//      .exec(GetPageIdRequest.PageId)
 }

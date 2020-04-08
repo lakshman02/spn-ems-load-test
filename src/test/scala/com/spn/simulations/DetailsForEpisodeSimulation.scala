@@ -4,7 +4,7 @@ import com.spn.config.Config
 import com.spn.scenarios.DetailsForEpisodeScenario
 import io.gatling.core.Predef.{Simulation, rampUsers, _}
 
-class DetailsForEpisodeMovieShowSimulation extends Simulation{
+class DetailsForEpisodeSimulation extends Simulation{
 
   private val DetailsForEpisodeMovieShowExec = DetailsForEpisodeScenario.detailsForEpisodeScenario
     .inject(
