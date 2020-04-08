@@ -12,7 +12,7 @@ object GetDevicesRequest {
     .headers(Config.sentHeadersNew)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
-    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_DEVICE_SERIAL_NUMBER))
+    .check(jsonPath("$.resultObj").saveAs(Constants.RESP_GET_DEVICE_COMPLETE_RESPONSE))
 
   )
 

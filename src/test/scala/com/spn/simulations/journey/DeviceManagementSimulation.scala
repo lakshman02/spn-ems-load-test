@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class DeviceManagementSimulation extends Simulation {
   private val deviceManagementExec = DeviceManagementScenario.DeviceManagementScenario
     .inject(
-      rampUsers(1) during(1)
+      rampUsers(50) during(50)
     )
 
   setUp(deviceManagementExec).protocols(Config.httpProtocol)

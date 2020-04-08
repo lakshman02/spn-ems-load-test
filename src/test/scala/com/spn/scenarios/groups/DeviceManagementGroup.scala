@@ -13,7 +13,7 @@ object DeviceManagementGroup {
 
   def setSerialNoSession(session: Session): Session = {
 
-    val getDeviceResponse = session(Constants.RESP_DEVICE_SERIAL_NUMBER).as[String]
+    val getDeviceResponse = session(Constants.RESP_GET_DEVICE_COMPLETE_RESPONSE).as[String]
     println(s"\ngetDeviceResponse : $getDeviceResponse")
 
     var expression = ""
@@ -50,19 +50,9 @@ val openRemoveDevice = exec(session =>{
 }).doIf(session => session.contains("RESP_DEVICE_SERIAL_NUMBER")) {
   exec(RemoveDevicesRequest.removeDevicesRequest)
 }
-//  val openRegisterDevice =
-//  doIf(session => session.contains("RESP_ACTIVATION_CODE")) {
-//    exec(session =>{
-//      val activationCode =session(Constants.RESP_ACTIVATION_CODE).as[String]
-//      session.set("activationCode","RESP_ACTIVATION_CODE")
-//    })
-//    exec(RegisterDeviceRequest.registerDevice)
-//  }
 
   val doDeviceManagementOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("DeviceManagement Logged-In User - Channel - ${channel}"){
-     // exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
-       // .exec(openRegisterDevice)
         exec(GetDevicesRequest.getDevicesRequest)
         .exec(openRemoveDevice)
 

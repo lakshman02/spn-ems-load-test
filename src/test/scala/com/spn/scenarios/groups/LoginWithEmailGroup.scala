@@ -43,13 +43,14 @@ object LoginWithEmailGroup {
     2d -> exec(AccountSearchRequest.accountSearch)
   )
   val invokeTVRegistrationApis= randomSwitch(
-    2d -> exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
+    5d -> exec(GenerateDeviceActivationCodeRequest.generateDeviceActivationCode)
   )
 
   // User Login Journey goes here - starts
   val doLoginWithEmail = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
     //      exec(GetInitialConfigRequest.getInitialConfig) //as this is only needed for deep-link, no need of it here
     exec(LoginWithEmailRequest.LoginWithEmail)
+    .exec(invokeTVRegistrationApis)
       .doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
         exec(GetProfileRequest.getProfile)
           .exec(invokeProfileApis)
@@ -62,8 +63,7 @@ object LoginWithEmailGroup {
               || session("channel").as[String].equals("SONY_HTML_TV")
               || session("channel").as[String].equals("SAMSUNG_HTML_TV")
             )) {
-            exec(invokeTVRegistrationApis)
-              .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
+              doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
                 exec(session => {
                   //Switch over from TV platform to any mobile device
                   val randomPhonePlatform = Array("ANDROID_PHONE", "IPAD", "IPHONE", "ANDROID_TAB")
