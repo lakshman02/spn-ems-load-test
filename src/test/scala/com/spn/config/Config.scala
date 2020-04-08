@@ -10,10 +10,10 @@ object Config {
 
   var app_url: String = System.getProperty("appURL")
 
-  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+//  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
 
   // New IPs that Akamai gave
-/*  appUrlLBList = List(
+  var appUrlLBList = List(
     "https://115.248.238.20/",
     "https://115.248.238.21/",
     "https://115.248.238.22/",
@@ -44,7 +44,7 @@ object Config {
     "https://23.212.252.4/",
     "https://23.212.252.5/",
     "https://23.212.252.6/"
-  )*/
+  )
 
   if(app_url != null && !app_url.isEmpty) {
     appUrlLBList = List(app_url)
