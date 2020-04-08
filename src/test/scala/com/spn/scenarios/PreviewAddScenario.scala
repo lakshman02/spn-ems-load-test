@@ -1,8 +1,8 @@
 package com.spn.scenarios
 
-import com.spn.common.CommonFeedFiles
+import com.spn.common.{ApiSecurity, CommonFeedFiles}
 import com.spn.requests.PreviewAddRequest
-import io.gatling.core.Predef.{scenario,_}
+import io.gatling.core.Predef.{scenario, _}
 
 object PreviewAddScenario   {
 
@@ -18,5 +18,6 @@ object PreviewAddScenario   {
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dataFeederAssetID)
     .feed(DataFeederpreviewDetails)
+    .exec(ApiSecurity.getToken)
     .exec(PreviewAddRequest.previewAddRequest)
 }
