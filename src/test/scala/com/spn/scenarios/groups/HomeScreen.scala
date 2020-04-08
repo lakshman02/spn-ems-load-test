@@ -157,6 +157,6 @@ object HomeScreen {
       .exec(epgReminderDistribution)
           .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
           .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
-         exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
+         .exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }
