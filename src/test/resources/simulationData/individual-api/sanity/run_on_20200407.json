@@ -16,15 +16,17 @@
     }
   ],
   "cases": [
-    "getInitialConfig",
-    "getPage",
-    "bundleId",
-    "detailsForMovie",
     "detailsForEpisode",
     "detailsForShow",
     "traySearch",
     "next",
     "previous",
-    "nextAndPrevious"
+    "nextAndPrevious",
+    "getVODDetails",
+    "groupOfBundles",
+    "getUserPlayBackPreviewDetails",
+    "addList",
+    "getList",
+    "deleteList"
   ]
 }

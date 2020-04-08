@@ -119,6 +119,7 @@ object Config {
   val maxResponseTime=Integer.getInteger("responseTime", 1).toInt
 
   val enableAPISecurity=Integer.getInteger("enableAPISecurity", 0).toInt
+  var singleSecurityToken: String = System.getProperty("singleSecurityToken")
 
   //http protocol configuration
   val httpProtocol = http
