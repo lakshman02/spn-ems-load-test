@@ -8,7 +8,7 @@ import io.gatling.core.Predef._
 
 object DeviceManagementScenario {
 
-  val usersWithAuth50k = csv("data/evergent/usersWithAuthtoken50k.csv.gz").unzip.shard.batch.circular
+  val usersWithAuth50k = csv("data/removeDeviceTokens.csv").batch.circular
 
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
@@ -37,15 +37,11 @@ object DeviceManagementScenario {
     .feed(usersWithAuth50k)
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(LoginWithEmailGroup.feederDeviceDetails)
-    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
-    .feed(LoginWithEmailGroup.genderFeeder)
-    .feed(LoginWithEmailGroup.pinCodeFeeder)
 
-    .group("Device Management Logged-In User - Channel - ${channel}") {
-      exec(ApiSecurity.getToken)
+
+      .exec(ApiSecurity.getToken)
         .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
-          exec(LoginWithEmailGroup.doLoginWithEmail)
-          .exec(DeviceManagementGroup.doDeviceManagementOperations)
+          exec(DeviceManagementGroup.doDeviceManagementOperations)
         }
-    }
+
 }

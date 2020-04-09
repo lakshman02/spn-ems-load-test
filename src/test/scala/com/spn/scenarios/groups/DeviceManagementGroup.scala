@@ -18,7 +18,7 @@ object DeviceManagementGroup {
 
     var expression = ""
 
-    expression = "$.[*].serialNo"
+    expression = "$.[?(@.serialNo =~ /d6acc46e-5a09-d432-1afb.*/)].serialNo"
     println(s"\nExpression : $expression")
 
     val context = JsonPath.parse(getDeviceResponse)
@@ -37,7 +37,7 @@ object DeviceManagementGroup {
     println(s"\nFinal serialNum to Navigate To for  is : $finalserialNumNavigateTo")
 
     if (finalserialNumNavigateTo != null && !finalserialNumNavigateTo.isEmpty) {
-      session.set("RESP_DEVICE_SERIAL_NUMBER", finalserialNumNavigateTo)
+      session.set(Constants.RESP_DEVICE_SERIAL_NUMBER, finalserialNumNavigateTo)
     }
     else {
       print("Did not find serialNum")
@@ -45,17 +45,16 @@ object DeviceManagementGroup {
     }
   }
 
-val openRemoveDevice = exec(session =>{
-  setSerialNoSession(session)
-}).doIf(session => session.contains("RESP_DEVICE_SERIAL_NUMBER")) {
-  exec(RemoveDevicesRequest.removeDevicesRequest)
-}
+  val openRemoveDevice = exec(session =>{
+    setSerialNoSession(session)
+  }).doIf(session => session.contains(Constants.RESP_DEVICE_SERIAL_NUMBER)) {
+    exec(RemoveDevicesRequest.removeDevicesRequest)
+  }
 
   val doDeviceManagementOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
-    group("DeviceManagement Logged-In User - Channel - ${channel}"){
+    group("Device Management - Logged-In User - Channel - ${channel}"){
         exec(GetDevicesRequest.getDevicesRequest)
         .exec(openRemoveDevice)
-
     }
   }
 }
