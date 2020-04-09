@@ -10,9 +10,9 @@ object PaymentModesRequest {
     .post(Config.app_url + Config.PAYMENT_MODES_URL)
     .headers(Config.sentHeaders)
       .body(StringBody(""" {
-                           "serviceID": "${single_service_id}",
-                           "serviceType": "${single_service_type}",
-                           "channelPartnerID": "${single_channel_partner_id}",
+                           "serviceID": "${serviceID}",
+                           "serviceType": "${serviceType}",
+                           "channelPartnerID": "${channelPartnerID}",
                            "platform": "${platform}",
                            "appType": "${appType}",
                            "deviceType": "${deviceType}",

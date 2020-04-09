@@ -1,0 +1,33 @@
+{
+  "waitBetweenTests": 10,
+  "commonRampUp": [
+    {
+      "type": "nothingFor",
+      "args": [
+        10
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        15,
+        30
+      ]
+    }
+  ],
+  "cases": [
+    "getToken",
+    "loginWithEmail",
+    "getULD",
+    "getProfile",
+    "updateProfile",
+    "getProduct",
+    "allSubscriptions",
+    "applycoupon",
+    "accountSearch",
+    "subscriptionPayment",
+    "videoUrl",
+    "userRecommendationLanding",
+    "trayRecommendationCatchMedia"
+  ]
+}

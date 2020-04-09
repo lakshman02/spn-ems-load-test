@@ -8,7 +8,7 @@ object GetProfileRequest {
 
   val getProfile= exec(http("Get Profile Request")
     .get(Config.app_url + Config.GET_PROFILE_URL)
-    .headers(Config.sentHeaders)
+    .headers(Config.sentHeadersNew)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
   )

@@ -10,11 +10,47 @@ object Config {
 
   var app_url: String = System.getProperty("appURL")
 
-  if(app_url == null || app_url.equals("")) {
-    app_url = "https://apipreprod.sonyliv.com/"
+//  var appUrlLBList = List("https://apipreprod.sonyliv.com/","https://apipreprod2.sonyliv.com/","https://origin-apipreprod.sonyliv.com/")
+
+  // New IPs that Akamai gave
+  var appUrlLBList = List(
+    "https://115.248.238.20/",
+    "https://115.248.238.21/",
+    "https://115.248.238.22/",
+    "https://23.212.50.64/",
+    "https://23.212.50.65/",
+    "https://23.212.50.66/",
+    "https://23.45.91.38/",
+    "https://23.45.91.39/",
+    "https://23.45.91.40/",
+    "https://23.200.79.4/",
+    "https://23.200.79.5/",
+    "https://23.200.79.6/",
+    "https://23.45.91.103/",
+    "https://23.45.91.104/",
+    "https://23.45.91.105/",
+    "https://23.57.69.32/",
+    "https://23.57.69.33/",
+    "https://23.57.69.34/",
+    "https://23.210.93.4/",
+    "https://23.210.93.5/",
+    "https://23.210.93.6/",
+    "https://23.210.93.132/",
+    "https://23.210.93.133/",
+    "https://23.210.93.134/",
+    "https://23.213.1.84/",
+    "https://23.213.1.85/",
+    "https://23.213.1.86/",
+    "https://23.212.252.4/",
+    "https://23.212.252.5/",
+    "https://23.212.252.6/"
+  )
+
+  if(app_url != null && !app_url.isEmpty) {
+    appUrlLBList = List(app_url)
   }
 
-   // val app_url = "https://apiqa.sonyliv.com/"
+  // val app_url = "https://apiqa.sonyliv.com/"
 // val app_url = "https://apipreprod.sonyliv.com/"
 // val app_url = "https://origin-apipreprod.sonyliv.com/"
 
@@ -55,17 +91,17 @@ object Config {
   val Post_Sync_State_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SUBSCRIPTION/SYNCSTATE"
   val LA_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/GETLAURL"
   val VIDEO_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/VIDEOURL/VOD/${contentId}"
-  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/SHOW/${Group_Of_Bundle}"
+  val SHOW_DETAIL_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${Group_Of_Bundle}"
   val GET_SEARCH_HISTORY_URL ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETSEARCHHISTORY"
   val GET_USER_PLAYBACK_PREVIEW_DETAILS_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/PREVIEW/GETUSERPLAYBACKPREVIEWDETAILS"
   val DELETE_LIST_URL="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/DELETEMYLIST"
   val ADDSEARCHEDITEM = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/ADDSEARCHEDITEM"
-  val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/EPISODE/${episodeid}"
-  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/CONTENT/DETAIL/BUNDLE/${bundleId}"
+  val EPISODE_DETAILS = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${episodeid}"
+  val BUNDLE = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${bundleId}"
   val DELETE_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETESEARCHHISTORY"
   val TRAY_SEARCH_VOD_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/SEARCH/VOD"
   val GET_LIST ="${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/MYLIST"
-  val MOVIE_DETAIL_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/MOVIE/${movieId}"
+  val MOVIE_DETAIL_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DETAIL/${movieId}"
   val ADD_LIST_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/ADDMYLIST"
   val GET_TOKEN_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GETTOKEN"
   val GENERATE_DEVICE_ACTIVATION_CODE_URL= "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/GENERATEDEVICEACTIVATIONCODE"
@@ -88,12 +124,12 @@ object Config {
   val GET_DEVICES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DEVICES/USER/GETDEVICES"
   val ADD_SETTINGS_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/SETTINGS/ADDSETTINGS"
   val EPG_REMINDER_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER"
-  val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION"
-  val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${contentId}/DETAIL/EPISODE"
+  val TRAY_RECOMMENDATION_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/TRAY/RECOMMENDATION" // TODO Check this, is this duplicate?
+  val USER_RECOMMENDATION_DETAIL_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/DETAIL/${contentId}"
   val EPG_REMINDER_DELETE_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/REMINDER/${assetId}/${startDateTime}"
 
   val EPG_REMINDER_GET_LIST_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/EPG/LIST"
-  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}/LANDING/SHOW"
+  val USER_RECOMMENDATION_LANDING_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/USER/RECOMMENDATION/${pageid}"
   val REMOVE_DEVICES_URL = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DEVICES/USER/REMOVEDEVICES/${RESP_DEVICE_SERIAL_NUMBER}"
 
   val DELETE_ALL_SEARCH_HISTORY = "${tenant}/1.4/${cluster}/${locale}/${channel}/${propertyName}/DELETEALLSEARCHHISTORY"
@@ -123,11 +159,13 @@ object Config {
 
   //http protocol configuration
   val httpProtocol = http
-    .baseUrl(app_url)
+//    .baseUrl(app_url)
+    .baseUrls(appUrlLBList)
     .acceptLanguageHeader("en-US,en;q=0.5")
     .userAgentHeader("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:16.0) Gecko/20100101 Firefox/16.0")
     .contentTypeHeader("application/json")
     .header("restful","yes")
+//    .header("Host","apipreprod.sonyliv.com")
 
   // only security header
   val secHeader=Map("security_token" -> "${RESP_SECURITY_TOKEN}",

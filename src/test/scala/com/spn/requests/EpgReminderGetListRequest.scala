@@ -12,8 +12,8 @@ object EpgReminderGetListRequest {
     .headers(Config.headerWithoutAuth)
     .queryParamMap(Map("channelId" -> "${channelId}",
       "offset" -> "${offset}",
-      "from" -> "${from}",
-      "size" -> "${size}",
+      "from" -> "${from}",//todo this is not present in confluence url
+      "size" -> "${size}",//todo this is not present in confluence url
       "startDate" -> "${getDateTime}"))
     .check(status.is(200))
     .check(jsonPath("$.resultCode").is("OK"))

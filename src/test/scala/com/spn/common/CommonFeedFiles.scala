@@ -37,9 +37,9 @@ object CommonFeedFiles {
   val dataFeederServiceIDOnlyDetails = csv("data/service_id_data.csv").circular
 
   // User Specific
-  val userAuth1KUsers = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.random
+  val userAuth1KUsers = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.circular
 
-  val userAuth1KUsersUsingCircular = csv("data/evergent/usersWithAuthtoken.csv.gz").unzip.shard.circular
+  val userAuth1KUsersUsingCircular = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.circular
 
   val userAuth50KUsersUsingCircular = csv("data/evergent/evergent_file_with_agl_access_token_100k.csv.gz").unzip.shard.batch.circular
   //login with email data
