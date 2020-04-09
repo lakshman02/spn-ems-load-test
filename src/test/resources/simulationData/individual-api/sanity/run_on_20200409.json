@@ -23,6 +23,16 @@
     "upgradablePlans",
     "postSyncState",
     "getSyncState",
-    "getDevices"
+    "getDevices",
+    "getInitialConfig",
+    "getPage",
+    "bundleId",
+    "detailsForMovie",
+    "detailsForEpisode",
+    "detailsForShow",
+    "traySearch",
+    "next",
+    "previous",
+    "nextAndPrevious"
   ]
 }
