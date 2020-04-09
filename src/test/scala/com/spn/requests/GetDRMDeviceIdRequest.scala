@@ -8,7 +8,7 @@ object GetDRMDeviceIdRequest {
 
   val getDRMDeviceIdRequest = exec(http("Get DRM Device Id Request")
     .post(Config.app_url + Config.GET_DRM_DEVICEID_URL)
-    .headers(Config.sentHeaders)
+    .headers(Config.sentHeadersNew)
     .body(StringBody("""{
                        "platform": "${platform_name}",
                        "deviceId": "${deviceId}",
