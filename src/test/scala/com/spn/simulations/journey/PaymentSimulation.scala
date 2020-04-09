@@ -7,7 +7,7 @@ import io.gatling.core.Predef.{Simulation, _}
 class PaymentSimulation extends Simulation {
   private val paymentExec = PaymentScenario.doPaymentOperationsScenario
     .inject(
-      rampUsers(50)during(50)
+      rampUsers(10)during(10)
     )
 
   setUp(paymentExec).protocols(Config.httpProtocol)

@@ -1,26 +1,57 @@
 package com.spn.scenarios.groups
 
+import com.jayway.jsonpath.JsonPath
 import com.spn.common.Constants
 import com.spn.requests._
 import com.spn.scenarios.groups.PlansAndSubscriptionGroup
 import com.spn.scenarios.groups.PlansAndSubscriptionGroup.{extractCouponCodeToBePassed, openProductsByCoupon}
 import io.gatling.core.Predef._
+import net.minidev.json.JSONArray
 
 import scala.util.Random
 
 object PaymentGroup {
+  def extractProductIdToBePassed(session: Session): Session = {
+    val respGetProduct = session(Constants.RESP_GET_PRODUCT).as[String]
+    println(s"\nextractProductIdToBePassed : respGetProduct : $respGetProduct")
+
+    val ProductId = "$..productsResponseMessage[*].planInfo[*].skuORQuickCode"
+    println(s"\nextractProductIDToBePassed : Expression : $ProductId")
+
+    val getProduct = JsonPath.parse(respGetProduct)
+    val productID = getProduct.read[JSONArray](ProductId)
+    println(s"\nextractProductIdToBePassed : product Id : $productID")
+
+    var finalProductID = ""
+    if (productID != null && productID.size() == 1) {
+      finalProductID = productID.get(0).toString
+    }
+    else if (productID != null && productID.size() > 1) {
+      val size = productID.size()
+      finalProductID = productID.get(Random.nextInt(size - 1)).toString
+    }
+    println(s"\nextractProductIDToBePassed : Final product Code : $finalProductID")
+
+    if (finalProductID != null && !finalProductID.isEmpty) {
+      session.set("productID", finalProductID)
+    }
+    else {
+      println("productID Could NOT be fetched")
+      session
+    }
+  }
 
   private def randomPrice: Float = {
     val r = Random
-    r.nextInt(100)
+    r.nextInt(1000)
   }
 
   val feederPaymentModes = Array(
     Map("serviceID" -> "1mn_99_india", "serviceType" -> "PRODUCT", "platform" -> "Desktop", "appType" -> "Web", "deviceType" -> "webClient", "languageCode" -> "en_US")
   ).circular
-
+  //  , "productID" -> "daily_india"
   val feederApplyCoupon = Array(
-    Map("price" -> randomPrice, "productID" -> "daily_india")
+    Map("price" -> randomPrice)
   ).circular
 
   val feederSyncstate = Array(
@@ -28,13 +59,15 @@ object PaymentGroup {
   ).circular
 
   val openApplyCoupon = exec(session => {
+    extractProductIdToBePassed(session)
+  }).exec(session => {
     extractCouponCodeToBePassed(session)
-  }).doIf(session => session.contains("couponCode")) {
+  }).doIf(session => session.contains("couponCode") && session.contains("productID")) {
     exec(PostApplyCouponRequest.ApplyCoupon)
   }
   //Reusing productsByCoupon and generic coupons
   val invokeApplyCouponApi = randomSwitch(
-    10d -> openApplyCoupon
+    50d -> openApplyCoupon
   )
   val invokePostSyncstateApi = randomSwitch(
     50d -> exec(GetSyncStateRequest.getSyncState),
@@ -43,10 +76,10 @@ object PaymentGroup {
   // Payment Journey goes here - starts
   val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("Payment Functionality for Logged-In user- Channel - ${channel}") {
-      exec(PaymentModesRequest.Payment_mode)
+      exec(invokeApplyCouponApi)
+        .exec(PaymentModesRequest.Payment_mode)
         .exec(PostGenericCouponsRequest.Generic_Coupons)
         .exec(openProductsByCoupon)
-        .exec(invokeApplyCouponApi)
         .exec(invokePostSyncstateApi)
     }
   }

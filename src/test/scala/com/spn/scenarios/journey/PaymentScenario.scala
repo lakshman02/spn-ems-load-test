@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
 import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
-import com.spn.requests.LoginWithEmailRequest
+import com.spn.requests.{GetProduct, LoginWithEmailRequest}
 import com.spn.scenarios.groups.{LoginWithEmailGroup, PaymentGroup, PlayerGroup}
 import io.gatling.core.Predef._
 
@@ -46,6 +46,7 @@ object PaymentScenario {
       exec(ApiSecurity.getToken)
         .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
           exec(LoginWithEmailRequest.LoginWithEmail)
+            .exec(GetProduct.GetProduct)
               .exec(PaymentGroup.doPaymentOperationsForLoggedInUser)
         }
     }
