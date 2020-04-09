@@ -177,18 +177,21 @@ object PageDetailScreen {
 
   val openMovieDetails = exec(session => {
     setTheUrlIdToSession(session, "VOD","MOVIE","","contentId")
+      .set("details_type","Movie")
   }).doIf(session => session.contains("contentId" )){
     exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
 
   val openShowDetails = exec(session => {
     setTheUrlIdToSession(session, "VOD","SHOW","","contentId")
+      .set("details_type","Show")
   }).doIf(session => session.contains("contentId" )){
     exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
 
   val openEpisodeDetails = exec(session => {
     setTheUrlIdToSession(session, "VOD","EPISODE","","contentId")
+      .set("details_type","Episode")
   }).doIf(session => session.contains("contentId" )){
     exec(DetailsForEpisodeMovieShowRequest.detailsForEpisodeMovieShowRequest)
   }
