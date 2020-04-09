@@ -164,7 +164,7 @@ object PageDetailScreen {
 
 
   val openVideoUrl = exec(session =>{
-    setTheUrlIdToSession(session,"VOD","","","contentId")
+    setTheUrlIdToSession(session,"VOD","CLIP","","contentId")
   }).doIf(session => session.contains("contentId" )) {
     exec(VideoUrlRequest.videoUrl)
   }
