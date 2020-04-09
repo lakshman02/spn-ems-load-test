@@ -42,7 +42,7 @@ object PaymentScenario {
     .feed(PaymentGroup.feederPaymentModes)
     .feed(PaymentGroup.feederSyncstate)
 
-    .group("Player Functionality for Logged-In user - Channel - ${channel}") {
+    .group("Payment Functionality for Logged-In user - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
         .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
           exec(LoginWithEmailRequest.LoginWithEmail)
