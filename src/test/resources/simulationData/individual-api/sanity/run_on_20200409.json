@@ -1,0 +1,28 @@
+{
+  "waitBetweenTests":1,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        1
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        1,
+        1
+      ]
+    }
+  ],
+  "cases" : [
+    "trayRecommendationRecosense",
+    "paymentMode",
+    "productsByCoupon",
+    "genericCoupon",
+    "upgradablePlans",
+    "postSyncState",
+    "getSyncState",
+    "getDevices"
+  ]
+}
