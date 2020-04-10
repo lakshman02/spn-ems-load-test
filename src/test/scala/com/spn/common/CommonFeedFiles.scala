@@ -104,6 +104,12 @@ object CommonFeedFiles {
   // Tray search feeder
   val contentFeeder = csv("data/traySearchQueries.csv").circular
 
+ // Tray recommendation Recosense feeder
+ val trayReconsenseFeeder=csv("data/trayRecommendationRecosenseData.csv").circular
+
+ //skuORQuickCode feeder
+ val skuORQuickCodeFeeder=csv("data/skuORQuickCodeData.csv").circular
+
   val feederTraySearchForEpisode = csv("data/tray.search.episode.csv").random
   val feederTraySearchForMovie = csv("data/tray.search.movie.csv").random
   val feederTraySearchForShow = csv("data/tray.search.show.csv").random
