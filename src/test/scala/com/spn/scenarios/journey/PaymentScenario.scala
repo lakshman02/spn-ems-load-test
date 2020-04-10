@@ -32,12 +32,6 @@ object PaymentScenario {
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
-    .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-    .feed(CommonFeedFiles.dateTimeFeeder)
-    .feed(LoginWithEmailGroup.dateOfBirthFeeder)
-    .feed(LoginWithEmailGroup.feederDeviceDetails)
-    .feed(LoginWithEmailGroup.genderFeeder)
-    .feed(LoginWithEmailGroup.pinCodeFeeder)
     .feed(PaymentGroup.feederApplyCoupon)
     .feed(PaymentGroup.feederPaymentModes)
     .feed(PaymentGroup.feederSyncstate)
@@ -45,9 +39,9 @@ object PaymentScenario {
     .group("Payment Functionality for Logged-In user - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
         .doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
-          exec(LoginWithEmailRequest.LoginWithEmail)
+          exec(LoginWithEmailGroup.doJustLoginWithEmail)
             .exec(GetProduct.GetProduct)
-              .exec(PaymentGroup.doPaymentOperationsForLoggedInUser)
+            .exec(PaymentGroup.doPaymentOperationsForLoggedInUser)
         }
     }
 }
