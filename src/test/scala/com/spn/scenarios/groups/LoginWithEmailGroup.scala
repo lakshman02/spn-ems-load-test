@@ -12,7 +12,7 @@ object LoginWithEmailGroup {
   // All possible feeders - encapsulated inside this group - starts
   private def randomSerialNumber: String = {
     val r = Random
-    "d6acc46e-5a09-d432-1afb-" + r.nextInt(2000000000)
+    Constants.SB_TEST_DEVICE_SERIAL_NUMBER_PREFIX + r.nextInt(2000000000)
   }
 
   private def randomModelNumber: String = {
@@ -72,6 +72,7 @@ object LoginWithEmailGroup {
                     .set("channel", randomPhonePlatform(Random.nextInt(randomPhonePlatform.size - 1)))
                 })
                   .exec(RegisterDeviceRequest.registerDevice)
+                  .randomSwitch(2d -> exec(DeviceManagementGroup.doDeviceManagementOperations))
                   .exec(session => {
                     //Switch over from TV platform to any mobile device and back to the original
                     session.set("channel", session("oldChannel").as[String]) // Restoring the old channel here
