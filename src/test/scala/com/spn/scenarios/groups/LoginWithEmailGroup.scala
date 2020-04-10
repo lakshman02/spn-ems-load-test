@@ -63,7 +63,7 @@ object LoginWithEmailGroup {
               || session("channel").as[String].equals("SAMSUNG_HTML_TV")
             )) {
             exec(invokeTVRegistrationApis)
-              .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
+            .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
                 exec(session => {
                   //Switch over from TV platform to any mobile device
                   val randomPhonePlatform = Array("ANDROID_PHONE", "IPAD", "IPHONE", "ANDROID_TAB")
