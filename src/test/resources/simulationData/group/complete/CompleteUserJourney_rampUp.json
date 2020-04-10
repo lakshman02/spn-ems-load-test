@@ -1,0 +1,22 @@
+{
+  "waitBetweenTests":1800,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        300
+      ]
+    },
+    {
+      "type": "rampUsersPerSec",
+      "args": [
+        0,
+        166,
+        1200
+      ]
+    }
+  ],
+  "cases" : [
+    "SonyLivCompleteUserJourney"
+  ]
+}
