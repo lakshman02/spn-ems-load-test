@@ -3,7 +3,6 @@ package com.spn.scenarios.groups
 import com.jayway.jsonpath.JsonPath
 import com.spn.common.Constants
 import com.spn.requests._
-import com.spn.scenarios.groups.PlansAndSubscriptionGroup
 import com.spn.scenarios.groups.PlansAndSubscriptionGroup.{extractCouponCodeToBePassed, openProductsByCoupon}
 import io.gatling.core.Predef._
 import net.minidev.json.JSONArray
@@ -53,11 +52,9 @@ object PaymentGroup {
   val feederApplyCoupon = Array(
     Map("price" -> randomPrice)
   ).circular
-
   val feederSyncstate = Array(
     Map("packageId" -> "daily_india", "packageName" -> "Daily", "state" -> "User Logged In", "isTransactionCompleted" -> false, "isPaymentSuccessful" -> false)
   ).circular
-
   val openApplyCoupon = exec(session => {
     extractProductIdToBePassed(session)
   }).exec(session => {
@@ -65,22 +62,21 @@ object PaymentGroup {
   }).doIf(session => session.contains("couponCode") && session.contains("productID")) {
     exec(PostApplyCouponRequest.ApplyCoupon)
   }
-  //Reusing productsByCoupon and generic coupons
   val invokeApplyCouponApi = randomSwitch(
-    10d -> openApplyCoupon
+    40d -> openApplyCoupon
   )
-  val invokePostSyncstateApi = randomSwitch(
+  val invokeSyncstateApi = randomSwitch(
     50d -> exec(GetSyncStateRequest.getSyncState),
     10d -> exec(PostSyncStateRequest.postSyncStateRequest)
   )
   // Payment Journey goes here - starts
   val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("Payment Functionality for Logged-In user- Channel - ${channel}") {
-      exec(invokeApplyCouponApi)
+      exec(PostGenericCouponsRequest.Generic_Coupons)
+        .exec(invokeApplyCouponApi)
         .exec(PaymentModesRequest.Payment_mode)
-        .exec(PostGenericCouponsRequest.Generic_Coupons)
         .exec(openProductsByCoupon)
-        .exec(invokePostSyncstateApi)
+        .exec(invokeSyncstateApi)
     }
   }
 }
