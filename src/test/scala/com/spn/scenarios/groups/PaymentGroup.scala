@@ -67,7 +67,7 @@ object PaymentGroup {
   }
   //Reusing productsByCoupon and generic coupons
   val invokeApplyCouponApi = randomSwitch(
-    50d -> openApplyCoupon
+    10d -> openApplyCoupon
   )
   val invokePostSyncstateApi = randomSwitch(
     50d -> exec(GetSyncStateRequest.getSyncState),
