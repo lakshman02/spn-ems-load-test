@@ -265,8 +265,6 @@ object PageDetailScreen {
   val distributionForTrayRecommendation = randomSwitch(50d -> openTrayRecommendationRecosenseList,
     50d -> openTrayRecommendationCatchMediaList)
 
-
-
   val doNavigateToGuestUserDetailsPage =
     exec(openVODDetails)
     .exec(openDetailDistribution)
