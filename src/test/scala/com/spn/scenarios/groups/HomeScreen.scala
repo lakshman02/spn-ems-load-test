@@ -1,12 +1,12 @@
 package com.spn.scenarios.groups
 
 
-import java.time.{LocalDate}
+import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 import com.jayway.jsonpath.JsonPath
 import com.spn.common.Constants
-import com.spn.requests.{AddListRequest, AddReminderRequest, DeleteListRequest, DeleteReminderRequest, EpgReminderDeleteRequest, EpgReminderGetListRequest, EpgReminderRequest, GetListRequest, GetPageIdRequest, GetProfileRequest, GetRemindersRequest, GetXDRRequest, UserRecommendationLandingRequest}
+import com.spn.requests.{AddListRequest, AddReminderRequest, DeleteListRequest, DeleteReminderRequest, EpgReminderDeleteRequest, EpgReminderGetListRequest, EpgReminderRequest, GetListRequest, GetPageIdRequest, GetProfileRequest, GetRemindersRequest, GetXDRRequest, UserRecommendationLandingRequest, UserRecommendationRequest}
 import com.spn.scenarios.groups.UserAppLaunchScenario.setRandomPageURLToSession
 import com.spn.scenarios.groups.PageDetailScreen.{extractFixtureDetailsToSession, setTheUrlIdToSession}
 import io.gatling.core.Predef._
@@ -112,7 +112,7 @@ object HomeScreen {
 
   val mYListDistribution = randomSwitch(25d -> openAddMyList)
 
-  val addFixtureReminder = exec(session => {
+  val executeFixtureReminder = exec(session => {
     extractFixtureDetailsToSession(session)
       .set("startDateTime",s"${System.currentTimeMillis() - 10000000}")
   }).doIf(session => session.contains("contentId") && session.contains("matchId")){
@@ -121,22 +121,24 @@ object HomeScreen {
         10d -> exec(DeleteReminderRequest.deleteReminderRequest))
   }
 
-  val fixtureDistribution = randomSwitch(50d -> addFixtureReminder)
+  val fixtureDistribution = randomSwitch(50d -> executeFixtureReminder)
 
   val userRecommendationLanding = exec(session => {
     setRandomPageURLToSession(session, "home", "Home")
   }).doIf(session => session.contains("pageid")){
-    exec(UserRecommendationLandingRequest.userRecommendationLandingRequest)
+    exec(UserRecommendationRequest.userRecommendationRequest)
   }
 
-  val addEPGReminder = exec(session => {
+  val executeEPGReminder = exec(session => {
     setTheEPGValuesToSession(session)
   }).doIf(session => session.contains("channelId") && session.contains("assetId")
   && session.contains("title")&& session.contains("startDateTime")&&session.contains("endDateTime")){
-    exec(EpgReminderRequest.epgReminder).exec(EpgReminderDeleteRequest.epgReminderDelete)
+    exec(openEpgList)
+      .randomSwitch(25d -> EpgReminderRequest.epgReminder,
+        30d -> EpgReminderDeleteRequest.epgReminderDelete)
   }
 
-  val epgReminderDistribution = randomSwitch(10d -> addEPGReminder)
+  val epgReminderDistribution = randomSwitch(30d -> executeEPGReminder)
 
   val doNavigateToGuestUserHomePage = doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
     exec(openHomePageAgain)
@@ -153,8 +155,8 @@ object HomeScreen {
       .exec(mYListDistribution)
       .exec(fixtureDistribution) // TODO - Call the SI Fixture Get API for integrating here - Check with Kamraj (TE)
       .exec(epgReminderDistribution)
-    //      .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
-    //      .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
-    //     exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
+          .exec(PageDetailScreen.openTrayRecommendationRecosenseList) // TODO - Commented as per the latest comms from Accenture
+          .exec(PageDetailScreen.openTrayRecommendationCatchMediaList)
+         .exec(userRecommendationLanding) // TODO - Commented as per the latest comms from Accenture
   }
 }

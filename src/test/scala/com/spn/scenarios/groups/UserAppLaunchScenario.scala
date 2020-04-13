@@ -19,25 +19,9 @@ object UserAppLaunchScenario  {
     val respInitialConfig = session(Constants.RESP_INITIAL_CONFIG).as[String]
     println(s"\nrespInitialConfig : $respInitialConfig")
 
-    var expressionForGettingPageNumber = "$.menu.containers[?(@.metadata.url_path == '" + urlPath + "')].actions[?(@.targetType== 'PAGE')].uri"
-    println(s"\nexpressionForGettingPageNumber : $expressionForGettingPageNumber")
-
     var context = JsonPath.parse(respInitialConfig)
     var pageURLFound = context.read[JSONArray](expression)
     println(s"\nPage URL Found : $pageURLFound")
-
-    var pageNumberFound = context.read[JSONArray](expressionForGettingPageNumber)
-    println(s"\nPage Number Found : $pageNumberFound")
-
-    var finalPageNumber = ""
-    if (pageNumberFound != null && pageNumberFound.size() == 1) {
-      finalPageNumber = pageNumberFound.get(0).toString
-    } else if (pageNumberFound != null && pageNumberFound.size() > 1) {
-      val size = pageNumberFound.size()
-      finalPageNumber = pageNumberFound.get(Random.nextInt(size - 1)).toString
-    }
-
-
 
     // Primary expression didn't give any result, so fallback on the new expression
     if(pageURLFound == null || pageURLFound.isEmpty) {
@@ -71,9 +55,9 @@ object UserAppLaunchScenario  {
 
     println(s"\nFinal selected Page to Navigate To for '$urlPath' is : $finalSelectedPageToNavigateTo")
 
-    if((finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty)||(finalPageNumber != null && !finalPageNumber.isEmpty)) {
+    if((finalSelectedPageToNavigateTo != null && !finalSelectedPageToNavigateTo.isEmpty)) {
       session.set(Constants.RESP_RANDOM_PAGE_URL,finalSelectedPageToNavigateTo.replaceFirst("/",""))
-        .set("pageid",finalPageNumber.replace("/PAGE/",""))
+        .set("pageid",finalSelectedPageToNavigateTo.replace("/PAGE/",""))
     } else {
       println(s"\nAll attempts failed, for '$urlPath' & '$fallBackLabel'")
       session
@@ -179,11 +163,44 @@ object UserAppLaunchScenario  {
     exec(GetPageIdRequest.PageId)
   }
 
+  val openTVShowsPageAathShows = exec(session => {
+    // Where we are getting and setting Set TV Shows URL
+    setRandomPageURLToSession(session, "aathshows", "Aath Shows")
+      .set("pageSuffix","TV Shows - AATH Shows - p[5-10]")
+      .set("paginationFrom", "5")
+      .set("paginationTo", "10")
+  }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+    exec(GetPageIdRequest.PageId)
+  }
+
+  val openTVShowsPageMarathiShows = exec(session => {
+    // Where we are getting and setting Set TV Shows URL
+    setRandomPageURLToSession(session, "marathishows", "Marathi Shows")
+      .set("pageSuffix","TV Shows - Marathi Shows - p[5-10]")
+      .set("paginationFrom", "5")
+      .set("paginationTo", "10")
+  }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+    exec(GetPageIdRequest.PageId)
+  }
+
+  val openTVShowsPageYayShows = exec(session => {
+    // Where we are getting and setting Set TV Shows URL
+    setRandomPageURLToSession(session, "yayshows", "Yay Shows")
+      .set("pageSuffix","TV Shows - Yay Shows - p[5-10]")
+      .set("paginationFrom", "5")
+      .set("paginationTo", "10")
+  }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+    exec(GetPageIdRequest.PageId)
+  }
+
   // TV Shows
   val openTVShowsPage = randomSwitch(
-    50d -> openTVShowsPageDefault,
-    25d -> openTVShowsPageSabShows,
-    25d -> openTVShowsPageSetShows
+    35d -> openTVShowsPageDefault,
+    15d -> openTVShowsPageSabShows,
+    15d -> openTVShowsPageSetShows,
+    10d -> openTVShowsPageAathShows,
+    15d -> openTVShowsPageMarathiShows,
+    10d -> openTVShowsPageYayShows
   )
 
   // Channels related
@@ -193,6 +210,26 @@ object UserAppLaunchScenario  {
       .set("pageSuffix","Channels Landing - p[0-5]")
       .set("paginationFrom", "0")
       .set("paginationTo", "5")
+  }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+    exec(GetPageIdRequest.PageId)
+  }
+
+  val openAathChannels = exec(session => {
+    // Where we are getting and setting Entertainment URL
+    setRandomPageURLToSession(session, "aathchannels", "AATH")
+      .set("pageSuffix","Channels - Aath - p[5-10]")
+      .set("paginationFrom", "5")
+      .set("paginationTo", "10")
+  }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
+    exec(GetPageIdRequest.PageId)
+  }
+
+  val openSetMaxChannel = exec(session => {
+    // Where we are getting and setting Entertainment URL
+    setRandomPageURLToSession(session, "setmaxchannels", "SET MAX")
+      .set("pageSuffix","Channels - Set Max - p[5-10]")
+      .set("paginationFrom", "5")
+      .set("paginationTo", "10")
   }).doIf(session => session.contains(Constants.RESP_RANDOM_PAGE_URL)){
     exec(GetPageIdRequest.PageId)
   }
@@ -229,10 +266,12 @@ object UserAppLaunchScenario  {
 
   // Channels
   val openChannelsPage = randomSwitch(
-    40d -> openChannelsPageDefault,
-    25d -> openEntertainmentChannels,
-    25d -> openNewsChannels,
-    10d -> openInfotainmentChannels
+    30d -> openChannelsPageDefault,
+    20d -> openEntertainmentChannels,
+    20d -> openNewsChannels,
+    5d -> openInfotainmentChannels,
+    5d -> openAathChannels,
+    20d -> openSetMaxChannel
   )
   // ALL the functions goes here - ends
 

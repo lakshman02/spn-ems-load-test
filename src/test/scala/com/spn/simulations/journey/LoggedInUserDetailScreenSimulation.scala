@@ -8,7 +8,7 @@ class LoggedInUserDetailScreenSimulation extends Simulation {
 
   private val loggedInUserDetailScreenExec = LoggedInUserDetailScreenScenario.doLoggedInUserDetailScreenScenario
     .inject(
-      rampUsers(50) during(10)
+      rampUsers(50) during(50)
     )
 
   setUp(loggedInUserDetailScreenExec).protocols(Config.httpProtocol)
