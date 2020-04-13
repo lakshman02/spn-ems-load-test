@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class UpgradablePlansSimulation extends Simulation {
   private val upgradablePlansSimulationExec = UpgradablePlansScenario.upgradablePlansScenario
-    .inject(rampUsers(51) during (51))
+    .inject(rampUsers(15) during (30))
   //    .inject(
   //      incrementUsersPerSec(Config.users)
   //        .times(Config.times)

@@ -7,7 +7,7 @@ import io.gatling.core.Predef._
 
 class GetProfileSimulation extends Simulation {
   private val getProfileExec = GetProfileScenario.getProfileScenario
-    .inject(rampUsers(1) during (1))
+    .inject(rampUsers(15) during (30))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)
