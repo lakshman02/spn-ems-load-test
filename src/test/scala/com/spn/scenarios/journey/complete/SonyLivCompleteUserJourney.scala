@@ -106,16 +106,16 @@ object SonyLivCompleteUserJourney {
             }
           )
         }
-        .doIf(doNavigateToDetailsPage){
+        .doIf(doNavigateToDetailsPage){ // TODO - once all the akamai issues are fixed, enabled the details flow.
           doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
             randomSwitch(
-              50d -> group("Logged in User Page Detail - Channel - $(channel)"){
+              20d -> group("Logged in User Page Detail - Channel - $(channel)"){
                   exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
               }
             )
           }{
             randomSwitch(
-              50d -> group("Guest User Page Details - Channel - ${channel} "){
+              80d -> group("Guest User Page Details - Channel - ${channel} "){
                 exec(PageDetailScreen.doNavigateToGuestUserDetailsPage)
               }
             )
