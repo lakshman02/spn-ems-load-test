@@ -8,7 +8,7 @@ import io.gatling.core.Predef.Simulation
 
 class PostSyncStateSimulation extends Simulation {
   private val postSyncStateExec = PostSyncStateScenario.postSyncStateScenario
-    .inject(constantUsersPerSec(1) during (1))
+    .inject(constantUsersPerSec(15) during (30))
   //.inject(rampUsers(Config.rampUp) during(Config.duration))
 
   setUp(postSyncStateExec).protocols(Config.httpProtocol)

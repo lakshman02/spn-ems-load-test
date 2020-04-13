@@ -8,7 +8,7 @@ class DeleteReminderSimulation extends Simulation{
 
   private val DeleteReminderExec = DeleteReminderScenario.deleteReminderScenario
     .inject(
-      rampUsers(15) during(15)
+      rampUsers(15) during(30)
     )
 
   setUp(DeleteReminderExec)

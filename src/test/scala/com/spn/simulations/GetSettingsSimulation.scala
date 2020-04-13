@@ -6,7 +6,7 @@ import io.gatling.core.Predef.{Simulation, _}
 
 class GetSettingsSimulation extends Simulation {
   val getSettingsExec = GetSettingsScenario.getSettingsScenario
-    .inject(rampUsers(15) during (15))
+    .inject(rampUsers(15) during (30))
 //    .inject(
 //      incrementUsersPerSec(Config.users)
 //        .times(Config.times)

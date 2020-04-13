@@ -9,7 +9,7 @@ class NextSimulation extends Simulation{
 
   private val NextSimulationExec = NextScenario.nextScenario
     .inject(
-      rampUsers(5) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(NextSimulationExec)

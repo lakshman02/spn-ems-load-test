@@ -8,7 +8,7 @@ class DeleteXdrSimulation extends Simulation{
 
   private val DeleteXdrExec = DeleteXdrScenario.deleteXdrScenario
     .inject(
-      rampUsers(1) during(1)
+      rampUsers(15) during(30)
     )
 
   setUp(DeleteXdrExec)

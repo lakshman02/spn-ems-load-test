@@ -8,7 +8,7 @@ class GetRemindersSimulation extends Simulation{
 
   private val getRemindersExec = GetRemindersScenario.getRemindersScenario
     .inject(
-      rampUsers(15) during(15)
+      rampUsers(15) during(30)
     )
 
   setUp(getRemindersExec)
