@@ -63,20 +63,23 @@ object PaymentGroup {
     exec(PostApplyCouponRequest.ApplyCoupon)
   }
   val invokeApplyCouponApi = randomSwitch(
-    40d -> openApplyCoupon
+    10d -> openApplyCoupon
   )
-  val invokeSyncstateApi = randomSwitch(
-    50d -> exec(GetSyncStateRequest.getSyncState),
-    10d -> exec(PostSyncStateRequest.postSyncStateRequest)
+  val invokePaymentMode = randomSwitch(
+    10d -> PaymentModesRequest.Payment_mode
+  )
+  val invokeSyncStateApi = randomSwitch(
+    70d -> exec(GetSyncStateRequest.getSyncState),
+    30d -> exec(PostSyncStateRequest.postSyncStateRequest)
   )
   // Payment Journey goes here - starts
   val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
     group("Payment Functionality for Logged-In user- Channel - ${channel}") {
       exec(PostGenericCouponsRequest.Generic_Coupons)
         .exec(invokeApplyCouponApi)
-        .exec(PaymentModesRequest.Payment_mode)
+        .exec(invokePaymentMode)
         .exec(openProductsByCoupon)
-        .exec(invokeSyncstateApi)
+        .exec(invokeSyncStateApi)
     }
   }
 }
