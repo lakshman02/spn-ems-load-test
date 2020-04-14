@@ -12,10 +12,10 @@ object SonyLivCompleteUserJourney {
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
     //    Map("channel" -> "IPAD"),
-//    Map("channel" -> "ANDROID_PHONE"),
+    Map("channel" -> "ANDROID_PHONE"),
     //    Map("channel" -> "ANDROID_TAB"),
     //    Map("channel" -> "APPLE_TV"),
-//    Map("channel" -> "FIRE_TV"),
+    Map("channel" -> "FIRE_TV"),
     //    Map("channel" -> "SONY_ANDROID_TV"),
     //    Map("channel" -> "XIAOMI_ANDROID_TV"),
     //    Map("channel" -> "JIO_ANDROID_TV"),
