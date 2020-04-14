@@ -45,6 +45,7 @@ object PaymentGroup {
     r.nextInt(1000)
   }
 
+  // TODO - Check if we can avoid hard coding here?
   val feederPaymentModes = Array(
     Map("serviceID" -> "1mn_99_india", "serviceType" -> "PRODUCT", "platform" -> "Desktop", "appType" -> "Web", "deviceType" -> "webClient", "languageCode" -> "en_US")
   ).circular
@@ -52,7 +53,8 @@ object PaymentGroup {
   val feederApplyCoupon = Array(
     Map("price" -> randomPrice)
   ).circular
-  val feederSyncstate = Array(
+  // TODO - Check if we can avoid hard coding here?
+  val feederSyncState = Array(
     Map("packageId" -> "daily_india", "packageName" -> "Daily", "state" -> "User Logged In", "isTransactionCompleted" -> false, "isPaymentSuccessful" -> false)
   ).circular
   val openApplyCoupon = exec(session => {

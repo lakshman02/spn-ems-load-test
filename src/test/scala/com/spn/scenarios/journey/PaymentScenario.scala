@@ -34,7 +34,7 @@ object PaymentScenario {
     .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
     .feed(PaymentGroup.feederApplyCoupon)
     .feed(PaymentGroup.feederPaymentModes)
-    .feed(PaymentGroup.feederSyncstate)
+    .feed(PaymentGroup.feederSyncState)
 
     .group("Payment Functionality for Logged-In user - Channel - ${channel}") {
       exec(ApiSecurity.getToken)
