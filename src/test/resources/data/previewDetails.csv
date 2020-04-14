@@ -1,2 +1,2 @@
-id,type,deviceId,previewConsumed,created_at,previewDuration
-12345,live,12345,1,1582528869,10
+deviceId,assetType,previewConsumed,created_at,previewDuration
+dev1,live,1,1582528869,10

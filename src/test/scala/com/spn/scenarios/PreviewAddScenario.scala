@@ -7,6 +7,7 @@ import io.gatling.core.Predef.{scenario, _}
 object PreviewAddScenario   {
 
   val DataFeederpreviewDetails=csv("data/previewDetails.csv").circular
+  val DataFeederContentID=csv("data/newContentID.csv").circular
 
 
   val previewAddScenario = scenario("Preview Add Scenario")
@@ -18,6 +19,7 @@ object PreviewAddScenario   {
     .feed(CommonFeedFiles.userAuth50KUsersUsingCircular)
     .feed(CommonFeedFiles.dataFeederAssetID)
     .feed(DataFeederpreviewDetails)
+    .feed(DataFeederContentID)
     .exec(ApiSecurity.getToken)
     .exec(PreviewAddRequest.previewAddRequest)
 }

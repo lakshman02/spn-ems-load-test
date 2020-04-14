@@ -11,7 +11,7 @@ object PreviewAddRequest {
     .headers(Config.sentHeaders)
     .body(StringBody(""" {
                            "deviceId": "${deviceId}",
-                           "assetId": "${assetID}",
+                           "assetId": "${contentId}",
                            "assetType": "${type}",
                            "previewConsumed": "${previewConsumed}",
                            "created_at": "${created_at}",
