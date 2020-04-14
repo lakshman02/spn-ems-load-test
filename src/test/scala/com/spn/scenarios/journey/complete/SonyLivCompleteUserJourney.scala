@@ -51,23 +51,23 @@ object SonyLivCompleteUserJourney {
         .exec(session => {
           // This is where we are randomly deciding whether to login or not
           var loggedIn = Constants.USER_TYPE_GUEST
-          if(randomDoLogin) {
+          if (randomDoLogin) {
             loggedIn = Constants.USER_TYPE_LOGGED_IN
           }
-          println("loggedIn ? "+loggedIn);
+          println("loggedIn ? " + loggedIn);
           session.set(Constants.REQ_USER_TYPE, loggedIn)
         })
         .doIf(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) { // Doing random Login
-            group("Email Login - Channel - ${channel}") {
-              feed(CommonFeedFiles.dateTimeFeeder)
-                .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
-                .feed(LoginWithEmailGroup.feederDeviceDetails)
-                .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
-                .feed(LoginWithEmailGroup.dateOfBirthFeeder)
-                .feed(LoginWithEmailGroup.genderFeeder)
-                .feed(LoginWithEmailGroup.pinCodeFeeder)
-                .exec(LoginWithEmailGroup.doLoginWithEmail)
-            }
+          group("Email Login - Channel - ${channel}") {
+            feed(CommonFeedFiles.dateTimeFeeder)
+              .feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
+              .feed(LoginWithEmailGroup.feederDeviceDetails)
+              .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
+              .feed(LoginWithEmailGroup.dateOfBirthFeeder)
+              .feed(LoginWithEmailGroup.genderFeeder)
+              .feed(LoginWithEmailGroup.pinCodeFeeder)
+              .exec(LoginWithEmailGroup.doLoginWithEmail)
+          }
         }
         // This is where home navigation is happening - starts
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
@@ -81,23 +81,22 @@ object SonyLivCompleteUserJourney {
             .exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
             .feed(SettingsAndPreferenceGroup.addSettingsFeeder)
             .exec(SettingsAndPreferenceGroup.doSettingsAndPreferenceOperations)
-        }
-        {
+        } {
           group("Guest User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToGuestUserHomePage)
           }
             .feed(AddXDR_PlaybackFeeder)
-              .exec(PlayerGroup.doPlayerOperationsForGuestUser)
+            .exec(PlayerGroup.doPlayerOperationsForGuestUser)
         }
         // This is where home navigation is happening - ends
         // Search functionality starts here
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
-            randomSwitch(
-              20d -> group("Logged in User Performing search - Channel - ${channel}") {
-                feed(CommonFeedFiles.contentFeeder)
-                  .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
-              }
-            )
+          randomSwitch(
+            20d -> group("Logged in User Performing search - Channel - ${channel}") {
+              feed(CommonFeedFiles.contentFeeder)
+                .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
+            }
+          )
         } {
           randomSwitch(
             80d -> group("Guest User Performing search - Channel - ${channel}") {
@@ -106,20 +105,24 @@ object SonyLivCompleteUserJourney {
             }
           )
         }
-        .doIf(doNavigateToDetailsPage){ // TODO - once all the akamai issues are fixed, enabled the details flow.
-          doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)){
+        .doIf(doNavigateToDetailsPage) { // TODO - once all the akamai issues are fixed, enabled the details flow.
+          doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
             randomSwitch(
-              20d -> group("Logged in User Page Detail - Channel - $(channel)"){
-                  exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
+              20d -> group("Logged in User Page Detail - Channel - $(channel)") {
+                exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
               }
             )
-          }{
+          } {
             randomSwitch(
-              80d -> group("Guest User Page Details - Channel - ${channel} "){
+              80d -> group("Guest User Page Details - Channel - ${channel} ") {
                 exec(PageDetailScreen.doNavigateToGuestUserDetailsPage)
               }
             )
           }
+        }
+        .doIf(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) { //
+          feed(CommonFeedFiles.contentFeeder) // TODO - Check the feeder
+            .exec(PaymentGroup.doPaymentOperationsForLoggedInUser)
         }
     }
 }
