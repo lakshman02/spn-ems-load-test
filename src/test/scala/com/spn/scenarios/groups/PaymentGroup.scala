@@ -49,7 +49,6 @@ object PaymentGroup {
   val feederPaymentModes = Array(
     Map("serviceID" -> "1mn_99_india", "serviceType" -> "PRODUCT", "platform" -> "Desktop", "appType" -> "Web", "deviceType" -> "webClient", "languageCode" -> "en_US")
   ).circular
-  //  , "productID" -> "daily_india"
   val feederApplyCoupon = Array(
     Map("price" -> randomPrice)
   ).circular

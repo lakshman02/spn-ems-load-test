@@ -12,24 +12,24 @@ object SonyLivCompleteUserJourney {
   val channelFeederOverride = Array(
     //    Map("channel" -> "IPHONE"),
     //    Map("channel" -> "IPAD"),
-    Map("channel" -> "ANDROID_PHONE"),
+//    Map("channel" -> "ANDROID_PHONE"),
     //    Map("channel" -> "ANDROID_TAB"),
     //    Map("channel" -> "APPLE_TV"),
-    Map("channel" -> "FIRE_TV"),
+//    Map("channel" -> "FIRE_TV"),
     //    Map("channel" -> "SONY_ANDROID_TV"),
     //    Map("channel" -> "XIAOMI_ANDROID_TV"),
     //    Map("channel" -> "JIO_ANDROID_TV"),
     //    Map("channel" -> "SONY_HTML_TV"),
     //    Map("channel" -> "SAMSUNG_HTML_TV"),
     //    Map("channel" -> "JIO_KIOS"),
-    Map("channel" -> "WEB"),
+    Map("channel" -> "WEB")
     //    Map("channel" -> "IOS")
   ).random
 
   val doNavigateToDetailsPage = false
 
   private def randomDoLogin: Boolean = {
-//    Random.nextBoolean()
+    //    Random.nextBoolean()
     math.random < 0.50 // with a 0.25 probability
   }
 
@@ -121,7 +121,10 @@ object SonyLivCompleteUserJourney {
           }
         }
         .doIf(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) { //
-          feed(CommonFeedFiles.contentFeeder) // TODO - Check the feeder
+          feed(PaymentGroup.feederApplyCoupon)
+            .feed(PaymentGroup.feederPaymentModes)
+            .feed(PaymentGroup.feederSyncState)
+            .feed(CommonFeedFiles.channelPartnerIdAndAppClientId)
             .exec(PaymentGroup.doPaymentOperationsForLoggedInUser)
         }
     }
