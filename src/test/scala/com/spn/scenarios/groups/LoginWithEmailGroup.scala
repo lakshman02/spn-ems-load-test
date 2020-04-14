@@ -2,7 +2,7 @@ package com.spn.scenarios.groups
 
 import java.util.concurrent.ThreadLocalRandom
 
-import com.spn.common.Constants
+import com.spn.common.{CommonFeedFiles, Constants}
 import com.spn.requests._
 import io.gatling.core.Predef._
 
@@ -80,5 +80,17 @@ object LoginWithEmailGroup {
               }
           }
       }
+  }
+
+  val doJustLoginWithEmail = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
+    group("Doing the email login alone!") {
+      feed(CommonFeedFiles.userAuthForScenarioTestingUsersUsingRandom)
+        .feed(CommonFeedFiles.dateTimeFeeder)
+        .feed(dateOfBirthFeeder)
+        .feed(feederDeviceDetails)
+        .feed(genderFeeder)
+        .feed(pinCodeFeeder)
+        .exec(LoginWithEmailRequest.LoginWithEmail)
+    }
   }
 }
