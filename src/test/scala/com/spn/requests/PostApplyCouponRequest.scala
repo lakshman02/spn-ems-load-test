@@ -1,9 +1,9 @@
 package com.spn.requests
 
-import akka.japi.pf.FI.Apply
-import io.gatling.http.Predef._
-import io.gatling.core.Predef._
 import com.spn.config.Config
+import io.gatling.core.Predef._
+import io.gatling.http.Predef._
+import io.netty.handler.codec.http.HttpResponseStatus
 
 object PostApplyCouponRequest {
 
@@ -18,7 +18,14 @@ object PostApplyCouponRequest {
                         "channelPartnerID": "${channelPartnerID}",
                         "timestamp": "${getDateTime}"
                        }""")).asJson
-    //individual csv files are created for body string
-    .check(status is 200)
-    .check(jsonPath("$.resultCode").is("OK"))
+    //  We don't have a co-relation between Generic Coupon and Products where we can apply the coupon.
+    //  So in this case specifically, since a customer can fetch the coupon code from a Generic Coupon page and try to apply,
+    //  we are checking if the system is throwing back a 400 Bad request. This is also a valid case.
+    .check(status in (200, 400))
+    .check(checkIf((response: Response, _: Session) => isResponseOK(response)){
+      jsonPath("$.resultCode").is("OK")
+    })
+
+  def isResponseOK(response: Response): Boolean = response.status.eq(HttpResponseStatus.OK)
+
 }
