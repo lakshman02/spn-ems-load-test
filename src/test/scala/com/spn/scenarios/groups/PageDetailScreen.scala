@@ -221,13 +221,13 @@ object PageDetailScreen {
   val openTrayRecommendationRecosenseList = exec(session => {
     session.set("recommendationType", "recosense")
       .set("railType","you_may_like")
-      .set("filter_contentSubtype", "SHOW")
+      .set("filter_objectSubtype", "SHOW")
   }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 
   val openTrayRecommendationCatchMediaList = exec(session => {
     session.set("recommendationType", "catchmedia")
       .set("railType","cm_more_like_this")
-      .set("filter_contentSubtype", "SHOW")
+      .set("filter_objectSubtype", "SHOW")
   }).exec(TrayRecommendationCatchMediaRequest.trayRecommendationCatchMediaRequest)
 
 

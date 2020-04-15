@@ -1,4 +1,4 @@
-query,filter_objectSubtype,orderBy,sortOrder,filter_contentSubtype,filter_contentType,maxResults,railType
-balveer,MOVIE,lastBroadcastDate,desc,SHOW,VOD,20,cm_more_like_this
-Mere Dad Ki Dulhan,EPISODE,lastBroadcastDate,desc,SHOW,VOD,20,cm_top_search
-Duniyadari,MOVIE,lastBroadcastDate,desc,SHOW,VOD,20,you_may_like
+query,filter_objectSubtype,orderBy,sortOrder,filter_contentSubtype,filter_contentType,maxResults
+balveer,MOVIE,lastBroadcastDate,desc,SHOW,VOD,20
+Mere Dad Ki Dulhan,EPISODE,lastBroadcastDate,desc,SHOW,VOD,20
+Duniyadari,MOVIE,lastBroadcastDate,desc,SHOW,VOD,20
