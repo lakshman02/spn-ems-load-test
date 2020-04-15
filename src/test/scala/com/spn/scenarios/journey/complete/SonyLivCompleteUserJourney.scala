@@ -40,6 +40,8 @@ object SonyLivCompleteUserJourney {
     //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.trayRailTypeFeeder)
+    .feed(CommonFeedFiles.objectSubTypeFeeder)
 
     .group("Complete User Journey - Channel - ${channel}") {
       // exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST))
