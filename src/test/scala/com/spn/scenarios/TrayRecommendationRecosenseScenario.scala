@@ -12,7 +12,8 @@ object TrayRecommendationRecosenseScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.trayReconsenseFeeder)
+    .feed(CommonFeedFiles.trayRailTypeFeeder)
+    .feed(CommonFeedFiles.objectSubTypeFeeder)
     .exec(ApiSecurity.getToken)
     .exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 

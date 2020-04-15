@@ -9,7 +9,7 @@ class TrayRecommendationRecosenseSimulation extends Simulation{
 
   private val trayRecommendationRecosenseSimulationExec = TrayRecommendationRecosenseScenario.trayRecommendationRecosenseScenario
     .inject(
-      rampUsers(5) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(trayRecommendationRecosenseSimulationExec)

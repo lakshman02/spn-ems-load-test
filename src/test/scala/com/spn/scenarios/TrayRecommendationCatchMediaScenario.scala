@@ -12,7 +12,8 @@ object TrayRecommendationCatchMediaScenario {
     .feed(CommonFeedFiles.dataFeederLocale)
     .feed(CommonFeedFiles.dataFeederChannel)
     .feed(CommonFeedFiles.dataFeederProperty)
-    .feed(CommonFeedFiles.contentFeeder)
+    .feed(CommonFeedFiles.trayRailTypeFeeder)
+    .feed(CommonFeedFiles.objectSubTypeFeeder)
     .exec(ApiSecurity.getToken)
     .exec(TrayRecommendationCatchMediaRequest.trayRecommendationCatchMediaRequest)
 

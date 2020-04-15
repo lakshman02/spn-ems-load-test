@@ -12,7 +12,7 @@ object TrayRecommendationCatchMediaRequest {
     .get(Config.app_url + Config.TRAY_RECOMMENDATION_URL)
     .queryParam("recommendationType", recommendationType)
     .queryParam("railType", "${railType}")
-    .queryParam("objectSubType", "${filter_contentSubtype}")
+    .queryParam("objectSubType", "${filter_objectSubtype}")
     .headers(Config.secHeader)
     .check(status is 200)
     .check(jsonPath("$.resultCode").is("OK"))
