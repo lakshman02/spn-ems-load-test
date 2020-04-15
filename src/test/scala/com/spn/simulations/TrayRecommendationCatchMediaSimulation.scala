@@ -9,7 +9,7 @@ class TrayRecommendationCatchMediaSimulation extends Simulation{
 
   private val trayRecommendationCatchMediaSimulationExec = TrayRecommendationCatchMediaScenario.trayRecommendationCatchMediaScenario
     .inject(
-      rampUsers(5) during(5)
+      rampUsers(15) during(30)
     )
 
   setUp(trayRecommendationCatchMediaSimulationExec)

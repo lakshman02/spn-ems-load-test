@@ -107,6 +107,10 @@ object CommonFeedFiles {
  // Tray recommendation Recosense feeder
  val trayReconsenseFeeder=csv("data/trayRecommendationRecosenseData.csv").circular
 
+ val trayRailTypeFeeder = csv("data/railType.csv").circular
+
+ val objectSubTypeFeeder = csv("data/objectSubType.csv").circular
+
  //skuORQuickCode feeder
  val skuORQuickCodeFeeder=csv("data/skuORQuickCodeData.csv").circular
 
