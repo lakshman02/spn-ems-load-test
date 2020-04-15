@@ -31,6 +31,7 @@ object Constants {
 
   // Source Bit Test Device Information
   val SB_TEST_DEVICE_SERIAL_NUMBER_PREFIX = "sb0tst1e-5a09-d432-1afb-" // d6acc46e-5a09-d432-1afb-
+  val SB_TEST_DEVICE_ID_PREFIX = "sb0tst1e-"
 
 }
 
