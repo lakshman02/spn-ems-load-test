@@ -1,7 +1,7 @@
 package com.spn.scenarios.groups
 
 import com.jayway.jsonpath.JsonPath
-import com.spn.common.Constants
+import com.spn.common.{Constants, Utils}
 import com.spn.requests._
 import com.spn.scenarios.groups.PlansAndSubscriptionGroup.{extractCouponCodeToBePassed, openProductsByCoupon}
 import io.gatling.core.Predef._
@@ -73,14 +73,19 @@ object PaymentGroup {
     70d -> exec(GetSyncStateRequest.getSyncState),
     30d -> exec(PostSyncStateRequest.postSyncStateRequest)
   )
+  val invokePaymentGroupOperations = doIf(session => !Utils.checkIfTVPlatform(session)) { // NOT TV Platforms
+    exec(PostGenericCouponsRequest.Generic_Coupons)
+      .exec(invokeApplyCouponApi)
+      .exec(invokePaymentMode)
+      .exec(openProductsByCoupon)
+    }.doIf(session => Utils.checkIfTVPlatform(session)) { // TV Platforms
+      exec(invokeSyncStateApi)
+    }
+
   // Payment Journey goes here - starts
   val doPaymentOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
-    group("Payment Functionality for Logged-In user- Channel - ${channel}") {
-      exec(PostGenericCouponsRequest.Generic_Coupons)
-        .exec(invokeApplyCouponApi)
-        .exec(invokePaymentMode)
-        .exec(openProductsByCoupon)
-        .exec(invokeSyncStateApi)
+    group("${userType} : Payment Functionality - Channel - ${channel}") {
+      randomSwitch(10d -> invokePaymentGroupOperations)
     }
   }
 }

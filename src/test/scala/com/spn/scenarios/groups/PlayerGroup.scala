@@ -19,7 +19,7 @@ object PlayerGroup {
   // Player Journey goes here - starts
   val doPlayerOperationsForLoggedInUser = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)
     && session.contains(Constants.RESP_AUTH_TOKEN)) {
-    group("Player Functionality for Logged-In user- Channel - ${channel}") {
+    group("${userType} : Player Functionality - Channel - ${channel}") {
 
         randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchForEpisodes,
           40d -> SearchFunctionalityForUserGroup.doTraySearchForMovie,
@@ -48,7 +48,7 @@ object PlayerGroup {
   }
 
   val doPlayerOperationsForGuestUser = doIf(session => session.contains(Constants.RESP_SECURITY_TOKEN)) {
-    group("Player Functionality for Guest user - Channel - ${channel}") {
+    group("${userType} : Player Functionality - Channel - ${channel}") {
 
         randomSwitch(50d -> SearchFunctionalityForUserGroup.doTraySearchForEpisodes,
           40d -> SearchFunctionalityForUserGroup.doTraySearchForMovie,
