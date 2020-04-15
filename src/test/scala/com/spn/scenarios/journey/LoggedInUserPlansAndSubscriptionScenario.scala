@@ -1,7 +1,7 @@
 package com.spn.scenarios.journey
 
-import com.spn.common.{ApiSecurity, CommonFeedFiles}
-import com.spn.scenarios.groups.{PlansAndSubscriptionGroup, LoginWithEmailGroup, UserAppLaunchScenario}
+import com.spn.common.{ApiSecurity, CommonFeedFiles, Constants}
+import com.spn.scenarios.groups.{LoginWithEmailGroup, PlansAndSubscriptionGroup, UserAppLaunchScenario}
 import io.gatling.core.Predef._
 
 object LoggedInUserPlansAndSubscriptionScenario {
@@ -41,12 +41,15 @@ object LoggedInUserPlansAndSubscriptionScenario {
 
 
     .group("Login User App Launch - Logged In User - Channel - ${channel}") {
-        exec(ApiSecurity.getToken)
+      exec(ApiSecurity.getToken)
         .exec(LoginWithEmailGroup.doLoginWithEmail)
-        .exec(UserAppLaunchScenario.userAppLaunchScenario)}
-          .group("Plans and Subscritpion - Logged In User - Channel - ${channel}"){
-          exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
-  }
+        .exec(UserAppLaunchScenario.userAppLaunchScenario)
+        .exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_LOGGED_IN)) // We added this extra of setting the session val
+        .doIf(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
+          group("${userType} : Plans and Subscription Operations - Channel - ${channel}") {
+            exec(PlansAndSubscriptionGroup.doPlansAndSubscriptionOperations)
+          }
+        }
+    }
 }
-
 
