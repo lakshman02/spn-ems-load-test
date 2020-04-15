@@ -1,0 +1,36 @@
+{
+  "waitBetweenTests":2,
+  "commonRampUp" : [
+    {
+      "type": "nothingFor",
+      "args": [
+        2
+      ]
+    },
+    {
+      "type": "rampUsers",
+      "args": [
+        30,
+        30
+      ]
+    }
+  ],
+  "cases" : [
+   "addList",
+    "getList",
+    "deleteList",
+    "addXDR",
+    "getXDR",
+    "deleteXdr",
+    "getUserPlayBackPreviewDetails",
+    "addSearchedItem",
+    "getSearchHistory",
+    "deleteSearchHistory",
+    "addSettings",
+    "getSettings",
+    "deleteSettings",
+    "addReminder",
+    "getReminders",
+    "deleteReminder"
+  ]
+}
