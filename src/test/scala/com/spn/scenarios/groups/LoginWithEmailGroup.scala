@@ -2,7 +2,7 @@ package com.spn.scenarios.groups
 
 import java.util.concurrent.ThreadLocalRandom
 
-import com.spn.common.{CommonFeedFiles, Constants}
+import com.spn.common.{CommonFeedFiles, Constants, Utils}
 import com.spn.requests._
 import io.gatling.core.Predef._
 
@@ -53,15 +53,7 @@ object LoginWithEmailGroup {
       .doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)) {
         exec(GetProfileRequest.getProfile)
           .exec(invokeProfileApis)
-          .doIf(session => session.contains("channel") && (// Do this only for TV platforms
-            session("channel").as[String].equals("APPLE_TV")
-              || session("channel").as[String].equals("FIRE_TV")
-              || session("channel").as[String].equals("SONY_ANDROID_TV")
-              || session("channel").as[String].equals("XIAOMI_ANDROID_TV")
-              || session("channel").as[String].equals("JIO_ANDROID_TV")
-              || session("channel").as[String].equals("SONY_HTML_TV")
-              || session("channel").as[String].equals("SAMSUNG_HTML_TV")
-            )) {
+          .doIf(session => Utils.checkIfTVPlatform(session)) {
             exec(invokeTVRegistrationApis)
             .doIf(session => session.contains(Constants.RESP_ACTIVATION_CODE)) {
                 exec(session => {

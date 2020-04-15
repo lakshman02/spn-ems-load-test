@@ -55,7 +55,7 @@ object PlansAndSubscriptionGroup {
 
   val doPlansAndSubscriptionOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)
     && session.contains(Constants.RESP_SECURITY_TOKEN)) {
-    group("Logged In User - Plans and Subscription Operations - Channel - ${channel}") {
+    group("${userType} : Plans and Subscription Operations - Channel - ${channel}") {
       exec(GetProduct.GetProduct)
         .exec(AllSubscriptionsRequest.getAllSubscriptions)
         .exec(PlansAndSubscriptionDistribution)

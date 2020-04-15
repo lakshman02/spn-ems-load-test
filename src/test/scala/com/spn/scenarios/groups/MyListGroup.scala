@@ -52,7 +52,7 @@ object MyListGroup {
   )
   val doMyListOperations = doIf(session => session.contains(Constants.RESP_AUTH_TOKEN)
     && session.contains(Constants.RESP_SECURITY_TOKEN)) {
-    group("Logged In User - My List Operations - Channel - ${channel}") {
+    group("${userType} : My List Operations - Channel - ${channel}") {
       exec(GetListRequest.getUserListRequest)
         .doIf(session => session.contains(Constants.RESP_GET_MY_LIST)) {
           exec(myListDistribution)

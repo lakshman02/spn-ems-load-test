@@ -45,7 +45,7 @@ object SonyLivCompleteUserJourney {
       // exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST))
       exec(ApiSecurity.getToken)
         .exec(session => session.set(Constants.REQ_USER_TYPE, Constants.USER_TYPE_GUEST)) //Defaulting to guest for user session
-        .group("Guest User App Launch - Channel - ${channel}") {
+        .group("${userType} : App Launch - Channel - ${channel}") {
           exec(UserAppLaunchScenario.userAppLaunchScenario)
         }
         .exec(session => {
@@ -71,7 +71,7 @@ object SonyLivCompleteUserJourney {
         }
         // This is where home navigation is happening - starts
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
-          group("Logged in User Home Screen - Channel - ${channel}") {
+          group("${userType} : User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToLoggedInUserHomePage)
           }
             .feed(AddXDR_PlaybackFeeder)
@@ -82,7 +82,7 @@ object SonyLivCompleteUserJourney {
             .feed(SettingsAndPreferenceGroup.addSettingsFeeder)
             .exec(SettingsAndPreferenceGroup.doSettingsAndPreferenceOperations)
         } {
-          group("Guest User Home Screen - Channel - ${channel}") {
+          group("${userType} : User Home Screen - Channel - ${channel}") {
             exec(HomeScreen.doNavigateToGuestUserHomePage)
           }
             .feed(AddXDR_PlaybackFeeder)
@@ -92,14 +92,14 @@ object SonyLivCompleteUserJourney {
         // Search functionality starts here
         .doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
           randomSwitch(
-            20d -> group("Logged in User Performing search - Channel - ${channel}") {
+            20d -> group("${userType} : Performing search - Channel - ${channel}") {
               feed(CommonFeedFiles.contentFeeder)
                 .exec(SearchFunctionalityForUserGroup.doSearchForLoggedInUser)
             }
           )
         } {
           randomSwitch(
-            80d -> group("Guest User Performing search - Channel - ${channel}") {
+            80d -> group("${userType} : Performing search - Channel - ${channel}") {
               feed(CommonFeedFiles.contentFeeder)
                 .exec(SearchFunctionalityForUserGroup.doSearchForNonLoggedInUser)
             }
@@ -108,13 +108,13 @@ object SonyLivCompleteUserJourney {
         .doIf(doNavigateToDetailsPage) { // TODO - once all the akamai issues are fixed, enabled the details flow.
           doIfOrElse(session => session(Constants.REQ_USER_TYPE).as[String].equals(Constants.USER_TYPE_LOGGED_IN)) {
             randomSwitch(
-              20d -> group("Logged in User Page Detail - Channel - $(channel)") {
+              20d -> group("${userType} : Page Detail - Channel - $(channel)") {
                 exec(PageDetailScreen.doNavigateToLoggedInUserDetailsPage)
               }
             )
           } {
             randomSwitch(
-              80d -> group("Guest User Page Details - Channel - ${channel} ") {
+              80d -> group("${userType} : Page Details - Channel - ${channel} ") {
                 exec(PageDetailScreen.doNavigateToGuestUserDetailsPage)
               }
             )
