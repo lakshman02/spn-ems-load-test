@@ -30,6 +30,8 @@ object GuestUserDetailScreenScenario {
     //    .feed(CommonFeedFiles.dataFeederChannel)
     .feed(channelFeederOverride)
     .feed(CommonFeedFiles.dataFeederProperty)
+    .feed(CommonFeedFiles.trayRailTypeFeeder)
+    .feed(CommonFeedFiles.objectSubTypeFeeder)
 
     .group("Detail Screen - Guest User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)

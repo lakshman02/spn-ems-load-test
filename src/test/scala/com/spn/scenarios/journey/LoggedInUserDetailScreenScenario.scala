@@ -37,6 +37,8 @@ object LoggedInUserDetailScreenScenario {
     .feed(LoginWithEmailGroup.dateOfBirthFeeder)
     .feed(LoginWithEmailGroup.genderFeeder)
     .feed(LoginWithEmailGroup.pinCodeFeeder)
+    .feed(CommonFeedFiles.trayRailTypeFeeder)
+    .feed(CommonFeedFiles.objectSubTypeFeeder)
 
     .group("Detail Screen - Logged In User - Channel - ${channel}") {
         exec(ApiSecurity.getToken)

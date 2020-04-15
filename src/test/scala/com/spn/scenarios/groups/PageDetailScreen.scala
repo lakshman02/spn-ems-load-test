@@ -220,14 +220,10 @@ object PageDetailScreen {
 
   val openTrayRecommendationRecosenseList = exec(session => {
     session.set("recommendationType", "recosense")
-      .set("railType","you_may_like")
-      .set("filter_objectSubtype", "SHOW")
   }).exec(TrayRecommendationRecosenseRequest.trayRecommendationRecosenseRequest)
 
   val openTrayRecommendationCatchMediaList = exec(session => {
     session.set("recommendationType", "catchmedia")
-      .set("railType","cm_more_like_this")
-      .set("filter_objectSubtype", "SHOW")
   }).exec(TrayRecommendationCatchMediaRequest.trayRecommendationCatchMediaRequest)
 
 
@@ -254,8 +250,6 @@ object PageDetailScreen {
   val openIsSubscribed = exec(session => {      //TODO Until phase 2, where we will check for value TVOD
     setContentDetailsToSession(session)
       .set("isContent","false")
-      .set("channelPartnerID","MSMIND1")
-      .set("getDateTime",s"${LocalDateTime.now()}")
   }).doIf(session => session.contains("TVODID") && session.contains("ShowType") && session.contains("ShowName") && session.contains("isContent")) {
     exec(IsSubscribedRequest.isSubscribed)
   }
